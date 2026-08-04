@@ -345,8 +345,8 @@ export function RoadmapTimeline() {
               <defs>
                 {/* O gradiente da marca, o mesmo par de tokens por trás do
                     utilitário .bg-brand-gradient do Design System. Assim a
-                    trilha usa o verde AUVP oficial e acompanha tema e marca
-                    sem repetir valores de cor aqui. */}
+                    trilha usa a cor oficial da marca e acompanha tema e
+                    marca sem repetir valores de cor aqui. */}
                 <linearGradient id="rt-onda" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2={W} y2="0">
                   <stop offset="0%"   style={{ stopColor: "hsl(var(--brand-gradient-from))" }} />
                   <stop offset="100%" style={{ stopColor: "hsl(var(--brand-gradient-to))" }} />

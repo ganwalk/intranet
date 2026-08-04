@@ -79,19 +79,19 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
     </div>
     <p class="pcert-tag">Certificado de Conclusão</p>
-    <h3 class="pcert-h1">AUVP Escola</h3>
+    <h3 class="pcert-h1">Escola</h3>
     <p class="pcert-p">Certifica que o aluno concluiu com sucesso o módulo</p>
 
     <div class="pcert-box">
-      <h4>Renda Fixa Avançada</h4>
+      <h4>Módulo Avançado</h4>
       <p>12 aulas • 8h30 de conteúdo • Nota: 9.2/10</p>
     </div>
 
     <div class="pcert-author">
-      <div class="pcert-avatar">R</div>
+      <div class="pcert-avatar">I</div>
       <div>
-        <p class="pcert-name">Raul Sena</p>
-        <p class="pcert-role">Instrutor AUVP</p>
+        <p class="pcert-name">Nome do Instrutor</p>
+        <p class="pcert-role">Instrutor(a)</p>
       </div>
     </div>
 
@@ -108,7 +108,7 @@
     const blob = await res.blob();
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = 'certificado-renda-fixa.pdf';
+    a.download = 'certificado.pdf';
     a.click();
   }
 </script>

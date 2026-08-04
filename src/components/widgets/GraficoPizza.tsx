@@ -10,7 +10,7 @@ const data = [
   { name: "Expirada", value: 12 },
 ];
 
-/** Card de exemplo — replica o padrão visual aplicado nos dashboards AUVP */
+/** Card de exemplo — replica o padrão visual aplicado nos dashboards da empresa */
 function PieDemo() {
   return (
     <div className="rounded-xl border border-border/40 bg-card/60 backdrop-blur-xl p-6 shadow-[0_8px_32px_-8px_hsl(var(--foreground)/0.08)] hover:shadow-[0_12px_40px_-8px_hsl(var(--foreground)/0.12)] transition-shadow duration-200 max-w-md">
@@ -140,28 +140,28 @@ export function StatusDonut() {
   );
 }`;
 
-const HTML_CODE = `<!-- AUVP — Donut Chart (HTML/CSS/JS standalone)
+const HTML_CODE = `<!-- Donut Chart (HTML/CSS/JS standalone)
      Requer Chart.js v4 carregado por CDN. Tokens hsl(var(--chart-N))
      devem estar definidos no :root do projeto. -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@3/dist/tailwind.min.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 
-<div class="auvp-card">
+<div class="central-card">
   <header>
     <h2>Status das Indicações</h2>
     <a href="#">Ver tudo →</a>
   </header>
-  <p class="auvp-sub">Distribuição por status atual</p>
+  <p class="central-sub">Distribuição por status atual</p>
 
-  <div class="auvp-canvas-wrap">
-    <canvas id="auvpDonut"></canvas>
+  <div class="central-canvas-wrap">
+    <canvas id="centralDonut"></canvas>
   </div>
 
-  <ul class="auvp-legend" id="auvpLegend"></ul>
+  <ul class="central-legend" id="centralLegend"></ul>
 </div>
 
 <style>
-  .auvp-card{
+  .central-card{
     max-width: 420px;
     padding: 24px;
     border-radius: 12px;
@@ -171,23 +171,23 @@ const HTML_CODE = `<!-- AUVP — Donut Chart (HTML/CSS/JS standalone)
     box-shadow: 0 8px 32px -8px hsl(var(--foreground) / .08);
     font-family: var(--font-body, system-ui, sans-serif);
   }
-  .auvp-card header{ display:flex; justify-content:space-between; align-items:center; }
-  .auvp-card h2{
+  .central-card header{ display:flex; justify-content:space-between; align-items:center; }
+  .central-card h2{
     font-family: var(--font-display, system-ui);
     font-size: 18px; font-weight:600; letter-spacing:-.01em; margin:0;
     color: hsl(var(--foreground));
   }
-  .auvp-card a{ font-size:12px; color: hsl(var(--muted-foreground)); text-decoration:none; }
-  .auvp-card a:hover{ color: hsl(var(--foreground)); }
-  .auvp-sub{ font-size:12px; color: hsl(var(--muted-foreground)); margin: 4px 0 16px; }
-  .auvp-canvas-wrap{ height: 180px; position: relative; }
-  .auvp-legend{
+  .central-card a{ font-size:12px; color: hsl(var(--muted-foreground)); text-decoration:none; }
+  .central-card a:hover{ color: hsl(var(--foreground)); }
+  .central-sub{ font-size:12px; color: hsl(var(--muted-foreground)); margin: 4px 0 16px; }
+  .central-canvas-wrap{ height: 180px; position: relative; }
+  .central-legend{
     display:flex; flex-wrap:wrap; justify-content:center;
     gap: 6px 16px; margin: 8px 0 0; padding:0; list-style:none;
   }
-  .auvp-legend li{ display:flex; align-items:center; gap:6px; font-size:11px; color: hsl(var(--muted-foreground)); }
-  .auvp-legend .dot{ width:10px; height:10px; border-radius:9999px; display:inline-block; }
-  .auvp-legend strong{ color: hsl(var(--foreground)); font-variant-numeric: tabular-nums; font-weight:500; }
+  .central-legend li{ display:flex; align-items:center; gap:6px; font-size:11px; color: hsl(var(--muted-foreground)); }
+  .central-legend .dot{ width:10px; height:10px; border-radius:9999px; display:inline-block; }
+  .central-legend strong{ color: hsl(var(--foreground)); font-variant-numeric: tabular-nums; font-weight:500; }
 </style>
 
 <script>
@@ -199,7 +199,7 @@ const HTML_CODE = `<!-- AUVP — Donut Chart (HTML/CSS/JS standalone)
   ];
   const colors = data.map((_, i) => \`hsl(var(--chart-\${(i % 8) + 1}))\`);
 
-  new Chart(document.getElementById("auvpDonut"), {
+  new Chart(document.getElementById("centralDonut"), {
     type: "doughnut",
     data: {
       labels: data.map(d => d.name),
@@ -219,7 +219,7 @@ const HTML_CODE = `<!-- AUVP — Donut Chart (HTML/CSS/JS standalone)
     }
   });
 
-  const legend = document.getElementById("auvpLegend");
+  const legend = document.getElementById("centralLegend");
   data.forEach((d, i) => {
     const li = document.createElement("li");
     li.innerHTML = \`<span class="dot" style="background:\${colors[i]}"></span>
@@ -228,8 +228,8 @@ const HTML_CODE = `<!-- AUVP — Donut Chart (HTML/CSS/JS standalone)
   });
 </script>`;
 
-const AI_PROMPT = `[CONTEXTO AUVP — DESIGN SYSTEM]
-Você está implementando um gráfico de pizza (donut chart) seguindo o Design System da AUVP Capital. Use Recharts no React e Chart.js no HTML standalone. As cores DEVEM vir dos tokens semânticos --chart-1 até --chart-8 definidos em src/index.css — nunca cores hardcoded.
+const AI_PROMPT = `[CONTEXTO — DESIGN SYSTEM]
+Você está implementando um gráfico de pizza (donut chart) seguindo o Design System da empresa. Use Recharts no React e Chart.js no HTML standalone. As cores DEVEM vir dos tokens semânticos --chart-1 até --chart-8 definidos em src/index.css — nunca cores hardcoded.
 
 [ESTILO OBRIGATÓRIO — NUNCA QUEBRE]
 1. Tipo: SEMPRE donut (não pie sólido). innerRadius/outerRadius proporcional 55/82 ou equivalente (cutout ~67% no Chart.js).
@@ -265,11 +265,11 @@ export function GraficoPizza() {
   return (
     <div className="space-y-6">
       <p className="text-muted-foreground">
-        Padrão oficial de gráfico de pizza (donut) usado em dashboards e relatórios da AUVP.
+        Padrão oficial de gráfico de pizza (donut) usado em dashboards e relatórios da empresa.
         Sempre arredondado, com paddingAngle de 3°, sem stroke, e usando os tokens da paleta
         categórica (<code className="font-mono text-xs bg-muted px-1.5 py-0.5 rounded">--chart-1</code> a{" "}
         <code className="font-mono text-xs bg-muted px-1.5 py-0.5 rounded">--chart-8</code>) para
-        adaptação automática entre Capital e Escola.
+        adaptação automática entre marcas.
       </p>
 
       {/* Demo */}
@@ -307,7 +307,7 @@ export function GraficoPizza() {
         <h4 className="font-semibold text-foreground mb-2">AI-Food (Prompt)</h4>
         <p className="text-sm text-muted-foreground mb-3">
           Cole este prompt em qualquer IA generativa (ChatGPT, Claude, Cursor) para que ela produza
-          gráficos de pizza fiéis ao padrão AUVP, mesmo fora deste projeto.
+          gráficos de pizza fiéis a esse padrão, mesmo fora deste projeto.
         </p>
         <CodeBlock collapsible language="markdown" code={AI_PROMPT} />
       </div>

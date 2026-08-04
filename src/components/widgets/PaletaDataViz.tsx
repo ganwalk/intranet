@@ -49,7 +49,7 @@ function MiniSwatch({ token, name }: Swatch) {
   );
 }
 
-/** Demo: Donut chart com Recharts seguindo o padrão AUVP
+/** Demo: Donut chart com Recharts seguindo o padrão do Design System
  *  (paddingAngle, cornerRadius, stroke="none") */
 function DonutDemo() {
   const data = [
@@ -217,7 +217,7 @@ export function PaletaDataViz() {
               language: "tsx",
               code: `import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 
-// Donut padrão AUVP — sempre rounded (cornerRadius) e com paddingAngle
+// Donut padrão do Design System — sempre rounded (cornerRadius) e com paddingAngle
 function DonutDemo() {
   const data = [
     { name: "Renda Fixa", value: 35 }, { name: "Ações BR", value: 22 },
@@ -275,11 +275,11 @@ export function PaletaDataViz() {
             {
               label: "HTML / CSS / JS",
               language: "html",
-              code: `<!-- Tokens AUVP de Data Viz (Capital, light) — mesmos valores de src/index.css -->
+              code: `<!-- Tokens de Data Viz (Capital, light) — mesmos valores de src/index.css -->
 <!-- Equivalente React: export function PaletaDataViz() -->
 <style>
   :root {
-    --chart-1: 152 80% 30%;   /* Verde AUVP */
+    --chart-1: 222 80% 30%;   /* Índigo da marca */
     --chart-2: 270 60% 55%;   /* Violeta */
     --chart-3: 38 92% 55%;    /* Âmbar */
     --chart-4: 199 89% 48%;   /* Azul */
@@ -288,15 +288,15 @@ export function PaletaDataViz() {
     --chart-7: 90 55% 40%;    /* Oliva */
     --chart-8: 220 30% 35%;   /* Grafite azulado */
 
-    --chart-seq-1: 145 40% 92%;
-    --chart-seq-2: 150 50% 78%;
-    --chart-seq-3: 152 60% 60%;
-    --chart-seq-4: 154 75% 40%;
-    --chart-seq-5: 155 93% 11%;
+    --chart-seq-1: 215 40% 92%;
+    --chart-seq-2: 220 50% 78%;
+    --chart-seq-3: 222 60% 60%;
+    --chart-seq-4: 224 75% 40%;
+    --chart-seq-5: 225 93% 11%;
 
     --chart-div-neg: 0 72% 51%;
     --chart-div-mid: 40 30% 92%;
-    --chart-div-pos: 155 93% 25%;
+    --chart-div-pos: 225 93% 25%;
   }
   .swatch { display:inline-block; width:32px; height:32px; border-radius:8px; }
   h3 { font-family:'Anek Latin',sans-serif; font-size:18px; font-weight:700; }

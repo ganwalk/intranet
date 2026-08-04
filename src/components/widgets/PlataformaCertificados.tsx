@@ -11,19 +11,19 @@ export function PlataformaCertificados() {
             <Award className="h-8 w-8 text-accent" />
           </div>
           <p className="text-xs font-bold text-accent uppercase tracking-[2px] mb-2 font-roboto">Certificado de Conclusão</p>
-          <h3 className="text-2xl font-bold font-anek text-foreground mb-1">AUVP Escola</h3>
+          <h3 className="text-2xl font-bold font-anek text-foreground mb-1">Escola</h3>
           <p className="text-muted-foreground font-roboto mb-6">Certifica que o aluno concluiu com sucesso o módulo</p>
-          
+
           <div className="bg-muted/50 border border-border rounded-xl p-6 mb-6">
-            <h4 className="text-xl font-bold font-anek text-foreground mb-1">Renda Fixa Avançada</h4>
+            <h4 className="text-xl font-bold font-anek text-foreground mb-1">Módulo Avançado</h4>
             <p className="text-sm text-muted-foreground font-roboto">12 aulas • 8h30 de conteúdo • Nota: 9.2/10</p>
           </div>
 
           <div className="flex items-center justify-center gap-2 mb-6">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-accent-foreground text-xs font-bold">R</div>
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-accent-foreground text-xs font-bold">I</div>
             <div className="text-left">
-              <p className="text-sm font-bold text-foreground font-anek">Raul Sena</p>
-              <p className="text-[10px] text-muted-foreground">Instrutor AUVP</p>
+              <p className="text-sm font-bold text-foreground font-anek">Nome do Instrutor</p>
+              <p className="text-[10px] text-muted-foreground">Instrutor(a)</p>
             </div>
           </div>
 

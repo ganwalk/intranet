@@ -8,8 +8,8 @@ import {
 import { ChevronDown } from "lucide-react";
 
 const brandLabels = {
-  capital: "AUVP Capital",
-  escola: "AUVP Escola",
+  capital: "Capital",
+  escola: "Escola",
 } as const;
 
 export function BrandToggle() {
@@ -28,13 +28,13 @@ export function BrandToggle() {
           onClick={() => setBrand("capital")}
           className={brand === "capital" ? "font-bold text-primary" : ""}
         >
-          AUVP Capital
+          Capital
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => setBrand("escola")}
           className={brand === "escola" ? "font-bold text-primary" : ""}
         >
-          AUVP Escola
+          Escola
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

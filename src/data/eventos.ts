@@ -17,23 +17,23 @@ export interface Evento {
 }
 
 export const eventos: Evento[] = [
-  { date: "2026-06-23", titulo: "Sprint Planning — Q2 Sprint 12", tag: "Sprint", tone: "blue", hora: "10:00", responsavel: "Daniel Machado", descricao: "Alinhamento e planejamento das entregas do sprint." },
-  { date: "2026-06-24", titulo: "Design Review Semanal", tag: "Design", tone: "violet", hora: "14:00", responsavel: "Armando & Éria" },
-  { date: "2026-06-30", titulo: "Lançamento turma AUVP Escola", tag: "Produto", tone: "green", hora: "09:00", responsavel: "Beatriz Henriques", descricao: "Nova turma com novidades no produto educacional." },
-  { date: "2026-06-30", titulo: "Product Roadmap Review Q3", tag: "Roadmap", tone: "magenta", hora: "16:00", responsavel: "Beatriz Henriques", descricao: "Revisão do roadmap e prioridades para o Q3." },
-  { date: "2026-07-07", titulo: "Sprint Planning — Q3 Sprint 1", tag: "Sprint", tone: "blue", hora: "10:00", responsavel: "Daniel Machado" },
-  { date: "2026-07-10", titulo: "Workshop de UX Research", tag: "Time", tone: "graphite", hora: "09:00", responsavel: "Ariadne Carneiro", descricao: "Metodologias de pesquisa qualitativa com usuários reais." },
-  { date: "2026-07-14", titulo: "Design Review Semanal", tag: "Design", tone: "violet", hora: "14:00", responsavel: "Armando & Éria" },
-  { date: "2026-07-16", titulo: "Lançamento turma AUVP Escola", tag: "Produto", tone: "green", hora: "09:00", responsavel: "Beatriz Henriques" },
-  { date: "2026-07-21", titulo: "Retrospectiva Q3 Sprint 1", tag: "Processo", tone: "amber", hora: "15:00", responsavel: "Daniel Machado", descricao: "Pontos de melhoria e lições aprendidas no sprint." },
-  { date: "2026-08-03", titulo: "Sprint Planning — Q3 Sprint 2", tag: "Sprint", tone: "blue", hora: "10:00", responsavel: "Daniel Machado" },
-  { date: "2026-08-11", titulo: "Review de OKRs Q3", tag: "Roadmap", tone: "magenta", hora: "14:00", responsavel: "Beatriz Henriques", descricao: "Análise de progresso dos OKRs trimestrais." },
-  { date: "2026-08-17", titulo: "Lançamento turma AUVP Escola", tag: "Produto", tone: "green", hora: "09:00", responsavel: "Beatriz Henriques" },
-  { date: "2026-09-01", titulo: "Kick-off Q4", tag: "Processo", tone: "amber", hora: "10:00", responsavel: "Beatriz Henriques", descricao: "Alinhamento estratégico para o último trimestre do ano." },
-  { date: "2026-09-08", titulo: "Sprint Planning — Q4 Sprint 1", tag: "Sprint", tone: "blue", hora: "10:00", responsavel: "Daniel Machado" },
-  { date: "2026-09-15", titulo: "Lançamento turma AUVP Escola", tag: "Produto", tone: "green", hora: "09:00", responsavel: "Beatriz Henriques" },
-  { date: "2026-09-22", titulo: "Design Review Semanal", tag: "Design", tone: "violet", hora: "14:00", responsavel: "Armando & Éria" },
-  { date: "2026-09-28", titulo: "Retrospectiva Q4 Sprint 1", tag: "Processo", tone: "amber", hora: "15:00", responsavel: "Daniel Machado" },
+  { date: "2026-06-23", titulo: "Sprint Planning — Sprint 12", tag: "Sprint", tone: "blue", hora: "10:00", responsavel: "Colaborador 4", descricao: "Alinhamento e planejamento das entregas do sprint." },
+  { date: "2026-06-24", titulo: "Design Review Semanal", tag: "Design", tone: "violet", hora: "14:00", responsavel: "Colaborador 1" },
+  { date: "2026-06-30", titulo: "Início de nova turma", tag: "Produto", tone: "green", hora: "09:00", responsavel: "Colaborador 2", descricao: "Nova turma com novidades no produto educacional." },
+  { date: "2026-06-30", titulo: "Revisão de Roadmap", tag: "Roadmap", tone: "magenta", hora: "16:00", responsavel: "Colaborador 2", descricao: "Revisão do roadmap e prioridades para o próximo trimestre." },
+  { date: "2026-07-07", titulo: "Sprint Planning — Sprint 1", tag: "Sprint", tone: "blue", hora: "10:00", responsavel: "Colaborador 4" },
+  { date: "2026-07-10", titulo: "Workshop de UX Research", tag: "Time", tone: "graphite", hora: "09:00", responsavel: "Colaborador 6", descricao: "Metodologias de pesquisa qualitativa com usuários reais." },
+  { date: "2026-07-14", titulo: "Design Review Semanal", tag: "Design", tone: "violet", hora: "14:00", responsavel: "Colaborador 1" },
+  { date: "2026-07-16", titulo: "Início de nova turma", tag: "Produto", tone: "green", hora: "09:00", responsavel: "Colaborador 2" },
+  { date: "2026-07-21", titulo: "Retrospectiva de Sprint", tag: "Processo", tone: "amber", hora: "15:00", responsavel: "Colaborador 4", descricao: "Pontos de melhoria e lições aprendidas no sprint." },
+  { date: "2026-08-03", titulo: "Sprint Planning — Sprint 2", tag: "Sprint", tone: "blue", hora: "10:00", responsavel: "Colaborador 4" },
+  { date: "2026-08-11", titulo: "Review trimestral de metas", tag: "Roadmap", tone: "magenta", hora: "14:00", responsavel: "Colaborador 2", descricao: "Análise de progresso das metas do trimestre." },
+  { date: "2026-08-17", titulo: "Início de nova turma", tag: "Produto", tone: "green", hora: "09:00", responsavel: "Colaborador 2" },
+  { date: "2026-09-01", titulo: "Kick-off do trimestre", tag: "Processo", tone: "amber", hora: "10:00", responsavel: "Colaborador 2", descricao: "Alinhamento estratégico para o próximo trimestre." },
+  { date: "2026-09-08", titulo: "Sprint Planning — Sprint 1", tag: "Sprint", tone: "blue", hora: "10:00", responsavel: "Colaborador 4" },
+  { date: "2026-09-15", titulo: "Início de nova turma", tag: "Produto", tone: "green", hora: "09:00", responsavel: "Colaborador 2" },
+  { date: "2026-09-22", titulo: "Design Review Semanal", tag: "Design", tone: "violet", hora: "14:00", responsavel: "Colaborador 1" },
+  { date: "2026-09-28", titulo: "Retrospectiva de Sprint", tag: "Processo", tone: "amber", hora: "15:00", responsavel: "Colaborador 4" },
 ];
 
 /** Eventos de hoje em diante, ordenados por data (e hora). */
@@ -51,7 +51,7 @@ export function gerarIcs(): string {
   const linhas = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//AUVP//Central de Produto//PT",
+    "PRODID:-//Central de Produto//PT",
     "CALSCALE:GREGORIAN",
   ];
   eventos.forEach((e, i) => {
@@ -62,7 +62,7 @@ export function gerarIcs(): string {
     const desc = [e.descricao, e.responsavel ? `Responsável: ${e.responsavel}` : ""].filter(Boolean).join(" — ");
     linhas.push(
       "BEGIN:VEVENT",
-      `UID:central-auvp-${e.date}-${i}@auvp`,
+      `UID:central-produto-${e.date}-${i}@central-produto`,
       `DTSTAMP:${stamp}`,
       `DTSTART:${data}T${hora}`,
       `DTEND:${data}T${fim}`,

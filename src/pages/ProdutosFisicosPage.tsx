@@ -36,14 +36,14 @@ export default function ProdutosFisicosPage() {
   return (
     <PageShell
       width="7xl"
-      footer="Produtos Físicos — Time de Produto AUVP"
+      footer="Produtos Físicos — Time de Produto"
       mainClassName="py-8 md:py-12 space-y-6"
       hero={
         <PageHero
           id="topo"
           icon={Package}
           title="Portfólio de Produtos Físicos"
-          description="Brindes, kits e materiais de marca que o time planeja, desenha e produz — todos fotografados nos mockups tratados do acervo."
+          description="Brindes, kits e materiais de marca que o time planeja, desenha e produz."
           actions={<VoltarParaCentral />}
         />
       }

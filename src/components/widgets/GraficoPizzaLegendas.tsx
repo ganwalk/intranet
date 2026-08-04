@@ -291,7 +291,7 @@ export function GraficoPizzaLegendas() {
   return (
     <div className="space-y-10">
       <p className="text-muted-foreground">
-        Variações do donut AUVP com posicionamento alternativo da legenda — abaixo (em duas
+        Variações do donut com posicionamento alternativo da legenda — abaixo (em duas
         configurações) ou ao lado, à esquerda ou à direita do gráfico.
       </p>
 

@@ -8,12 +8,12 @@ import { Button } from "@/components/ui/button";
 
 const masterPrompts = {
   capital: {
-    institucional: `Você é um Desenvolvedor Front-end Especialista. Gere seções de Landing Page ou Site Institucional para a marca AUVP Capital seguindo EXATAMENTE as regras abaixo. Este prompt é autossuficiente: contém tudo que você precisa saber sobre o Design System AUVP Capital.
+    institucional: `Você é um Desenvolvedor Front-end Especialista. Gere seções de Landing Page ou Site Institucional para a marca Capital seguindo EXATAMENTE as regras abaixo. Este prompt é autossuficiente: contém tudo que você precisa saber sobre o Design System Capital.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 0. ESSÊNCIA DA MARCA (inegociável)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-A AUVP Capital é uma assessoria de investimentos institucional, séria, sóbria e técnica.
+A Capital é uma assessoria de investimentos institucional, séria, sóbria e técnica.
 Referência estética: Bloomberg + JP Morgan + finança bancária moderna.
 Tom: direto, com autoridade técnica. Sem promessas de enriquecimento.
 ❌ NUNCA: liquid glass, gradientes coloridos, emojis decorativos, estética startup colorida.
@@ -21,8 +21,8 @@ Tom: direto, com autoridade técnica. Sem promessas de enriquecimento.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 1. PALETA OFICIAL (use SOMENTE estas cores)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Verde Institucional: #4F46E5  → primária, botões, títulos em fundo claro
-• Verde Escuro:        #4338CA  → hover de botões verdes
+• Índigo Institucional: #4F46E5  → primária, botões, títulos em fundo claro
+• Índigo Escuro:        #4338CA  → hover de botões
 • Amarelo Destaque:    #818CF8  → acentos em fundo ESCURO apenas (nunca em fundo claro)
 • Branco Puro:         #FFFFFF
 • Cinza Claro:         #F2F2F2
@@ -153,13 +153,13 @@ Exibição: Statistic/KPI | Timeline | Tree | Descriptions | Tabela | Progress B
 
 Agora gere a seção solicitada:`,
 
-    ferramentas: `Você é um Desenvolvedor Front-end Especialista. Gere um Widget ou Calculadora para a marca AUVP Capital seguindo EXATAMENTE as regras abaixo. Este prompt é autossuficiente: contém tudo que você precisa saber.
+    ferramentas: `Você é um Desenvolvedor Front-end Especialista. Gere um Widget ou Calculadora para a marca Capital seguindo EXATAMENTE as regras abaixo. Este prompt é autossuficiente: contém tudo que você precisa saber.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 0. CONTEXTO
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ferramentas são usadas DENTRO de LPs ou como apps standalone. Linguagem visual: "fintech moderna"
-(estrutura Nubank-like, paleta verde institucional). O usuário precisa LER NÚMEROS rápido.
+(estrutura Nubank-like, paleta índigo institucional). O usuário precisa LER NÚMEROS rápido.
 Hierarquia tipográfica é tudo.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -183,8 +183,8 @@ Hierarquia tipográfica é tudo.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 3. PALETA APLICADA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Verde primário (CTA, slider, positivo): #4F46E5
-• Verde claro (highlight ativo):          bg-indigo-50 (#F0FDF4)
+• Índigo primário (CTA, slider, positivo): #4F46E5
+• Índigo claro (highlight ativo):          bg-indigo-50 (#EEF2FF)
 • Cinza input:   bg-gray-50 (#F9FAFB)  border border-gray-100
 • Positivo delta %: #16A34A
 • Negativo delta %: #DC2626
@@ -240,9 +240,9 @@ Estados do botão:
 8. ESTADOS OBRIGATÓRIOS PARA FERRAMENTAS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 □ Idle — valores de exemplo pré-preenchidos
-□ Editando — input com focus ring verde
+□ Editando — input com focus ring índigo
 □ Calculando — botão disabled + spinner inline
-□ Resultado — caixa verde animada (fade-in 300ms)
+□ Resultado — caixa índigo animada (fade-in 300ms)
 □ Reset — volta ao estado idle sem flash
 □ Erro de validação — mensagem abaixo do input, border vermelha
 □ Valor zerado — resultado mostra R$ 0,00 sem colapsar layout
@@ -261,34 +261,34 @@ Estados do botão:
 
 Agora gere a ferramenta solicitada:`,
 
-    plataforma: `Este contexto não se aplica. A AUVP Capital não utiliza a visão Plataforma EAD.`,
+    plataforma: `Este contexto não se aplica. A Capital não utiliza a visão Plataforma EAD.`,
   },
 
   escola: {
-    institucional: `Você é um Desenvolvedor Front-end Especialista. Gere seções de Landing Page ou Site Institucional para a marca AUVP Escola seguindo EXATAMENTE as regras abaixo. Este prompt é autossuficiente: contém tudo que você precisa saber.
+    institucional: `Você é um Desenvolvedor Front-end Especialista. Gere seções de Landing Page ou Site Institucional para a marca Escola seguindo EXATAMENTE as regras abaixo. Este prompt é autossuficiente: contém tudo que você precisa saber.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 0. ESSÊNCIA DA MARCA (inegociável)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-A AUVP Escola é educação financeira INDEPENDENTE, rebelde, cultura pirata (estilo Anthony Bourdain goiano).
+A Escola é educação financeira INDEPENDENTE, rebelde, identidade própria e descontraída.
 Antítese de banco/instituição financeira tradicional.
 Visual: sofisticado, premium, editorial. Referência: Apple Education + Masterclass + revista de luxo.
 Glassmorphism É a assinatura visual (cards translúcidos com blur).
-❌ NUNCA use verde da Capital (#4F46E5) como cor de fundo, borda ou ícone.
+❌ NUNCA use índigo da Capital (#4F46E5) como cor de fundo, borda ou ícone.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-1. PALETA OFICIAL GOLD
+1. PALETA OFICIAL TURQUESA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Dourado Principal:  #14b8a6  → acentos, ícones, botão primário, slider thumb
-• Dourado Escuro:     #0d9488  → tipografia de destaque, eyebrow, badges ativos
-• Dourado Profundo:   #0f766e  → textos sobre fundo claro com forte destaque
-• Verde Capital:      #4F46E5  → SOMENTE como cor de TEXTO dentro de botões dourados
+• Turquesa Principal:  #14b8a6  → acentos, ícones, botão primário, slider thumb
+• Turquesa Escura:     #0d9488  → tipografia de destaque, eyebrow, badges ativos
+• Turquesa Profunda:   #0f766e  → textos sobre fundo claro com forte destaque
+• Índigo Capital:      #4F46E5  → SOMENTE como cor de TEXTO dentro de botões turquesa
 • Cinza Texto:        #18181B
 • Cinza Secundário:   #52525B / #71717A
 • Translúcido claro:  rgba(255,255,255,0.5)  rgba(255,255,255,0.85)
 • Border translúcida: rgba(0,0,0,0.12)
-• Tag dourada bg:     rgba(20,184,166,0.1)
-❌ PROIBIDO: verde Capital como cor de fundo/borda, azul, roxo, cores saturadas
+• Tag turquesa bg:     rgba(20,184,166,0.1)
+❌ PROIBIDO: índigo Capital como cor de fundo/borda, cores saturadas fora da paleta
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 2. FUNDO DE PÁGINA (assinatura da Escola)
@@ -321,7 +321,7 @@ Em fundo escuro: bg rgba(255,255,255,0.05)  border rgba(255,255,255,0.1)
 border-radius: 16px padrão | 12px cards menores
 
 Estados do card:
-• Default → Hover (translateY -8px + glow dourado 320ms) → Focus (ring dourado 2px)
+• Default → Hover (translateY -8px + glow turquesa 320ms) → Focus (ring turquesa 2px)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 4. TIPOGRAFIA
@@ -332,7 +332,7 @@ Estados do card:
 • H2: Anek Latin 600  42px / 30px          ls -0.02em
 • H3: Anek Latin 600  28px
 • Corpo: Roboto 400  17px  #52525B  lh 1.65
-• Destaque dourado inline: <span class="text-[#0d9488] font-semibold">texto</span>
+• Destaque turquesa inline: <span class="text-[#0d9488] font-semibold">texto</span>
 • Botão/CTA: Sora 700  14px UPPERCASE  ls 0.05em
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -352,7 +352,7 @@ Estados do card:
 Estados do botão:
 • Default → Hover → Active (brightness-90) → Focus (ring 2px #14b8a6 offset 2px)
 • Disabled: opacity 50%  cursor not-allowed
-• Loading: spinner dourado 16px + "Carregando..." + disabled
+• Loading: spinner turquesa 16px + "Carregando..." + disabled
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 6. TAGS / BADGES
@@ -367,14 +367,14 @@ Estados do botão:
 Use SOMENTE estes componentes:
 
 Fundamentos: Marca & Logos | Tipografia (Anek/Roboto/Sora) | Paleta Gold + Data Viz | Ícones Phosphor
-Layout: Cards Translúcidos | Botões (Primário dourado/Outline) | Grid e Espaçamento
+Layout: Cards Translúcidos | Botões (Primário turquesa/Outline) | Grid e Espaçamento
 
 Seções de Página:
 • Grade Curricular (tabs pill-style + carrossel mobile)
 • Contagem Regressiva (timer, cards de unidade)
 • FAQ / Accordion
 • Tabela de Preços (toggle individual/pacotes, badge de desconto)
-• Jornada do Herói (timeline interativa + glow dourado + progresso)
+• Jornada do Herói (timeline interativa + glow turquesa + progresso)
 • Widgets Flutuantes (botão circular 64px WhatsApp, pulse, SVG oficial)
 • Calculadora de Rendimentos (versão LP)
 
@@ -390,7 +390,7 @@ Exibição: Statistic/KPI | Timeline | Tree | Descriptions | Tabela | Progress B
   <div class="max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-[60px] items-center">
     <div>
       <span class="inline-flex px-3 py-1.5 rounded-full text-[13px] font-anek font-semibold uppercase tracking-[1.5px] text-[#0d9488] bg-[rgba(20,184,166,0.1)]">
-        Curso AUVP Pro
+        Curso Pro
       </span>
       <h1 class="font-anek text-[56px] font-bold leading-[1.05] tracking-[-0.025em] text-[#18181B] mt-6">
         A escola que <span class="text-[#0d9488]">o banco</span> não quer que você frequente.
@@ -419,22 +419,22 @@ Exibição: Statistic/KPI | Timeline | Tree | Descriptions | Tabela | Progress B
 □ Cards com backdrop-filter: blur(24px)
 □ Fundos com gradiente radial (nunca branco chapado)
 □ Botões com border-radius: 5px em LP — pílula PROIBIDA
-□ Eyebrow dourado com tracking 1.5px e pill container
-□ Verde Capital SOMENTE em texto de botão dourado
-□ Hover de card: translateY(-8px) + glow dourado 320ms
+□ Eyebrow turquesa com tracking 1.5px e pill container
+□ Índigo Capital SOMENTE em texto de botão turquesa
+□ Hover de card: translateY(-8px) + glow turquesa 320ms
 □ Todos os estados dos botões: default, hover, active, focus, disabled, loading
-□ Acessibilidade: aria-label, focus ring dourado, contraste ≥ 4.5:1
+□ Acessibilidade: aria-label, focus ring turquesa, contraste ≥ 4.5:1
 
 Agora gere a seção solicitada:`,
 
-    ferramentas: `Você é um Desenvolvedor Front-end Especialista. Gere uma Calculadora ou Widget para a marca AUVP Escola seguindo EXATAMENTE as regras abaixo. Este prompt é autossuficiente.
+    ferramentas: `Você é um Desenvolvedor Front-end Especialista. Gere uma Calculadora ou Widget para a marca Escola seguindo EXATAMENTE as regras abaixo. Este prompt é autossuficiente.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 0. CONTEXTO
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ferramentas educacionais que demonstram conceitos (juros compostos, inflação, aporte, FIRE, etc.).
-Estilo: editorial premium, dourado sutil, foco em leitura limpa de números.
-❌ NUNCA use verde da Capital (#4F46E5). Aqui o destaque é GOLD.
+Estilo: editorial premium, turquesa sutil, foco em leitura limpa de números.
+❌ NUNCA use índigo da Capital (#4F46E5). Aqui o destaque é turquesa.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 1. CONTAINER PAI
@@ -448,8 +448,8 @@ Estilo: editorial premium, dourado sutil, foco em leitura limpa de números.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 2. PALETA APLICADA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Dourado (resultado principal): #0d9488 ou #0f766e
-• Dourado claro (highlight input ativo): bg-[#14b8a6]/10
+• Turquesa (resultado principal): #0d9488 ou #0f766e
+• Turquesa clara (highlight input ativo): bg-[#14b8a6]/10
 • Cinza neutro (comparações/negativo): text-zinc-500
 • Inputs: bg-gray-50
 • Botão primário: bg-[#14b8a6] text-zinc-900
@@ -502,7 +502,7 @@ accent-color: #14b8a6
 
 Estados:
 • Default → Hover (D4A73D) → Active (brightness-90) → Focus (ring #14b8a6) → Disabled (opacity 50%)
-• Loading: spinner dourado + "Calculando..."
+• Loading: spinner turquesa + "Calculando..."
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 7. CAIXA DE RESULTADO
@@ -517,19 +517,19 @@ Estados:
 8. ESTADOS OBRIGATÓRIOS PARA FERRAMENTAS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 □ Idle — valores de exemplo pré-preenchidos
-□ Editando — input com focus ring dourado
-□ Calculando — botão disabled + spinner dourado inline
-□ Resultado — caixa cinza animada (fade-in 300ms), valor dourado
+□ Editando — input com focus ring turquesa
+□ Calculando — botão disabled + spinner turquesa inline
+□ Resultado — caixa cinza animada (fade-in 300ms), valor turquesa
 □ Reset — volta ao idle sem flash
-□ Erro de validação — border dourada → vermelha + msg abaixo
+□ Erro de validação — border turquesa → vermelha + msg abaixo
 □ Valor zerado — R$ 0,00 sem colapsar layout
 □ Valor máximo — overflow numérico testado
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 9. CHECKLIST FINAL
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-□ Sem verde Capital — apenas dourado e cinzas
-□ Slider: thumb dourado #14b8a6 + border-white 3px + shadow
+□ Sem índigo Capital — apenas turquesa e cinzas
+□ Slider: thumb turquesa #14b8a6 + border-white 3px + shadow
 □ Valores: font-anek + tabular-nums + cor #0f766e
 □ Container: bg-white + rounded-2xl + shadow suave
 □ Botões: rounded-[5px] (border-radius: 5px)
@@ -537,7 +537,7 @@ Estados:
 
 Agora gere a ferramenta solicitada:`,
 
-    plataforma: `Você é um Desenvolvedor Front-end Especialista. Gere interfaces de Plataforma EAD para a AUVP Escola seguindo EXATAMENTE as regras abaixo. Este prompt é autossuficiente.
+    plataforma: `Você é um Desenvolvedor Front-end Especialista. Gere interfaces de Plataforma EAD para a Escola seguindo EXATAMENTE as regras abaixo. Este prompt é autossuficiente.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 0. CONTEXTO
@@ -571,7 +571,7 @@ Estética: limpa, clara, focada em leitura longa, sem fadiga visual. Referência
 • Breadcrumb:       Roboto 500  14px  text-gray-600
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-4. IDENTIDADE GOLD — uso pontual e estratégico
+4. IDENTIDADE TURQUESA — uso pontual e estratégico
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Cor primária: #14b8a6 (ou text-teal-500 / bg-teal-500 no Tailwind)
 Em fundo claro, prefira text-teal-600 (#0d9488) para contraste.
@@ -596,7 +596,7 @@ Aplicações:
 
 Estados do player:
 • Idle (poster)     — thumbnail + botão Play centrado
-• Loading           — spinner dourado centralizado
+• Loading           — spinner turquesa centralizado
 • Playing           — controles visíveis no hover, ocultos após 3s
 • Paused            — controles sempre visíveis
 • Buffering         — barra de progresso pulsando
@@ -745,7 +745,7 @@ export function AIFood() {
     return base + catalog;
   }, [brand, view]);
 
-  const brandLabel = brand === "capital" ? "AUVP Capital" : "AUVP Escola";
+  const brandLabel = brand === "capital" ? "Capital" : "Escola";
   const brandColor = brand === "capital" ? "text-[#6366f1]/70" : "text-[#14b8a6]/70";
   const promptColor = brand === "capital" ? "text-[#818cf8]" : "text-[#2dd4bf]";
   const selectionColor = brand === "capital"

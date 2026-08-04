@@ -18,36 +18,36 @@ interface PricingPlan {
 
 const individualPlans: PricingPlan[] = [
   {
-    name: "AUVP Sempre",
+    name: "Plano Essencial",
     price: "R$ 797,00",
     paymentInfo: "PIX, cartão em até 12x ou boleto à vista.",
     features: [
       "Acesso vitalício à plataforma",
-      "Comunidade exclusiva de investidores",
-      "Aulas atualizadas periodicamente",
+      "Comunidade exclusiva",
+      "Conteúdo atualizado periodicamente",
       "Certificado de conclusão",
     ],
   },
   {
-    name: "AUVP Analítica",
+    name: "Plano Analítico",
     price: "R$ 997,00",
     paymentInfo: "PIX, cartão em até 12x ou boleto à vista.",
     features: [
-      "Ferramenta de análise de ativos",
-      "Indicadores fundamentalistas",
-      "Rankings e comparativos",
+      "Ferramenta de análise de dados",
+      "Indicadores e comparativos",
+      "Rankings",
       "Relatórios exclusivos",
     ],
   },
   {
-    name: "Carteira AUVP",
+    name: "Plano Gestão",
     price: "R$ 997,00",
     paymentInfo: "PIX, cartão em até 12x ou boleto à vista.",
     features: [
-      "Gestão inteligente da carteira",
-      "Diagrama do Cerrado",
-      "Rebalanceamento automático",
-      "Acompanhamento de dividendos",
+      "Gestão inteligente de portfólio",
+      "Ferramenta de rebalanceamento",
+      "Automação de rotinas",
+      "Acompanhamento periódico",
     ],
   },
 ];
@@ -59,8 +59,8 @@ const pacotePlans: PricingPlan[] = [
     paymentInfo: "Economia de R$ 297,00 em relação ao individual.",
     discount: "15% OFF",
     features: [
-      "AUVP Sempre incluso",
-      "AUVP Analítica inclusa",
+      "Plano Essencial incluso",
+      "Plano Analítico incluso",
       "Comunidade exclusiva",
       "Acesso vitalício",
     ],
@@ -73,9 +73,9 @@ const pacotePlans: PricingPlan[] = [
     featured: true,
     featuredLabel: "O Mais Completo",
     features: [
-      "AUVP Sempre incluso",
-      "AUVP Analítica inclusa",
-      "Carteira AUVP inclusa",
+      "Plano Essencial incluso",
+      "Plano Analítico incluso",
+      "Plano Gestão incluso",
       "Acesso vitalício a tudo",
     ],
     highlightFeature: "21% de desconto no pacote completo",

@@ -4,9 +4,9 @@ import { ComponentShowcase } from "@/components/design-system/ComponentShowcase"
 const items = [
   { label: "Nome", value: "Maria Silva" },
   { label: "CPF", value: "123.456.789-00" },
-  { label: "E-mail", value: "maria@auvp.com.br" },
+  { label: "E-mail", value: "maria@empresa.com.br" },
   { label: "Telefone", value: "(11) 98765-4321" },
-  { label: "Plano", value: "AUVP Pro Anual" },
+  { label: "Plano", value: "Plano Pro Anual" },
   { label: "Status", value: "Ativo" },
   { label: "Data de adesão", value: "12 de janeiro de 2026" },
   { label: "Próxima cobrança", value: "12 de janeiro de 2027" },
@@ -39,9 +39,9 @@ export function DescriptionsWidget() {
 <dl class="desc">
   <div class="desc-row"><dt class="desc-label">Nome</dt><dd class="desc-value">Maria Silva</dd></div>
   <div class="desc-row"><dt class="desc-label">CPF</dt><dd class="desc-value">123.456.789-00</dd></div>
-  <div class="desc-row"><dt class="desc-label">E-mail</dt><dd class="desc-value">maria@auvp.com.br</dd></div>
+  <div class="desc-row"><dt class="desc-label">E-mail</dt><dd class="desc-value">maria@empresa.com.br</dd></div>
   <div class="desc-row"><dt class="desc-label">Telefone</dt><dd class="desc-value">(11) 98765-4321</dd></div>
-  <div class="desc-row"><dt class="desc-label">Plano</dt><dd class="desc-value">AUVP Pro Anual</dd></div>
+  <div class="desc-row"><dt class="desc-label">Plano</dt><dd class="desc-value">Plano Pro Anual</dd></div>
   <div class="desc-row"><dt class="desc-label">Status</dt><dd class="desc-value">Ativo</dd></div>
   <div class="desc-row"><dt class="desc-label">Data de adesão</dt><dd class="desc-value">12 de janeiro de 2026</dd></div>
   <div class="desc-row"><dt class="desc-label">Próxima cobrança</dt><dd class="desc-value">12 de janeiro de 2027</dd></div>

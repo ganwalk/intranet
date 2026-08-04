@@ -143,7 +143,7 @@ const CENTER_FILLS = {
 const CENTER_TEXT = "hsl(var(--cubo-produto-texto))";
 
 /**
- * Olho da AUVP na face superior do cubo: branco no tema claro (cubo preto),
+ * Símbolo da marca na face superior do cubo: branco no tema claro (cubo preto),
  * preto no escuro (cubo branco). Os dois ficam no DOM e alternam por CSS,
  * para funcionar também nos previews que forçam um tema localmente.
  */
@@ -238,7 +238,7 @@ function useInView(threshold = 0.25) {
 /**
  * Réplica gráfica do cubo do Produto — usada pela interação de voo do
  * TimePage (overlay em position: fixed e cubo ancorado na seção seguinte).
- * Mesmo desenho do cubo central da cena: faces, olho da AUVP no topo e
+ * Mesmo desenho do cubo central da cena: faces, símbolo da marca no topo e
  * rótulo "PRODUTO" na face frontal.
  */
 export function ProdutoCubeGraphic({ className }: { className?: string }) {
@@ -464,7 +464,7 @@ export function EstruturaIsometrica({
                       <polygon points={centerFaces.left} fill={CENTER_FILLS.left} />
                       <polygon points={centerFaces.right} fill={CENTER_FILLS.right} />
                       <polygon points={centerFaces.top} fill={CENTER_FILLS.top} />
-                      {/* olho da AUVP projetado na face superior do cubo */}
+                      {/* símbolo da marca projetado na face superior do cubo */}
                       <OlhoTopo />
                       {/* rótulo aplicado na face frontal-direita, acompanhando o plano do cubo */}
                       <text
@@ -601,8 +601,8 @@ export function EstruturaIsometrica({
       {/* Mobile / tablet: Produto no topo, áreas em grade */}
       <div className="lg:hidden">
         <div className="flex justify-center mb-6">
-          <div className="h-24 w-24 rounded-full bg-gradient-to-br from-primary to-emerald-700 dark:from-emerald-500 dark:to-emerald-800 shadow-lg ring-4 ring-background flex items-center justify-center">
-            <img src={olhoBranco.url} alt="Produto AUVP" className="h-10 w-10" />
+          <div className="h-24 w-24 rounded-full bg-gradient-to-br from-primary to-primary/70 shadow-lg ring-4 ring-background flex items-center justify-center">
+            <img src={olhoBranco.url} alt="Produto" className="h-10 w-10" />
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

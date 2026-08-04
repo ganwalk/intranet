@@ -238,7 +238,7 @@ export function CalculadoraRendimentos() {
             <div className="text-xs text-muted-foreground leading-tight space-y-1">
               <p>
                 ¹ Simulação baseada em uma carteira teórica: 50% em títulos públicos indexados à inflação
-                (IMA-B) e 50% em AUVP11. Rentabilidade histórica anualizada:{" "}
+                (IMA-B) e 50% em um fundo de índice diversificado. Rentabilidade histórica anualizada:{" "}
                 <strong>{fmtPercent(annualRate)}</strong> a.a.
                 <br />
                 ² Regra da Poupança: 0,5% a.m. + TR (TR estimada em 0,09% a.m.).

@@ -277,6 +277,7 @@ export const ecossistemaEtapas: EcossistemaEtapa[] = [
    ============================================================ */
 
 export interface ResumoProduto {
+  id: string;
   produto: string;
   investimento: string;
   paraQuemE: string;
@@ -284,6 +285,7 @@ export interface ResumoProduto {
 }
 
 export const resumoProdutos: ResumoProduto[] = produtosSolucoes.map((p) => ({
+  id: p.id,
   produto: p.nome,
   investimento: p.info.find((i) => i.tipo === "investimento")?.texto ?? "—",
   paraQuemE: p.paraQuemE,
