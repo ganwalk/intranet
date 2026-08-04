@@ -2,7 +2,7 @@ import React, { useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ComponentShowcase } from "@/components/design-system/ComponentShowcase";
 
-const USERS = ["raul", "bourdain", "ana", "carlos", "marina", "joao"];
+const USERS = ["ana", "bruno", "carlos", "marina", "joao", "paula"];
 
 export function MentionsWidget() {
   const [text, setText] = useState("");
@@ -42,7 +42,7 @@ export function MentionsWidget() {
     <ComponentShowcase
       title="Mentions (menções e tags)"
       description="Textarea que detecta '@' ou '#' enquanto você digita e abre um popover com sugestões. Padrão para comentários, posts da comunidade e descrições de operação."
-      code={`const USERS = ["raul", "bourdain", "ana", "carlos", "marina", "joao"];
+      code={`const USERS = ["ana", "bruno", "carlos", "marina", "joao", "paula"];
 
 const [text, setText] = useState("");
 const [open, setOpen] = useState(false);
@@ -132,7 +132,7 @@ const insert = (s: string) => {
 </div>
 
 <script>
-  const USERS = ['raul', 'bourdain', 'ana', 'carlos', 'marina', 'joao'];
+  const USERS = ['ana', 'bruno', 'carlos', 'marina', 'joao', 'paula'];
   let mTrigger = '@';
   function onMention(e) {
     const t = e.target, pos = t.selectionStart, before = t.value.slice(0, pos);

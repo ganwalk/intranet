@@ -77,7 +77,7 @@ export function PageShell({
             {footer} &copy; {new Date().getFullYear()}
           </p>
           <p className="text-xs text-muted-foreground/80 font-roboto text-center mt-1">
-            Orgulhosamente feito sob o Sol escaldante de Goiás ☀️
+            Feito com dedicação pelo time de Produto ☀️
           </p>
         </div>
       </footer>

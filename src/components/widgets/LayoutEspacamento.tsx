@@ -332,9 +332,9 @@ export function LayoutEspacamento() {
   .gap { display:flex; align-items:center; justify-content:center;
     font-family:monospace; font-size:10px; font-weight:700; }
   .gap-60 { height:60px; background:rgba(220,38,38,.1); color:#dc2626; }
-  .gap-15 { height:15px; background:#023619; color:#fff; }
-  .gap-30 { height:30px; background:#023619; color:#fff; }
-  .gap-32 { height:32px; background:rgba(2,54,25,.2); color:#023619; }
+  .gap-15 { height:15px; background:#1e1b4b; color:#fff; }
+  .gap-30 { height:30px; background:#1e1b4b; color:#fff; }
+  .gap-32 { height:32px; background:rgba(30,27,75,.2); color:#1e1b4b; }
   .gap-48 { height:48px; background:rgba(220,38,38,.15); color:#dc2626; }
 
   .stack-15 { background:#fff; border:1px solid #e5e5e5; border-radius:12px; padding:1.5rem;

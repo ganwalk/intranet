@@ -689,7 +689,7 @@ export default function Hub() {
         {/* Acessos Rápidos — agora antes das Novidades */}
         <Reveal className="sm:-mt-32 md:-mt-48">
           <section>
-            <SectionHeader icon={Zap} title="Acessos Rápidos" info="Os links, guias e informações que todo pirata acaba precisando em algum momento." />
+            <SectionHeader icon={Zap} title="Acessos Rápidos" info="Os links, guias e informações que todo mundo acaba precisando em algum momento." />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
               {accessLinks.map((link, i) => {
                 const Icon = link.icon;

@@ -33,6 +33,9 @@ function initials(name: string): string {
   const words = name.trim().split(/\s+/).filter(Boolean);
   if (words.length === 0) return "?";
   if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  // Segunda palavra numérica ("Colaborador 12"): usa o número inteiro em vez
+  // de só o primeiro dígito, senão "Colaborador 1"/"10"/"11"/"12" colidem.
+  if (/^\d+$/.test(words[1])) return (words[0][0] + words[1]).toUpperCase();
   return (words[0][0] + words[1][0]).toUpperCase();
 }
 

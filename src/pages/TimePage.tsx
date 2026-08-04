@@ -982,7 +982,7 @@ export default function TimePage() {
       hero={
         <PageHero
           icon={Users}
-          title="Nossa tripulação"
+          title="Nosso Time"
           description={
             <>
               Aqui a excelência é o mínimo. Juntamos especialistas em{" "}

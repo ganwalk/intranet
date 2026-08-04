@@ -92,7 +92,7 @@ export function PlataformaComunidade() {
                     <div className="bg-primary/5 rounded-lg p-4">
                       <div className="flex items-center gap-2 mb-2 flex-wrap">
                         <div className="w-7 h-7 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-accent-foreground text-xs font-bold">R</div>
-                        <span className="text-sm font-bold text-foreground font-anek">Raul Sena</span>
+                        <span className="text-sm font-bold text-foreground font-anek">Colaborador 1</span>
                         <span className="text-[9px] font-bold text-accent bg-accent/10 px-1.5 py-0.5 rounded uppercase tracking-wider">Instrutor</span>
                         <span className="text-[10px] text-muted-foreground font-roboto">há 2 dias</span>
                       </div>

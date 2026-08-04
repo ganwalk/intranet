@@ -20,7 +20,7 @@ const WALK_DURATION_MS = 6500;
 const POP_MS = 600;
 const PARTICLE_EMOJIS = ["💛", "🐾", "🎵", "✨", "💛", "🐾"];
 
-/** Evento global — dispara o mesmo efeito do Konami code (usado pelo Jorginho na busca). */
+/** Evento global — dispara o mesmo efeito do Konami code (usado pelo gatinho na busca). */
 export const TRIGGER_CAT_EVENT = "central:trigger-cat";
 
 interface Particle {
