@@ -1,0 +1,906 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Latin:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&family=Sora:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AUVP Design System — Design Tokens
+   Default: AUVP Capital (Green)
+   .escola: AUVP Escola (Gold)
+   All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* === AUVP Capital (Verde) === */
+    --font-display: 'Anek Latin', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+    --font-ui: 'Sora', sans-serif;
+
+    --background: 0 0% 100%;
+    --foreground: 110 78% 9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 110 78% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 110 78% 9%;
+
+    --primary: 155 93% 11%;
+    --primary-foreground: 0 0% 100%;
+    /* *-emphasis: versão da cor segura como TEXTO sobre --background (≥4.5:1).
+       No Capital claro a própria cor já passa; na Escola clara o dourado
+       precisa escurecer. Usada em links e no hover "vazado" dos botões. */
+    --primary-emphasis: 155 93% 11%;
+
+    --secondary: 160 55% 18%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-emphasis: 160 55% 18%;
+
+    --muted: 120 10% 95%;
+    --muted-foreground: 110 10% 40%;
+
+    --accent: 155 93% 11%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Vermelho escurecido: branco sobre 0 84% 60% dava 3.78:1 (< 4.5:1). */
+    --destructive: 0 84% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* === Status semânticos (Capital) ===
+       Valores escurecidos para passarem AA (4.5:1) tanto como fundo com
+       texto branco quanto como texto/ícone sobre --background.
+       Exceção: --warning mantém texto escuro; como texto/ícone sobre fundo
+       claro mira 3:1 (mínimo WCAG para elementos gráficos). */
+    --success: 142 72% 29%;
+    --success-foreground: 0 0% 100%;
+    --warning: 35 95% 42%;
+    --warning-foreground: 220 15% 15%;
+    --info: 210 90% 42%;
+    --info-foreground: 0 0% 100%;
+    --error: 0 84% 48%;
+    --error-foreground: 0 0% 100%;
+
+    --border: 120 10% 88%;
+    --input: 120 10% 88%;
+    --ring: 155 93% 11%;
+
+    --radius: 0.75rem;
+
+    /* Brand-specific tokens */
+    --brand: 155 93% 11%;
+    --brand-foreground: 0 0% 100%;
+    --brand-dark: 110 78% 9%;
+    --brand-hover: 155 80% 15%;
+    --brand-gradient-from: 155 93% 11%;
+    --brand-gradient-to: 140 70% 20%;
+
+    /* CTA (sites/LPs) — always green */
+    --cta: 155 93% 11%;
+    --cta-foreground: 0 0% 100%;
+    --cta-emphasis: 155 93% 11%;
+
+    --sidebar-background: 110 78% 9%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 155 93% 11%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 155 50% 16%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 120 20% 15%;
+    --sidebar-ring: 155 93% 11%;
+
+    /* === Data Visualization Palette (Capital) ===
+       Paleta categórica de 8 cores derivadas da identidade verde,
+       balanceada para tabelas, gráficos de pizza, barras e linhas.
+       Ordem otimizada para distinção máxima em séries categóricas. */
+    --chart-1: 152 80% 30%;   /* Verde AUVP */
+    --chart-2: 270 60% 55%;   /* Violeta */
+    --chart-3: 38 92% 55%;    /* Âmbar */
+    --chart-4: 199 89% 48%;   /* Azul */
+    --chart-5: 340 75% 55%;   /* Magenta */
+    --chart-6: 15 80% 50%;    /* Vermelho-tijolo */
+    --chart-7: 90 55% 40%;    /* Oliva */
+    --chart-8: 220 30% 35%;   /* Grafite azulado */
+
+    /* Escala sequencial — para mapas de calor, intensidade, progressão */
+    --chart-seq-1: 145 40% 92%;
+    --chart-seq-2: 150 50% 78%;
+    --chart-seq-3: 152 60% 60%;
+    --chart-seq-4: 154 75% 40%;
+    --chart-seq-5: 155 93% 11%;
+
+    /* Escala divergente — para variação positivo/negativo */
+    --chart-div-neg: 0 72% 51%;
+    --chart-div-mid: 40 30% 92%;
+    --chart-div-pos: 155 93% 25%;
+  }
+
+  .escola {
+    /* === AUVP Escola (Dourado) === */
+    --foreground: 220 15% 15%;
+
+    --primary: 42 84% 63%;
+    --primary-foreground: 220 15% 15%;
+    /* Dourado como texto sobre branco: 42 84% 63% dá só 1.69:1.
+       As versões emphasis escurecem para ≥4.5:1 mantendo o matiz. */
+    --primary-emphasis: 40 90% 29%;
+
+    /* Foreground escuro sobre dourado — branco sobre hsl(40 64% 54%) fica
+       abaixo de 3:1 e reprova o mínimo de 4.5:1 do design system. */
+    --secondary: 40 64% 54%;
+    --secondary-foreground: 220 15% 15%;
+    --secondary-emphasis: 40 90% 29%;
+
+    --muted: 40 30% 95%;
+    --muted-foreground: 40 15% 40%;
+
+    --accent: 42 83% 62%;
+    --accent-foreground: 220 15% 15%;
+
+    /* === Status semânticos (Escola) ===
+       Mesmo critério do Capital: AA como fundo e como texto sobre branco
+       (warning mira 3:1 como ícone/elemento gráfico). */
+    --warning: 35 95% 42%;
+    --warning-foreground: 220 15% 15%;
+    --info: 205 85% 38%;
+    --info-foreground: 0 0% 100%;
+    --error: 0 78% 52%;
+    --error-foreground: 0 0% 100%;
+
+    --ring: 42 84% 63%;
+
+    --radius: 0.75rem;
+
+    /* Brand-specific tokens */
+    --brand: 42 84% 63%;
+    --brand-foreground: 220 15% 15%;
+    --brand-dark: 42 100% 33%;
+    --brand-hover: 40 64% 54%;
+    --brand-gradient-from: 38 100% 79%;
+    --brand-gradient-to: 42 100% 33%;
+
+    --sidebar-background: 42 100% 33%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 42 84% 63%;
+    --sidebar-primary-foreground: 220 15% 15%;
+    --sidebar-accent: 42 70% 45%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 42 50% 28%;
+    --sidebar-ring: 42 84% 63%;
+
+    /* === Data Visualization Palette (Escola) ===
+       Paleta categórica derivada do dourado, com complementares
+       que mantêm hierarquia e legibilidade. */
+    --chart-1: 42 84% 55%;    /* Dourado AUVP */
+    --chart-2: 15 75% 55%;    /* Telha */
+    --chart-3: 200 75% 45%;   /* Azul ardósia */
+    --chart-4: 350 70% 55%;   /* Coral rosado */
+    --chart-5: 160 55% 40%;   /* Verde sálvia */
+    --chart-6: 270 55% 55%;   /* Violeta (afastado do telha série 2) */
+    --chart-7: 90 50% 45%;    /* Oliva (afastado do verde sálvia série 5) */
+    --chart-8: 220 25% 35%;   /* Grafite */
+
+    --chart-seq-1: 45 80% 95%;
+    --chart-seq-2: 44 82% 80%;
+    --chart-seq-3: 43 84% 65%;
+    --chart-seq-4: 38 85% 50%;
+    --chart-seq-5: 32 90% 35%;
+
+    --chart-div-neg: 0 72% 51%;
+    --chart-div-mid: 40 30% 95%;
+    --chart-div-pos: 42 100% 33%;
+
+    /* Borda com contraste visível sobre branco (≈ rgba(0,0,0,0.12) do DS).
+       O valor anterior (45 80% 95%) era praticamente invisível. */
+    --border: 42 30% 87%;
+    --input: 42 30% 87%;
+
+    /* === Status semânticos (Escola) — âmbar em vez de verde ===
+       Âmbar escurecido: branco sobre 38 80% 45% dava 2.85:1. */
+    --success: 36 90% 32%;
+    --success-foreground: 0 0% 100%;
+
+    /* CTA dourado na Escola */
+    --cta: 42 84% 63%;
+    --cta-foreground: 220 15% 15%;
+    --cta-emphasis: 40 90% 29%;
+
+    --spotlight: hsl(42 84% 63% / 0.09);
+  }
+
+  .dark {
+    /* === AUVP Capital — Dark (fundo preto) === */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Base preto/branco/cinza. Verde #5A8770 reservado para acentos
+       pontuais em ícones e textos (ex: numeração da grade curricular). */
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 8%;
+    --primary-emphasis: 0 0% 98%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-emphasis: 0 0% 98%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 70%;
+
+    /* Verde acento canônico #5A8770; texto 0 0% 5% dá 4.73:1
+       (0 0% 8% ficava em 4.46:1). */
+    --accent: 145 20% 44%;
+    --accent-foreground: 0 0% 5%;
+
+    /* No escuro os status seguem o padrão "cor clara + texto quase-preto";
+       branco sobre 0 75% 55% dava 4.35:1. */
+    --destructive: 0 80% 63%;
+    --destructive-foreground: 0 0% 5%;
+
+    --success: 142 60% 48%;
+    --success-foreground: 0 0% 5%;
+    --warning: 38 95% 60%;
+    --warning-foreground: 0 0% 5%;
+    --info: 210 90% 65%;
+    --info-foreground: 0 0% 5%;
+    --error: 0 80% 65%;
+    --error-foreground: 0 0% 5%;
+
+    --border: 0 0% 16%;
+    --input: 0 0% 14%;
+    --ring: 145 20% 50%;
+
+    /* Brand verde — acento pontual (#5A8770). Texto quase-preto (0 0% 5%),
+       pois branco sobre o verde médio não alcança 4.5:1. */
+    --brand: 145 20% 44%;
+    --brand-foreground: 0 0% 5%;
+    --brand-dark: 0 0% 0%;
+    --brand-hover: 145 20% 54%;
+    --brand-gradient-from: 145 25% 54%;
+    --brand-gradient-to: 145 30% 38%;
+
+    --cta: 0 0% 98%;
+    --cta-foreground: 0 0% 8%;
+    --cta-emphasis: 0 0% 98%;
+
+    --sidebar-background: 0 0% 3%;
+    --sidebar-foreground: 0 0% 92%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 0 0% 8%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 16%;
+    --sidebar-ring: 145 20% 50%;
+
+    /* Data Viz — Dark Capital (paleta colorida para gráficos) */
+    --chart-1: 135 50% 55%;   /* Verde AUVP */
+    --chart-2: 270 65% 70%;   /* Violeta */
+    --chart-3: 38 90% 65%;    /* Âmbar */
+    --chart-4: 199 85% 65%;   /* Azul */
+    --chart-5: 340 75% 70%;   /* Magenta */
+    --chart-6: 15 80% 65%;    /* Vermelho-tijolo claro */
+    --chart-7: 90 55% 60%;    /* Oliva claro */
+    --chart-8: 220 30% 70%;   /* Grafite azulado */
+
+    --chart-seq-1: 135 25% 18%;
+    --chart-seq-2: 135 35% 30%;
+    --chart-seq-3: 135 45% 45%;
+    --chart-seq-4: 135 55% 58%;
+    --chart-seq-5: 130 60% 72%;
+
+    --chart-div-neg: 0 70% 60%;
+    --chart-div-mid: 0 0% 25%;
+    --chart-div-pos: 135 50% 55%;
+
+    --spotlight: hsl(var(--primary) / 0.07);
+  }
+
+  .dark.escola,
+  .escola .dark {
+    /* === AUVP Escola — Dark (fundo preto) === */
+    --background: 0 0% 0%;
+    --foreground: 45 25% 96%;
+
+    --card: 0 0% 6%;
+    --card-foreground: 45 25% 96%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 45 25% 96%;
+
+    --primary: 42 90% 65%;
+    --primary-foreground: 0 0% 8%;
+    --primary-emphasis: 42 90% 65%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 45 25% 96%;
+    --secondary-emphasis: 45 25% 96%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 40 10% 70%;
+
+    --accent: 42 90% 65%;
+    --accent-foreground: 0 0% 8%;
+
+    --border: 42 30% 20%;
+    --input: 42 25% 17%;
+    --ring: 42 90% 65%;
+
+    --brand: 42 90% 65%;
+    --brand-foreground: 0 0% 8%;
+    --brand-dark: 0 0% 0%;
+    --brand-hover: 42 95% 75%;
+    --brand-gradient-from: 42 84% 55%;
+    --brand-gradient-to: 38 80% 25%;
+
+    /* CTA dourado na escola dark */
+    --cta: 42 90% 65%;
+    --cta-foreground: 0 0% 8%;
+    --cta-emphasis: 42 90% 65%;
+
+    /* Status — âmbar em vez de verde */
+    --success: 38 80% 55%;
+    --success-foreground: 0 0% 8%;
+
+    --sidebar-background: 0 0% 3%;
+    --sidebar-foreground: 45 25% 92%;
+    --sidebar-primary: 42 90% 65%;
+    --sidebar-primary-foreground: 0 0% 8%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 45 25% 96%;
+    --sidebar-border: 40 10% 18%;
+    --sidebar-ring: 42 90% 65%;
+
+    --chart-1: 42 84% 65%;    /* Dourado AUVP */
+    --chart-2: 15 80% 65%;    /* Telha */
+    --chart-3: 200 80% 60%;   /* Azul ardósia */
+    --chart-4: 350 75% 65%;   /* Coral rosado */
+    --chart-5: 160 55% 55%;   /* Verde sálvia */
+    --chart-6: 270 65% 70%;   /* Violeta */
+    --chart-7: 90 50% 60%;    /* Oliva claro */
+    --chart-8: 220 20% 65%;   /* Grafite claro */
+
+    --chart-seq-1: 45 25% 18%;
+    --chart-seq-2: 44 50% 32%;
+    --chart-seq-3: 43 70% 50%;
+    --chart-seq-4: 38 85% 65%;
+    --chart-seq-5: 32 90% 78%;
+
+    --chart-div-neg: 0 70% 60%;
+    --chart-div-mid: 40 15% 25%;
+    --chart-div-pos: 42 85% 60%;
+  }
+
+  .dark body {
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+
+  button, [role="button"], input, select, textarea, label {
+    font-family: var(--font-body);
+  }
+}
+
+/* Utility classes for brand gradient */
+@layer utilities {
+  .bg-brand-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--brand-gradient-from)),
+      hsl(var(--brand-gradient-to))
+    );
+  }
+
+  .text-brand {
+    color: hsl(var(--brand));
+  }
+
+  .bg-brand {
+    background-color: hsl(var(--brand));
+  }
+
+  .border-brand {
+    border-color: hsl(var(--brand));
+  }
+}
+
+/* === Dark mode contrast overrides ===
+   Camada defensiva para neutralizar classes Tailwind hardcoded
+   garantindo contraste adequado em fundo preto.
+   O `:not(.light *)` isenta previews forçados para o tema claro
+   (ComponentShowcase/SectionThemeToggle) dentro do html.dark — sem isso,
+   um preview "Claro" sob tema global escuro tinha bg-black/text-white
+   neutralizados e quebrava o contraste do componente exibido. */
+.dark .bg-white:not(.light *) { background-color: hsl(var(--card)) !important; }
+.dark .bg-black:not(.light *) { background-color: hsl(var(--background)) !important; }
+.dark .text-white:not(.light *) { color: hsl(0 0% 98%) !important; }
+.dark .text-black:not(.light *) { color: hsl(var(--foreground)) !important; }
+
+.dark .bg-gray-50:not(.light *), .dark .bg-gray-100:not(.light *),
+.dark .bg-slate-50:not(.light *), .dark .bg-slate-100:not(.light *),
+.dark .bg-zinc-50:not(.light *), .dark .bg-zinc-100:not(.light *),
+.dark .bg-neutral-50:not(.light *), .dark .bg-neutral-100:not(.light *) { background-color: hsl(var(--muted)) !important; }
+
+.dark .bg-gray-200:not(.light *), .dark .bg-slate-200:not(.light *),
+.dark .bg-zinc-200:not(.light *), .dark .bg-neutral-200:not(.light *) { background-color: hsl(var(--secondary)) !important; }
+
+.dark .bg-gray-800:not(.light *), .dark .bg-gray-900:not(.light *),
+.dark .bg-slate-800:not(.light *), .dark .bg-slate-900:not(.light *),
+.dark .bg-zinc-800:not(.light *), .dark .bg-zinc-900:not(.light *),
+.dark .bg-neutral-800:not(.light *), .dark .bg-neutral-900:not(.light *) { background-color: hsl(var(--card)) !important; }
+
+.dark .text-gray-900:not(.light *), .dark .text-gray-800:not(.light *), .dark .text-gray-700:not(.light *),
+.dark .text-slate-900:not(.light *), .dark .text-slate-800:not(.light *), .dark .text-slate-700:not(.light *),
+.dark .text-zinc-900:not(.light *), .dark .text-zinc-800:not(.light *), .dark .text-zinc-700:not(.light *),
+.dark .text-neutral-900:not(.light *), .dark .text-neutral-800:not(.light *), .dark .text-neutral-700:not(.light *) { color: hsl(var(--foreground)) !important; }
+
+.dark .text-gray-600:not(.light *), .dark .text-gray-500:not(.light *), .dark .text-gray-400:not(.light *),
+.dark .text-slate-600:not(.light *), .dark .text-slate-500:not(.light *), .dark .text-slate-400:not(.light *),
+.dark .text-zinc-600:not(.light *), .dark .text-zinc-500:not(.light *), .dark .text-zinc-400:not(.light *),
+.dark .text-neutral-600:not(.light *), .dark .text-neutral-500:not(.light *), .dark .text-neutral-400:not(.light *) { color: hsl(var(--muted-foreground)) !important; }
+
+.dark .border-gray-100:not(.light *), .dark .border-gray-200:not(.light *), .dark .border-gray-300:not(.light *),
+.dark .border-slate-100:not(.light *), .dark .border-slate-200:not(.light *), .dark .border-slate-300:not(.light *),
+.dark .border-zinc-100:not(.light *), .dark .border-zinc-200:not(.light *), .dark .border-zinc-300:not(.light *),
+.dark .border-neutral-100:not(.light *), .dark .border-neutral-200:not(.light *), .dark .border-neutral-300:not(.light *) { border-color: hsl(var(--border)) !important; }
+
+.dark .border-white:not(.light *), .dark .border-black:not(.light *) { border-color: hsl(var(--border)) !important; }
+
+.dark .divide-gray-100:not(.light *) > :not([hidden]) ~ :not([hidden]),
+.dark .divide-gray-200:not(.light *) > :not([hidden]) ~ :not([hidden]),
+.dark .divide-slate-100:not(.light *) > :not([hidden]) ~ :not([hidden]),
+.dark .divide-slate-200:not(.light *) > :not([hidden]) ~ :not([hidden]) { border-color: hsl(var(--border)) !important; }
+
+/* === Superfícies invertidas — trava de contraste ===
+   text-primary dentro de bg-foreground quebra em todos os temas: no claro
+   fica verde-escuro sobre quase-preto e no escuro fica branco sobre branco
+   (foi o caso do cartão "Resolve Aí" em Nossas Soluções). Esta trava herda
+   a cor legível da superfície invertida. Para destacar um cartão, o padrão
+   correto do Design System é o par bg-primary + text-primary-foreground,
+   que passa AA nos quatro temas (Capital/Escola × claro/escuro). */
+.bg-foreground .text-primary { color: hsl(var(--background)) !important; }
+
+/* === Escola (claro) — dourado como texto ===
+   O dourado da marca (42 84% 63%) sobre fundo claro dá só 1.69:1 — ilegível.
+   text-primary é usado como texto/ícone de destaque em várias páginas; aqui
+   trocamos pela versão emphasis (≥4.5:1) apenas em contexto claro:
+   - 1º seletor: marca Escola com tema claro ativo (:not(.dark *) preserva
+     previews locais forçados para escuro, onde o dourado claro é correto);
+   - 2º seletor: previews locais forçados para claro (.light.escola) mesmo
+     sob html.dark. */
+.escola .text-primary:not(.dark *),
+.light.escola .text-primary {
+  color: hsl(var(--primary-emphasis));
+}
+
+/* === Acessibilidade — menos movimento ===
+   Neutraliza animações e transições de CSS quando o sistema do usuário
+   pede menos movimento. Animações dirigidas por JS usam o hook
+   useReducedMotion (src/hooks/use-reduced-motion.ts). */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Easter egg — Jorginho atravessa a tela aos pulinhos (Konami code / busca) */
+@keyframes auvp-cat-walk {
+  from { transform: translateX(-140px); }
+  to   { transform: translateX(calc(100vw + 140px)); }
+}
+/* Entrada: salta do canto inferior com overshoot elástico */
+@keyframes auvp-cat-pop {
+  from { transform: translateY(115%) rotate(-16deg); }
+  55%  { transform: translateY(-16%) rotate(6deg); }
+  80%  { transform: translateY(5%) rotate(-2deg); }
+  to   { transform: translateY(0) rotate(0deg); }
+}
+/* Pulinhos com squash & stretch e balanço de desenho animado */
+@keyframes auvp-cat-hop {
+  0%, 100% { transform: translateY(0) rotate(-5deg) scale(1.06, 0.92); }
+  30%      { transform: translateY(-30px) rotate(4deg) scale(0.96, 1.07); }
+  50%      { transform: translateY(-40px) rotate(6deg) scale(1, 1); }
+  75%      { transform: translateY(-10px) rotate(-1deg) scale(0.98, 1.03); }
+}
+/* Partículas (corações, patinhas, notas) que sobem flutuando no rastro */
+@keyframes auvp-cat-float {
+  from { opacity: 0; transform: translate(0, 0) scale(0.5) rotate(0deg); }
+  15%  { opacity: 1; }
+  to   { opacity: 0; transform: translate(var(--drift, 14px), -110px) scale(1.2) rotate(var(--spin, 24deg)); }
+}
+/* Globo "em breve" (Produtos Digitais) — flutua com leve balanço */
+@keyframes auvp-globe-float {
+  0%, 100% { transform: translateY(3px) rotate(-8deg); }
+  50%      { transform: translateY(-5px) rotate(8deg); }
+}
+/* Anel que pulsa atrás do globo */
+@keyframes auvp-globe-ping {
+  0%   { transform: scale(0.6); opacity: 0; }
+  35%  { opacity: 0.8; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+/* Balão de "miau!" — surge com pop, respira e some */
+@keyframes auvp-cat-bubble {
+  0%   { opacity: 0; transform: translateY(8px) scale(0.4); }
+  10%  { opacity: 1; transform: translateY(0) scale(1.08); }
+  16%  { transform: scale(1); }
+  70%  { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-10px) scale(0.85); }
+}
+
+/* Easter egg — Modo Megabrain (ou modo Ricardo): linha de scan que varre a
+   tela de cima a baixo enquanto as fotos do time são trocadas. A duração
+   é controlada pelo componente (SCAN_DURATION_MS em CarecaContext). */
+@keyframes auvp-careca-scan {
+  from { transform: translateY(-4vh); }
+  to   { transform: translateY(108vh); }
+}
+/* Tom de scanner que acende e apaga junto com a varredura */
+@keyframes auvp-careca-tint {
+  0%, 100% { opacity: 0; }
+  15%, 85% { opacity: 1; }
+}
+
+/* Carrossel do Mural de Novidades (Hub) — progresso do autoplay no
+   indicador ativo. O avanço do slide é disparado pelo onAnimationEnd
+   desta animação, mantendo barra e troca sempre sincronizadas. */
+@keyframes mural-progress {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+/* === Nossas Soluções — preview de LP com scroll automático ===
+   Mesma técnica do guia original (Projeto Delta): a imagem é background
+   do quadro de altura fixa e a animação percorre de top a bottom em
+   loop alternado. Dispensa medição de altura via JS. */
+@keyframes solucoes-lp-scroll {
+  0%, 6%    { background-position: top center; }
+  94%, 100% { background-position: bottom center; }
+}
+.solucoes-lp-scroll.is-visible {
+  animation: solucoes-lp-scroll 22s ease-in-out 0.5s infinite alternate;
+}
+
+/* === Trilha do Roadmap (Hub) ===
+   Pontilhado do que ainda vem — caminha para a frente sem pressa.
+   O passo do keyframe é o ciclo do dasharray (1 + 12), então emenda. */
+@keyframes roadmap-porvir {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -13px; }
+}
+.roadmap-porvir {
+  animation: roadmap-porvir 1.8s linear infinite;
+}
+
+/* Respiro do brilho sob o trecho já entregue. */
+@keyframes roadmap-luz {
+  0%, 100% { opacity: 0.22; }
+  50%      { opacity: 0.5; }
+}
+.roadmap-luz {
+  animation: roadmap-luz 4.5s ease-in-out infinite;
+}
+
+/* Luz que percorre a trilha. O traço usa pathLength="1000", então o ciclo
+   do dasharray é sempre 1000 seja qual for o comprimento real da onda —
+   um deslocamento de -1000 equivale a exatamente uma volta completa. */
+@keyframes roadmap-percorre {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -1000; }
+}
+.roadmap-percorre {
+  animation: roadmap-percorre 6s linear infinite;
+}
+
+/* Rolagem horizontal sem barra visível (régua de períodos da trilha). */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* === Nossas Soluções — exportação em PDF (impressão nativa) ===
+   Reproduz o exportToPDF do guia original: esconde o chrome do app,
+   força tema claro e imprime backgrounds. A página controla via estado
+   quais seções ficam visíveis (classe print:hidden por seção) e abre
+   todos os accordions antes de chamar window.print(). */
+@media print {
+  header, footer, nav { display: none !important; }
+  main { max-width: 100% !important; }
+
+  /* Tema claro independente do tema ativo na tela */
+  html, html.dark, html.escola, html.dark.escola {
+    --background: 0 0% 100%;
+    --foreground: 220 15% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 35%;
+    --border: 0 0% 80%;
+    --primary: 155 93% 11%;
+    --primary-foreground: 0 0% 100%;
+    --error: 0 84% 40%;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  video { display: none !important; }
+
+  /* Accordions abertos sem animação (o conteúdo é montado pelo estado
+     de impressão antes do window.print) */
+  .animate-accordion-down, .animate-accordion-up {
+    animation: none !important;
+    height: auto !important;
+  }
+
+  /* Cartões com fundo cheio (bg-primary) viram cartões claros
+     para não gastar tinta nem sumir com o texto claro */
+  .print-flatten {
+    background-color: #fff !important;
+    color: hsl(var(--foreground)) !important;
+    border-color: hsl(var(--border)) !important;
+  }
+  .print-flatten [class*="text-background"],
+  .print-flatten [class*="text-primary-foreground"] { color: hsl(var(--foreground)) !important; }
+
+  .solucoes-lp-scroll { animation: none !important; }
+
+  /* Acentos por produto voltam aos valores de tema claro na impressão
+     (o PDF força fundo branco mesmo com html.dark ativo). */
+  .sol-escola        { --sol-accent: 36 90% 32% !important; }
+  .sol-sempre        { --sol-accent: 152 80% 27% !important; }
+  .sol-pro           { --sol-accent: 268 60% 45% !important; }
+  .sol-analitica     { --sol-accent: 207 90% 36% !important; }
+  .sol-internacional { --sol-accent: 336 75% 40% !important; }
+  .sol-agro          { --sol-accent: 95 65% 27% !important; }
+  .sol-conta         { --sol-accent: 15 80% 38% !important; }
+
+  tr, .rounded-xl, .rounded-2xl { break-inside: avoid; }
+}
+
+/* === Nossa estrutura — cubo do Produto ===
+   No tema claro o cubo é preto (com olho e rótulo em branco) para
+   destacar-se do fundo claro da seção; no escuro ele é o cubo branco
+   luminoso. As três faces mantêm o sombreado isométrico: topo mais
+   claro que a direita, que é mais clara que a esquerda.
+   O seletor .light repete os valores claros para os previews que forçam
+   tema claro sob html.dark. */
+:root,
+.light {
+  --cubo-produto-top: 0 0% 13%;
+  --cubo-produto-right: 0 0% 8%;
+  --cubo-produto-left: 0 0% 3%;
+  --cubo-produto-texto: 0 0% 100%;
+}
+.dark {
+  --cubo-produto-top: 0 0% 99%;
+  --cubo-produto-right: 210 22% 88%;
+  --cubo-produto-left: 216 16% 78%;
+  --cubo-produto-texto: 110 78% 9%;
+}
+
+/* === Nossa estrutura — infográfico isométrico (TimePage) ===
+   rise: entrada escalonada dos cubos; float: flutuação contínua;
+   dash: pulso de energia percorrendo as linhas do chão (o offset -156
+   corresponde à soma do strokeDasharray "14 142"); glow: cintilação do
+   halo do Produto e dos nós da grade. */
+@keyframes estrutura-rise {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes estrutura-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+@keyframes estrutura-dash {
+  to { stroke-dashoffset: -156; }
+}
+@keyframes estrutura-glow {
+  0%, 100% { opacity: 0.45; }
+  50%      { opacity: 1; }
+}
+/* Pulso de chegada: aplicado ao cubo com o mesmo período do ponto de luz
+   da linha e atraso de um ciclo — o brilho acende no 0% da animação,
+   exatamente quando o ponto alcança a área, e se dissolve devagar ao longo
+   de quase metade do ciclo. Intencionalmente sutil (brilho +8%, halo curto);
+   currentColor carrega a cor da face superior do cubo para o halo. */
+@keyframes estrutura-arrive {
+  0%   { filter: brightness(1.08) drop-shadow(0 0 4px currentColor); }
+  45%  { filter: brightness(1) drop-shadow(0 0 0 transparent); }
+  100% { filter: brightness(1); }
+}
+/* Traçado das linhas cubo → cards na rotina (pathLength=1 normaliza o dash) */
+@keyframes estrutura-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* === Nossas Soluções — acento de cor por produto ===
+   Cada seção de produto define --sol-accent (HSL sem hsl()), consumido
+   pelos blocos da página via hsl(var(--sol-accent, var(--primary))) —
+   componentes fora das seções continuam no verde primário. Valores
+   verificados para AA (≥4.5:1) como texto/ícone: escuros sobre fundo
+   branco no claro e claros sobre fundo preto no escuro. */
+.sol-escola        { --sol-accent: 36 90% 32%; }   /* dourado   */
+.sol-sempre        { --sol-accent: 152 80% 27%; }  /* esmeralda */
+.sol-pro           { --sol-accent: 268 60% 45%; }  /* violeta   */
+.sol-analitica     { --sol-accent: 207 90% 36%; }  /* azul      */
+.sol-internacional { --sol-accent: 336 75% 40%; }  /* magenta   */
+.sol-agro          { --sol-accent: 95 65% 27%; }   /* oliva     */
+.sol-conta         { --sol-accent: 15 80% 38%; }   /* telha     */
+.dark .sol-escola        { --sol-accent: 42 90% 60%; }
+.dark .sol-sempre        { --sol-accent: 145 55% 55%; }
+.dark .sol-pro           { --sol-accent: 270 65% 72%; }
+.dark .sol-analitica     { --sol-accent: 200 85% 62%; }
+.dark .sol-internacional { --sol-accent: 340 75% 68%; }
+.dark .sol-agro          { --sol-accent: 90 50% 55%; }
+.dark .sol-conta         { --sol-accent: 15 80% 64%; }
+
+/* Timeline scrollbar (Trilha Horizontal) */
+.timeline-scrollbar::-webkit-scrollbar { height: 4px; }
+.timeline-scrollbar::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 9999px;
+}
+.timeline-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.3);
+  border-radius: 9999px;
+  transition: background 0.2s;
+}
+.timeline-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
+.timeline-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--primary) / 0.3) hsl(var(--muted));
+}
+
+/* Livro — animação fechado → aberto no hover */
+.group\/livro:hover .livro-inner {
+  transform: rotateY(-28deg) rotateX(4deg);
+}
+
+/* === .light / .light.escola ===
+   Usados pelo ComponentShowcase e SectionThemeToggle para forçar o tema
+   claro localmente mesmo quando o ancestral html tem a classe .dark.
+   Redeclara todas as variáveis que .dark sobrescreve. */
+.light {
+  --background: 0 0% 100%;
+  --foreground: 110 78% 9%;
+  --card: 0 0% 100%;
+  --card-foreground: 110 78% 9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 110 78% 9%;
+  --primary: 155 93% 11%;
+  --primary-foreground: 0 0% 100%;
+  --primary-emphasis: 155 93% 11%;
+  --secondary: 160 55% 18%;
+  --secondary-foreground: 0 0% 100%;
+  --secondary-emphasis: 160 55% 18%;
+  --muted: 120 10% 95%;
+  --muted-foreground: 110 10% 40%;
+  --accent: 155 93% 11%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 48%;
+  --destructive-foreground: 0 0% 100%;
+  --success: 142 72% 29%;
+  --success-foreground: 0 0% 100%;
+  --warning: 35 95% 42%;
+  --warning-foreground: 220 15% 15%;
+  --info: 210 90% 42%;
+  --info-foreground: 0 0% 100%;
+  --error: 0 84% 48%;
+  --error-foreground: 0 0% 100%;
+  --border: 120 10% 88%;
+  --input: 120 10% 88%;
+  --ring: 155 93% 11%;
+  --brand: 155 93% 11%;
+  --brand-foreground: 0 0% 100%;
+  --brand-dark: 110 78% 9%;
+  --brand-hover: 155 80% 15%;
+  --brand-gradient-from: 155 93% 11%;
+  --brand-gradient-to: 140 70% 20%;
+  --cta: 155 93% 11%;
+  --cta-foreground: 0 0% 100%;
+  --cta-emphasis: 155 93% 11%;
+  --spotlight: transparent;
+  --chart-1: 152 80% 30%;
+  --chart-2: 270 60% 55%;
+  --chart-3: 38 92% 55%;
+  --chart-4: 199 89% 48%;
+  --chart-5: 340 75% 55%;
+  --chart-6: 15 80% 50%;
+  --chart-7: 90 55% 40%;
+  --chart-8: 220 30% 35%;
+  --chart-seq-1: 145 40% 92%;
+  --chart-seq-2: 150 50% 78%;
+  --chart-seq-3: 152 60% 60%;
+  --chart-seq-4: 154 75% 40%;
+  --chart-seq-5: 155 93% 11%;
+  --chart-div-neg: 0 72% 51%;
+  --chart-div-mid: 40 30% 92%;
+  --chart-div-pos: 155 93% 25%;
+}
+
+.light.escola {
+  --foreground: 220 15% 15%;
+  --card-foreground: 220 15% 15%;
+  --popover-foreground: 220 15% 15%;
+  --primary: 42 84% 63%;
+  --primary-foreground: 220 15% 15%;
+  --primary-emphasis: 40 90% 29%;
+  --secondary: 40 64% 54%;
+  --secondary-foreground: 220 15% 15%;
+  --secondary-emphasis: 40 90% 29%;
+  --muted: 40 30% 95%;
+  --muted-foreground: 40 15% 40%;
+  --accent: 42 83% 62%;
+  --accent-foreground: 220 15% 15%;
+  --warning: 35 95% 42%;
+  --warning-foreground: 220 15% 15%;
+  --info: 205 85% 38%;
+  --info-foreground: 0 0% 100%;
+  --error: 0 78% 52%;
+  --error-foreground: 0 0% 100%;
+  --border: 42 30% 87%;
+  --input: 42 30% 87%;
+  --ring: 42 84% 63%;
+  --brand: 42 84% 63%;
+  --brand-foreground: 220 15% 15%;
+  --brand-dark: 42 100% 33%;
+  --brand-hover: 40 64% 54%;
+  --brand-gradient-from: 38 100% 79%;
+  --brand-gradient-to: 42 100% 33%;
+  --success: 36 90% 32%;
+  --success-foreground: 0 0% 100%;
+  --cta: 42 84% 63%;
+  --cta-foreground: 220 15% 15%;
+  --cta-emphasis: 40 90% 29%;
+  --spotlight: hsl(42 84% 63% / 0.09);
+  --chart-1: 42 84% 55%;
+  --chart-2: 15 75% 55%;
+  --chart-3: 200 75% 45%;
+  --chart-4: 350 70% 55%;
+  --chart-5: 160 55% 40%;
+  --chart-6: 270 55% 55%;
+  --chart-7: 90 50% 45%;
+  --chart-8: 220 25% 35%;
+  --chart-seq-1: 45 80% 95%;
+  --chart-seq-2: 44 82% 80%;
+  --chart-seq-3: 43 84% 65%;
+  --chart-seq-4: 38 85% 50%;
+  --chart-seq-5: 32 90% 35%;
+  --chart-div-neg: 0 72% 51%;
+  --chart-div-mid: 40 30% 95%;
+  --chart-div-pos: 42 100% 33%;
+}
