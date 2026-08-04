@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
  *
  * Substitui classes Tailwind hardcoded (bg-emerald-100, text-blue-800…)
  * pelos tokens de dataviz (--chart-*) e semânticos (--success, --info…),
- * que já se adaptam a light/dark e às marcas Capital/Escola. Assim as
+ * que já se adaptam a light/dark e às marcas Marca A/Marca B. Assim as
  * tags não dependem da camada defensiva de overrides do dark mode.
  */
 

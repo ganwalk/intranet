@@ -208,7 +208,7 @@ export function PaletaDataViz() {
         <h3 className="text-lg font-bold mb-2 text-foreground">Como usar</h3>
         <p className="text-sm text-muted-foreground mb-3">
           Os tokens estão definidos em <code className="font-mono text-xs bg-muted px-1.5 py-0.5 rounded">src/index.css</code> e
-          mudam automaticamente conforme a marca ativa (Capital ou Escola).
+          mudam automaticamente conforme a marca ativa (Marca A ou Marca B).
         </p>
         <CodeBlock collapsible
           tabs={[
@@ -275,7 +275,7 @@ export function PaletaDataViz() {
             {
               label: "HTML / CSS / JS",
               language: "html",
-              code: `<!-- Tokens de Data Viz (Capital, light) — mesmos valores de src/index.css -->
+              code: `<!-- Tokens de Data Viz (Marca A, light) — mesmos valores de src/index.css -->
 <!-- Equivalente React: export function PaletaDataViz() -->
 <style>
   :root {

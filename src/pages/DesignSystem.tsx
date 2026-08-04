@@ -203,18 +203,18 @@ export default function DesignSystemPage() {
   const { brand, setBrand } = useBrand();
   const { toast } = useToast();
 
-  // Reseta para Capital ao sair do Design System
+  // Reseta para Marca A ao sair do Design System
   useEffect(() => {
-    return () => { setBrand("capital"); };
+    return () => { setBrand("marca-a"); };
   }, []);
 
-  const handleBrandPreview = (b: "capital" | "escola") => {
-    if (b === "escola") document.documentElement.classList.add("escola");
-    else document.documentElement.classList.remove("escola");
+  const handleBrandPreview = (b: "marca-a" | "marca-b") => {
+    if (b === "marca-b") document.documentElement.classList.add("marca-b");
+    else document.documentElement.classList.remove("marca-b");
   };
   const handleBrandRevert = () => {
-    if (brand === "escola") document.documentElement.classList.add("escola");
-    else document.documentElement.classList.remove("escola");
+    if (brand === "marca-b") document.documentElement.classList.add("marca-b");
+    else document.documentElement.classList.remove("marca-b");
   };
 
   const normalize = (s: string) =>
@@ -421,8 +421,8 @@ export default function DesignSystemPage() {
                     {brandOpen && (
                       <div className="space-y-0.5 mt-1">
                         {[
-                          { id: "capital" as const, label: "Capital", color: "hsl(243,75%,59%)" },
-                          { id: "escola" as const, label: "Escola", color: "hsl(173,80%,40%)" },
+                          { id: "marca-a" as const, label: "Marca A", color: "hsl(243,75%,59%)" },
+                          { id: "marca-b" as const, label: "Marca B", color: "hsl(173,80%,40%)" },
                         ].map((b) => (
                           <button
                             key={b.id}
@@ -513,7 +513,7 @@ export default function DesignSystemPage() {
         id="intro"
         icon={Palette}
         title="Bem-vindo ao Design System"
-        description="A referência oficial de tokens visuais, componentes e padrões de interface das marcas Capital e Escola. Navegue pela sidebar para explorar cada área."
+        description="A referência oficial de tokens visuais, componentes e padrões de interface das marcas Marca A e Marca B. Navegue pela sidebar para explorar cada área."
       />
 
       <div className="max-w-7xl mx-auto flex gap-0 relative px-4 md:px-8">
@@ -532,8 +532,8 @@ export default function DesignSystemPage() {
             {brandOpen && (
               <div className="space-y-0.5 mt-1">
                 {[
-                  { id: "capital" as const, label: "Capital", color: "hsl(243,75%,59%)" },
-                  { id: "escola" as const, label: "Escola", color: "hsl(173,80%,40%)" },
+                  { id: "marca-a" as const, label: "Marca A", color: "hsl(243,75%,59%)" },
+                  { id: "marca-b" as const, label: "Marca B", color: "hsl(173,80%,40%)" },
                 ].map((b) => (
                   <button
                     key={b.id}
@@ -667,7 +667,7 @@ export default function DesignSystemPage() {
           <Separator />
           <section id="colors">
             <h2 className="text-2xl font-bold mb-2">Cores</h2>
-            <p className="text-muted-foreground mb-6">Paleta de cores semânticas do tema {brand === "capital" ? "Capital (Índigo)" : "Escola (Turquesa)"}</p>
+            <p className="text-muted-foreground mb-6">Paleta de cores semânticas do tema {brand === "marca-a" ? "Marca A (Índigo)" : "Marca B (Turquesa)"}</p>
              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
                 { name: "Primary", var: "primary", fg: "primary-foreground" },
@@ -733,7 +733,7 @@ export default function DesignSystemPage() {
               <h3 className="text-xl font-bold mb-2">Paleta para Dados e Gráficos</h3>
               <p className="text-muted-foreground mb-6">
                 Conjunto expandido de cores derivado da identidade da marca, usado em tabelas com múltiplas categorias,
-                gráficos de pizza, barras, linhas e mapas de calor. As cores se adaptam automaticamente entre Capital e Escola.
+                gráficos de pizza, barras, linhas e mapas de calor. As cores se adaptam automaticamente entre Marca A e Marca B.
               </p>
               <SectionThemeToggle bare title="Paleta de Dados & Gráficos" description="Conjunto expandido de cores derivado da identidade de marca, usado em tabelas com múltiplas categorias, gráficos de pizza, barras, linhas e mapas de calor." code={paletaDataVizSrc} selfDocumented><PaletaDataViz /></SectionThemeToggle>
             </div>
@@ -799,12 +799,12 @@ export default function DesignSystemPage() {
             <p className="text-muted-foreground mb-6">Durações e easings padronizados. Animações via JS devem respeitar <code className="bg-muted px-1 rounded text-sm font-mono">prefers-reduced-motion</code> (hook <code className="bg-muted px-1 rounded text-sm font-mono">useReducedMotion</code>); as de CSS já são neutralizadas globalmente.</p>
             <ComponentShowcase
               title="Durações & Easings"
-              description="Passe o cursor sobre os cards para sentir cada duração. 240ms ease é o padrão do sistema; 320ms nas LPs da Escola."
+              description="Passe o cursor sobre os cards para sentir cada duração. 240ms ease é o padrão do sistema; 320ms nas LPs da Marca B."
               code={`<div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
   {[
     { ms: "150ms", cls: "duration-150", uso: "Micro-interações: ícones, toggles, tooltips" },
     { ms: "240ms", cls: "duration-[240ms]", uso: "Padrão do sistema: botões, cards, hovers" },
-    { ms: "320ms", cls: "duration-[320ms]", uso: "Escola LP: cards translúcidos e destaques" },
+    { ms: "320ms", cls: "duration-[320ms]", uso: "Marca B LP: cards translúcidos e destaques" },
   ].map((d) => (
     <div key={d.ms} className={\`bg-card border border-border rounded-xl p-6 text-center transition-all ease-out hover:-translate-y-1 hover:shadow-md cursor-pointer \${d.cls}\`}>
       <p className="font-mono text-2xl font-bold text-foreground">{d.ms}</p>
@@ -829,7 +829,7 @@ export default function DesignSystemPage() {
                 {[
                   { ms: "150ms", cls: "duration-150", uso: "Micro-interações: ícones, toggles, tooltips" },
                   { ms: "240ms", cls: "duration-[240ms]", uso: "Padrão do sistema: botões, cards, hovers" },
-                  { ms: "320ms", cls: "duration-[320ms]", uso: "Escola LP: cards translúcidos e destaques" },
+                  { ms: "320ms", cls: "duration-[320ms]", uso: "Marca B LP: cards translúcidos e destaques" },
                 ].map((d) => (
                   <div key={d.ms} className={`bg-card border border-border rounded-xl p-6 text-center transition-all ease-out hover:-translate-y-1 hover:shadow-md cursor-pointer ${d.cls}`}>
                     <p className="font-mono text-2xl font-bold text-foreground">{d.ms}</p>
@@ -1097,13 +1097,13 @@ function showTab(tabId) {
           <section id="site-calc">
             <h2 className="text-2xl font-bold mb-2">Calculadora de Rendimentos</h2>
             <p className="text-muted-foreground mb-6">Widget de simulação para landing pages com tipografia e CTAs do tema Sites.</p>
-            <SectionThemeToggle bare title="Calculadora de Rendimentos" description="Widget de simulação para landing pages com slider de valor, resultado animado e CTAs do tema Sites. Identidade visual Capital/Escola via contexto de marca." code={calculadoraRendimentosSrc} selfDocumented><CalculadoraRendimentos /></SectionThemeToggle>
+            <SectionThemeToggle bare title="Calculadora de Rendimentos" description="Widget de simulação para landing pages com slider de valor, resultado animado e CTAs do tema Sites. Identidade visual Marca A/Marca B via contexto de marca." code={calculadoraRendimentosSrc} selfDocumented><CalculadoraRendimentos /></SectionThemeToggle>
           </section>
 
           <Separator />
           <section id="tool-calc">
             <h2 className="text-2xl font-bold mb-2">Calculadora de Câmbio</h2>
-            <p className="text-muted-foreground mb-6">Ferramenta interativa de conversão de moedas com IOF, VET e identidade visual da marca ({brand === "capital" ? "Capital" : "Escola"}).</p>
+            <p className="text-muted-foreground mb-6">Ferramenta interativa de conversão de moedas com IOF, VET e identidade visual da marca ({brand === "marca-a" ? "Marca A" : "Marca B"}).</p>
             <SectionThemeToggle bare title="Calculadora de Câmbio" description="Ferramenta interativa de conversão de moedas com cálculo automático de IOF, VET e exibição de cotação. Suporta múltiplas moedas e sentidos de conversão." code={calculadoraSrc} selfDocumented><Calculadora /></SectionThemeToggle>
           </section>
 
@@ -1758,7 +1758,7 @@ const { toast } = useToast();
           <Separator />
           <section id="tags-badges">
             <h2 className="text-2xl font-bold mb-2">Badges & Tags</h2>
-            <p className="text-muted-foreground mb-6">Badge (shadcn) para status simples; <strong>Tag</strong> tokenizada para categorias e estados — usa os tokens <code className="bg-muted px-1 rounded text-sm font-mono">--chart-*</code> e semânticos, adaptando-se a light/dark e às marcas Capital/Escola.</p>
+            <p className="text-muted-foreground mb-6">Badge (shadcn) para status simples; <strong>Tag</strong> tokenizada para categorias e estados — usa os tokens <code className="bg-muted px-1 rounded text-sm font-mono">--chart-*</code> e semânticos, adaptando-se a light/dark e às marcas Marca A/Marca B.</p>
             <div className="space-y-6">
               <ComponentShowcase
                 title="Badge"

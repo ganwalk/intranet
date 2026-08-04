@@ -65,7 +65,7 @@ Sem isso, o path quebra no GitHub Pages (base `/central/`).
 
 **Hero das páginas** — toda página de conteúdo abre com `<PageHero>` passado pela prop `hero` do `PageShell`. Sub-páginas do Hub (que não aparecem na navegação global) passam `actions={<VoltarParaCentral />}`.
 
-**Marca** — `BrandContext` alterna entre duas variantes de marca (`capital` e `escola`, nomes internos genéricos — não são nomes de produtos reais). A classe é aplicada no `<html>`. Componentes na pasta `widgets/` podem ter variantes por marca. A paleta de cada variante mora em `src/index.css` (`:root`/`.escola`).
+**Marca** — `BrandContext` alterna entre duas variantes de marca (`marca-a` e `marca-b`, exibidas como "Marca A"/"Marca B"). A classe `marca-b` é aplicada no `<html>` quando a segunda variante está ativa. Componentes na pasta `widgets/` podem ter variantes por marca. A paleta de cada variante mora em `src/index.css` (`:root`/`.marca-b`).
 
 **Avatares do time** — sempre renderizar com `<TeamPhoto id="…" alt="…" />` (`src/components/TeamPhoto.tsx`). Não há fotos: o componente gera um avatar colorido com as iniciais do nome, de forma determinística a partir do `id`.
 

@@ -86,7 +86,7 @@ export const novidadesMensais: NovidadeMensal[] = [
     ],
     spoiler: [
       "🗣️ Sistema de indicações — lançamento em breve",
-      "📚 Novo módulo inicial da Escola — em produção",
+      "📚 Novo módulo inicial do [Produto A] — em produção",
       "📱 Aplicativo unificado — projeto ganhando forma",
     ],
     rodape: "E com isso, bora para agosto! Caso tenham mais sugestões ou ideias, podem mandar pra gente.",
@@ -97,7 +97,7 @@ export const novidadesMensais: NovidadeMensal[] = [
     items: [
       {
         emoji: "📊",
-        titulo: "Escola completamente regravada",
+        titulo: "[Produto A] completamente regravado",
         descricao: "A gente sempre acompanha os feedbacks de vocês e sabe que manter o conteúdo atualizado é essencial para a experiência de aprendizagem. Por isso, concluímos a regravação integral de todas as aulas do treinamento.",
         antes: "Aulas gravadas em versões anteriores, com o conteúdo internacional concentrado em uma única aula.",
         depois: "Treinamento inteiro regravado, com conteúdo 100% atualizado e dividido em partes menores para facilitar o estudo.",
@@ -108,8 +108,8 @@ export const novidadesMensais: NovidadeMensal[] = [
         ],
         envolvidos: ["Colaborador 3", "Colaborador 6", "Colaborador 9"],
         destaque: {
-          titulo: "Escola 100% regravada",
-          descricao: "Concluímos a regravação integral e a atualização de todo o conteúdo da Escola, focados em manter o padrão de qualidade da experiência de estudo.",
+          titulo: "[Produto A] 100% regravado",
+          descricao: "Concluímos a regravação integral e a atualização de todo o conteúdo do [Produto A], focados em manter o padrão de qualidade da experiência de estudo.",
         },
       },
       {
@@ -137,7 +137,7 @@ export const novidadesMensais: NovidadeMensal[] = [
     spoiler: [
       "🖥️ Nova versão do Hub — lançamento marcado para o início de julho",
       "🗣️ Nova plataforma para o sistema de indicações (em fase de reformulação)",
-      "📚 Novo módulo inicial da Escola (em processo de criação)",
+      "📚 Novo módulo inicial do [Produto A] (em processo de criação)",
     ],
     rodape: "E com isso, bora para julho! Caso tenham mais sugestões ou ideias, podem mandar pra gente.",
   },
@@ -160,7 +160,7 @@ export const novidadesMensais: NovidadeMensal[] = [
       },
       {
         emoji: "🛠️",
-        titulo: "Melhorias na Escola",
+        titulo: "Melhorias no [Produto A]",
         descricao: "Continuamos implementando melhorias técnicas, visuais e de conteúdo no ambiente de aulas. Essas correções só acontecem porque vocês compartilham feedbacks com a gente — obrigado!",
       },
       {

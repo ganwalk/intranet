@@ -8,8 +8,8 @@ import {
 import { ChevronDown } from "lucide-react";
 
 const brandLabels = {
-  capital: "Capital",
-  escola: "Escola",
+  "marca-a": "Marca A",
+  "marca-b": "Marca B",
 } as const;
 
 export function BrandToggle() {
@@ -25,16 +25,16 @@ export function BrandToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="min-w-[160px]">
         <DropdownMenuItem
-          onClick={() => setBrand("capital")}
-          className={brand === "capital" ? "font-bold text-primary" : ""}
+          onClick={() => setBrand("marca-a")}
+          className={brand === "marca-a" ? "font-bold text-primary" : ""}
         >
-          Capital
+          Marca A
         </DropdownMenuItem>
         <DropdownMenuItem
-          onClick={() => setBrand("escola")}
-          className={brand === "escola" ? "font-bold text-primary" : ""}
+          onClick={() => setBrand("marca-b")}
+          className={brand === "marca-b" ? "font-bold text-primary" : ""}
         >
-          Escola
+          Marca B
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

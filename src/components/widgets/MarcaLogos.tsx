@@ -84,7 +84,7 @@ export function MarcaLogos() {
             <img src={olhoAmarelo.url} alt="Símbolo de acento" className="h-16 mb-4" />
             <span className="text-sm font-bold text-neutral-100 mb-1">Acento</span>
             <span className="text-xs text-neutral-400">
-              Cor primária da marca {brand === "capital" ? "Capital" : "Escola"}
+              Cor primária da marca {brand === "marca-a" ? "Marca A" : "Marca B"}
             </span>
             <OlhoDownloadButtons svgRaw={olhoAmarelo.raw} svgUrl={olhoAmarelo.url} filename="simbolo-acento" dark />
           </div>

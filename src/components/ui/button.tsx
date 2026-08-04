@@ -11,7 +11,7 @@ const buttonVariants = cva(
       variant: {
         /* Estados "vazados" (hover revela a borda) usam os tokens *-emphasis:
            a cor da marca legível como texto sobre o fundo do tema ativo —
-           na Escola clara o dourado puro sobre branco dá só 1.69:1. */
+           na Marca B clara a cor pura sobre branco dá contraste baixo. */
         default:
           "bg-primary text-primary-foreground border border-primary hover:bg-transparent hover:text-primary-emphasis hover:border-primary-emphasis",
         destructive:
@@ -25,8 +25,8 @@ const buttonVariants = cva(
         /** CTA estilo LP — bordas retas, transição de fundo */
         cta: "bg-cta text-cta-foreground border border-transparent hover:bg-transparent hover:text-cta-emphasis hover:border-cta-emphasis uppercase tracking-wider text-sm",
         /** CTA invertido para fundos escuros — claro: fundo branco com leve
-         * atenuação no hover; escuro: fundo com o acento da marca (índigo no
-         * Capital, turquesa na Escola) com texto quase-preto e hover clareado. */
+         * atenuação no hover; escuro: fundo com o acento da marca (índigo na
+         * Marca A, turquesa na Marca B) com texto quase-preto e hover clareado. */
         "cta-inverted":
           "bg-[hsl(0_0%_98%)] text-cta-emphasis border border-cta-emphasis hover:bg-[hsl(0_0%_88%)] hover:border-cta-emphasis hover:text-cta-emphasis dark:bg-brand dark:border-brand dark:text-brand-foreground dark:hover:bg-brand-hover dark:hover:border-brand-hover dark:hover:text-brand-foreground uppercase tracking-wider text-sm",
       },

@@ -11,7 +11,7 @@ interface Node {
 
 const DATA: Node[] = [
   {
-    key: "capital", label: "Produto A", children: [
+    key: "produto-a", label: "Produto A", children: [
       { key: "marca", label: "Marca", children: [
         { key: "logo", label: "logo.svg" },
         { key: "manual", label: "manual.pdf" },
@@ -26,7 +26,7 @@ const DATA: Node[] = [
     ],
   },
   {
-    key: "escola", label: "Produto B", children: [
+    key: "produto-b", label: "Produto B", children: [
       { key: "cursos", label: "Cursos", children: [
         { key: "fundamentos", label: "Fundamentos.mp4" },
       ]},
@@ -79,7 +79,7 @@ export function TreeWidget() {
       code={`interface Node { key: string; label: string; children?: Node[] }
 
 const DATA: Node[] = [
-  { key: "capital", label: "Produto A", children: [
+  { key: "produto-a", label: "Produto A", children: [
     { key: "marca", label: "Marca", children: [
       { key: "logo", label: "logo.svg" },
       { key: "manual", label: "manual.pdf" },
@@ -92,7 +92,7 @@ const DATA: Node[] = [
       ]},
     ]},
   ]},
-  { key: "escola", label: "Produto B", children: [
+  { key: "produto-b", label: "Produto B", children: [
     { key: "cursos", label: "Cursos", children: [
       { key: "fundamentos", label: "Fundamentos.mp4" },
     ]},

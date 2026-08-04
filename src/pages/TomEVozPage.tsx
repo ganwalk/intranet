@@ -77,7 +77,7 @@ export default function TomEVozPage() {
   };
 
   useEffect(() => {
-    setBrand("capital");
+    setBrand("marca-a");
     return () => {
       setBrand(previousBrand);
     };

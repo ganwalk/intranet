@@ -8,7 +8,7 @@ import type { TagTone } from "@/components/widgets/Tag";
 /**
  * Marcos do Time de Produto — fonte única da trilha exibida no Hub.
  *
- * A maior parte das datas vem das Atualizações da Escola
+ * A maior parte das datas vem do Mural de Novidades
  * (`src/data/novidades.ts`), que é o registro mês a mês do que foi
  * entregue. Os marcos que não aparecem lá estão marcados com
  * `dataAssumida: true` — a estimativa está no comentário de cada item e
@@ -37,7 +37,7 @@ export interface Marco {
   to?: string;
   /** Link externo relacionado ao marco. */
   href?: string;
-  /** Data estimada — não consta nas Atualizações da Escola. */
+  /** Data estimada — não consta no Mural de Novidades. */
   dataAssumida?: boolean;
   /** Marco que acontece ao longo de vários meses, sem data única. */
   continuo?: boolean;
@@ -66,7 +66,7 @@ export const marcos: Marco[] = [
   {
     id: "modulos",
     icon: Library,
-    titulo: "Novo conteúdo liberado na Escola",
+    titulo: "Novo conteúdo liberado no [Produto A]",
     quando: "Fevereiro a julho de 2026",
     periodo: "Fev–Jul",
     data: "2026-02-01",
@@ -122,7 +122,7 @@ export const marcos: Marco[] = [
     id: "qa-design",
     icon: MessagesSquare,
     titulo: "Q&A de Design",
-    // Sem data registrada nas Atualizações da Escola. Estimado para maio,
+    // Sem data registrada no Mural de Novidades. Estimado para maio,
     // logo depois da publicação do Design System e do Manual de Tom e Voz.
     quando: "Maio de 2026",
     periodo: "Mai",

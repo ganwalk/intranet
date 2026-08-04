@@ -30,7 +30,7 @@ const paginas = [
   { label: "Nosso Time", path: "/time", icon: Users, keywords: "time organograma pessoas equipe" },
   { label: "Design System", path: "/design-system", icon: Palette, keywords: "componentes tokens cores tipografia" },
   { label: "Manual de Tom e Voz", path: "/tom-e-voz", icon: Volume2, keywords: "comunicação escrita linguagem voz" },
-  { label: "Nossas Soluções", path: "/solucoes", icon: Layers, keywords: "produtos soluções guia vendas escola sempre pro analítica internacional agro conta" },
+  { label: "Nossas Soluções", path: "/solucoes", icon: Layers, keywords: "produtos soluções guia vendas" },
   { label: "Roadmap", path: "/roadmap", icon: Map, keywords: "roadmap entregas trimestre planejamento" },
   { label: "Mural de Novidades", path: "/novidades", icon: Newspaper, keywords: "novidades atualizações mural mensal" },
   { label: "Produtos Físicos", path: "/produtos-fisicos", icon: Package, keywords: "brindes produtos físicos portfólio caneca garrafa boné meia ecobag catálogo" },

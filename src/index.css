@@ -5,14 +5,14 @@
 @tailwind utilities;
 
 /* Design System — Design Tokens
-   Default: marca "Capital" (Índigo)
-   .escola: marca "Escola" (Turquesa)
+   Default: Marca A (Índigo)
+   .marca-b: Marca B (Turquesa)
    All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    /* === Marca Capital (Índigo) === */
+    /* === Marca A (Índigo) === */
     --font-display: 'Anek Latin', sans-serif;
     --font-body: 'Roboto', sans-serif;
     --font-ui: 'Sora', sans-serif;
@@ -29,7 +29,7 @@
     --primary: 225 93% 11%;
     --primary-foreground: 0 0% 100%;
     /* *-emphasis: versão da cor segura como TEXTO sobre --background (≥4.5:1).
-       No Capital claro a própria cor já passa; na Escola clara a marca
+       No Marca A claro a própria cor já passa; na Marca B clara a marca
        precisa escurecer. Usada em links e no hover "vazado" dos botões. */
     --primary-emphasis: 225 93% 11%;
 
@@ -47,7 +47,7 @@
     --destructive: 0 84% 48%;
     --destructive-foreground: 0 0% 100%;
 
-    /* === Status semânticos (Capital) ===
+    /* === Status semânticos (Marca A) ===
        Valores escurecidos para passarem AA (4.5:1) tanto como fundo com
        texto branco quanto como texto/ícone sobre --background.
        Exceção: --warning mantém texto escuro; como texto/ícone sobre fundo
@@ -89,7 +89,7 @@
     --sidebar-border: 190 20% 15%;
     --sidebar-ring: 225 93% 11%;
 
-    /* === Data Visualization Palette (Capital) ===
+    /* === Data Visualization Palette (Marca A) ===
        Paleta categórica de 8 cores derivadas da identidade verde,
        balanceada para tabelas, gráficos de pizza, barras e linhas.
        Ordem otimizada para distinção máxima em séries categóricas. */
@@ -115,8 +115,8 @@
     --chart-div-pos: 225 93% 25%;
   }
 
-  .escola {
-    /* === Marca Escola (Turquesa) === */
+  .marca-b {
+    /* === Marca B (Turquesa) === */
     --foreground: 220 15% 15%;
 
     --primary: 175 84% 63%;
@@ -137,8 +137,8 @@
     --accent: 175 83% 62%;
     --accent-foreground: 220 15% 15%;
 
-    /* === Status semânticos (Escola) ===
-       Mesmo critério do Capital: AA como fundo e como texto sobre branco
+    /* === Status semânticos (Marca B) ===
+       Mesmo critério do Marca A: AA como fundo e como texto sobre branco
        (warning mira 3:1 como ícone/elemento gráfico). */
     --warning: 35 95% 42%;
     --warning-foreground: 220 15% 15%;
@@ -168,7 +168,7 @@
     --sidebar-border: 175 50% 28%;
     --sidebar-ring: 175 84% 63%;
 
-    /* === Data Visualization Palette (Escola) ===
+    /* === Data Visualization Palette (Marca B) ===
        Paleta categórica derivada da marca, com complementares
        que mantêm hierarquia e legibilidade. */
     --chart-1: 175 84% 55%;    /* Turquesa da marca */
@@ -194,12 +194,12 @@
     --border: 175 30% 87%;
     --input: 175 30% 87%;
 
-    /* === Status semânticos (Escola) — âmbar em vez de verde ===
+    /* === Status semânticos (Marca B) — âmbar em vez de verde ===
        Âmbar escurecido: branco sobre 38 80% 45% dava 2.85:1. */
     --success: 36 90% 32%;
     --success-foreground: 0 0% 100%;
 
-    /* CTA na cor da marca Escola */
+    /* CTA na cor da Marca B */
     --cta: 175 84% 63%;
     --cta-foreground: 220 15% 15%;
     --cta-emphasis: 173 90% 29%;
@@ -208,7 +208,7 @@
   }
 
   .dark {
-    /* === Marca Capital — Dark (fundo preto) === */
+    /* === Marca A — Dark (fundo preto) === */
     --background: 0 0% 0%;
     --foreground: 0 0% 98%;
 
@@ -276,7 +276,7 @@
     --sidebar-border: 0 0% 16%;
     --sidebar-ring: 215 20% 50%;
 
-    /* Data Viz — Dark Capital (paleta colorida para gráficos) */
+    /* Data Viz — Dark Marca A (paleta colorida para gráficos) */
     --chart-1: 205 50% 55%;   /* Azul da marca */
     --chart-2: 270 65% 70%;   /* Violeta */
     --chart-3: 38 90% 65%;    /* Âmbar */
@@ -299,9 +299,9 @@
     --spotlight: hsl(var(--primary) / 0.07);
   }
 
-  .dark.escola,
-  .escola .dark {
-    /* === Marca Escola — Dark (fundo preto) === */
+  .dark.marca-b,
+  .marca-b .dark {
+    /* === Marca B — Dark (fundo preto) === */
     --background: 0 0% 0%;
     --foreground: 178 25% 96%;
 
@@ -336,7 +336,7 @@
     --brand-gradient-from: 175 84% 55%;
     --brand-gradient-to: 171 80% 25%;
 
-    /* CTA na cor da marca Escola (dark) */
+    /* CTA na cor da Marca B (dark) */
     --cta: 175 90% 65%;
     --cta-foreground: 0 0% 8%;
     --cta-emphasis: 175 90% 65%;
@@ -478,19 +478,19 @@
    (foi o caso do cartão "Resolve Aí" em Nossas Soluções). Esta trava herda
    a cor legível da superfície invertida. Para destacar um cartão, o padrão
    correto do Design System é o par bg-primary + text-primary-foreground,
-   que passa AA nos quatro temas (Capital/Escola × claro/escuro). */
+   que passa AA nos quatro temas (Marca A/Marca B × claro/escuro). */
 .bg-foreground .text-primary { color: hsl(var(--background)) !important; }
 
-/* === Escola (claro) — cor da marca como texto ===
+/* === Marca B (claro) — cor da marca como texto ===
    A cor da marca (175 84% 63%) sobre fundo claro dá contraste baixo.
    text-primary é usado como texto/ícone de destaque em várias páginas; aqui
    trocamos pela versão emphasis (≥4.5:1) apenas em contexto claro:
-   - 1º seletor: marca Escola com tema claro ativo (:not(.dark *) preserva
+   - 1º seletor: Marca B com tema claro ativo (:not(.dark *) preserva
      previews locais forçados para escuro, onde a cor clara é correta);
-   - 2º seletor: previews locais forçados para claro (.light.escola) mesmo
+   - 2º seletor: previews locais forçados para claro (.light.marca-b) mesmo
      sob html.dark. */
-.escola .text-primary:not(.dark *),
-.light.escola .text-primary {
+.marca-b .text-primary:not(.dark *),
+.light.marca-b .text-primary {
   color: hsl(var(--primary-emphasis));
 }
 
@@ -623,7 +623,7 @@
   main { max-width: 100% !important; }
 
   /* Tema claro independente do tema ativo na tela */
-  html, html.dark, html.escola, html.dark.escola {
+  html, html.dark, html.marca-b, html.dark.marca-b {
     --background: 0 0% 100%;
     --foreground: 220 15% 15%;
     --card: 0 0% 100%;
@@ -777,7 +777,7 @@
   transform: rotateY(-28deg) rotateX(4deg);
 }
 
-/* === .light / .light.escola ===
+/* === .light / .light.marca-b ===
    Usados pelo ComponentShowcase e SectionThemeToggle para forçar o tema
    claro localmente mesmo quando o ancestral html tem a classe .dark.
    Redeclara todas as variáveis que .dark sobrescreve. */
@@ -839,7 +839,7 @@
   --chart-div-pos: 225 93% 25%;
 }
 
-.light.escola {
+.light.marca-b {
   --foreground: 220 15% 15%;
   --card-foreground: 220 15% 15%;
   --popover-foreground: 220 15% 15%;

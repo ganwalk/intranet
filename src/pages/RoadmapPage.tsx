@@ -26,23 +26,23 @@ const roadmap: Item[] = [
   { produto: "Design System",   titulo: "Novos componentes de data viz",         desc: "Paleta de 8 cores para gráficos (pizza, barras, linhas) com suporte a dark mode.",                       status: "concluido",    trimestre: "Q2 2025" },
   { produto: "Tom e Voz",       titulo: "Expansão para novos produtos",           desc: "Seções de tom e voz para as demais verticais da empresa.",                                               status: "concluido",    trimestre: "Q1 2025" },
   { produto: "Central",         titulo: "Deploy no GitHub Pages",                 desc: "Publicação da Central de Produto em produção com CI/CD automatizado.",                                   status: "concluido",    trimestre: "Q2 2025" },
-  { produto: "Escola",          titulo: "Documentação do produto",                desc: "Proposta de valor, módulos, comunidade e ferramentas documentados.",                                     status: "concluido",    trimestre: "Q2 2025" },
+  { produto: "[Produto A]",          titulo: "Documentação do produto",                desc: "Proposta de valor, módulos, comunidade e ferramentas documentados.",                                     status: "concluido",    trimestre: "Q2 2025" },
 
   // Em progresso
   { produto: "Design System",   titulo: "Tokens de espaçamento e elevação",       desc: "Padronização de spacing scale e shadow tokens para consistência entre plataformas.",                    status: "em-progresso", trimestre: "Q2 2025" },
   { produto: "Central",         titulo: "Roadmap interativo",                     desc: "Página de roadmap com filtros por produto e status para o time interno.",                                status: "em-progresso", trimestre: "Q2 2025" },
-  { produto: "Escola",          titulo: "Integração com métricas de engajamento", desc: "Dashboard de conclusão de módulos, taxa de presença nas lives e NPS dos alunos.",                       status: "em-progresso", trimestre: "Q2 2025" },
+  { produto: "[Produto A]",          titulo: "Integração com métricas de engajamento", desc: "Dashboard de conclusão de módulos, taxa de presença nas lives e NPS dos alunos.",                       status: "em-progresso", trimestre: "Q2 2025" },
 
   // Planejados
   { produto: "Design System",   titulo: "Guia de acessibilidade",                 desc: "Checklist WCAG 2.1 AA, padrões de contraste e navegação por teclado para todos os componentes.",       status: "planejado",    trimestre: "Q3 2025" },
-  { produto: "Analítica",       titulo: "Alertas inteligentes de carteira",       desc: "Notificações automáticas quando um ativo sair dos limites de alocação definidos pelo usuário.",         status: "planejado",    trimestre: "Q3 2025" },
-  { produto: "Escola",          titulo: "App mobile",                             desc: "Versão nativa para iOS e Android com acesso às aulas, comunidade e ferramentas offline.",               status: "planejado",    trimestre: "Q3 2025" },
-  { produto: "Agro",            titulo: "MVP de plataforma",                      desc: "Primeira versão com cadastro de propriedades, controle de receitas e integração de commodities.",       status: "planejado",    trimestre: "Q4 2025" },
+  { produto: "[Produto B]",       titulo: "Alertas inteligentes de carteira",       desc: "Notificações automáticas quando um ativo sair dos limites de alocação definidos pelo usuário.",         status: "planejado",    trimestre: "Q3 2025" },
+  { produto: "[Produto A]",          titulo: "App mobile",                             desc: "Versão nativa para iOS e Android com acesso às aulas, comunidade e ferramentas offline.",               status: "planejado",    trimestre: "Q3 2025" },
+  { produto: "[Produto C]",            titulo: "MVP de plataforma",                      desc: "Primeira versão com cadastro de propriedades, controle de receitas e integração de commodities.",       status: "planejado",    trimestre: "Q4 2025" },
 
   // Futuro
-  { produto: "Pro",             titulo: "Preparatório para certificação",         desc: "Curso preparatório para certificação profissional com simulados e trilha personalizada.",               status: "futuro",       trimestre: "2026"    },
-  { produto: "Experience",      titulo: "Portal do participante",                 desc: "Área exclusiva para membros com programação, conteúdos e networking dos eventos premium.",              status: "futuro",       trimestre: "2026"    },
-  { produto: "Crédito",         titulo: "Lançamento público",                     desc: "Saída do modo de desenvolvimento para acesso aberto aos membros.",                                       status: "futuro",       trimestre: "2026"    },
+  { produto: "[Produto D]",             titulo: "Preparatório para certificação",         desc: "Curso preparatório para certificação profissional com simulados e trilha personalizada.",               status: "futuro",       trimestre: "2026"    },
+  { produto: "[Produto E]",      titulo: "Portal do participante",                 desc: "Área exclusiva para membros com programação, conteúdos e networking dos eventos premium.",              status: "futuro",       trimestre: "2026"    },
+  { produto: "[Produto F]",         titulo: "Lançamento público",                     desc: "Saída do modo de desenvolvimento para acesso aberto aos membros.",                                       status: "futuro",       trimestre: "2026"    },
   { produto: "Design System",   titulo: "Biblioteca de motion design",            desc: "Padrões de animação, transições e micro-interações para uso em todos os produtos.",                     status: "futuro",       trimestre: "2026"    },
 ];
 
