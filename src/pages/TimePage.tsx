@@ -11,6 +11,7 @@ import {
   Search, Monitor, PenTool, Settings, Heart, ChevronRight, ChevronDown, User, X,
 } from "lucide-react";
 import { areaIcons } from "@/data/areasEmpresa";
+import { teamMembers } from "@/data/time";
 import { cn } from "@/lib/utils";
 
 function useReveal(threshold = 0.1) {
@@ -82,93 +83,73 @@ const levelColors: Record<OrgColor, string> = {
   "product-junior":"bg-slate-100 text-slate-700 dark:bg-slate-800/60 dark:text-slate-300",
 };
 
-const orgPeople: Record<string, OrgPerson> = {
-  raul: {
-    id: "raul", name: "Raul Sena", role: "Fundador e CEO",
-    initials: "RS", color: "ceo", level: "CEO", rank: 0,
-    description: "Placeholder: Visionário e fundador da AUVP, responsável pela direção estratégica e crescimento da empresa.",
-    responsibilities: ["Visão e estratégia da empresa", "Cultura organizacional", "Parcerias estratégicas", "Decisões de alto impacto"],
+/** Metadados por função — cor, nível e responsabilidades típicas do papel.
+ *  Nomes e cargos em si vêm sempre de `teamMembers` (src/data/time.ts). */
+const ROLE_META: Record<string, { color: OrgColor; level: string; rank: number; responsibilities: string[] }> = {
+  "Fundador(a) e CEO": {
+    color: "ceo", level: "CEO", rank: 0,
+    responsibilities: ["Visão e estratégia da empresa", "Cultura organizacional", "Decisões de alto impacto"],
   },
-  beatriz: {
-    id: "beatriz", name: "Beatriz Henriques", role: "Sócia e Diretora de Produto",
-    initials: "BH", color: "director", level: "Diretora", rank: 1,
-    description: "Placeholder: Dirige o time de produto e CX, conectando visão de negócio com execução e liderando os dois braços da área.",
-    responsibilities: ["Direção estratégica de produto", "Gestão e desenvolvimento do time", "CX estratégico", "Alinhamento cross-funcional"],
+  "Diretor(a) de Produto": {
+    color: "director", level: "Diretor(a)", rank: 1,
+    responsibilities: ["Direção estratégica de produto", "Gestão do time", "Alinhamento cross-funcional"],
   },
-  lilian: {
-    id: "lilian", name: "Lilian Araújo", role: "Especialista em CX",
-    initials: "LA", color: "cx", level: "Especialista", rank: 2,
-    description: "Especialista em experiência do cliente, responsável pela gestão da jornada, retenção e fidelização dos membros — conectando áreas e indicadores como NPS, CSAT e churn para evoluir a experiência de ponta a ponta.",
-    responsibilities: [
-      "Gestão da jornada do cliente",
-      "Estratégias de retenção e fidelização",
-      "Desenvolvimento e acompanhamento de processos e indicadores tais como NPS, CSAT e churn",
-      "Treinamento e capacitação do time em boas práticas de relacionamento",
-      "Desenho e implantação de ações e projetos para evolução do Health Score dos clientes",
-      "Integração entre áreas para aprimorar a experiência do cliente",
-    ],
+  "Coordenador(a) de Produto": {
+    color: "coordinator", level: "Coordenador(a)", rank: 2,
+    responsibilities: ["Priorização de iniciativas", "Coordenação de equipes", "Indicadores de performance"],
   },
-  debora: {
-    id: "debora", name: "Debora Sanders", role: "Analista de CX Sênior II",
-    initials: "DS", color: "cx", level: "Sênior", rank: 3,
-    description: "Analista de CX Sênior, responsável por conectar a voz do cliente às decisões estratégicas por meio de pesquisas e análises de jornada, apoiando a evolução contínua dos produtos.",
-    responsibilities: ["Pesquisa com usuários (qualitativa e quantitativa)", "Análise de jornadas e touchpoints", "Mapeamento de oportunidades de experiência", "Benchmarking de CX", "Apoio estratégico às decisões de produto"],
+  "Analista de CX": {
+    color: "cx", level: "Analista", rank: 2,
+    responsibilities: ["Gestão da jornada do cliente", "Indicadores de satisfação", "Ações de retenção"],
   },
-  daniel: {
-    id: "daniel", name: "Daniel Machado", role: "Coordenador de produto",
-    initials: "DM", color: "coordinator", level: "Coordenador", rank: 2,
-    description: "Líder de Produto responsável pela gestão estratégica e operacional da área, garantindo a eficiência, a qualidade e o alinhamento entre negócio e tecnologia.",
-    responsibilities: ["Priorização de iniciativas", "Coordenação de equipes multidisciplinares", "Governança e acompanhamento de indicadores", "Gestão de pessoas", "Alinhamento entre negócio, tecnologia e operação"],
+  "Gerente de Produto": {
+    color: "product-senior", level: "Gerente", rank: 3,
+    responsibilities: ["Estratégia e roadmap", "Discovery contínuo", "Acompanhamento de métricas"],
   },
-  ariadne: {
-    id: "ariadne", name: "Ariadne Carneiro", role: "Gerente de produto",
-    initials: "AC", color: "product-senior", level: "Gerente", rank: 3,
-    description: "Responsável pelo ciclo completo de produto, da identificação de oportunidades à entrega e mensuração de impacto.",
-    responsibilities: ["Estratégia, roadmap e priorização baseada em evidências", "Discovery contínuo", "Ponte entre design, engenharia e stakeholders", "Diagnóstico de problemas e acompanhamento de métricas de impacto"],
+  "Designer de Produto": {
+    color: "product-pleno", level: "Pleno", rank: 4,
+    responsibilities: ["UI/UX design", "Prototipação", "Design system"],
   },
-  armando: {
-    id: "armando", name: "Armando Neto", role: "Designer de Produto Pl. I",
-    initials: "AN", color: "product-pleno", level: "Pleno", rank: 4,
-    description: "Designer de produto pleno, responsável por interfaces digitais e protótipos de alta fidelidade.",
-    responsibilities: ["Design Gráfico", "UI/UX Design", "Prototipação e wireframes", "Design system", "Colaboração em pesquisas"],
+  "Redator(a)": {
+    color: "product-pleno", level: "Pleno", rank: 4,
+    responsibilities: ["Copywriting", "Revisão editorial", "Materiais de comunicação"],
   },
-  eria: {
-    id: "eria", name: "Éria Alencar", role: "Designer de Produto Pl. I",
-    initials: "EA", color: "product-pleno", level: "Pleno", rank: 4,
-    description: "Designer de produto pleno responsável por visual design, UI/UX e produtos físicos.",
-    responsibilities: ["Branding e identidade", "UI/UX design", "Produtos físicos", "Materiais digitais"],
+  "Analista de Produto": {
+    color: "product-pleno", level: "Pleno", rank: 4,
+    responsibilities: ["Análise de dados e métricas", "Documentação de produto", "Levantamento de requisitos"],
   },
-  mateus: {
-    id: "mateus", name: "Mateus Graff", role: "Redator / Roteirista Pl. I",
-    initials: "MG", color: "product-pleno", level: "Pleno", rank: 4,
-    description: "Redator e roteirista, responsável por conteúdo estratégico e copywriting.",
-    responsibilities: ["Copywriting de produto", "Comunicação corporativa e institucional", "Materiais educativos", "Roteiros", "Revisão editorial"],
-  },
-  jeniffer: {
-    id: "jeniffer", name: "Jeniffer Nascimento", role: "Analista de Produto Pl. I",
-    initials: "JN", color: "product-pleno", level: "Pleno", rank: 4,
-    description: "Analista de produto pleno, focada em análise de dados, requisitos e divulgação.",
-    responsibilities: ["Análise de dados e métricas", "Levantamento de requisitos", "Documentação de produto", "Desenvolvimento de materiais", "Estratégia de divulgação de produto", "Redação publicitária", "Revisão de materiais didáticos"],
-  },
-  elane: {
-    id: "elane", name: "Elane Rodrigues", role: "Analista de Produto Jr. I",
-    initials: "ER", color: "product-junior", level: "Júnior", rank: 5,
-    description: "Analista de Produto Júnior com foco em CX, apoiando o desenvolvimento de produtos digitais e a evolução da experiência do usuário.",
-    responsibilities: ["Gestão e refinamento de backlog", "Histórias de usuário e critérios de aceite", "Discovery, pesquisa e benchmarking", "Mapeamento de jornadas e fluxos", "Homologação e melhoria contínua"],
-  },
-  ana: {
-    id: "ana", name: "Ana Beatriz Melo", role: "Assistente de Produto",
-    initials: "AB", color: "product-junior", level: "Júnior", rank: 5,
-    description: "Viabiliza a execução da estratégia por meio da organização da operação, integração entre áreas e suporte analítico às iniciativas do time.",
-    responsibilities: ["Suporte operacional ao time de Produto", "Organização e melhoria de processos internos", "Análise de dados, métricas e apoio à tomada de decisão", "Comunicação e alinhamento entre áreas", "Produção de copy e conteúdos para o produto", "Apoio à documentação e padronização de processos internos"],
-  },
-  hiago: {
-    id: "hiago", name: "Hiago Felipe Sousa", role: "Assistente de Produto",
-    initials: "HF", color: "product-junior", level: "Júnior", rank: 5,
-    description: "Placeholder: Assistente de produto, contribui com as demandas do time e no desenvolvimento de entregas.",
-    responsibilities: ["Suporte às demandas do time", "Análise básica de dados", "Criação de documentações", "Apoio em pesquisas"],
+  "Assistente de Produto": {
+    color: "product-junior", level: "Júnior", rank: 5,
+    responsibilities: ["Suporte operacional", "Organização de processos", "Apoio à documentação"],
   },
 };
+
+function initialsFor(name: string): string {
+  const words = name.trim().split(/\s+/).filter(Boolean);
+  if (words.length === 0) return "?";
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  return (words[0][0] + words[1][0]).toUpperCase();
+}
+
+const orgPeople: Record<string, OrgPerson> = Object.fromEntries(
+  teamMembers.map((m) => {
+    const meta = ROLE_META[m.role];
+    return [
+      m.id,
+      {
+        id: m.id,
+        name: m.name,
+        role: m.role,
+        initials: initialsFor(m.name),
+        color: meta.color,
+        level: meta.level,
+        rank: meta.rank,
+        description: m.bio,
+        responsibilities: meta.responsibilities,
+      } satisfies OrgPerson,
+    ];
+  })
+);
 
 // ─── Person Card ──────────────────────────────────────────────────────────────
 // Clean org-node: white card, colored top accent, gradient avatar (photo placeholder)

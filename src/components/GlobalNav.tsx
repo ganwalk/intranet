@@ -16,7 +16,7 @@ const externalLinks = [
   {
     id: "codigo-etica",
     label: "Código de Ética",
-    href: "https://produtosauvp.github.io/etica/",
+    href: "#",
   },
 ];
 
@@ -45,14 +45,14 @@ const systems = [
   {
     id: "tom-e-voz",
     label: "Manual de Tom e Voz",
-    description: "Diretrizes de comunicação verbal da AUVP Capital",
+    description: "Diretrizes de comunicação verbal de [Empresa]",
     icon: Volume2,
     path: "/tom-e-voz",
   },
   {
     id: "solucoes",
     label: "Nossas Soluções",
-    description: "Guia completo dos produtos do ecossistema AUVP",
+    description: "Guia completo dos produtos do ecossistema [Empresa]",
     icon: Layers,
     path: "/solucoes",
   },
@@ -67,7 +67,7 @@ export function GlobalNav() {
   const currentSystem = systems.find((s) => s.path === location.pathname) || systems[0];
 
   useEffect(() => {
-    const hasSeenWelcome = sessionStorage.getItem("auvp-nav-welcome");
+    const hasSeenWelcome = sessionStorage.getItem("central-nav-welcome");
     if (!hasSeenWelcome) {
       const timer = setTimeout(() => setShowWelcome(true), 800);
       return () => clearTimeout(timer);
@@ -76,7 +76,7 @@ export function GlobalNav() {
 
   const dismissWelcome = () => {
     setShowWelcome(false);
-    sessionStorage.setItem("auvp-nav-welcome", "true");
+    sessionStorage.setItem("central-nav-welcome", "true");
   };
 
   return (
@@ -92,7 +92,7 @@ export function GlobalNav() {
       >
         <img
           src={olhoPreto.url}
-          alt="AUVP Logo"
+          alt="Logo"
           className="h-8 w-8 md:h-10 md:w-10 dark:hidden"
         />
         <img
@@ -116,7 +116,7 @@ export function GlobalNav() {
               <p className="text-sm font-bold font-anek leading-tight text-foreground">
                 {currentSystem.label}
               </p>
-              <p className="text-[10px] text-muted-foreground leading-tight font-roboto uppercase tracking-wider">AUVP</p>
+              <p className="text-[10px] text-muted-foreground leading-tight font-roboto uppercase tracking-wider">[Empresa]</p>
             </div>
             <ChevronDown className="h-4 w-4 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform" />
           </DropdownMenuTrigger>

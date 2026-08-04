@@ -23,7 +23,7 @@ import { TRIGGER_CAT_EVENT } from "@/components/EasterEgg";
 import { useTheme } from "@/contexts/ThemeContext";
 
 /** Evento global disparado pelo botão de busca do header. */
-export const OPEN_PALETTE_EVENT = "auvp:open-palette";
+export const OPEN_PALETTE_EVENT = "central:open-palette";
 
 const paginas = [
   { label: "Central de Produto", path: "/", icon: Home, keywords: "hub início home central" },
@@ -37,7 +37,7 @@ const paginas = [
 ];
 
 const linksExternos = [
-  { label: "Código de Ética", href: "https://produtosauvp.github.io/etica/" },
+  { label: "Código de Ética", href: "#" },
 ];
 
 export function baixarAgendaIcs() {
@@ -45,7 +45,7 @@ export function baixarAgendaIcs() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = "agenda-time-de-produto-auvp.ics";
+  a.download = "agenda-time-de-produto.ics";
   a.click();
   URL.revokeObjectURL(url);
 }
@@ -135,7 +135,7 @@ export function CommandPalette() {
             return (
               <CommandItem
                 key={s.id}
-                value={`${s.label} soluções produto auvp ${s.anchors.map((a) => a.label).join(" ")}`}
+                value={`${s.label} soluções produto ${s.anchors.map((a) => a.label).join(" ")}`}
                 onSelect={() => run(() => goToSection("/solucoes", s.id))}
               >
                 <Icon className="mr-2 shrink-0" />
@@ -205,13 +205,13 @@ export function CommandPalette() {
               {l.label}
             </CommandItem>
           ))}
-          {/* Easter egg — o Jorginho só aparece pra quem procura por ele. */}
+          {/* Easter egg — o gatinho só aparece pra quem procura por ele. */}
           <CommandItem
-            value="jorginho gato cat miau meow surpresa easter egg"
+            value="gato cat miau meow surpresa easter egg"
             onSelect={() => run(() => window.dispatchEvent(new CustomEvent(TRIGGER_CAT_EVENT)))}
           >
             <CatIcon size={32} className="mr-2 shrink-0" style={{ width: 32, height: 32 }} />
-            Jorginho
+            Gatinho surpresa
           </CommandItem>
         </CommandGroup>
       </CommandList>

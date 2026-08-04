@@ -5,13 +5,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { BrandProvider } from "@/contexts/BrandContext";
 import { ViewProvider } from "@/contexts/ViewContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import { CarecaProvider } from "@/contexts/CarecaContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { CommandPalette } from "@/components/CommandPalette";
 import { EasterEgg } from "@/components/EasterEgg";
-import { CarecaScanEffect } from "@/components/CarecaScanEffect";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import { ClarityTracker } from "@/components/ClarityTracker";
 import React from "react";
 import Hub from "./pages/Hub";
 import TimePage from "./pages/TimePage";
@@ -61,16 +58,13 @@ const App = () => (
       <ThemeProvider>
       <BrandProvider>
         <ViewProvider>
-          <CarecaProvider>
           <TooltipProvider>
             <Toaster />
             <Sonner />
             <BrowserRouter basename={import.meta.env.BASE_URL}>
               <ScrollToTop />
-              <ClarityTracker />
               <CommandPalette />
               <EasterEgg />
-              <CarecaScanEffect />
               <Routes>
                 <Route path="/" element={<Hub />} />
                 <Route path="/time" element={<TimePage />} />
@@ -84,7 +78,6 @@ const App = () => (
               </Routes>
             </BrowserRouter>
           </TooltipProvider>
-          </CarecaProvider>
         </ViewProvider>
       </BrandProvider>
       </ThemeProvider>

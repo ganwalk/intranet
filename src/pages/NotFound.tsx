@@ -5,7 +5,7 @@ import { olhoBranco } from "@/assets/olhos";
 import { OPEN_PALETTE_EVENT } from "@/components/CommandPalette";
 
 /**
- * 404 com identidade AUVP: o olho da marca segue o cursor "procurando"
+ * 404 com a identidade do template: a marca segue o cursor "procurando"
  * a página que não existe.
  */
 const NotFound = () => {
@@ -43,14 +43,14 @@ const NotFound = () => {
         >
           <img
             src={olhoBranco.url}
-            alt="Olho AUVP procurando a página"
+            alt="Marca procurando a página"
             className="h-14 w-14 transition-transform duration-100 ease-linear"
             style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
           />
         </div>
         <h1 className="mb-2 text-6xl font-bold font-anek text-foreground">404</h1>
         <p className="mb-1 text-lg font-anek font-semibold text-foreground">
-          Nem o olho da AUVP achou essa página.
+          Nem a marca achou essa página.
         </p>
         <p className="mb-8 text-sm text-muted-foreground font-roboto leading-relaxed">
           O endereço <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">{location.pathname}</code> não

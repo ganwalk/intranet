@@ -8,7 +8,7 @@ import { useLocation, useNavigationType } from "react-router-dom";
  * quem estava no meio do Design System caía no meio do Nosso Time.
  *
  * Duas exceções deliberadas:
- * - URLs com hash (ex.: /solucoes#auvp-escola) — a própria página rola até
+ * - URLs com hash (ex.: /solucoes#produto-a) — a própria página rola até
  *   a âncora; voltar ao topo aqui brigaria com esse comportamento;
  * - navegação POP (voltar/avançar do navegador) — aí o esperado é retomar
  *   de onde o usuário estava, e o browser já restaura a posição.

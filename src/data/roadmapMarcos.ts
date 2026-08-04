@@ -1,8 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import {
   Monitor, Library, Video, Palette, MessageSquareQuote, MessagesSquare,
-  Tractor, Clapperboard, Sparkles, Handshake, HeartHandshake, PartyPopper,
-  Baby, Smartphone, NotebookPen, CreditCard, School,
+  Sparkles, Handshake, HeartHandshake, PartyPopper, Smartphone, CreditCard,
 } from "lucide-react";
 import type { TagTone } from "@/components/widgets/Tag";
 
@@ -52,22 +51,22 @@ export const marcos: Marco[] = [
     id: "hub-v1",
     icon: Monitor,
     titulo: "v1 do Hub",
-    quando: "22 de outubro de 2025",
+    quando: "Outubro de 2025",
     periodo: "Out/25",
     data: "2025-10-22",
     status: "concluido",
     tone: "graphite",
     descricao:
-      "Primeira versão do Hub de Produtos: um único endereço para o membro chegar na Escola, na Comunidade, na Analítica e nas ferramentas da AUVP.",
+      "Primeira versão da Central de Produto: um único lugar para o time acompanhar entregas, roadmap e novidades.",
     detalhes: [
-      "Acesso unificado aos produtos AUVP em uma só tela",
-      "Base que serviu de aprendizado para o redesenho da Minha AUVP",
+      "Acesso unificado às informações de produto em uma só tela",
+      "Base que serviu de aprendizado para a versão seguinte do Hub",
     ],
   },
   {
     id: "modulos",
     icon: Library,
-    titulo: "Módulos liberados na Escola",
+    titulo: "Novo conteúdo liberado na Escola",
     quando: "Fevereiro a julho de 2026",
     periodo: "Fev–Jul",
     data: "2026-02-01",
@@ -75,33 +74,14 @@ export const marcos: Marco[] = [
     tone: "violet",
     continuo: true,
     descricao:
-      "Uma leva de módulos novos e atualizados entrou no ar ao longo do primeiro semestre — de Valuation a Criptomoedas.",
+      "Uma leva de módulos novos e atualizados entrou no ar ao longo do primeiro semestre.",
     detalhes: [
-      "Fevereiro — Valuation: balanço, DRE, fluxo de caixa, Ke/CAPM e WACC (exclusivo AUVP Sempre)",
-      "Março — Análise de Setores: 12 aulas novas, de mineração a proteína animal (exclusivo AUVP Sempre)",
-      "Abril — Imposto de Renda atualizado com todas as obrigatoriedades de 2026",
-      "Abril — Criptomoedas: 15 aulas do zero, alinhadas à filosofia buy and hold",
-      "Junho — AUVP Analítica: módulo ensinando a usar a ferramenta na prática",
-      "A caminho — Indicadores: análise fundamentalista (exclusivo AUVP Sempre)",
+      "Fevereiro — novo módulo introdutório sobre análise de investimentos",
+      "Março — módulo avançado de análise setorial",
+      "Abril — conteúdo atualizado com as regras vigentes do período",
+      "Junho — módulo prático sobre a ferramenta de análise",
     ],
     to: "/solucoes",
-  },
-  {
-    id: "giro-bh",
-    icon: Video,
-    titulo: "Giro Itinerante · Belo Horizonte",
-    quando: "Março de 2026",
-    periodo: "Mar",
-    data: "2026-03-15",
-    status: "concluido",
-    tone: "brick",
-    descricao:
-      "A estreia do Giro da Bolsa Itinerante (sem censura): o programa saiu do estúdio e foi gravado ao vivo em BH, com a comunidade na plateia.",
-    detalhes: [
-      "Primeira edição do formato itinerante",
-      "Gravação ao vivo do Giro da Bolsa, sem censura",
-      "Baguncinha presencial com os membros depois da gravação",
-    ],
   },
   {
     id: "design-system",
@@ -113,7 +93,7 @@ export const marcos: Marco[] = [
     status: "concluido",
     tone: "magenta",
     descricao:
-      "Tokens, componentes e padrões de interface da AUVP reunidos e documentados — a base visual compartilhada por todos os produtos.",
+      "Tokens, componentes e padrões de interface reunidos e documentados — a base visual compartilhada por todos os produtos.",
     detalhes: [
       "Tokens de cor, tipografia e espaçamento com suporte a tema claro e escuro",
       "Biblioteca de componentes documentada e navegável dentro da Central",
@@ -131,10 +111,10 @@ export const marcos: Marco[] = [
     status: "concluido",
     tone: "blue",
     descricao:
-      "O jeito AUVP de falar virou guia: diretrizes de linguagem por área e por produto, para a comunicação soar como uma só voz.",
+      "O jeito da empresa de falar virou guia: diretrizes de linguagem por área e por produto, para a comunicação soar como uma só voz.",
     detalhes: [
       "Diretrizes de linguagem para cada área da empresa",
-      "Seções específicas por produto — Capital, Escola, Agro, Analítica, Câmbio e Seguros",
+      "Seções específicas por produto",
     ],
     to: "/tom-e-voz",
   },
@@ -158,95 +138,72 @@ export const marcos: Marco[] = [
     ],
   },
   {
-    id: "pro-agro",
-    icon: Tractor,
-    titulo: "Lançamento AUVP Pro e AUVP Agro",
-    quando: "Maio de 2026",
-    periodo: "Mai",
-    data: "2026-05-20",
-    status: "concluido",
-    tone: "olive",
-    descricao:
-      "Duas verticais ganharam plataforma própria: a AUVP Pro com o treinamento completo para a CPA e a AUVP Agro com trilhas de Hedge, Sucessão e Crédito Rural.",
-    detalhes: [
-      "AUVP Pro — treinamento de CPA reformulado, com aulas repaginadas e simulados comentados",
-      "AUVP Agro — plataforma no ar com cotações de commodities, previsão climática e cartas semanais",
-      "60 novas aulas de Hedge, Sucessão e Crédito Rural liberadas em abril",
-      "Área exclusiva do Agro dentro da Comunidade",
-    ],
-    href: "https://auvpagro.com.br/",
-  },
-  {
-    id: "regravacao-escola",
-    icon: Clapperboard,
-    titulo: "Regravação da Escola",
-    quando: "Junho de 2026",
-    periodo: "Jun",
-    data: "2026-06-15",
-    status: "concluido",
-    tone: "green",
-    descricao:
-      "Todas as aulas do treinamento da AUVP Escola foram regravadas do zero — conteúdo 100% atualizado, do módulo 1 ao 7.",
-    detalhes: [
-      "Módulo 6 — a aula de Stocks virou 4 partes focadas em análise setorial (P1 a P4)",
-      "Módulo 6 — nova aula de Renda Fixa Internacional",
-      "Módulo 7 — conteúdo inteiro repaginado",
-      "Cadernos de exercícios antes da avaliação de cada módulo, do M1 ao M6",
-    ],
-    href: "https://www.aulasauvp.com.br/path-player?courseid=auvp&unit=6772ad0d1fe057e9530659d2Unit",
-  },
-  {
-    id: "giro-sp",
+    id: "encontros-regionais",
     icon: Video,
-    titulo: "Giro Itinerante · São Paulo",
-    quando: "Junho de 2026",
-    periodo: "Jun",
-    data: "2026-06-20",
+    titulo: "Encontros itinerantes com a comunidade",
+    quando: "Março a junho de 2026",
+    periodo: "Mar–Jun",
+    data: "2026-03-15",
     status: "concluido",
     tone: "brick",
+    continuo: true,
     descricao:
-      "Terceira parada da estrada: gravação ao vivo em São Paulo, com uma galera esticando a noite no after junto do time.",
+      "Uma série de encontros presenciais em diferentes cidades, com transmissão ao vivo e um momento de troca com a comunidade.",
     detalhes: [
-      "Terceira parada do Giro Itinerante",
-      "Gravação ao vivo do programa do canal Investidor Sardinha",
-      "After com os membros depois do evento",
-    ],
-    href: "https://www.youtube.com/watch?v=EMU2chjddxI&t=217s",
-  },
-  {
-    id: "minha-auvp",
-    icon: Sparkles,
-    titulo: 'Lançamento "Minha AUVP" (Hub V2)',
-    quando: "9 de julho de 2026",
-    periodo: "Jul",
-    data: "2026-07-09",
-    status: "concluido",
-    tone: "primary",
-    descricao:
-      "O Hub renasceu como Minha AUVP: nova interface, dados integrados de ponta a ponta e um só lugar para acompanhar tudo o que o membro tem na AUVP.",
-    detalhes: [
-      "Interface migrada para o novo design, com a experiência inteira revista",
-      "Integrações com Minhas Finanças, Analítica, Comunidade e diagrama",
-      "Cards de produto personalizados conforme o que o membro já contratou",
-      "Notificações no sininho funcionando de ponta a ponta",
+      "Primeira edição do formato itinerante, em março",
+      "Segunda edição, em junho, com after presencial com os membros",
     ],
   },
   {
-    id: "giro-curitiba",
+    id: "encontro-regional-extra",
     icon: Video,
-    titulo: "Giro Itinerante · Curitiba",
     // Sem data confirmada — a edição foi adiada. A âncora só posiciona o
     // marco na trilha (depois das entregas de julho); a interface não
     // mostra data nenhuma.
     // O minicartão já mostra o estado "Adiada" ao lado; o rótulo de data
     // fala da data em si para os dois não repetirem a mesma palavra.
+    titulo: "Encontro itinerante extra",
     quando: "Adiada — nova data a definir",
     periodo: "Sem data",
     data: "2026-07-20",
     status: "adiado",
     tone: "neutral",
     descricao:
-      "A parada de Curitiba foi adiada. O destino segue no mapa do Giro Itinerante — assim que a nova data fechar, ela aparece aqui.",
+      "Uma edição adicional do encontro itinerante foi adiada. Assim que a nova data fechar, ela aparece aqui.",
+  },
+  {
+    id: "hub-v2",
+    icon: Sparkles,
+    titulo: "Nova versão do Hub",
+    quando: "9 de julho de 2026",
+    periodo: "Jul",
+    data: "2026-07-09",
+    status: "concluido",
+    tone: "primary",
+    descricao:
+      "O Hub ganhou uma nova versão: interface redesenhada, dados integrados de ponta a ponta e um só lugar para acompanhar tudo o que o membro tem contratado.",
+    detalhes: [
+      "Interface migrada para o novo design, com a experiência inteira revista",
+      "Integrações entre os principais produtos num só painel",
+      "Cards personalizados conforme o que o membro já contratou",
+    ],
+  },
+  {
+    id: "treinamento-atendimento",
+    icon: HeartHandshake,
+    titulo: "Treinamento de atendimento ao cliente",
+    quando: "15 de julho de 2026",
+    periodo: "Jul",
+    data: "2026-07-15",
+    status: "concluido",
+    tone: "success",
+    descricao:
+      "Formação do time em produto e experiência do cliente — para que cada ponto de contato com o membro tenha a mesma temperatura.",
+    detalhes: [
+      "Trilha de produto para quem atende o membro no dia a dia",
+      "Padrões de atendimento conectados ao Manual de Tom e Voz",
+    ],
+    to: "/tom-e-voz",
   },
   {
     id: "sistema-indicacao",
@@ -258,89 +215,46 @@ export const marcos: Marco[] = [
     status: "planejado",
     tone: "info",
     descricao:
-      "A nova plataforma de indicações da AUVP, com liberação simultânea para membros da Escola e da Consultoria.",
+      "Nova plataforma de indicações, com liberação simultânea para os principais produtos.",
     detalhes: [
-      "Liberação simultânea para AUVP Escola e Consultoria",
       "Acompanhamento semanal de indicações e conversões no início da operação",
       "Logística de premiação definida — prêmios físicos e digitais",
     ],
   },
   {
-    id: "encantamento",
-    icon: HeartHandshake,
-    titulo: "Treinamento de encantamento do cliente",
-    quando: "15 de julho de 2026",
-    periodo: "Jul",
-    data: "2026-07-15",
-    status: "concluido",
-    tone: "success",
-    descricao:
-      "Formação do time em produto, encantamento e experiência do cliente — para que cada ponto de contato com o membro tenha a mesma temperatura.",
-    detalhes: [
-      "Trilha de produto para quem atende o membro no dia a dia",
-      "Padrões de atendimento conectados ao Manual de Tom e Voz",
-    ],
-    to: "/tom-e-voz",
-  },
-  {
-    id: "private-day",
+    id: "encontro-anual",
     icon: PartyPopper,
-    titulo: "Private Day",
+    titulo: "Encontro Anual",
     quando: "7 e 8 de novembro de 2026",
     periodo: "Nov",
     data: "2026-11-07",
     status: "planejado",
     tone: "warning",
     descricao:
-      "Dois dias completos de imersão em Goiânia, com palestras sobre mercado, cenário econômico e negócios — e a tradicional festa para fechar.",
+      "Dois dias completos de imersão, com palestras sobre mercado, cenário econômico e negócios — e uma festa para fechar.",
     detalhes: [
-      "2 dias de imersão em Goiânia",
+      "2 dias de imersão presencial",
       "Palestras sobre mercado, cenário econômico e negócios",
-      "Festa de encerramento com tema Disco Fever",
-      "1º lote de ingressos já à venda",
+      "Festa de encerramento",
     ],
   },
   {
-    id: "educacao-criancas",
-    icon: Baby,
-    titulo: "Educação Financeira para crianças",
-    quando: "Agosto de 2026",
-    periodo: "Ago",
-    data: "2026-08-01",
-    status: "planejado",
-    tone: "amber",
-    descricao:
-      "Uma frente de conteúdo para levar educação financeira ao público infantil, com linguagem e formato próprios para essa faixa.",
-  },
-  {
-    id: "plano-de-aula",
-    icon: NotebookPen,
-    titulo: "Plano de Aula",
-    quando: "Agosto de 2026",
-    periodo: "Ago",
-    data: "2026-08-20",
-    status: "planejado",
-    tone: "blue",
-    descricao:
-      "Material que estrutura a jornada de estudo da Escola em planos de aula, para o aluno saber o que estudar e em que ordem.",
-  },
-  {
-    id: "super-app",
+    id: "app-unico",
     icon: Smartphone,
-    titulo: "Super App da AUVP",
+    titulo: "Aplicativo unificado",
     quando: "Dezembro de 2026",
     periodo: "Dez",
     data: "2026-12-01",
     status: "planejado",
     tone: "violet",
     descricao:
-      "O aplicativo que reúne os produtos AUVP num só lugar, construído de forma colaborativa com a comunidade de devs e designers.",
+      "O aplicativo que reúne os produtos num só lugar, construído de forma colaborativa com a comunidade de devs e designers.",
   },
   {
     // Sem data anunciada — a âncora só o mantém no fim da trilha.
-    id: "cartao-auvp",
+    id: "novo-produto",
     icon: CreditCard,
-    titulo: "Cartão AUVP",
+    titulo: "Novo produto financeiro",
     quando: "Em breve",
     periodo: "Em breve",
     data: "2027-01-01",
@@ -348,21 +262,7 @@ export const marcos: Marco[] = [
     status: "planejado",
     tone: "graphite",
     descricao:
-      "O cartão de crédito próprio da AUVP, com benefícios exclusivos para os membros.",
-  },
-  {
-    // Sem data anunciada — a âncora só o mantém no fim da trilha.
-    id: "statera",
-    icon: School,
-    titulo: "Projeto Statera",
-    quando: "Em breve",
-    periodo: "Em breve",
-    data: "2027-01-15",
-    semData: true,
-    status: "planejado",
-    tone: "olive",
-    descricao:
-      "A AUVP nas escolas: levar educação financeira para dentro da sala de aula, como projeto de impacto.",
+      "Um novo produto financeiro próprio, com benefícios exclusivos para os membros.",
   },
 ];
 

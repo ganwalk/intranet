@@ -1,5 +1,5 @@
 /**
- * AI-Food Generator — gera prompts standalone para qualquer componente do Design System AUVP.
+ * AI-Food Generator — gera prompts standalone para qualquer componente do Design System.
  * Cada prompt é 100% isolado: inclui regras de marca, código do componente, todos os estados
  * e checklist de entrega. Funciona em qualquer IA (ChatGPT, Claude, Cursor, Gemini, etc.).
  */
@@ -8,7 +8,7 @@
 
 const CAPITAL_BASE = `
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DESIGN SYSTEM — AUVP CAPITAL
+DESIGN SYSTEM — CAPITAL
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 IDENTIDADE
@@ -17,9 +17,9 @@ Referência estética: Bloomberg + JP Morgan + finança bancária moderna.
 ❌ NUNCA: liquid glass, gradientes coloridos, emojis decorativos, estética startup colorida.
 
 PALETA OFICIAL (use SOMENTE estas cores)
-• Verde Institucional: #023619  → primária, botões, títulos
-• Verde Escuro:        #011F0E  → hover de botões verdes
-• Amarelo Destaque:    #EFBE4F  → acentos em fundo ESCURO apenas
+• Índigo Institucional: #4F46E5  → primária, botões, títulos
+• Índigo Escuro:        #4338CA  → hover de botões
+• Índigo Destaque:       #818CF8  → acentos em fundo ESCURO apenas
 • Branco Puro:         #FFFFFF
 • Cinza Claro:         #F2F2F2
 • Cinza Médio:         #6B6B6B  → textos secundários
@@ -33,17 +33,17 @@ TIPOGRAFIA
 • H3:        Anek Latin 600  28px / 22px
 • Subtítulo: Roboto     400  20px                         lh 1.5   #6B6B6B
 • Corpo:     Roboto     400  17px                         lh 1.6
-• Eyebrow:   Sora       700  12px UPPERCASE               ls 0.15em  #023619
+• Eyebrow:   Sora       700  12px UPPERCASE               ls 0.15em  #4F46E5
 • Botão/CTA: Sora       700  14px UPPERCASE               ls 0.05em  (exclusivo botões)
 
 BOTÕES — identidade visual mais marcante
 • border-radius: 5px (padrão do Design System) — NUNCA pílulas (rounded-full)
 • Padding:        py-[18px] px-[32px]
 • Border:         SEMPRE 1px solid
-• Primário (fundo claro):  bg #023619  text #FFF   border #023619
-  Hover:                   bg transparent  text #023619  border #023619
+• Primário (fundo claro):  bg #4F46E5  text #FFF   border #4F46E5
+  Hover:                   bg transparent  text #4F46E5  border #4F46E5
 • Outline  (fundo escuro): bg transparent  text #FFF  border #FFF
-  Hover:                   bg #FFF  text #023619  border #FFF
+  Hover:                   bg #FFF  text #4F46E5  border #FFF
 • Transition:     all 240ms ease
 
 CARDS
@@ -63,62 +63,62 @@ LAYOUT E RITMO VERTICAL
 
 const ESCOLA_BASE = `
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DESIGN SYSTEM — AUVP ESCOLA
+DESIGN SYSTEM — ESCOLA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 IDENTIDADE
-Educação financeira independente, rebelde, cultura pirata (estilo Anthony Bourdain goiano).
+Educação financeira independente, próxima e descomplicada.
 Visual sofisticado, premium, editorial. Referência: Apple Education + Masterclass + revista de luxo.
 Glassmorphism É a assinatura visual — usar em cards de LP.
-❌ NUNCA use verde da Capital (#023619) — exceto dentro de texto de botão dourado.
+❌ NUNCA use o índigo da Capital (#4F46E5) — exceto dentro de texto de botão turquesa.
 
 PALETA OFICIAL
-• Dourado Principal:  #EFBF4E  → acentos, ícones, botão primário, slider thumb
-• Dourado Escuro:     #D4A73D  → tipografia de destaque, eyebrow, badges
-• Dourado Profundo:   #B8860B  → textos sobre fundo claro com forte destaque
-• Verde Capital:      #023619  → SOMENTE em texto dentro de botões dourados
+• Turquesa Principal:  #14b8a6  → acentos, ícones, botão primário, slider thumb
+• Turquesa Escura:     #0d9488  → tipografia de destaque, eyebrow, badges
+• Turquesa Profunda:   #0f766e  → textos sobre fundo claro com forte destaque
+• Índigo Capital:      #4F46E5  → SOMENTE em texto dentro de botões turquesa
 • Cinza Texto:        #18181B
 • Cinza Secundário:   #52525B / #71717A
 • Translúcido claro:  rgba(255,255,255,0.5)  rgba(255,255,255,0.85)
 • Border translúcida: rgba(0,0,0,0.12)
-❌ PROIBIDO: verde Capital como cor de fundo/borda, azul, roxo, cores saturadas
+❌ PROIBIDO: índigo da Capital como cor de fundo/borda, cores saturadas fora da paleta
 
 FUNDO DE PÁGINA (assinatura da Escola)
 • NUNCA fundo branco chapado — use gradiente radial cinza sutil:
   background: radial-gradient(ellipse at top, #f4f4f5 0%, #e4e4e7 100%);
 • Sections de impacto (fundo escuro):
-  background: radial-gradient(ellipse at center, rgba(239,191,78,0.08) 0%, #18181b 70%);
+  background: radial-gradient(ellipse at center, rgba(20,184,166,0.08) 0%, #18181b 70%);
 
 CARDS TRANSLÚCIDOS (assinatura visual)
 • background: rgba(255,255,255,0.5)
 • backdrop-filter: blur(24px)  -webkit-backdrop-filter: blur(24px)
 • border: 1px solid rgba(0,0,0,0.12)
 • border-radius: 16px  padding: 32px
-• Hover: translateY(-8px)  box-shadow: 0 20px 40px -10px rgba(239,191,78,0.25)
-         border-color: rgba(239,191,78,0.4)  transition: 320ms ease
+• Hover: translateY(-8px)  box-shadow: 0 20px 40px -10px rgba(20,184,166,0.25)
+         border-color: rgba(20,184,166,0.4)  transition: 320ms ease
 • Em fundo escuro: bg rgba(255,255,255,0.05)  border rgba(255,255,255,0.1)
 
 TIPOGRAFIA
-• Eyebrow: Anek Latin 600 13px UPPERCASE ls 1.5px #D4A73D
-           bg rgba(239,191,78,0.1) px-3 py-1.5 rounded-full inline-flex
+• Eyebrow: Anek Latin 600 13px UPPERCASE ls 1.5px #0d9488
+           bg rgba(20,184,166,0.1) px-3 py-1.5 rounded-full inline-flex
 • H1: Anek Latin 700  56px / 36px mobile  ls -0.025em  lh 1.05  #18181B
 • H2: Anek Latin 600  42px / 30px          ls -0.02em
 • H3: Anek Latin 600  28px
 • Corpo: Roboto 400  17px  #52525B  lh 1.65
-• Destaque dourado inline: <span class="text-[#D4A73D] font-semibold">
+• Destaque turquesa inline: <span class="text-[#0d9488] font-semibold">
 • Botão/CTA: Sora 700 14px UPPERCASE ls 0.05em (exclusivo botões)
 
 BOTÕES (regra UNIFICADA com Capital em LPs)
 • border-radius: 5px em LP (padrão do Design System) — NUNCA pílulas (rounded-full)
-• Primário (fundo claro): bg #EFBF4E  text #023619  border #EFBF4E
-  Hover: bg transparent  border #EFBF4E  text #18181B
+• Primário (fundo claro): bg #14b8a6  text #4F46E5  border #14b8a6
+  Hover: bg transparent  border #14b8a6  text #18181B
 • Outline: bg transparent  text #18181B  border #18181B
-  Hover:   bg #18181B  text #EFBF4E
-• Em fundo escuro: bg #EFBF4E  text #18181B. Hover: transparent + border dourada
+  Hover:   bg #18181B  text #14b8a6
+• Em fundo escuro: bg #14b8a6  text #18181B. Hover: transparent + border turquesa
 
 TAGS / BADGES
 • rounded-full  px-3 py-1.5  text-[13px] Anek semibold UPPERCASE tracking-[1.5px]
-  text-[#D4A73D]  bg-[rgba(239,191,78,0.1)]  border border-[rgba(239,191,78,0.2)]`;
+  text-[#0d9488]  bg-[rgba(20,184,166,0.1)]  border border-[rgba(20,184,166,0.2)]`;
 
 const FERRAMENTAS_EXTRA = `
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -135,21 +135,21 @@ CONTEXTO: FERRAMENTAS / CALCULADORAS / WIDGETS
   - Track: h-2 bg-gray-200 rounded-full
   - Fill: cor primária da marca
   - Thumb: 20px circular bg-primária border-2 border-white shadow-md
-  - Capital: accent-color #023619 | Escola: accent-color #EFBF4E
-• Caixa de resultado: bg-green-50 (Capital) / bg-gray-50 (Escola)
+  - Capital: accent-color #4F46E5 | Escola: accent-color #14b8a6
+• Caixa de resultado: bg-indigo-50 (Capital) / bg-gray-50 (Escola)
   rounded-xl p-5 mt-6`;
 
 const PLATAFORMA_EXTRA = `
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CONTEXTO: PLATAFORMA EAD (AUVP ESCOLA)
+CONTEXTO: PLATAFORMA EAD (ESCOLA)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 • Light mode (padrão): body bg-gray-50  cards bg-white border border-gray-200
 • Dark mode (toggle): body bg-zinc-950  cards bg-zinc-900 border border-zinc-800
 • Vídeo: SEMPRE bg-black aspect-video — mesmo em light mode
-• Aula ativa (em andamento):  bg-yellow-50 border-l-4 border-yellow-500
+• Aula ativa (em andamento):  bg-teal-50 border-l-4 border-teal-500
 • Aula concluída:              ícone text-emerald-500
 • Aula bloqueada:              opacity-60 ícone text-gray-400
-• Progresso: barra h-2 bg-gray-200 fill bg-[#EFBF4E] rounded-full
+• Progresso: barra h-2 bg-gray-200 fill bg-[#14b8a6] rounded-full
 • Título de módulo: Anek 700 24px text-gray-900 (light) / text-white (dark)
 • Título de aula:   Anek 600 18px text-gray-900
 • Meta (duração):   Roboto 400 13px text-gray-500
@@ -183,8 +183,8 @@ CHECKLIST ANTES DE ENTREGAR
 □ Acessibilidade: aria-label nos ícones, focus-visible ring, contraste ≥ 4.5:1
 □ Capital: sem liquid glass, sem gradientes coloridos, botões com border-radius 5px
 □ Escola LP: cards translúcidos (backdrop-blur 24px), gradiente radial no fundo
-□ Escola Ferramentas: botões rounded-[5px], slider thumb dourado
-□ Plataforma: vídeo sempre bg-black, aula ativa com border-l-4 amarela`;
+□ Escola Ferramentas: botões rounded-[5px], slider thumb turquesa
+□ Plataforma: vídeo sempre bg-black, aula ativa com border-l-4 turquesa`;
 
 // ─── Função principal ────────────────────────────────────────────────────────
 
@@ -196,7 +196,7 @@ export function generateComponentPrompt(
   code: string | undefined,
   htmlCode: string | undefined
 ): string {
-  const brandLabel = brand === "capital" ? "AUVP Capital" : "AUVP Escola";
+  const brandLabel = brand === "capital" ? "Capital" : "Escola";
   const viewLabel =
     view === "institucional"
       ? "Sites & LPs"

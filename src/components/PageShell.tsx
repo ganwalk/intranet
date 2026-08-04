@@ -41,7 +41,7 @@ interface PageShellProps {
 export function PageShell({
   children,
   width = "7xl",
-  footer = "Central AUVP — Time de Produto",
+  footer = "Central de Produto — Time de Produto",
   mainClassName,
   headerActions,
   hero,

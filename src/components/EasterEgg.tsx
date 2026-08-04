@@ -3,11 +3,10 @@ import { publicUrl } from "@/lib/utils";
 
 /**
  * Easter egg: digitando o Konami code (↑ ↑ ↓ ↓ ← → ← → B A) — ou
- * encontrando o Jorginho escondido na busca global (Ctrl/Cmd+K) — o
- * gatinho da AUVP salta do canto da tela e a atravessa aos pulinhos,
- * miando num balão de quadrinhos e deixando um rastro de corações,
- * patinhas e notas musicais. Usa os assets remanescentes do antigo
- * gatinho de feedback (public/gatin1.webp, gatin2.webp e meow.mp3).
+ * encontrando o gatinho escondido na busca global (Ctrl/Cmd+K) — ele
+ * salta do canto da tela e a atravessa aos pulinhos, miando num balão
+ * de quadrinhos e deixando um rastro de corações, patinhas e notas
+ * musicais (public/gatin1.webp, gatin2.webp e meow.mp3).
  */
 
 const KONAMI = [
@@ -22,7 +21,7 @@ const POP_MS = 600;
 const PARTICLE_EMOJIS = ["💛", "🐾", "🎵", "✨", "💛", "🐾"];
 
 /** Evento global — dispara o mesmo efeito do Konami code (usado pelo Jorginho na busca). */
-export const TRIGGER_CAT_EVENT = "auvp:trigger-cat";
+export const TRIGGER_CAT_EVENT = "central:trigger-cat";
 
 interface Particle {
   id: number;
@@ -111,7 +110,7 @@ export function EasterEgg() {
             fontSize: p.size,
             "--drift": `${p.drift}px`,
             "--spin": `${p.spin}deg`,
-            animation: "auvp-cat-float 1700ms ease-out forwards",
+            animation: "central-cat-float 1700ms ease-out forwards",
           } as React.CSSProperties}
         >
           {p.emoji}
@@ -121,22 +120,22 @@ export function EasterEgg() {
       {/* Caminhada horizontal (linear) */}
       <div
         className="absolute inset-x-0 bottom-4"
-        style={{ animation: `auvp-cat-walk ${POP_MS + WALK_DURATION_MS}ms linear forwards` }}
+        style={{ animation: `central-cat-walk ${POP_MS + WALK_DURATION_MS}ms linear forwards` }}
       >
         {/* Salto de entrada — pop elástico saindo de baixo da tela */}
-        <div style={{ animation: `auvp-cat-pop ${POP_MS}ms cubic-bezier(0.34, 1.56, 0.64, 1) both` }}>
+        <div style={{ animation: `central-cat-pop ${POP_MS}ms cubic-bezier(0.34, 1.56, 0.64, 1) both` }}>
           {/* Pulinhos contínuos com squash & stretch */}
           <div
             className="relative w-fit"
             style={{
-              animation: `auvp-cat-hop 700ms ease-in-out ${POP_MS}ms infinite`,
+              animation: `central-cat-hop 700ms ease-in-out ${POP_MS}ms infinite`,
               transformOrigin: "50% 100%",
             }}
           >
             {/* Balão de quadrinhos */}
             <div
               className="absolute -top-9 left-full -translate-x-3 rounded-2xl rounded-bl-sm border-2 border-foreground/80 bg-background px-3 py-1 text-sm font-bold font-anek text-foreground whitespace-nowrap"
-              style={{ animation: `auvp-cat-bubble 2400ms ease-out ${POP_MS}ms both` }}
+              style={{ animation: `central-cat-bubble 2400ms ease-out ${POP_MS}ms both` }}
             >
               miau!
             </div>
