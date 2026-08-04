@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/olho-amarelo.svg">
+    <title>Central — AUVP</title>
+    <meta name="description" content="Central de Produto — Intranet AUVP Capital. Hub interno com Design System, Time de Produto e Manual de Tom e Voz.">
+    <meta name="author" content="AUVP" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Central — AUVP">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Central — AUVP">
+    <meta property="og:description" content="Central de Produto — Intranet AUVP Capital. Hub interno com Design System, Time de Produto e Manual de Tom e Voz.">
+    <meta name="twitter:description" content="Central de Produto — Intranet AUVP Capital. Hub interno com Design System, Time de Produto e Manual de Tom e Voz.">
+
+    <script>
+      // Aplica o tema antes do React montar para evitar flash de conteúdo claro.
+      (function() {
+        try {
+          var stored = localStorage.getItem('auvp-theme');
+          if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+          }
+        } catch(e) {}
+      })();
+    </script>
+    <script>
+      // Restaura o path a partir da query string gerada pelo 404.html
+      // para que o React Router receba a URL correta ao recarregar a página.
+      (function(l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&');
+          });
+          window.history.replaceState(
+            null, null,
+            l.pathname.slice(0, -1) + decoded[0] +
+            (decoded[1] ? '?' + decoded[1] : '') +
+            l.hash
+          );
+        }
+      }(window.location));
+    </script>
+    <script>
+      // Userback puro: o widget carrega e exibe o próprio launcher nativo.
+      // Nenhuma customização — o botão flutuante do Userback funciona sozinho.
+      window.Userback = window.Userback || {};
+      Userback.access_token = "A-F3dpS5OyrysALHYgAKS1QdXBt";
+      (function(d) {
+        var s = d.createElement('script');s.async = true;s.src = 'https://static.userback.io/widget/v1.js';(d.head || d.body).appendChild(s);
+      })(document);
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
