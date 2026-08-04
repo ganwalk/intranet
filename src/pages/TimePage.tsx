@@ -8,9 +8,10 @@ import { EstruturaIsometrica, ProdutoCubeGraphic } from "@/components/widgets/Es
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import {
   Database, Palette, Rocket, ListOrdered, FileText, Users, Gift, MessageCircle, Lightbulb,
-  Search, Monitor, PenTool, Settings, Heart, ChevronRight, ChevronDown, User, X,
+  Search, Monitor, PenTool, Settings, Heart, ChevronRight, ChevronDown, X,
 } from "lucide-react";
 import { areaIcons } from "@/data/areasEmpresa";
+import { teamMembers } from "@/data/time";
 import { cn } from "@/lib/utils";
 
 function useReveal(threshold = 0.1) {
@@ -82,93 +83,73 @@ const levelColors: Record<OrgColor, string> = {
   "product-junior":"bg-slate-100 text-slate-700 dark:bg-slate-800/60 dark:text-slate-300",
 };
 
-const orgPeople: Record<string, OrgPerson> = {
-  raul: {
-    id: "raul", name: "Raul Sena", role: "Fundador e CEO",
-    initials: "RS", color: "ceo", level: "CEO", rank: 0,
-    description: "Placeholder: Visionário e fundador da AUVP, responsável pela direção estratégica e crescimento da empresa.",
-    responsibilities: ["Visão e estratégia da empresa", "Cultura organizacional", "Parcerias estratégicas", "Decisões de alto impacto"],
+/** Metadados por função — cor, nível e responsabilidades típicas do papel.
+ *  Nomes e cargos em si vêm sempre de `teamMembers` (src/data/time.ts). */
+const ROLE_META: Record<string, { color: OrgColor; level: string; rank: number; responsibilities: string[] }> = {
+  "Fundador(a) e CEO": {
+    color: "ceo", level: "CEO", rank: 0,
+    responsibilities: ["Visão e estratégia da empresa", "Cultura organizacional", "Decisões de alto impacto"],
   },
-  beatriz: {
-    id: "beatriz", name: "Beatriz Henriques", role: "Sócia e Diretora de Produto",
-    initials: "BH", color: "director", level: "Diretora", rank: 1,
-    description: "Placeholder: Dirige o time de produto e CX, conectando visão de negócio com execução e liderando os dois braços da área.",
-    responsibilities: ["Direção estratégica de produto", "Gestão e desenvolvimento do time", "CX estratégico", "Alinhamento cross-funcional"],
+  "Diretor(a) de Produto": {
+    color: "director", level: "Diretor(a)", rank: 1,
+    responsibilities: ["Direção estratégica de produto", "Gestão do time", "Alinhamento cross-funcional"],
   },
-  lilian: {
-    id: "lilian", name: "Lilian Araújo", role: "Especialista em CX",
-    initials: "LA", color: "cx", level: "Especialista", rank: 2,
-    description: "Especialista em experiência do cliente, responsável pela gestão da jornada, retenção e fidelização dos membros — conectando áreas e indicadores como NPS, CSAT e churn para evoluir a experiência de ponta a ponta.",
-    responsibilities: [
-      "Gestão da jornada do cliente",
-      "Estratégias de retenção e fidelização",
-      "Desenvolvimento e acompanhamento de processos e indicadores tais como NPS, CSAT e churn",
-      "Treinamento e capacitação do time em boas práticas de relacionamento",
-      "Desenho e implantação de ações e projetos para evolução do Health Score dos clientes",
-      "Integração entre áreas para aprimorar a experiência do cliente",
-    ],
+  "Coordenador(a) de Produto": {
+    color: "coordinator", level: "Coordenador(a)", rank: 2,
+    responsibilities: ["Priorização de iniciativas", "Coordenação de equipes", "Indicadores de performance"],
   },
-  debora: {
-    id: "debora", name: "Debora Sanders", role: "Analista de CX Sênior II",
-    initials: "DS", color: "cx", level: "Sênior", rank: 3,
-    description: "Analista de CX Sênior, responsável por conectar a voz do cliente às decisões estratégicas por meio de pesquisas e análises de jornada, apoiando a evolução contínua dos produtos.",
-    responsibilities: ["Pesquisa com usuários (qualitativa e quantitativa)", "Análise de jornadas e touchpoints", "Mapeamento de oportunidades de experiência", "Benchmarking de CX", "Apoio estratégico às decisões de produto"],
+  "Analista de CX": {
+    color: "cx", level: "Analista", rank: 2,
+    responsibilities: ["Gestão da jornada do cliente", "Indicadores de satisfação", "Ações de retenção"],
   },
-  daniel: {
-    id: "daniel", name: "Daniel Machado", role: "Coordenador de produto",
-    initials: "DM", color: "coordinator", level: "Coordenador", rank: 2,
-    description: "Líder de Produto responsável pela gestão estratégica e operacional da área, garantindo a eficiência, a qualidade e o alinhamento entre negócio e tecnologia.",
-    responsibilities: ["Priorização de iniciativas", "Coordenação de equipes multidisciplinares", "Governança e acompanhamento de indicadores", "Gestão de pessoas", "Alinhamento entre negócio, tecnologia e operação"],
+  "Gerente de Produto": {
+    color: "product-senior", level: "Gerente", rank: 3,
+    responsibilities: ["Estratégia e roadmap", "Discovery contínuo", "Acompanhamento de métricas"],
   },
-  ariadne: {
-    id: "ariadne", name: "Ariadne Carneiro", role: "Gerente de produto",
-    initials: "AC", color: "product-senior", level: "Gerente", rank: 3,
-    description: "Responsável pelo ciclo completo de produto, da identificação de oportunidades à entrega e mensuração de impacto.",
-    responsibilities: ["Estratégia, roadmap e priorização baseada em evidências", "Discovery contínuo", "Ponte entre design, engenharia e stakeholders", "Diagnóstico de problemas e acompanhamento de métricas de impacto"],
+  "Designer de Produto": {
+    color: "product-pleno", level: "Pleno", rank: 4,
+    responsibilities: ["UI/UX design", "Prototipação", "Design system"],
   },
-  armando: {
-    id: "armando", name: "Armando Neto", role: "Designer de Produto Pl. I",
-    initials: "AN", color: "product-pleno", level: "Pleno", rank: 4,
-    description: "Designer de produto pleno, responsável por interfaces digitais e protótipos de alta fidelidade.",
-    responsibilities: ["Design Gráfico", "UI/UX Design", "Prototipação e wireframes", "Design system", "Colaboração em pesquisas"],
+  "Redator(a)": {
+    color: "product-pleno", level: "Pleno", rank: 4,
+    responsibilities: ["Copywriting", "Revisão editorial", "Materiais de comunicação"],
   },
-  eria: {
-    id: "eria", name: "Éria Alencar", role: "Designer de Produto Pl. I",
-    initials: "EA", color: "product-pleno", level: "Pleno", rank: 4,
-    description: "Designer de produto pleno responsável por visual design, UI/UX e produtos físicos.",
-    responsibilities: ["Branding e identidade", "UI/UX design", "Produtos físicos", "Materiais digitais"],
+  "Analista de Produto": {
+    color: "product-pleno", level: "Pleno", rank: 4,
+    responsibilities: ["Análise de dados e métricas", "Documentação de produto", "Levantamento de requisitos"],
   },
-  mateus: {
-    id: "mateus", name: "Mateus Graff", role: "Redator / Roteirista Pl. I",
-    initials: "MG", color: "product-pleno", level: "Pleno", rank: 4,
-    description: "Redator e roteirista, responsável por conteúdo estratégico e copywriting.",
-    responsibilities: ["Copywriting de produto", "Comunicação corporativa e institucional", "Materiais educativos", "Roteiros", "Revisão editorial"],
-  },
-  jeniffer: {
-    id: "jeniffer", name: "Jeniffer Nascimento", role: "Analista de Produto Pl. I",
-    initials: "JN", color: "product-pleno", level: "Pleno", rank: 4,
-    description: "Analista de produto pleno, focada em análise de dados, requisitos e divulgação.",
-    responsibilities: ["Análise de dados e métricas", "Levantamento de requisitos", "Documentação de produto", "Desenvolvimento de materiais", "Estratégia de divulgação de produto", "Redação publicitária", "Revisão de materiais didáticos"],
-  },
-  elane: {
-    id: "elane", name: "Elane Rodrigues", role: "Analista de Produto Jr. I",
-    initials: "ER", color: "product-junior", level: "Júnior", rank: 5,
-    description: "Analista de Produto Júnior com foco em CX, apoiando o desenvolvimento de produtos digitais e a evolução da experiência do usuário.",
-    responsibilities: ["Gestão e refinamento de backlog", "Histórias de usuário e critérios de aceite", "Discovery, pesquisa e benchmarking", "Mapeamento de jornadas e fluxos", "Homologação e melhoria contínua"],
-  },
-  ana: {
-    id: "ana", name: "Ana Beatriz Melo", role: "Assistente de Produto",
-    initials: "AB", color: "product-junior", level: "Júnior", rank: 5,
-    description: "Viabiliza a execução da estratégia por meio da organização da operação, integração entre áreas e suporte analítico às iniciativas do time.",
-    responsibilities: ["Suporte operacional ao time de Produto", "Organização e melhoria de processos internos", "Análise de dados, métricas e apoio à tomada de decisão", "Comunicação e alinhamento entre áreas", "Produção de copy e conteúdos para o produto", "Apoio à documentação e padronização de processos internos"],
-  },
-  hiago: {
-    id: "hiago", name: "Hiago Felipe Sousa", role: "Assistente de Produto",
-    initials: "HF", color: "product-junior", level: "Júnior", rank: 5,
-    description: "Placeholder: Assistente de produto, contribui com as demandas do time e no desenvolvimento de entregas.",
-    responsibilities: ["Suporte às demandas do time", "Análise básica de dados", "Criação de documentações", "Apoio em pesquisas"],
+  "Assistente de Produto": {
+    color: "product-junior", level: "Júnior", rank: 5,
+    responsibilities: ["Suporte operacional", "Organização de processos", "Apoio à documentação"],
   },
 };
+
+function initialsFor(name: string): string {
+  const words = name.trim().split(/\s+/).filter(Boolean);
+  if (words.length === 0) return "?";
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  return (words[0][0] + words[1][0]).toUpperCase();
+}
+
+const orgPeople: Record<string, OrgPerson> = Object.fromEntries(
+  teamMembers.map((m) => {
+    const meta = ROLE_META[m.role];
+    return [
+      m.id,
+      {
+        id: m.id,
+        name: m.name,
+        role: m.role,
+        initials: initialsFor(m.name),
+        color: meta.color,
+        level: meta.level,
+        rank: meta.rank,
+        description: m.bio,
+        responsibilities: meta.responsibilities,
+      } satisfies OrgPerson,
+    ];
+  })
+);
 
 // ─── Person Card ──────────────────────────────────────────────────────────────
 // Clean org-node: white card, colored top accent, gradient avatar (photo placeholder)
@@ -220,20 +201,12 @@ function PersonCard({
       {/* Colored top accent — groups people by area at a glance */}
       <div className={cn("absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r", gradients[person.color])} />
 
-      {/* Avatar — real photo when available, gradient initials as fallback */}
+      {/* Avatar com as iniciais do colaborador */}
       <TeamPhoto
         id={id}
         alt={person.name}
         className="rounded-full shadow ring-2 ring-card"
         style={{ width: avatar, height: avatar }}
-        fallback={
-          <div
-            className={cn("rounded-full bg-gradient-to-br flex items-center justify-center font-bold font-anek text-white shadow ring-2 ring-card", gradients[person.color])}
-            style={{ width: avatar, height: avatar, fontSize: Math.round(avatar * 0.38) }}
-          >
-            {person.initials}
-          </div>
-        }
       />
 
       <p className="mt-2 font-bold font-anek text-foreground text-[13px] leading-tight">{person.name}</p>
@@ -263,23 +236,22 @@ type EdgeKind = "v" | "hl" | "hr";
  *  - "hl" : child sits to the LEFT of the parent, same row (horizontal)
  *  - "hr" : child sits to the RIGHT of the parent, same row (horizontal) */
 const ORG_EDGES: { from: string; to: string; kind: EdgeKind; dashed?: boolean }[] = [
-  { from: "raul", to: "beatriz", kind: "v" },
-  { from: "beatriz", to: "lilian", kind: "v", dashed: true },
-  { from: "beatriz", to: "debora", kind: "v" },
-  { from: "beatriz", to: "daniel", kind: "v" },
-  { from: "daniel", to: "cat-gerencia",    kind: "v" },
-  { from: "daniel", to: "cat-designers",   kind: "v" },
-  { from: "daniel", to: "cat-analistas",   kind: "v" },
-  { from: "daniel", to: "cat-conteudo",    kind: "v" },
-  { from: "daniel", to: "cat-assistencia", kind: "v" },
-  { from: "cat-gerencia",    to: "ariadne",  kind: "v" },
-  { from: "cat-designers",   to: "armando",  kind: "v" },
-  { from: "cat-designers",   to: "eria",     kind: "v" },
-  { from: "cat-analistas",   to: "jeniffer", kind: "v" },
-  { from: "cat-analistas",   to: "elane",    kind: "v" },
-  { from: "cat-conteudo",    to: "mateus",   kind: "v" },
-  { from: "cat-assistencia", to: "ana",      kind: "v" },
-  { from: "cat-assistencia", to: "hiago",    kind: "v" },
+  { from: "colaborador-01", to: "colaborador-02", kind: "v" },
+  { from: "colaborador-02", to: "colaborador-04", kind: "v", dashed: true },
+  { from: "colaborador-02", to: "colaborador-03", kind: "v" },
+  { from: "colaborador-03", to: "cat-gerencia",    kind: "v" },
+  { from: "colaborador-03", to: "cat-designers",   kind: "v" },
+  { from: "colaborador-03", to: "cat-analistas",   kind: "v" },
+  { from: "colaborador-03", to: "cat-conteudo",    kind: "v" },
+  { from: "colaborador-03", to: "cat-assistencia", kind: "v" },
+  { from: "cat-gerencia",    to: "colaborador-05", kind: "v" },
+  { from: "cat-designers",   to: "colaborador-06", kind: "v" },
+  { from: "cat-designers",   to: "colaborador-07", kind: "v" },
+  { from: "cat-analistas",   to: "colaborador-09", kind: "v" },
+  { from: "cat-analistas",   to: "colaborador-10", kind: "v" },
+  { from: "cat-conteudo",    to: "colaborador-08", kind: "v" },
+  { from: "cat-assistencia", to: "colaborador-11", kind: "v" },
+  { from: "cat-assistencia", to: "colaborador-12", kind: "v" },
 ];
 
 // Corner radius (px) for the rounded turning points of the connector lines.
@@ -361,14 +333,8 @@ function CategoryColumn({
 
 // ─── Team Grid ────────────────────────────────────────────────────────────────
 
-// Lilian aparece apenas no organograma — fora do grid de cards.
-const TEAM_ORDER = [
-  "raul", "beatriz",
-  "daniel", "debora",
-  "ariadne", "armando",
-  "eria", "mateus", "jeniffer",
-  "elane", "ana", "hiago",
-];
+// Mesma ordem de teamMembers — o grid mostra todo o time.
+const TEAM_ORDER = teamMembers.map((m) => m.id);
 
 function MemberCard({
   id,
@@ -390,14 +356,9 @@ function MemberCard({
           : "hover:shadow-xl hover:-translate-y-1 hover:border-primary/20"
       )}
     >
-      {/* Photo fills the entire top of the card; gradient + icon as fallback */}
+      {/* Avatar preenche o topo do card */}
       <div className={cn("relative w-full aspect-square bg-gradient-to-br flex items-center justify-center overflow-hidden", gradients[person.color])}>
-        <TeamPhoto
-          id={id}
-          alt={person.name}
-          className="absolute inset-0 h-full w-full"
-          fallback={<User className="h-10 w-10 text-white/70" strokeWidth={1.5} />}
-        />
+        <TeamPhoto id={id} alt={person.name} className="absolute inset-0 h-full w-full" />
       </div>
       <div className="px-4 pt-3 pb-4 flex flex-col items-center">
         <p className="font-bold font-anek text-foreground text-[13px] leading-tight">{person.name}</p>
@@ -421,20 +382,12 @@ function PersonDetails({ id, onClose }: { id: string; onClose: () => void }) {
       <div className="p-5">
           <div className="flex items-start justify-between gap-3">
             <div className="flex items-center gap-3 min-w-0">
-              {/* Photo — real when available, gradient icon fallback */}
+              {/* Avatar com as iniciais do colaborador */}
               <TeamPhoto
                 id={id}
                 alt={person.name}
                 className="rounded-xl shadow shrink-0"
                 style={{ width: 48, height: 48 }}
-                fallback={
-                  <div
-                    className={cn("rounded-xl flex items-center justify-center text-white shadow bg-gradient-to-br shrink-0", gradients[person.color])}
-                    style={{ width: 48, height: 48 }}
-                  >
-                    <User className="h-6 w-6 text-white/80" strokeWidth={1.5} />
-                  </div>
-                }
               />
               <div className="min-w-0">
                 <h3 className="text-base font-bold font-anek text-foreground leading-tight truncate">{person.name}</h3>
@@ -658,19 +611,18 @@ function OrgChart() {
           <div className="relative flex flex-col items-center" style={{ zIndex: 1 }}>
 
             {/* CEO */}
-            <PersonCard id="raul" activeId={activeId} onToggle={toggle} size="lg" cardRef={registerNode("raul")} />
+            <PersonCard id="colaborador-01" activeId={activeId} onToggle={toggle} size="lg" cardRef={registerNode("colaborador-01")} />
 
-            {/* Diretoria — Beatriz alone, centered. */}
+            {/* Diretoria, centralizada. */}
             <div style={{ marginTop: ROW_GAP }}>
-              <PersonCard id="beatriz" activeId={activeId} onToggle={toggle} size="md" cardRef={registerNode("beatriz")} />
+              <PersonCard id="colaborador-02" activeId={activeId} onToggle={toggle} size="md" cardRef={registerNode("colaborador-02")} />
             </div>
 
-            {/* Coordenação + CX — Lilian, Daniel, Debora on the same row below Beatriz.
-                Lines curve downward from Beatriz to each of them. */}
+            {/* CX + Coordenação na mesma linha, abaixo da Diretoria.
+                Linhas curvam da Diretoria até cada um deles. */}
             <div className="flex items-start gap-8 sm:gap-12" style={{ marginTop: ROW_GAP }}>
-              <PersonCard id="lilian" activeId={activeId} onToggle={toggle} size="sm" cardRef={registerNode("lilian")} />
-              <PersonCard id="daniel" activeId={activeId} onToggle={toggle} size="md" cardRef={registerNode("daniel")} />
-              <PersonCard id="debora" activeId={activeId} onToggle={toggle} size="sm" cardRef={registerNode("debora")} />
+              <PersonCard id="colaborador-04" activeId={activeId} onToggle={toggle} size="sm" cardRef={registerNode("colaborador-04")} />
+              <PersonCard id="colaborador-03" activeId={activeId} onToggle={toggle} size="md" cardRef={registerNode("colaborador-03")} />
             </div>
 
             {/* Squads de produto — Gerência na mesma altura das demais categorias.
@@ -680,11 +632,11 @@ function OrgChart() {
                 úteis de um notebook. Aumentar os vãos ou a largura do card
                 traz a rolagem lateral de volta. */}
             <div className="flex items-start justify-center gap-4 lg:gap-6" style={{ marginTop: ROW_GAP }}>
-              <CategoryColumn catId="cat-gerencia"    label="Gerência"    ids={["ariadne"]}            activeId={activeId} onToggle={toggle} registerNode={registerNode} />
-              <CategoryColumn catId="cat-designers"   label="Designers"   ids={["armando", "eria"]}    activeId={activeId} onToggle={toggle} registerNode={registerNode} />
-              <CategoryColumn catId="cat-analistas"   label="Analistas"   ids={["jeniffer", "elane"]}  activeId={activeId} onToggle={toggle} registerNode={registerNode} />
-              <CategoryColumn catId="cat-conteudo"    label="Conteúdo"    ids={["mateus"]}              activeId={activeId} onToggle={toggle} registerNode={registerNode} />
-              <CategoryColumn catId="cat-assistencia" label="Assistência" ids={["ana", "hiago"]}       activeId={activeId} onToggle={toggle} registerNode={registerNode} />
+              <CategoryColumn catId="cat-gerencia"    label="Gerência"    ids={["colaborador-05"]}                  activeId={activeId} onToggle={toggle} registerNode={registerNode} />
+              <CategoryColumn catId="cat-designers"   label="Designers"   ids={["colaborador-06", "colaborador-07"]} activeId={activeId} onToggle={toggle} registerNode={registerNode} />
+              <CategoryColumn catId="cat-analistas"   label="Analistas"   ids={["colaborador-09", "colaborador-10"]} activeId={activeId} onToggle={toggle} registerNode={registerNode} />
+              <CategoryColumn catId="cat-conteudo"    label="Conteúdo"    ids={["colaborador-08"]}                  activeId={activeId} onToggle={toggle} registerNode={registerNode} />
+              <CategoryColumn catId="cat-assistencia" label="Assistência" ids={["colaborador-11", "colaborador-12"]} activeId={activeId} onToggle={toggle} registerNode={registerNode} />
             </div>
           </div>
         </div>
@@ -753,12 +705,12 @@ const network = [
 // src/components/widgets/EstruturaIsometrica.tsx e recebe `network` acima.
 
 const dayToDay = [
-  { icon: Search, title: "Pesquisa & Análise de dados", tagline: "Lemos os números para entender as pessoas.", desc: "Travou no Typeform ou não sabe como ler os números de um dashboard? Nós traduzimos os dados. Fazemos pesquisas com leads, membros e com os próprios piratas para encontrar os problemas reais e guiar os próximos passos do produto.", quemChamar: ["Ana Beatriz", "Ariadne", "Daniel"] },
-  { icon: Monitor, title: "Plataformas & Tecnologia", tagline: "A engenharia por trás do produto.", desc: "Encontrou algum erro na plataforma de aulas ou em algum de nossos sites? Nós sabemos como construir e ajustar cada detalhe técnico.", quemChamar: ["Elane", "Armando", "Éria", "Mateus", "Ana Beatriz"] },
-  { icon: Palette, title: "Design (Físico & Digital)", tagline: "Identidade visual e experiência tangível.", desc: "Cuidamos da nossa marca de ponta a ponta, do digital aos materiais físicos que os membros recebem. Se você precisa das logos oficiais, fotos do Raul, paleta de cores ou quer desenvolver novos kits e brindes (como meias e bonés), nós garantimos que o visual saia com a qualidade que a AUVP exige.", quemChamar: ["Armando", "Éria"] },
-  { icon: PenTool, title: "Copy & Redação", tagline: "Estratégia em cada palavra.", desc: "De apostilas, roteiros e mapas mentais até este texto que você está lendo. Se você precisa criar ou revisar um playbook e garantir que o material não tenha jargões de marketing ou cara de inteligência artificial, nossos redatores estão prontos para ajudar.", quemChamar: ["Jeniffer", "Mateus", "Ana"] },
-  { icon: Settings, title: "Produtividade & Gestão", tagline: "Fazemos projetos rodarem.", desc: "Planilhas, ClickUp, fluxos de trabalho e priorização. Se o desafio é gestão de tempo, de pessoas ou aumentar a eficiência do time, somos especialistas em transformar caos em projetos executados.", quemChamar: ["Beatriz Henriques", "Daniel", "Ariadne"] },
-  { icon: Heart, title: "CX & relacionamento com membros", tagline: "Ouvimos o mercado e cuidamos de cada membro.", desc: "Nós mapeamos o mercado e ouvimos quem consome o nosso conteúdo para aplicar melhorias práticas. Da análise de dados à mediação dos grupos de WhatsApp, nosso papel é garantir que o convívio e a experiência do membro mantenham o padrão da AUVP.", quemChamar: ["Beatriz Henriques", "Lilian", "Debora"] },
+  { icon: Search, title: "Pesquisa & Análise de dados", tagline: "Lemos os números para entender as pessoas.", desc: "Travou num formulário ou não sabe como ler os números de um dashboard? Nós traduzimos os dados. Fazemos pesquisas com leads e usuários para encontrar os problemas reais e guiar os próximos passos do produto.", quemChamar: ["Colaborador 11", "Colaborador 5", "Colaborador 3"] },
+  { icon: Monitor, title: "Plataformas & Tecnologia", tagline: "A engenharia por trás do produto.", desc: "Encontrou algum erro na plataforma ou em algum dos nossos sites? Nós sabemos como construir e ajustar cada detalhe técnico.", quemChamar: ["Colaborador 9", "Colaborador 6", "Colaborador 7", "Colaborador 8"] },
+  { icon: Palette, title: "Design (Físico & Digital)", tagline: "Identidade visual e experiência tangível.", desc: "Cuidamos da nossa marca de ponta a ponta, do digital aos materiais físicos que os usuários recebem. Se você precisa das logos oficiais, da paleta de cores ou quer desenvolver novos kits e brindes, nós garantimos que o visual saia com a qualidade esperada.", quemChamar: ["Colaborador 6", "Colaborador 7"] },
+  { icon: PenTool, title: "Copy & Redação", tagline: "Estratégia em cada palavra.", desc: "De materiais e roteiros até este texto que você está lendo. Se você precisa criar ou revisar um conteúdo e garantir que o material não tenha jargões de marketing ou cara de inteligência artificial, nossos redatores estão prontos para ajudar.", quemChamar: ["Colaborador 9", "Colaborador 8"] },
+  { icon: Settings, title: "Produtividade & Gestão", tagline: "Fazemos projetos rodarem.", desc: "Planilhas, ferramentas de gestão, fluxos de trabalho e priorização. Se o desafio é gestão de tempo, de pessoas ou aumentar a eficiência do time, somos especialistas em transformar caos em projetos executados.", quemChamar: ["Colaborador 2", "Colaborador 3", "Colaborador 5"] },
+  { icon: Heart, title: "CX & relacionamento com usuários", tagline: "Ouvimos o mercado e cuidamos de cada usuário.", desc: "Nós mapeamos o mercado e ouvimos quem usa nosso produto para aplicar melhorias práticas. Da análise de dados à mediação de canais de atendimento, nosso papel é garantir que a experiência do usuário mantenha o padrão esperado.", quemChamar: ["Colaborador 2", "Colaborador 4"] },
 ];
 
 // ─── Section helpers ──────────────────────────────────────────────────────────
@@ -1025,12 +977,12 @@ export default function TimePage() {
 
   return (
     <PageShell
-      footer="Time de Produto e CX — AUVP"
+      footer="Time de Produto e CX"
       mainClassName="py-16 space-y-24"
       hero={
         <PageHero
           icon={Users}
-          title="Nossa tripulação"
+          title="Nosso Time"
           description={
             <>
               Aqui a excelência é o mínimo. Juntamos especialistas em{" "}
@@ -1038,7 +990,7 @@ export default function TimePage() {
               <span className="font-semibold text-foreground">copy</span>,{" "}
               <span className="font-semibold text-foreground">gestão</span> e{" "}
               <span className="font-semibold text-foreground">dados</span> com um único foco:
-              manter o padrão de qualidade da maior escola de investimentos do país.
+              manter o padrão de qualidade em cada entrega.
             </>
           }
           /* Respiro extra embaixo: os cards do time sobem com margem negativa
@@ -1135,7 +1087,7 @@ export default function TimePage() {
 
         <Section id="rotina-na-pratica" className="scroll-mt-24">
           <SectionTitle>Nossa rotina na prática</SectionTitle>
-          <p className="text-muted-foreground font-roboto mb-10 max-w-xl">Veja a especialidade de cada membro do time de produtos. Saiba exatamente qual pirata procurar quando precisar destravar uma demanda.</p>
+          <p className="text-muted-foreground font-roboto mb-10 max-w-xl">Veja a especialidade de cada membro do time de produtos. Saiba exatamente quem procurar quando precisar destravar uma demanda.</p>
           <div ref={gridWrapRef} className="relative">
             {/* Linhas de energia cubo → cards (aparecem no fim do afastamento) */}
             {fase === "ancorado" && linhas && (

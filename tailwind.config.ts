@@ -6,7 +6,7 @@ export default {
   // (seletor `.dark &`) os utilitários dark: continuavam ativos dentro desses
   // previews. O :not(...) desliga dark: em qualquer subtree .light.
   darkMode: ["variant", "&:is(.dark *):not(:is(.light, .light *))"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: ["./index.html", "./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
     container: {

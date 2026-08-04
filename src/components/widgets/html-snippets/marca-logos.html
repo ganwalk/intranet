@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marca & Símbolo — Design System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anek+Latin:wght@400;700;800;900&family=Roboto:wght@400;700&display=swap');
+    .font-anek { font-family: 'Anek Latin', sans-serif; }
+    .font-roboto { font-family: 'Roboto', sans-serif; }
+  </style>
+</head>
+<body class="bg-white text-neutral-900 font-roboto p-8">
+
+  <div class="max-w-4xl mx-auto space-y-12">
+
+    <!-- Símbolo -->
+    <section>
+      <h2 class="text-xl font-bold font-anek mb-1">Símbolo da marca</h2>
+      <p class="text-neutral-500 text-sm mb-6">Três variantes de cor do mesmo símbolo. Use a versão adequada conforme o fundo.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="border border-neutral-200 rounded-xl p-10 flex flex-col items-center bg-neutral-100">
+          <img src="/olho-preto.svg" alt="Símbolo preto" class="h-16 mb-4" />
+          <span class="text-sm font-bold text-neutral-900 mb-1">Preto</span>
+          <span class="text-xs text-neutral-500">Para fundos claros</span>
+          <div class="flex gap-1.5 mt-3">
+            <a href="/olho-preto.svg" download title="Baixar SVG" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded border border-neutral-300 hover:border-neutral-500 text-neutral-500 hover:text-neutral-900 transition-colors">Baixar SVG</a>
+            <a href="/olho-preto.svg" download title="Baixar PNG" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded border border-neutral-300 hover:border-neutral-500 text-neutral-500 hover:text-neutral-900 transition-colors">Baixar PNG</a>
+            <a href="/olho-preto.svg" download title="Baixar PDF" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded border border-neutral-300 hover:border-neutral-500 text-neutral-500 hover:text-neutral-900 transition-colors">Baixar PDF</a>
+          </div>
+        </div>
+        <div class="border border-neutral-800 rounded-xl p-10 flex flex-col items-center bg-neutral-900">
+          <img src="/olho-branco.svg" alt="Símbolo branco" class="h-16 mb-4" />
+          <span class="text-sm font-bold text-neutral-100 mb-1">Branco</span>
+          <span class="text-xs text-neutral-400">Para fundos escuros</span>
+          <div class="flex gap-1.5 mt-3">
+            <a href="/olho-branco.svg" download title="Baixar SVG" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-neutral-100 transition-colors">Baixar SVG</a>
+            <a href="/olho-branco.svg" download title="Baixar PNG" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-neutral-100 transition-colors">Baixar PNG</a>
+            <a href="/olho-branco.svg" download title="Baixar PDF" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-neutral-100 transition-colors">Baixar PDF</a>
+          </div>
+        </div>
+        <div class="border border-neutral-800 rounded-xl p-10 flex flex-col items-center bg-neutral-900">
+          <img src="/olho-amarelo.svg" alt="Símbolo de acento" class="h-16 mb-4" />
+          <span class="text-sm font-bold text-neutral-100 mb-1">Acento</span>
+          <span class="text-xs text-neutral-400">Cor primária da marca</span>
+          <div class="flex gap-1.5 mt-3">
+            <a href="/olho-amarelo.svg" download title="Baixar SVG" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-neutral-100 transition-colors">Baixar SVG</a>
+            <a href="/olho-amarelo.svg" download title="Baixar PNG" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-neutral-100 transition-colors">Baixar PNG</a>
+            <a href="/olho-amarelo.svg" download title="Baixar PDF" class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-neutral-100 transition-colors">Baixar PDF</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Área de Segurança -->
+    <section>
+      <h2 class="text-xl font-bold font-anek mb-1">Área de Segurança</h2>
+      <p class="text-neutral-500 text-sm mb-6">
+        A área de segurança (safe zone) usa a própria dimensão do símbolo como espaçamento mínimo
+        nos quatro lados, garantindo que nenhum elemento gráfico invada o espaço da marca.
+      </p>
+      <div class="border rounded-xl p-10 flex items-center justify-center bg-neutral-100">
+        <div class="border-2 border-dashed border-neutral-300 p-8">
+          <img src="/olho-preto.svg" alt="Símbolo com área de segurança" class="h-16" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Dimensão Mínima -->
+    <section>
+      <h2 class="text-xl font-bold font-anek mb-1">Dimensão Mínima</h2>
+      <p class="text-neutral-500 text-sm mb-6">A dimensão mínima preserva a legibilidade do símbolo em diferentes meios de aplicação.</p>
+      <div class="border rounded-xl p-8 bg-neutral-100 flex flex-col items-center">
+        <div class="flex flex-col items-center gap-4">
+          <img src="/olho-preto.svg" alt="Símbolo em tamanho padrão" class="h-16" />
+          <span class="text-neutral-400">↓</span>
+          <img src="/olho-preto.svg" alt="Símbolo em tamanho mínimo" class="h-6" />
+        </div>
+        <div class="mt-6 w-full max-w-xs space-y-2">
+          <div class="flex justify-between text-xs">
+            <span class="text-neutral-500 font-bold">Impressos</span>
+            <span class="font-bold">1 × 1 cm</span>
+          </div>
+          <div class="flex justify-between text-xs">
+            <span class="text-neutral-500 font-bold">Digital</span>
+            <span class="font-bold">24 × 24 px</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Equivalente React: função MarcaLogos() em MarcaLogos.tsx -->
+</body>
+</html>

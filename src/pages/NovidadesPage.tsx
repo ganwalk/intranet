@@ -97,14 +97,14 @@ export default function NovidadesPage() {
   return (
     <PageShell
       width="4xl"
-      footer="Novidades — Time de Produto AUVP"
+      footer="Novidades — Time de Produto"
       mainClassName="py-8 md:py-12 space-y-6"
       hero={
         <PageHero
           id="topo"
           icon={Newspaper}
           title="Mural de Novidades"
-          description="Tudo o que a Equipe AUVP entregou, mês a mês — atualizações, lançamentos e os spoilers do que vem por aí."
+          description="Tudo o que o time entregou, mês a mês — atualizações, lançamentos e os spoilers do que vem por aí."
           actions={<VoltarParaCentral />}
         />
       }

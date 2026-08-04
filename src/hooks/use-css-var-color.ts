@@ -19,7 +19,7 @@ export interface CssVarColor {
 /**
  * Resolve um token HSL do design system (`--primary`, `--chart-1`, …) para
  * HEX/RGB no contexto do elemento, e RE-LÊ quando qualquer ancestral muda de
- * classe — troca de tema global (`dark` no <html>), de marca (`escola`) ou o
+ * classe — troca de tema global (`dark` no <html>), de marca (`marca-b`) ou o
  * toggle local `.dark`/`.light` dos showcases.
  *
  * Ler dentro de um efeito comum com dependência no estado do tema mostra o

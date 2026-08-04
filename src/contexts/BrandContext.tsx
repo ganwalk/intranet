@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useCallback, useEffect } from "react";
 
-type Brand = "capital" | "escola";
+type Brand = "marca-a" | "marca-b";
 
 interface BrandContextValue {
   brand: Brand;
@@ -11,18 +11,18 @@ interface BrandContextValue {
 const BrandContext = createContext<BrandContextValue | undefined>(undefined);
 
 export function BrandProvider({ children }: { children: React.ReactNode }) {
-  const [brand, setBrand] = useState<Brand>("capital");
+  const [brand, setBrand] = useState<Brand>("marca-a");
 
   const toggle = useCallback(() => {
-    setBrand((b) => (b === "capital" ? "escola" : "capital"));
+    setBrand((b) => (b === "marca-a" ? "marca-b" : "marca-a"));
   }, []);
 
   useEffect(() => {
     const root = document.documentElement;
-    if (brand === "escola") {
-      root.classList.add("escola");
+    if (brand === "marca-b") {
+      root.classList.add("marca-b");
     } else {
-      root.classList.remove("escola");
+      root.classList.remove("marca-b");
     }
   }, [brand]);
 

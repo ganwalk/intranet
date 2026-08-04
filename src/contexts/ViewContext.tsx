@@ -21,7 +21,7 @@ export function ViewProvider({ children }: { children: React.ReactNode }) {
   const { brand } = useBrand();
   const [view, setViewState] = useState<SystemView>("institucional");
 
-  const availableViews: SystemView[] = brand === "capital"
+  const availableViews: SystemView[] = brand === "marca-a"
     ? ["institucional", "ferramentas"]
     : ["institucional", "ferramentas", "plataforma"];
 

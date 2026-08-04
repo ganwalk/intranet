@@ -1,8 +1,8 @@
 import type React from "react";
 import {
   BookOpen, GraduationCap,
-  Anchor, Sparkles, Mic, Building2, Wheat,
-  BarChart3, DollarSign, CreditCard, Shield, Award, Plane,
+  Anchor, Sparkles, Mic,
+  Layers, Award,
 } from "lucide-react";
 import { areaIcons } from "@/data/areasEmpresa";
 
@@ -27,25 +27,19 @@ export const tomEVozGroupLabels: Record<string, string> = {
 
 export const tomEVozSections: TomEVozSection[] = [
   { id: "fundamentos", label: "Fundamentos", icon: BookOpen, group: "introducao" },
-  { id: "raul", label: "Voz do Raul", icon: Mic, group: "introducao" },
+  { id: "fundador", label: "Voz da Liderança", icon: Mic, group: "introducao" },
 
   // Áreas da empresa usam os ícones canônicos de src/data/areasEmpresa.ts
   { id: "marketing", label: "Marketing", icon: areaIcons.Marketing, group: "areas" },
   { id: "comercial", label: "Comercial", icon: areaIcons.Comercial, group: "areas" },
   { id: "atendimento", label: "Atendimento", icon: areaIcons.Atendimento, group: "areas" },
   { id: "consultoria", label: "Consultoria", icon: areaIcons.Consultoria, group: "areas" },
-  { id: "produto-wealth", label: "AUVP Wealth", icon: Building2, group: "areas" },
   { id: "capital", label: "Capital Humano", icon: Anchor, group: "areas" },
   { id: "produto-cx", label: "Produto e Cx", icon: Sparkles, group: "areas" },
 
-  { id: "produto-agro", label: "Agro", icon: Wheat, group: "produtos" },
-  { id: "produto-escola", label: "Escola", icon: GraduationCap, group: "produtos" },
-  { id: "produto-analitica", label: "Analítica", icon: BarChart3, group: "produtos" },
-  { id: "produto-cambio", label: "Câmbio", icon: DollarSign, group: "produtos" },
-  { id: "produto-credito", label: "Crédito", icon: CreditCard, group: "produtos" },
-  { id: "produto-seguros", label: "Seguros", icon: Shield, group: "produtos" },
-  { id: "produto-pro", label: "Pro", icon: Award, group: "produtos" },
-  { id: "produto-experience", label: "Experience", icon: Plane, group: "produtos" },
+  { id: "produto-a", label: "Produto A", icon: GraduationCap, group: "produtos" },
+  { id: "produto-b", label: "Produto B", icon: Layers, group: "produtos" },
+  { id: "produto-c", label: "Produto C", icon: Award, group: "produtos" },
 ];
 
 export const tomEVozGroups = Object.entries(tomEVozGroupLabels).map(([key, label]) => ({
@@ -62,4 +56,4 @@ export const TOM_E_VOZ_AUTH_KEY = "tom-e-voz-auth";
  * do Tom e Voz na busca global assim que o usuário se autentica,
  * sem precisar navegar/recarregar a página primeiro.
  */
-export const TOM_E_VOZ_UNLOCKED_EVENT = "auvp:tom-e-voz-unlocked";
+export const TOM_E_VOZ_UNLOCKED_EVENT = "central:tom-e-voz-unlocked";

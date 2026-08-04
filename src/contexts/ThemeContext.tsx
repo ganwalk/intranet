@@ -10,7 +10,7 @@ interface ThemeContextValue {
 
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
-const STORAGE_KEY = "auvp-theme";
+const STORAGE_KEY = "central-theme";
 
 function getInitialTheme(): Theme {
   if (typeof window === "undefined") return "light";

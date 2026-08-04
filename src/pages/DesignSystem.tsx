@@ -111,7 +111,7 @@ import { olhoBranco, olhoPreto } from "@/assets/olhos";
 import {
   Palette, Type, Square, MousePointer,
   AlertCircle, Info, ArrowRight, GraduationCap, DollarSign, Map, Bot,
-  Download, Shapes, BookOpen, Video, ListOrdered, BarChart3, PenLine, Star, MessageCircle,
+  Shapes, BookOpen, Video, ListOrdered, BarChart3, PenLine, Star, MessageCircle,
   Layout, Calculator, Clock, HelpCircle, Award, MessageSquare, Package, Menu, PieChart as PieChartIcon,
   Bell, ShieldAlert, Loader2, Layers, PanelRightOpen,
   ArrowLeftRight, FolderTree, UploadCloud, Star as StarIcon, ListFilter, Search,
@@ -203,18 +203,18 @@ export default function DesignSystemPage() {
   const { brand, setBrand } = useBrand();
   const { toast } = useToast();
 
-  // Reseta para Capital ao sair do Design System
+  // Reseta para Marca A ao sair do Design System
   useEffect(() => {
-    return () => { setBrand("capital"); };
+    return () => { setBrand("marca-a"); };
   }, []);
 
-  const handleBrandPreview = (b: "capital" | "escola") => {
-    if (b === "escola") document.documentElement.classList.add("escola");
-    else document.documentElement.classList.remove("escola");
+  const handleBrandPreview = (b: "marca-a" | "marca-b") => {
+    if (b === "marca-b") document.documentElement.classList.add("marca-b");
+    else document.documentElement.classList.remove("marca-b");
   };
   const handleBrandRevert = () => {
-    if (brand === "escola") document.documentElement.classList.add("escola");
-    else document.documentElement.classList.remove("escola");
+    if (brand === "marca-b") document.documentElement.classList.add("marca-b");
+    else document.documentElement.classList.remove("marca-b");
   };
 
   const normalize = (s: string) =>
@@ -402,7 +402,7 @@ export default function DesignSystemPage() {
                     </div>
                     <div>
                       <p className="text-sm font-bold font-anek">Design System</p>
-                      <p className="text-xs text-muted-foreground">AUVP</p>
+                      <p className="text-xs text-muted-foreground">Central de Produto</p>
                     </div>
                   </div>
                 </div>
@@ -421,8 +421,8 @@ export default function DesignSystemPage() {
                     {brandOpen && (
                       <div className="space-y-0.5 mt-1">
                         {[
-                          { id: "capital" as const, label: "AUVP Capital", color: "hsl(155,93%,11%)" },
-                          { id: "escola" as const, label: "AUVP Escola", color: "hsl(42,84%,63%)" },
+                          { id: "marca-a" as const, label: "Marca A", color: "hsl(243,75%,59%)" },
+                          { id: "marca-b" as const, label: "Marca B", color: "hsl(173,80%,40%)" },
                         ].map((b) => (
                           <button
                             key={b.id}
@@ -512,8 +512,8 @@ export default function DesignSystemPage() {
       <PageHero
         id="intro"
         icon={Palette}
-        title="Bem-vindo ao Design System AUVP"
-        description="A referência oficial de tokens visuais, componentes e padrões de interface das marcas AUVP Capital e AUVP Escola. Navegue pela sidebar para explorar cada área."
+        title="Bem-vindo ao Design System"
+        description="A referência oficial de tokens visuais, componentes e padrões de interface das marcas Marca A e Marca B. Navegue pela sidebar para explorar cada área."
       />
 
       <div className="max-w-7xl mx-auto flex gap-0 relative px-4 md:px-8">
@@ -532,8 +532,8 @@ export default function DesignSystemPage() {
             {brandOpen && (
               <div className="space-y-0.5 mt-1">
                 {[
-                  { id: "capital" as const, label: "AUVP Capital", color: "hsl(155,93%,11%)" },
-                  { id: "escola" as const, label: "AUVP Escola", color: "hsl(42,84%,63%)" },
+                  { id: "marca-a" as const, label: "Marca A", color: "hsl(243,75%,59%)" },
+                  { id: "marca-b" as const, label: "Marca B", color: "hsl(173,80%,40%)" },
                 ].map((b) => (
                   <button
                     key={b.id}
@@ -617,22 +617,11 @@ export default function DesignSystemPage() {
               <Info className="h-5 w-5 text-primary shrink-0 mt-0.5 md:mt-0" />
               <div className="flex-1">
                 <p className="text-sm text-foreground leading-relaxed">
-                  A maioria das demais marcas do ecossistema AUVP não possui diretrizes próprias, mas segue as boas práticas deste design system.
-                  Os arquivos podem ser encontrados e baixados no repositório oficial.
+                  As demais aplicações da marca seguem as boas práticas deste design system.
                 </p>
               </div>
-              <a
-                href="https://drive.google.com/drive/folders/1iZV0YPxFN9CxoB7SgiwZII6Bl4Supqbv?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="outline" size="sm" className="shrink-0">
-                  <Download className="h-4 w-4 mr-2" />
-                  Repositório
-                </Button>
-              </a>
             </div>
-            <SectionThemeToggle bare title="Marca & Logos" description="Aplicações oficiais de marca AUVP. Use sempre os arquivos originais sem distorções nem recortes." code={marcaLogosSrc} htmlCode={marcaLogosHtml}><MarcaLogos /></SectionThemeToggle>
+            <SectionThemeToggle bare title="Marca & Logos" description="Aplicações oficiais da marca. Use sempre os arquivos originais sem distorções nem recortes." code={marcaLogosSrc} htmlCode={marcaLogosHtml}><MarcaLogos /></SectionThemeToggle>
           </section>
 
           <Separator />
@@ -678,7 +667,7 @@ export default function DesignSystemPage() {
           <Separator />
           <section id="colors">
             <h2 className="text-2xl font-bold mb-2">Cores</h2>
-            <p className="text-muted-foreground mb-6">Paleta de cores semânticas do tema {brand === "capital" ? "AUVP Capital (Verde)" : "AUVP Escola (Dourado)"}</p>
+            <p className="text-muted-foreground mb-6">Paleta de cores semânticas do tema {brand === "marca-a" ? "Marca A (Índigo)" : "Marca B (Turquesa)"}</p>
              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
                 { name: "Primary", var: "primary", fg: "primary-foreground" },
@@ -695,31 +684,20 @@ export default function DesignSystemPage() {
             </div>
 
             <div className="mt-8 p-5 rounded-xl border border-border bg-muted/30">
-              <h3 className="text-base font-bold mb-1 font-anek">Verde de Acento — Modo Escuro</h3>
+              <h3 className="text-base font-bold mb-1 font-anek">Acento — Modo Escuro</h3>
               <p className="text-sm text-muted-foreground mb-4 font-roboto">
-                Tom <code className="text-xs bg-background px-1.5 py-0.5 rounded">#5A8770</code> usado pontualmente
-                em ícones, numerações e textos de destaque sobre fundos escuros, mantendo a UI baseada em preto/branco/cinza.
+                A cor de acento é usada pontualmente em ícones, numerações e textos de destaque sobre
+                fundos escuros, mantendo a UI baseada em preto/branco/cinza.
               </p>
               <div className="flex items-center gap-4">
                 <div
                   className="h-16 w-16 rounded-xl border border-border shrink-0"
-                  style={{ backgroundColor: "#5A8770" }}
-                  aria-label="Swatch verde de acento"
+                  style={{ backgroundColor: "hsl(var(--accent))" }}
+                  aria-label="Swatch de acento"
                 />
-                <div className="grid grid-cols-3 gap-3 text-xs font-roboto">
-                  <div>
-                    <div className="text-muted-foreground uppercase tracking-wider mb-0.5">HEX</div>
-                    <div className="font-mono">#5A8770</div>
-                  </div>
-                  <div>
-                    <div className="text-muted-foreground uppercase tracking-wider mb-0.5">RGB</div>
-                    <div className="font-mono">90, 135, 112</div>
-                  </div>
-                  <div>
-                    <div className="text-muted-foreground uppercase tracking-wider mb-0.5">HSL</div>
-                    <div className="font-mono">145, 20%, 44%</div>
-                  </div>
-                </div>
+                <p className="text-xs text-muted-foreground font-roboto">
+                  Token <code className="text-xs bg-background px-1.5 py-0.5 rounded">--accent</code>, dinâmico por tema e marca.
+                </p>
               </div>
             </div>
 
@@ -755,7 +733,7 @@ export default function DesignSystemPage() {
               <h3 className="text-xl font-bold mb-2">Paleta para Dados e Gráficos</h3>
               <p className="text-muted-foreground mb-6">
                 Conjunto expandido de cores derivado da identidade da marca, usado em tabelas com múltiplas categorias,
-                gráficos de pizza, barras, linhas e mapas de calor. As cores se adaptam automaticamente entre Capital e Escola.
+                gráficos de pizza, barras, linhas e mapas de calor. As cores se adaptam automaticamente entre Marca A e Marca B.
               </p>
               <SectionThemeToggle bare title="Paleta de Dados & Gráficos" description="Conjunto expandido de cores derivado da identidade de marca, usado em tabelas com múltiplas categorias, gráficos de pizza, barras, linhas e mapas de calor." code={paletaDataVizSrc} selfDocumented><PaletaDataViz /></SectionThemeToggle>
             </div>
@@ -764,8 +742,8 @@ export default function DesignSystemPage() {
           <Separator />
           <section id="icons">
             <h2 className="text-2xl font-bold mb-2">Ícones</h2>
-            <p className="text-muted-foreground mb-6">Biblioteca de ícones Phosphor Icons utilizada em todo o ecossistema AUVP.</p>
-            <SectionThemeToggle bare title="Ícones Phosphor" description="Biblioteca Phosphor Icons utilizada em todo o ecossistema AUVP. Inclui variantes regular, bold e fill." code={iconesSrc} selfDocumented><Icones /></SectionThemeToggle>
+            <p className="text-muted-foreground mb-6">Biblioteca de ícones Phosphor Icons utilizada em todo o produto.</p>
+            <SectionThemeToggle bare title="Ícones Phosphor" description="Biblioteca Phosphor Icons utilizada em todo o produto. Inclui variantes regular, bold e fill." code={iconesSrc} selfDocumented><Icones /></SectionThemeToggle>
           </section>
 
           <Separator />
@@ -821,12 +799,12 @@ export default function DesignSystemPage() {
             <p className="text-muted-foreground mb-6">Durações e easings padronizados. Animações via JS devem respeitar <code className="bg-muted px-1 rounded text-sm font-mono">prefers-reduced-motion</code> (hook <code className="bg-muted px-1 rounded text-sm font-mono">useReducedMotion</code>); as de CSS já são neutralizadas globalmente.</p>
             <ComponentShowcase
               title="Durações & Easings"
-              description="Passe o cursor sobre os cards para sentir cada duração. 240ms ease é o padrão do sistema; 320ms nas LPs da Escola."
+              description="Passe o cursor sobre os cards para sentir cada duração. 240ms ease é o padrão do sistema; 320ms nas LPs da Marca B."
               code={`<div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
   {[
     { ms: "150ms", cls: "duration-150", uso: "Micro-interações: ícones, toggles, tooltips" },
     { ms: "240ms", cls: "duration-[240ms]", uso: "Padrão do sistema: botões, cards, hovers" },
-    { ms: "320ms", cls: "duration-[320ms]", uso: "Escola LP: cards translúcidos e destaques" },
+    { ms: "320ms", cls: "duration-[320ms]", uso: "Marca B LP: cards translúcidos e destaques" },
   ].map((d) => (
     <div key={d.ms} className={\`bg-card border border-border rounded-xl p-6 text-center transition-all ease-out hover:-translate-y-1 hover:shadow-md cursor-pointer \${d.cls}\`}>
       <p className="font-mono text-2xl font-bold text-foreground">{d.ms}</p>
@@ -851,7 +829,7 @@ export default function DesignSystemPage() {
                 {[
                   { ms: "150ms", cls: "duration-150", uso: "Micro-interações: ícones, toggles, tooltips" },
                   { ms: "240ms", cls: "duration-[240ms]", uso: "Padrão do sistema: botões, cards, hovers" },
-                  { ms: "320ms", cls: "duration-[320ms]", uso: "Escola LP: cards translúcidos e destaques" },
+                  { ms: "320ms", cls: "duration-[320ms]", uso: "Marca B LP: cards translúcidos e destaques" },
                 ].map((d) => (
                   <div key={d.ms} className={`bg-card border border-border rounded-xl p-6 text-center transition-all ease-out hover:-translate-y-1 hover:shadow-md cursor-pointer ${d.cls}`}>
                     <p className="font-mono text-2xl font-bold text-foreground">{d.ms}</p>
@@ -927,33 +905,33 @@ import { ArrowRight } from "lucide-react";
   .btn-lg { padding:1rem 2rem; height:48px; font-size:14px; letter-spacing:0.05em; }
 
   /* Padrão (default) — hover revela a borda */
-  .btn-default { background:var(--primary,#023619); color:#fff; border-color:var(--primary,#023619); }
-  .btn-default:hover { background:transparent; color:var(--primary,#023619); }
+  .btn-default { background:var(--primary,#4F46E5); color:#fff; border-color:var(--primary,#4F46E5); }
+  .btn-default:hover { background:transparent; color:var(--primary,#4F46E5); }
 
   /* CTA Landing Page */
-  .btn-cta { background:#023619; color:#fff; }
-  .btn-cta:hover { background:transparent; color:#023619; border-color:#023619; }
+  .btn-cta { background:#4F46E5; color:#fff; }
+  .btn-cta:hover { background:transparent; color:#4F46E5; border-color:#4F46E5; }
 
   /* CTA Invertido (para fundos escuros) — hover atenua o fundo claro.
-     No tema escuro: fundo verde-acento #5A8770, texto quase-preto #0D0D0D. */
-  .btn-cta-inverted { background:#fafafa; color:#023619; border-color:#023619; }
+     No tema escuro: fundo acento #818CF8, texto quase-preto #0D0D0D. */
+  .btn-cta-inverted { background:#fafafa; color:#4F46E5; border-color:#4F46E5; }
   .btn-cta-inverted:hover { background:#e0e0e0; }
 
   /* Secundário */
-  .btn-secondary { background:var(--secondary,#15472F); color:#fff;
-    border-color:var(--secondary,#15472F); }
-  .btn-secondary:hover { background:transparent; color:var(--secondary,#15472F); }
+  .btn-secondary { background:var(--secondary,#3730A3); color:#fff;
+    border-color:var(--secondary,#3730A3); }
+  .btn-secondary:hover { background:transparent; color:var(--secondary,#3730A3); }
 
   /* Contorno (outline) — hover usa a cor de acento */
   .btn-outline { background:transparent; color:inherit; border-color:#dfe3df; }
-  .btn-outline:hover { background:var(--accent,#023619); color:#fff; }
+  .btn-outline:hover { background:var(--accent,#4F46E5); color:#fff; }
 
   /* Fantasma (ghost) — hover usa a cor de acento */
   .btn-ghost { background:transparent; color:inherit; border-color:transparent; }
-  .btn-ghost:hover { background:var(--accent,#023619); color:#fff; }
+  .btn-ghost:hover { background:var(--accent,#4F46E5); color:#fff; }
 
   /* Link */
-  .btn-link { background:transparent; color:var(--primary,#023619); border:none; padding:0;
+  .btn-link { background:transparent; color:var(--primary,#4F46E5); border:none; padding:0;
     text-decoration:none; }
   .btn-link:hover { text-decoration:underline; }
 
@@ -990,7 +968,7 @@ import { ArrowRight } from "lucide-react";
 <Button size="icon"><ArrowRight className="h-4 w-4" /></Button>`}
                 htmlCode={`<style>
   .btn { display:inline-flex; align-items:center; justify-content:center;
-    background:var(--primary,#023619); color:#fff; border:1px solid var(--primary,#023619);
+    background:var(--primary,#4F46E5); color:#fff; border:1px solid var(--primary,#4F46E5);
     border-radius:5px; font-family:'Sora',sans-serif; font-weight:700; text-transform:uppercase;
     cursor:pointer; }
   .btn-sm      { height:36px; padding:0 0.75rem;  font-size:12px; }
@@ -1012,11 +990,11 @@ import { ArrowRight } from "lucide-react";
                 <Button size="icon"><ArrowRight className="h-4 w-4" /></Button>
               </ComponentShowcase>
               <ComponentShowcase title="CTA em Fundo Escuro" description="Comportamento do botão invertido"
-                code={`<div className="bg-[hsl(155_93%_11%)] dark:bg-[hsl(0_0%_18%)] p-8 rounded-lg">
+                code={`<div className="bg-[hsl(243_75%_59%)] dark:bg-[hsl(0_0%_18%)] p-8 rounded-lg">
   <Button variant="cta-inverted" size="lg">Começar Agora</Button>
 </div>`}
-                htmlCode={`<div style="background:#023619; padding:2rem; border-radius:0.5rem;">\n  <button style="background:#fafafa; color:#023619; padding:1rem 2rem; border-radius:5px; font-family:'Sora'; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; font-size:14px; border:1px solid #fafafa; cursor:pointer;">COMEÇAR AGORA</button>\n</div>\n<!-- Hover: background #e0e0e0 (atenuação leve, mantém contraste) -->\n<!-- Tema escuro: background #5A8770, texto #0D0D0D, hover clareia p/ #74a18c -->`}>
-                <div className="bg-[hsl(155_93%_11%)] dark:bg-[hsl(0_0%_18%)] p-8 rounded-lg flex items-center gap-4 w-full">
+                htmlCode={`<div style="background:#4F46E5; padding:2rem; border-radius:0.5rem;">\n  <button style="background:#fafafa; color:#4F46E5; padding:1rem 2rem; border-radius:5px; font-family:'Sora'; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; font-size:14px; border:1px solid #fafafa; cursor:pointer;">COMEÇAR AGORA</button>\n</div>\n<!-- Hover: background #e0e0e0 (atenuação leve, mantém contraste) -->\n<!-- Tema escuro: background #818CF8, texto #0D0D0D, hover clareia p/ #A5B4FC -->`}>
+                <div className="bg-[hsl(243_75%_59%)] dark:bg-[hsl(0_0%_18%)] p-8 rounded-lg flex items-center gap-4 w-full">
                   <Button variant="cta-inverted" size="lg">Começar Agora</Button>
                 </div>
               </ComponentShowcase>
@@ -1043,14 +1021,14 @@ import { ArrowRight } from "lucide-react";
   .grade-container { background: #f5f5f5; padding: 2rem; border-radius: 1rem; border: 1px solid #e5e5e5; }
   .grade-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 2rem; }
   .grade-tab { padding: 0.75rem 1.5rem; border-radius: 9999px; border: 1px solid #e5e5e5; background: rgba(255,255,255,0.4); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; color: #888; transition: all 0.2s; }
-  .grade-tab.active { background: var(--primary, #023619); color: #fff; border-color: var(--primary, #023619); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .grade-tab.active { background: var(--primary, #4F46E5); color: #fff; border-color: var(--primary, #4F46E5); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
   .grade-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
   .grade-card { background: rgba(255,255,255,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(0,0,0,0.05); border-radius: 0.75rem; padding: 1.5rem; transition: all 0.2s; }
   .grade-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); transform: translateY(-2px); }
-  .grade-card-icon { width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; background: rgba(2,54,25,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 0.75rem; }
+  .grade-card-icon { width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; background: rgba(79,70,229,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 0.75rem; }
   .grade-card h4 { font-size: 0.875rem; font-weight: 700; margin-bottom: 0.25rem; }
   .grade-card p { font-size: 0.75rem; color: #888; line-height: 1.5; }
-  .grade-number { font-size: 0.7rem; font-weight: 700; color: var(--primary, #023619); text-transform: uppercase; letter-spacing: 0.1em; }
+  .grade-number { font-size: 0.7rem; font-weight: 700; color: var(--primary, #4F46E5); text-transform: uppercase; letter-spacing: 0.1em; }
 </style>
 
 <div class="grade-container">
@@ -1119,13 +1097,13 @@ function showTab(tabId) {
           <section id="site-calc">
             <h2 className="text-2xl font-bold mb-2">Calculadora de Rendimentos</h2>
             <p className="text-muted-foreground mb-6">Widget de simulação para landing pages com tipografia e CTAs do tema Sites.</p>
-            <SectionThemeToggle bare title="Calculadora de Rendimentos" description="Widget de simulação para landing pages com slider de valor, resultado animado e CTAs do tema Sites. Identidade visual Capital/Escola via contexto de marca." code={calculadoraRendimentosSrc} selfDocumented><CalculadoraRendimentos /></SectionThemeToggle>
+            <SectionThemeToggle bare title="Calculadora de Rendimentos" description="Widget de simulação para landing pages com slider de valor, resultado animado e CTAs do tema Sites. Identidade visual Marca A/Marca B via contexto de marca." code={calculadoraRendimentosSrc} selfDocumented><CalculadoraRendimentos /></SectionThemeToggle>
           </section>
 
           <Separator />
           <section id="tool-calc">
             <h2 className="text-2xl font-bold mb-2">Calculadora de Câmbio</h2>
-            <p className="text-muted-foreground mb-6">Ferramenta interativa de conversão de moedas com IOF, VET e identidade visual da marca ({brand === "capital" ? "Capital" : "Escola"}).</p>
+            <p className="text-muted-foreground mb-6">Ferramenta interativa de conversão de moedas com IOF, VET e identidade visual da marca ({brand === "marca-a" ? "Marca A" : "Marca B"}).</p>
             <SectionThemeToggle bare title="Calculadora de Câmbio" description="Ferramenta interativa de conversão de moedas com cálculo automático de IOF, VET e exibição de cotação. Suporta múltiplas moedas e sentidos de conversão." code={calculadoraSrc} selfDocumented><Calculadora /></SectionThemeToggle>
           </section>
 
@@ -1206,7 +1184,7 @@ function showTab(tabId) {
     </DialogHeader>
     <div className="grid gap-1.5 py-2">
       <Label htmlFor="apelido">Apelido</Label>
-      <Input id="apelido" placeholder="Ex.: Raul" />
+      <Input id="apelido" placeholder="Ex.: Fulano" />
     </div>
     <DialogFooter>
       <Button variant="ghost">Cancelar</Button>
@@ -1246,7 +1224,7 @@ function showTab(tabId) {
                   </DialogHeader>
                   <div className="grid gap-1.5 py-2">
                     <Label htmlFor="apelido">Apelido</Label>
-                    <Input id="apelido" placeholder="Ex.: Raul" />
+                    <Input id="apelido" placeholder="Ex.: Fulano" />
                   </div>
                   <DialogFooter>
                     <Button variant="ghost">Cancelar</Button>
@@ -1768,11 +1746,11 @@ const { toast } = useToast();
           <section id="tool-graficos">
             <h2 className="text-2xl font-bold mb-2">Gráficos</h2>
             <p className="text-muted-foreground mb-6">
-              Padrão oficial de donut charts AUVP e suas variações de legenda (horizontal abaixo,
+              Padrão oficial de donut chart e suas variações de legenda (horizontal abaixo,
               em linha única, ou vertical à esquerda/direita do gráfico).
             </p>
             <div className="space-y-10">
-              <SectionThemeToggle bare title="Gráfico Donut (Pizza)" description="Padrão oficial de donut chart AUVP. Cor primária da marca na fatia de maior valor. Legenda abaixo com swatches e percentuais." code={graficoPizzaSrc} selfDocumented aiFood={false}><GraficoPizza /></SectionThemeToggle>
+              <SectionThemeToggle bare title="Gráfico Donut (Pizza)" description="Padrão oficial de donut chart. Cor primária da marca na fatia de maior valor. Legenda abaixo com swatches e percentuais." code={graficoPizzaSrc} selfDocumented aiFood={false}><GraficoPizza /></SectionThemeToggle>
               <SectionThemeToggle bare title="Gráfico Donut com Legendas" description="Variações de posição da legenda: horizontal abaixo, em linha única e vertical lateral ao gráfico. Mesmas cores e regras do donut padrão." code={graficoPizzaLegendasSrc} selfDocumented><GraficoPizzaLegendas /></SectionThemeToggle>
             </div>
           </section>
@@ -1780,7 +1758,7 @@ const { toast } = useToast();
           <Separator />
           <section id="tags-badges">
             <h2 className="text-2xl font-bold mb-2">Badges & Tags</h2>
-            <p className="text-muted-foreground mb-6">Badge (shadcn) para status simples; <strong>Tag</strong> tokenizada para categorias e estados — usa os tokens <code className="bg-muted px-1 rounded text-sm font-mono">--chart-*</code> e semânticos, adaptando-se a light/dark e às marcas Capital/Escola.</p>
+            <p className="text-muted-foreground mb-6">Badge (shadcn) para status simples; <strong>Tag</strong> tokenizada para categorias e estados — usa os tokens <code className="bg-muted px-1 rounded text-sm font-mono">--chart-*</code> e semânticos, adaptando-se a light/dark e às marcas Marca A/Marca B.</p>
             <div className="space-y-6">
               <ComponentShowcase
                 title="Badge"

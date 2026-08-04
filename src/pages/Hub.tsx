@@ -8,8 +8,6 @@ import {
   Globe, Minus, Square, X, Layers
 } from "lucide-react";
 import { TeamPhoto } from "@/components/TeamPhoto";
-import { lpScreenshots } from "@/assets/lps";
-import { novidadeArtes } from "@/assets/novidades";
 import { cn, publicUrl } from "@/lib/utils";
 import {
   Accordion,
@@ -73,39 +71,32 @@ const accessLinks: AccessLink[] = [
   { label: "Design System", desc: "Componentes e tokens", icon: Palette, to: "/design-system", internal: true, gradient: "from-violet-500 to-purple-600" },
   { label: "Tom e Voz", desc: "Guia de comunicação", icon: Volume2, to: "/tom-e-voz", internal: true, gradient: "from-sky-500 to-blue-600" },
   { label: "Time de Produto", desc: "Organograma e pilares", icon: Users, to: "/time", internal: true, gradient: "from-fuchsia-500 to-pink-600" },
-  { label: "Nossas Soluções", desc: "Guia dos produtos AUVP", icon: Layers, to: "/solucoes", internal: true, gradient: "from-amber-500 to-yellow-600" },
-  { label: "Figma", desc: "Arquivos de design", icon: FigmaIcon, href: "https://figma.com", internal: false, gradient: "from-orange-500 to-red-500" },
-  { label: "GitHub", desc: "Repositórios", icon: GitHubIcon, href: "https://github.com/produtosauvp", internal: false, gradient: "from-slate-600 to-slate-800" },
-  { label: "Notion", desc: "Painel de produto", icon: NotionIcon, href: "https://app.notion.com/p/asupernova/Painel-de-produto-AUVP-Capital-7a710a972415406991fff5d560422fa4", internal: false, gradient: "from-neutral-600 to-neutral-800" },
-  { label: "Comunidade", desc: "Fórum dos membros", icon: MessageSquare, href: "https://comunidade.auvp.com.br/", internal: false, gradient: "from-emerald-500 to-teal-600 dark:from-[#5A8770] dark:to-[#3d6b57]" },
+  { label: "Nossas Soluções", desc: "Guia dos produtos", icon: Layers, to: "/solucoes", internal: true, gradient: "from-amber-500 to-yellow-600" },
+  { label: "Figma", desc: "Arquivos de design", icon: FigmaIcon, href: "#", internal: false, gradient: "from-orange-500 to-red-500" },
+  { label: "GitHub", desc: "Repositórios", icon: GitHubIcon, href: "#", internal: false, gradient: "from-slate-600 to-slate-800" },
+  { label: "Notion", desc: "Painel de produto", icon: NotionIcon, href: "#", internal: false, gradient: "from-neutral-600 to-neutral-800" },
+  { label: "Comunidade", desc: "Fórum dos membros", icon: MessageSquare, href: "#", internal: false, gradient: "from-emerald-500 to-teal-600 dark:from-[#5A6C87] dark:to-[#3d4f62]" },
 ];
 
 interface ProdutoDigital {
   name: string;
   desc: string;
-  /** Chave em `lpScreenshots` — produtos sem screenshot caem no placeholder. */
-  slug?: string;
   /** Seção de Nossas Soluções ou LP própria do produto. */
   href?: string;
   /** Ainda sem link publicado — cartão fica com aspecto inativo. */
   soon?: boolean;
 }
 
-/* A ordem manda: os seis primeiros são os que ficam visíveis nas duas
-   linhas iniciais; o resto entra atrás do "ver mais". */
+/* A ordem manda: os três primeiros são os que ficam visíveis na primeira
+   linha; o resto entra atrás do "ver mais". Produtos fictícios e genéricos —
+   este é um template whitelabel e não linka para nenhum site real. */
 const produtos: ProdutoDigital[] = [
-  { name: "AUVP Capital", desc: "Plataforma de investimentos", slug: "capital", href: "https://auvpcapital.com.br/" },
-  { name: "AUVP Escola", desc: "Plataforma de educação financeira", slug: "escola", href: "https://auvp.com.br/" },
-  { name: "AUVP Sempre", desc: "Assinatura de evolução contínua", slug: "sempre", href: "https://www.auvp.com.br/auvp-sempre/" },
-  { name: "AUVP ETFs", desc: "Os ETFs próprios da AUVP", slug: "etfs", href: "https://www.auvpetfs.com.br/" },
-  { name: "AUVP Wealth", desc: "Gestão de grandes patrimônios", slug: "wealth", href: "https://auvpcapital.com.br/wealth/" },
-  { name: "Private Day", desc: "O evento anual da AUVP", slug: "private-day", href: "https://privateday.auvp.com.br/" },
-  { name: "Giro da Bolsa Itinerante", desc: "O Giro da Bolsa ao vivo, cidade a cidade", slug: "giro-itinerante", href: "https://auvpcapital.com.br/giro-da-bolsa-itinerante/" },
-  { name: "AUVP Agro", desc: "Produtos do agronegócio", slug: "agro", href: "https://auvpagro.com.br/" },
-  { name: "AUVP Câmbio", desc: "Operações de câmbio", slug: "cambio", href: "https://auvpcapital.com.br/cambio/" },
-  { name: "AUVP Crédito", desc: "Soluções de crédito", slug: "credito", href: "https://auvpcapital.com.br/credito/" },
-  { name: "AUVP Seguros", desc: "Produtos de seguro", slug: "seguros", href: "https://auvpcapital.com.br/seguros/" },
-  { name: "AUVP Experience", desc: "Experiências premium", soon: true },
+  { name: "[Produto A]", desc: "Plataforma principal", soon: true },
+  { name: "[Produto B]", desc: "Aplicativo mobile", soon: true },
+  { name: "[Produto C]", desc: "Painel administrativo", soon: true },
+  { name: "[Produto D]", desc: "Programa de assinatura", soon: true },
+  { name: "[Produto E]", desc: "Central de atendimento", soon: true },
+  { name: "[Produto F]", desc: "Portal do parceiro", soon: true },
 ];
 
 /** Quantas soluções aparecem antes do "ver mais" — duas linhas de três. */
@@ -117,40 +108,15 @@ function produtoUrl(p: ProdutoDigital): string {
   return p.href.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 }
 
-/** Velocidade constante do scroll do preview (px/s) — cadenciada, igual em todos os cards. */
-const LP_SCROLL_SPEED = 45;
-
 function ProdutoCard({ p }: { p: ProdutoDigital }) {
-  const shot = p.slug ? lpScreenshots[p.slug] : undefined;
-  const imgRef = useRef<HTMLImageElement>(null);
-  const frameRef = useRef<HTMLDivElement>(null);
-  const [hovered, setHovered] = useState(false);
-  const [scroll, setScroll] = useState({ dist: 0, dur: 0 });
-  const reducedMotion = useReducedMotion();
-
-  /* A duração é derivada da distância real a rolar (altura renderizada da
-     imagem menos a janela), então páginas longas e curtas rolam na MESMA
-     velocidade — mudam só o tempo total. */
-  const measure = useCallback(() => {
-    const img = imgRef.current;
-    const frame = frameRef.current;
-    if (!img || !frame) return;
-    const dist = Math.max(img.clientHeight - frame.clientHeight, 0);
-    setScroll({ dist, dur: dist / LP_SCROLL_SPEED });
-  }, []);
-
-  const scrolling = hovered && !reducedMotion;
-
   const card = (
     <div
-      onMouseEnter={() => { measure(); setHovered(true); }}
-      onMouseLeave={() => setHovered(false)}
       className={cn(
         "group relative overflow-hidden rounded-2xl border bg-card flex flex-col h-full transition-[transform,box-shadow,border-color] duration-300 ease-apple",
         p.soon ? "opacity-75" : "sm:hover:-translate-y-1 sm:hover:shadow-xl sm:hover:border-primary/30 cursor-pointer"
       )}
     >
-      {/* Janela de "navegador" (estilo Windows) com preview da LP — no hover, a página rola em velocidade constante */}
+      {/* Janela de "navegador" (estilo Windows) — template sem screenshots reais */}
       <div className="border-b">
         <div className="flex items-center gap-2 pl-2.5 pr-3 py-2 bg-muted/60 border-b">
           <span className="flex-1 min-w-0 truncate rounded-md bg-background/80 border px-2 py-0.5 text-[9px] font-roboto text-muted-foreground">
@@ -162,38 +128,18 @@ function ProdutoCard({ p }: { p: ProdutoDigital }) {
             <X className="h-2.5 w-2.5" strokeWidth={2.5} />
           </span>
         </div>
-        <div ref={frameRef} className="relative h-40 sm:h-44 overflow-hidden bg-muted/40">
-          {shot ? (
-            <img
-              ref={imgRef}
-              src={shot}
-              alt={`Página de ${p.name}`}
-              loading="lazy"
-              onLoad={measure}
-              className="w-full h-auto will-change-transform"
-              style={{
-                transform: scrolling ? `translateY(-${scroll.dist}px)` : "translateY(0)",
-                transition: scrolling
-                  ? `transform ${scroll.dur}s linear`
-                  : "transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)",
-              }}
+        <div className="relative h-40 sm:h-44 overflow-hidden bg-muted/40">
+          <div className="relative h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-transparent">
+            <span
+              className="absolute h-20 w-20 rounded-full border border-primary/25"
+              style={{ animation: "central-globe-ping 3s ease-out infinite" }}
             />
-          ) : (
-            <div className="relative h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-transparent">
-              <span
-                className="absolute h-20 w-20 rounded-full border border-primary/25"
-                style={{ animation: "auvp-globe-ping 3s ease-out infinite" }}
-              />
-              <Globe
-                className={cn("h-12 w-12 text-muted-foreground/30", p.soon && "grayscale")}
-                strokeWidth={1.25}
-                style={{ animation: "auvp-globe-float 5s ease-in-out infinite" }}
-              />
-            </div>
-          )}
-          {shot && (
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-card/80 to-transparent" />
-          )}
+            <Globe
+              className={cn("h-12 w-12 text-muted-foreground/30", p.soon && "grayscale")}
+              strokeWidth={1.25}
+              style={{ animation: "central-globe-float 5s ease-in-out infinite" }}
+            />
+          </div>
         </div>
       </div>
       {/* Conteúdo */}
@@ -247,24 +193,13 @@ interface MuralCard {
   envolvidos?: string[];
   /** Link externo da novidade — cards sem link levam para /novidades. */
   link?: string;
-  /** Arte do card. Sem imagem própria, o slide usa o painel da marca. */
-  img?: string;
-  /**
-   * A arte é uma capa em formato paisagem (`novidadeArtes`), com título
-   * centralizado: precisa aparecer inteira, sem o corte lateral que as
-   * screenshots de LP recebem.
-   */
-  capa?: boolean;
 }
 
 /**
  * Cards do carrossel do Mural — os destaques de toda a história, e não os
  * itens de um mês fixo. Marcar `destaque` em `src/data/novidades.ts` basta
  * para uma entrega entrar aqui; o histórico completo fica em /novidades.
- *
- * A chave de `imagem` é procurada primeiro nas capas próprias das entregas e
- * só depois nas screenshots de landing page — assim uma entrega pode ter arte
- * própria mesmo quando existe uma LP com o mesmo nome.
+ * Template sem fotos: todo card usa o painel da marca.
  */
 const muralNovidades: MuralCard[] = novidadesDestaque.map((d) => ({
   titulo: d.titulo,
@@ -272,8 +207,6 @@ const muralNovidades: MuralCard[] = novidadesDestaque.map((d) => ({
   periodo: `${d.mes} ${d.ano}`,
   envolvidos: d.envolvidos,
   link: d.link,
-  img: d.imagem ? novidadeArtes[d.imagem] ?? lpScreenshots[d.imagem] : undefined,
-  capa: !!(d.imagem && novidadeArtes[d.imagem]),
 }));
 
 function MuralNovidadesCarousel({ items }: { items: MuralCard[] }) {
@@ -310,40 +243,22 @@ function MuralNovidadesCarousel({ items }: { items: MuralCard[] }) {
             const slide = (
               <div className="flex h-full flex-col sm:flex-row">
                 <div className="h-36 sm:h-full sm:w-2/5 bg-muted/50 border-b sm:border-b-0 sm:border-r shrink-0 overflow-hidden">
-                  {item.img && item.capa ? (
-                    /* Capa própria da entrega: paisagem, com título no centro.
-                       Preenche o painel por corte (como a screenshot de LP),
-                       recortada a partir do centro — é onde o título mora. */
+                  {/* Template sem fotos: cada entrega usa o painel da marca. */}
+                  <div
+                    aria-hidden
+                    className="h-full w-full flex items-center justify-center bg-gradient-to-br from-primary/15 via-primary/5 to-transparent"
+                  >
                     <img
-                      src={item.img}
+                      src={publicUrl("/olho-preto.svg")}
                       alt=""
-                      className="h-full w-full object-cover object-center transition-transform duration-500 ease-apple sm:group-hover:scale-[1.03]"
+                      className="h-12 w-12 opacity-70 transition-transform duration-500 ease-apple sm:group-hover:scale-[1.06] dark:hidden"
                     />
-                  ) : item.img ? (
                     <img
-                      src={item.img}
+                      src={publicUrl("/olho-branco.svg")}
                       alt=""
-                      className="h-full w-full object-cover object-top transition-transform duration-500 ease-apple sm:group-hover:scale-[1.03]"
+                      className="h-12 w-12 opacity-70 transition-transform duration-500 ease-apple sm:group-hover:scale-[1.06] hidden dark:block"
                     />
-                  ) : (
-                    /* Entrega ainda sem arte própria: painel da marca em vez
-                       de uma screenshot emprestada de outro produto. */
-                    <div
-                      aria-hidden
-                      className="h-full w-full flex items-center justify-center bg-gradient-to-br from-primary/15 via-primary/5 to-transparent"
-                    >
-                      <img
-                        src={publicUrl("/olho-preto.svg")}
-                        alt=""
-                        className="h-12 w-12 opacity-70 transition-transform duration-500 ease-apple sm:group-hover:scale-[1.06] dark:hidden"
-                      />
-                      <img
-                        src={publicUrl("/olho-branco.svg")}
-                        alt=""
-                        className="h-12 w-12 opacity-70 transition-transform duration-500 ease-apple sm:group-hover:scale-[1.06] hidden dark:block"
-                      />
-                    </div>
-                  )}
+                  </div>
                 </div>
                 <div className="flex-1 min-w-0 px-5 pb-5 pt-4 sm:py-6 sm:px-8 flex flex-col justify-center gap-2 overflow-hidden">
                   <span className="self-start rounded-full bg-primary/10 px-2.5 py-0.5 text-[10px] font-bold font-roboto uppercase tracking-wider text-primary">
@@ -452,20 +367,13 @@ interface Faq {
 
 const faqs: Faq[] = [
   { q: "Como acesso o Design System?", a: "Clique em 'Design System' nos Acessos Rápidos ou use o menu de navegação global no canto superior esquerdo." },
-  { q: "O que é o Manual de Tom e Voz?", a: "É o guia de comunicação verbal da AUVP, com diretrizes de linguagem para cada área e produto da empresa." },
+  { q: "O que é o Manual de Tom e Voz?", a: "É o guia de comunicação verbal da empresa, com diretrizes de linguagem para cada área e produto." },
   { q: "Como sugiro um novo componente?", a: "A proposição de um novo componente deve vir via solicitação no ClickUp." },
   { q: "Com que frequência o Design System é atualizado?", a: "O Design System é atualizado continuamente. Novidades são comunicadas no Mural de Novidades desta Central." },
   {
     q: "O que o time de produto faz?",
-    a: "O time cuida dos produtos AUVP de ponta a ponta: pesquisa, design, copy, plataformas e a experiência do membro — do digital aos materiais físicos. A dobra \u201cNossa rotina na prática\u201d, no Nosso Time, mostra a especialidade de cada pessoa e quem chamar para cada assunto.",
+    a: "O time cuida dos produtos da empresa de ponta a ponta: pesquisa, design, copy, plataformas e a experiência do membro — do digital aos materiais físicos. A dobra \u201cNossa rotina na prática\u201d, no Nosso Time, mostra a especialidade de cada pessoa e quem chamar para cada assunto.",
     acao: "rotina",
-  },
-  {
-    q: "Como ativar o megabrain?",
-    /* Easter egg: a resposta é charada de propósito e não vem com botão —
-       com o atalho pronto na tela, deixaria de ser segredo. A mecânica em si
-       mora em src/contexts/CarecaContext.tsx. */
-    a: "Não se ativa no clique: se soletra. Meu nome já está na pergunta — nove letras, tudo junto, digitadas em qualquer página desta Central, contanto que nenhum campo de texto esteja escutando. Quem tem pressa bate três vezes seguidas no rosto de quem fundou a casa. Para desfazer, repita o mesmo feitiço.",
   },
 ];
 
@@ -781,7 +689,7 @@ export default function Hub() {
         {/* Acessos Rápidos — agora antes das Novidades */}
         <Reveal className="sm:-mt-32 md:-mt-48">
           <section>
-            <SectionHeader icon={Zap} title="Acessos Rápidos" info="Os links, guias e informações que todo pirata acaba precisando em algum momento." />
+            <SectionHeader icon={Zap} title="Acessos Rápidos" info="Os links, guias e informações que todo mundo acaba precisando em algum momento." />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
               {accessLinks.map((link, i) => {
                 const Icon = link.icon;
@@ -884,7 +792,7 @@ export default function Hub() {
         {/* Portfólio */}
         <Reveal>
           <section>
-            <SectionHeader icon={ImageIcon} title="Portfólio de Produtos Físicos" info="Veja os kits, brindes, materiais impressos e outros produtos físicos que desenvolvemos para levar a experiência AUVP além da tela." />
+            <SectionHeader icon={ImageIcon} title="Portfólio de Produtos Físicos" info="Veja os kits, brindes, materiais impressos e outros produtos físicos que desenvolvemos para levar a experiência da marca além da tela." />
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
               {portfolioDestaques.map((item) => (
                 <ProdutoFisicoCard key={item.slug} item={item} />
