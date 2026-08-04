@@ -66,7 +66,7 @@ describe("TabelaPrecos — alternância de tabs", () => {
     const { container, getByRole } = wrap(<TabelaPrecos />);
     // Tab "Individual" inicial
     const initial = container.textContent || "";
-    expect(initial).toMatch(/AUVP Sempre|AUVP Anal/);
+    expect(initial).toMatch(/Plano Essencial|Plano Analítico/);
 
     // Click na tab Pacotes
     const pacotesBtn = getByRole("button", { name: /pacotes?/i });
@@ -77,7 +77,7 @@ describe("TabelaPrecos — alternância de tabs", () => {
     // Volta para Individual
     const indBtn = getByRole("button", { name: /individual/i });
     fireEvent.click(indBtn);
-    expect(container.textContent || "").toMatch(/AUVP Sempre|AUVP Anal/);
+    expect(container.textContent || "").toMatch(/Plano Essencial|Plano Analítico/);
   });
 });
 

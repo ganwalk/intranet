@@ -2,7 +2,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 
 /**
- * Tag — badge tokenizado do Design System AUVP.
+ * Tag — badge tokenizado do Design System.
  *
  * Substitui classes Tailwind hardcoded (bg-emerald-100, text-blue-800…)
  * pelos tokens de dataviz (--chart-*) e semânticos (--success, --info…),

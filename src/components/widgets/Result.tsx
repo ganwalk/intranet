@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 type ResultStatus = "success" | "error" | "403";
 
 const config = {
-  success: { Icon: CheckCircle2, color: "text-success bg-success/15", title: "Pagamento confirmado", desc: "Seu acesso à AUVP Pro foi liberado. Boas-vindas!" },
+  success: { Icon: CheckCircle2, color: "text-success bg-success/15", title: "Pagamento confirmado", desc: "Seu acesso ao plano Pro foi liberado. Boas-vindas!" },
   error: { Icon: XCircle, color: "text-destructive bg-destructive/15", title: "Falha no pagamento", desc: "Não conseguimos processar seu cartão. Tente outro método." },
   "403": { Icon: ShieldOff, color: "text-warning bg-warning/15", title: "Acesso negado", desc: "Você não tem permissão para visualizar este conteúdo." },
 };
@@ -37,7 +37,7 @@ export function ResultWidget() {
       code={`type ResultStatus = "success" | "error" | "403";
 
 const config = {
-  success: { Icon: CheckCircle2, color: "text-success bg-success/15", title: "Pagamento confirmado", desc: "Seu acesso à AUVP Pro foi liberado. Boas-vindas!" },
+  success: { Icon: CheckCircle2, color: "text-success bg-success/15", title: "Pagamento confirmado", desc: "Seu acesso ao plano Pro foi liberado. Boas-vindas!" },
   error: { Icon: XCircle, color: "text-destructive bg-destructive/15", title: "Falha no pagamento", desc: "Não conseguimos processar seu cartão. Tente outro método." },
   "403": { Icon: ShieldOff, color: "text-warning bg-warning/15", title: "Acesso negado", desc: "Você não tem permissão para visualizar este conteúdo." },
 };

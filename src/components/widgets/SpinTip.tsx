@@ -52,7 +52,7 @@ export function SpinTipWidget() {
     <div className="space-y-6">
       <ComponentShowcase
         title="Spin (3 tamanhos + tip)"
-        description="Indicador de carregamento com tag de mensagem em Sora uppercase, alinhado ao padrão AUVP de tooltips."
+        description="Indicador de carregamento com tag de mensagem em Sora uppercase, alinhado ao padrão de tooltips."
         code={`function Spin({ tip, size = "md", className }: { tip?: string; size?: "sm" | "md" | "lg"; className?: string }) {
   const sizes = { sm: "h-4 w-4", md: "h-6 w-6", lg: "h-10 w-10" };
   return (
@@ -73,18 +73,18 @@ export function SpinTipWidget() {
   <Spin size="lg" tip="Processando dados" />
 </>`}
         htmlCode={`<div style="display:flex; flex-direction:column; align-items:center; gap:12px; color:hsl(var(--primary));">
-  <div class="auvp-spin auvp-spin--lg"></div>
+  <div class="central-spin central-spin--lg"></div>
   <span style="font-family:'Sora'; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; font-size:11px; color:#6b7280;">
     Processando dados
   </span>
 </div>
 
 <style>
-  .auvp-spin { border:2px solid currentColor; border-right-color:transparent; border-radius:50%; animation: auvpSpin 1s linear infinite; }
-  .auvp-spin--sm { width:16px; height:16px; }
-  .auvp-spin--md { width:24px; height:24px; }
-  .auvp-spin--lg { width:40px; height:40px; }
-  @keyframes auvpSpin { to { transform: rotate(360deg); } }
+  .central-spin { border:2px solid currentColor; border-right-color:transparent; border-radius:50%; animation: centralSpin 1s linear infinite; }
+  .central-spin--sm { width:16px; height:16px; }
+  .central-spin--md { width:24px; height:24px; }
+  .central-spin--lg { width:40px; height:40px; }
+  @keyframes centralSpin { to { transform: rotate(360deg); } }
 </style>`}
       >
         <Spin size="sm" />
@@ -133,7 +133,7 @@ const [loading, setLoading] = useState(false);
     <p>Conteúdo encoberto durante o loading.</p>
   </div>
   <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,.4); backdrop-filter:blur(4px); border-radius:12px;">
-    <div class="auvp-spin auvp-spin--lg" style="color:hsl(var(--primary));"></div>
+    <div class="central-spin central-spin--lg" style="color:hsl(var(--primary));"></div>
   </div>
 </div>`}
       >

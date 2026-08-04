@@ -11,7 +11,7 @@ interface Node {
 
 const DATA: Node[] = [
   {
-    key: "capital", label: "AUVP Capital", children: [
+    key: "capital", label: "Produto A", children: [
       { key: "marca", label: "Marca", children: [
         { key: "logo", label: "logo.svg" },
         { key: "manual", label: "manual.pdf" },
@@ -19,14 +19,14 @@ const DATA: Node[] = [
       { key: "site", label: "Sites", children: [
         { key: "home", label: "home.tsx" },
         { key: "lps", label: "Landing Pages", children: [
-          { key: "lp1", label: "renda-fixa.tsx" },
-          { key: "lp2", label: "fundos.tsx" },
+          { key: "lp1", label: "plano-a.tsx" },
+          { key: "lp2", label: "plano-b.tsx" },
         ]},
       ]},
     ],
   },
   {
-    key: "escola", label: "AUVP Escola", children: [
+    key: "escola", label: "Produto B", children: [
       { key: "cursos", label: "Cursos", children: [
         { key: "fundamentos", label: "Fundamentos.mp4" },
       ]},
@@ -79,7 +79,7 @@ export function TreeWidget() {
       code={`interface Node { key: string; label: string; children?: Node[] }
 
 const DATA: Node[] = [
-  { key: "capital", label: "AUVP Capital", children: [
+  { key: "capital", label: "Produto A", children: [
     { key: "marca", label: "Marca", children: [
       { key: "logo", label: "logo.svg" },
       { key: "manual", label: "manual.pdf" },
@@ -87,12 +87,12 @@ const DATA: Node[] = [
     { key: "site", label: "Sites", children: [
       { key: "home", label: "home.tsx" },
       { key: "lps", label: "Landing Pages", children: [
-        { key: "lp1", label: "renda-fixa.tsx" },
-        { key: "lp2", label: "fundos.tsx" },
+        { key: "lp1", label: "plano-a.tsx" },
+        { key: "lp2", label: "plano-b.tsx" },
       ]},
     ]},
   ]},
-  { key: "escola", label: "AUVP Escola", children: [
+  { key: "escola", label: "Produto B", children: [
     { key: "cursos", label: "Cursos", children: [
       { key: "fundamentos", label: "Fundamentos.mp4" },
     ]},
@@ -153,7 +153,7 @@ function TreeNode({ node, depth = 0 }: { node: Node; depth?: number }) {
 <ul class="tree">
   <li>
     <div class="tree-node open" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
-      <span class="chev">›</span>📁 AUVP Capital
+      <span class="chev">›</span>📁 Produto A
     </div>
     <ul class="tree-children open">
       <li>

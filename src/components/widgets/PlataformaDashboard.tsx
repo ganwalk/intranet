@@ -32,7 +32,7 @@ const badges = [
   { icon: BookOpen, label: "Módulo Completo", unlocked: true },
   { icon: Lock, label: "Maratonista", unlocked: false },
   { icon: Lock, label: "Top 10 Ranking", unlocked: false },
-  { icon: Lock, label: "Mestre AUVP", unlocked: false },
+  { icon: Lock, label: "Mestre", unlocked: false },
 ];
 
 const continueWatching = [

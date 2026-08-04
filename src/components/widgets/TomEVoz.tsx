@@ -3,14 +3,12 @@ import { Badge } from "@/components/ui/badge";
 import {
   Volume2, MessageCircle,
   CheckCircle, XCircle, ArrowRight, Lightbulb, BookOpen,
-  AlertTriangle, Building2, GraduationCap, BarChart3,
-  Wheat, DollarSign, CreditCard, Shield, Award, Plane,
+  AlertTriangle, GraduationCap, Layers, Award,
   Library, FileText, SlidersHorizontal, Mic, Handshake, Anchor, Sparkles } from
 "lucide-react";
 import { areaIcons } from "@/data/areasEmpresa";
 import * as Data from "./tom-e-voz/TomEVozData";
 import { TomEVozAIFoodInline } from "./tom-e-voz/TomEVozAIFoodInline";
-import bourdainImg from "@/assets/bourdain.jpg";
 import { TeamPhoto } from "@/components/TeamPhoto";
 
 /* ------------------------------------------------------------------ */
@@ -119,7 +117,7 @@ export function TomEVoz() {
         {/* Dicionário */}
         <CardBox>
           <SectionTitle icon={Library}>Dicionário do Manual</SectionTitle>
-          <P>Se a ideia não é clara, ela é inútil. Sendo assim o que parece familiar para você pode ser um mar desconhecido para outro pirata, e ruído na comunicação é o primeiro passo para o fracasso. Por isso, antes de avançarmos, verifique o dicionário com palavras que vão surgir ao longo do manual.</P>
+          <P>Se a ideia não é clara, ela é inútil. O que parece familiar para você pode ser novidade para outra pessoa do time, e ruído na comunicação é o primeiro passo para o fracasso. Por isso, antes de avançarmos, verifique o dicionário com palavras que vão surgir ao longo do manual.</P>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
             {Data.dicionario.map((d) =>
             <div key={d.termo} className="rounded-lg bg-muted/50 p-3">
@@ -168,40 +166,40 @@ export function TomEVoz() {
       </section>
 
       {/* ============================================================= */}
-      {/*  VOZ DO RAUL                                                   */}
+      {/*  VOZ DA LIDERANÇA                                              */}
       {/* ============================================================= */}
-      <section id="raul" className="space-y-6 scroll-mt-24 pb-[60px]">
-        <SectionTitle icon={Lightbulb}>Voz do Raul</SectionTitle>
+      <section id="fundador" className="space-y-6 scroll-mt-24 pb-[60px]">
+        <SectionTitle icon={Lightbulb}>Voz da Liderança</SectionTitle>
 
         <CardBox>
-          <SectionTitle icon={Mic}>{Data.vozRaulSena.titulo}</SectionTitle>
+          <SectionTitle icon={Mic}>{Data.vozFundador.titulo}</SectionTitle>
           <div className="flex flex-col md:flex-row gap-6 items-center">
-            {/* Mesma foto (e mesmo enquadramento) do Raul usada no resto da
+            {/* Mesma foto (e mesmo enquadramento) usada no resto da
                 Central — inclusive na versão do Modo Megabrain. */}
             <TeamPhoto
-              id="raul"
-              alt="Raul Sena — fundador da AUVP"
+              id="colaborador-01"
+              alt="Colaborador 1 — fundador(a) da empresa"
               className="w-full md:w-48 lg:w-56 rounded-xl aspect-[1/1] shrink-0" />
 
             <div className="flex-1">
-              {Data.vozRaulSena.paragrafos.slice(0, 2).map((p, i) => <P key={i}>{p}</P>)}
+              {Data.vozFundador.paragrafos.slice(0, 2).map((p, i) => <P key={i}>{p}</P>)}
             </div>
           </div>
           <div className="mt-6 space-y-4">
-            {Data.vozRaulSena.paragrafos.slice(2).map((p, i) => <P key={`rest-${i}`}>{p}</P>)}
+            {Data.vozFundador.paragrafos.slice(2).map((p, i) => <P key={`rest-${i}`}>{p}</P>)}
           </div>
         </CardBox>
 
         <CardBox>
-          <SectionTitle icon={XCircle}>{Data.vozRaulSena.comoNaoComunicar.titulo}</SectionTitle>
-          <P>{Data.vozRaulSena.comoNaoComunicar.intro}</P>
-          <BulletList items={Data.vozRaulSena.comoNaoComunicar.itens} icon="x" />
+          <SectionTitle icon={XCircle}>{Data.vozFundador.comoNaoComunicar.titulo}</SectionTitle>
+          <P>{Data.vozFundador.comoNaoComunicar.intro}</P>
+          <BulletList items={Data.vozFundador.comoNaoComunicar.itens} icon="x" />
         </CardBox>
 
         <CardBox>
           <SectionTitle icon={AlertTriangle}>Exemplos de erros e correções</SectionTitle>
           <div className="space-y-4">
-            {Data.vozRaulSena.exemplosErros.map((e, i) =>
+            {Data.vozFundador.exemplosErros.map((e, i) =>
             <div key={i} className="rounded-xl border overflow-hidden">
                 <div className="bg-destructive/10 p-4 border-b border-destructive/20">
                   <div className="flex items-start gap-2">
@@ -229,7 +227,7 @@ export function TomEVoz() {
             )}
           </div>
         </CardBox>
-        <TomEVozAIFoodInline type="area" id="raul" label="Voz do Raul" />
+        <TomEVozAIFoodInline type="area" id="fundador" label="Voz da Liderança" />
       </section>
 
       {/* ============================================================= */}
@@ -239,14 +237,7 @@ export function TomEVoz() {
       <div className="pt-[30px] pb-[45px] border-t border-border mt-[15px]">
         <h2 className="text-2xl md:text-4xl font-bold font-anek tracking-tight text-foreground mb-6">Áreas da Empresa</h2>
         <SubTitle>A voz que unifica diferentes áreas e os tons que as diferenciam</SubTitle>
-        <P>Vale ressaltar que a voz é a identidade da AUVP, portanto, é única e imutável. Por esse motivo, trouxemos a forma de diferentes áreas se comunicarem, mudando o tom, mas mantendo a identidade da AUVP Capital de ponta a ponta.</P>
-        <SubTitle>Fluxo de comunicação</SubTitle>
-        <a
-          href="https://miro.com/app/board/uXjVJhdPYKg=/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm font-roboto text-accent underline hover:text-accent/80 transition-colors">
-          Acesse aqui o nosso fluxo</a>
+        <P>Vale ressaltar que a voz é a identidade da empresa, portanto, é única e imutável. Por esse motivo, trouxemos a forma de diferentes áreas se comunicarem, mudando o tom, mas mantendo a identidade da marca de ponta a ponta.</P>
       </div>
 
       <section id="marketing" className="space-y-6 scroll-mt-24 pb-[60px]">
@@ -254,15 +245,7 @@ export function TomEVoz() {
 
         <CardBox>
           <SectionTitle icon={areaIcons.Marketing}>{Data.marketing.personalidade.titulo}</SectionTitle>
-          <div className="flex flex-col md:flex-row gap-6 items-center">
-            <img
-              src={bourdainImg}
-              alt="Anthony Bourdain — referência de personalidade da marca"
-              className="w-full md:w-56 lg:w-64 rounded-xl object-cover aspect-[3/4] shrink-0" />
-            <div className="flex-1">
-              {Data.marketing.personalidade.paragrafos.map((p, i) => <P key={i}>{p}</P>)}
-            </div>
-          </div>
+          {Data.marketing.personalidade.paragrafos.map((p, i) => <P key={i}>{p}</P>)}
         </CardBox>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -280,17 +263,7 @@ export function TomEVoz() {
             <SubTitle>{Data.marketing.luxo.titulo}</SubTitle>
             <P>{Data.marketing.luxo.paragrafo}</P>
           </CardBox>
-
-          <CardBox>
-            <SubTitle>{Data.marketing.psicologiaReversa.titulo}</SubTitle>
-            <P>{Data.marketing.psicologiaReversa.paragrafo}</P>
-          </CardBox>
         </div>
-
-        <CardBox>
-          <SubTitle>{Data.marketing.goias.titulo}</SubTitle>
-          <P>{Data.marketing.goias.paragrafo}</P>
-        </CardBox>
 
         {/* Canais */}
         <CardBox>
@@ -494,33 +467,6 @@ export function TomEVoz() {
       </section>
 
 
-      {/* AUVP Wealth — área da empresa, logo após Consultoria */}
-      <section id="produto-wealth" className="space-y-6 scroll-mt-24 pb-[60px]">
-        <SectionTitle icon={Building2}>AUVP Wealth</SectionTitle>
-        <CardBox>
-          {Data.wealth.paragrafos.map((p, i) => <P key={i}>{p}</P>)}
-        </CardBox>
-        <CardBox>
-          <SubTitle>{Data.wealth.boasPraticas.titulo}</SubTitle>
-          <P>{Data.wealth.boasPraticas.intro}</P>
-          <DataTable
-            headers={["❌ Evite", "✅ Prefira", "Por quê?"]}
-            rows={Data.wealth.boasPraticas.substituicoes.map((s) => [s.evite, s.prefira, s.porque])} />
-        </CardBox>
-        <CardBox>
-          <SubTitle>{Data.wealth.praticasAbominadas.titulo}</SubTitle>
-          <div className="space-y-3">
-            {Data.wealth.praticasAbominadas.itens.map((item) =>
-            <div key={item.pratica} className="rounded-lg bg-muted/50 p-3">
-                <p className="text-xs font-bold text-destructive uppercase mb-1">{item.pratica}</p>
-                <p className="text-sm font-roboto text-foreground/80">{item.descricao}</p>
-              </div>
-            )}
-          </div>
-        </CardBox>
-        <TomEVozAIFoodInline type="produto" id="auvpWealth" label="AUVP Wealth" />
-      </section>
-
       {/* ============================================================= */}
       {/*  CAPITAL HUMANO — antes de Produtos conforme PDF               */}
       {/* ============================================================= */}
@@ -631,298 +577,81 @@ export function TomEVoz() {
       </section>
 
       {/* ============================================================= */}
-      {/*  PRODUTOS — seções individuais                                  */}
+      {/*  PRODUTOS — exemplos representativos                            */}
       {/* ============================================================= */}
 
-
-      {/* AUVP Agro */}
-      <section id="produto-agro" className="space-y-6 scroll-mt-24 pb-[60px]">
-        <SectionTitle icon={Wheat}>Agro</SectionTitle>
+      {/* Produto A */}
+      <section id="produto-a" className="space-y-6 scroll-mt-24 pb-[60px]">
+        <SectionTitle icon={GraduationCap}>{Data.produtoA.titulo}</SectionTitle>
         <CardBox>
-          <P>{Data.agro.personalidade}</P>
+          <P>{Data.produtoA.intro}</P>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div className="rounded-lg bg-accent/10 p-3"><p className="text-xs font-bold text-accent uppercase mb-1">Voz</p><p className="text-sm font-roboto text-foreground/80">{Data.agro.voz}</p></div>
-            <div className="rounded-lg bg-muted/50 p-3"><p className="text-xs font-bold text-foreground/60 uppercase mb-1">Tom</p><p className="text-sm font-roboto text-foreground/80">{Data.agro.tom}</p></div>
+            <div className="rounded-lg bg-accent/10 p-3"><p className="text-xs font-bold text-accent uppercase mb-1">Voz</p><p className="text-sm font-roboto text-foreground/80">{Data.produtoA.voz}</p></div>
+            <div className="rounded-lg bg-muted/50 p-3"><p className="text-xs font-bold text-foreground/60 uppercase mb-1">Tom</p><p className="text-sm font-roboto text-foreground/80">{Data.produtoA.tom}</p></div>
           </div>
         </CardBox>
         <CardBox>
-          <SubTitle>Diretrizes de Comunicação</SubTitle>
-          <BulletList items={Data.agro.diretrizes} icon="check" />
+          <SubTitle>Diretrizes de comunicação</SubTitle>
+          <BulletList items={Data.produtoA.diretrizes} icon="check" />
         </CardBox>
         <CardBox>
-          <SubTitle>Os pilares da dor e solução</SubTitle>
-          {Data.agro.pilaresDorSolucao.map((p) =>
-          <div key={p.nome} className="rounded-lg bg-muted/50 p-3 mb-2">
-              <p className="text-xs font-bold text-accent uppercase mb-1">{p.nome}</p>
-              <p className="text-sm font-roboto text-foreground/80">{p.descricao}</p>
-            </div>
-          )}
+          <SubTitle>Evitar</SubTitle>
+          <BulletList items={Data.produtoA.evitar} icon="x" />
         </CardBox>
         <CardBox>
-          <DataTable headers={["Situação", "✅ Como agir", "❌ O que evitar"]} rows={Data.agro.exemplos.map((e) => [e.situacao, e.comoAgir, e.evitar])} />
+          <DataTable headers={["Situação", "✅ Como agir", "❌ O que evitar"]} rows={Data.produtoA.exemplos.map((e) => [e.situacao, e.comoAgir, e.evitar])} />
         </CardBox>
-        <TomEVozAIFoodInline type="produto" id="auvpAgro" label="AUVP Agro" />
+        <TomEVozAIFoodInline type="produto" id="produtoA" label="Produto A" />
       </section>
 
-      {/* AUVP Escola */}
-      <section id="produto-escola" className="space-y-6 scroll-mt-24 pb-[60px]">
-        <SectionTitle icon={GraduationCap}>Escola</SectionTitle>
+      {/* Produto B */}
+      <section id="produto-b" className="space-y-6 scroll-mt-24 pb-[60px]">
+        <SectionTitle icon={Layers}>{Data.produtoB.titulo}</SectionTitle>
         <CardBox>
-          <P>{Data.escola.intro}</P>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div className="rounded-lg bg-accent/10 p-3"><p className="text-xs font-bold text-accent uppercase mb-1">Voz</p><p className="text-sm font-roboto text-foreground/80">{Data.escola.voz}</p></div>
-            <div className="rounded-lg bg-muted/50 p-3"><p className="text-xs font-bold text-foreground/60 uppercase mb-1">Tom</p><p className="text-sm font-roboto text-foreground/80">{Data.escola.tom}</p></div>
-            <div className="rounded-lg bg-muted/50 p-3"><p className="text-xs font-bold text-foreground/60 uppercase mb-1">Filosofia</p><p className="text-sm font-roboto text-foreground/80">{Data.escola.filosofia}</p></div>
-          </div>
-        </CardBox>
-        <CardBox>
-          <SubTitle>{Data.escola.pilares.titulo}</SubTitle>
-          <P>{Data.escola.pilares.intro}</P>
-          <div className="rounded-lg bg-muted/50 p-3"><P>{Data.escola.pilares.exemplos}</P></div>
-        </CardBox>
-        <CardBox>
-          <SubTitle>{Data.escola.realismo.titulo}</SubTitle>
-          {Data.escola.realismo.paragrafos.map((p, i) => <P key={i}>{p}</P>)}
-        </CardBox>
-        <CardBox>
-          <SubTitle>{Data.escola.estimulo.titulo}</SubTitle>
-          <P>{Data.escola.estimulo.paragrafo}</P>
-        </CardBox>
-        <CardBox>
-          <SubTitle>Aplicação prática em diferentes pontos de contato</SubTitle>
-          <DataTable headers={["Cenário", "Tom de voz AUVP Escola", "Exemplo de aplicação"]} rows={Data.escola.aplicacaoPratica.map((a) => [a.cenario, a.tom, a.exemplo])} />
-        </CardBox>
-        <CardBox>
-          <SubTitle>Aplicação prática dentro das aulas</SubTitle>
-          <DataTable headers={["Situação de Aula", "Tom de Voz AUVP Escola", "Exemplo de aplicação"]} rows={Data.escola.aplicacaoAulas.map((a) => [a.situacao, a.tom, a.exemplo])} />
-        </CardBox>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <CardBox>
-            <SubTitle>Termos Proibidos</SubTitle>
-            <BulletList items={Data.escola.termosProibidos} icon="x" />
-          </CardBox>
-          <CardBox>
-            <SubTitle>Checklist de conteúdo</SubTitle>
-            <BulletList items={Data.escola.checklist} icon="check" />
-          </CardBox>
-        </div>
-        <TomEVozAIFoodInline type="produto" id="auvpEscola" label="AUVP Escola" />
-      </section>
-
-      {/* AUVP Analítica */}
-      <section id="produto-analitica" className="space-y-6 scroll-mt-24 pb-[60px]">
-        <SectionTitle icon={BarChart3}>Analítica</SectionTitle>
-        <CardBox>
-          <P><strong>{Data.analitica.subtitulo}</strong></P>
-          <P>{Data.analitica.intro}</P>
+          <P>{Data.produtoB.intro}</P>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div className="rounded-lg bg-accent/10 p-3"><p className="text-xs font-bold text-accent uppercase mb-1">Voz</p><p className="text-sm font-roboto text-foreground/80">{Data.analitica.voz}</p></div>
-            <div className="rounded-lg bg-muted/50 p-3"><p className="text-xs font-bold text-foreground/60 uppercase mb-1">Tom</p><p className="text-sm font-roboto text-foreground/80">{Data.analitica.tom}</p></div>
+            <div className="rounded-lg bg-accent/10 p-3"><p className="text-xs font-bold text-accent uppercase mb-1">Voz</p><p className="text-sm font-roboto text-foreground/80">{Data.produtoB.voz}</p></div>
+            <div className="rounded-lg bg-muted/50 p-3"><p className="text-xs font-bold text-foreground/60 uppercase mb-1">Tom</p><p className="text-sm font-roboto text-foreground/80">{Data.produtoB.tom}</p></div>
           </div>
         </CardBox>
         <CardBox>
-          <SubTitle>Pilares de Comunicação</SubTitle>
-          {Data.analitica.pilares.map((p) =>
-          <div key={p.nome} className="rounded-lg bg-muted/50 p-3 mb-2">
-              <p className="text-xs font-bold text-accent uppercase mb-1">{p.nome}</p>
-              <p className="text-sm font-roboto text-foreground/80">{p.descricao}</p>
-            </div>
-          )}
+          <SubTitle>Diretrizes de comunicação</SubTitle>
+          <BulletList items={Data.produtoB.diretrizes} icon="check" />
         </CardBox>
         <CardBox>
-          <SubTitle>Aplicação prática da comunicação na AUVP Analítica</SubTitle>
-          <DataTable headers={["Cenário", "Tom de voz da AUVP Analítica", "Gatilho de copy"]} rows={Data.analitica.aplicacaoPratica.map((a) => [a.cenario, a.tom, a.gatilho])} />
+          <SubTitle>Evitar</SubTitle>
+          <BulletList items={Data.produtoB.evitar} icon="x" />
         </CardBox>
         <CardBox>
-          <SubTitle>Diretrizes linguísticas</SubTitle>
-          <div className="space-y-2">
-            <P><strong>Palavras de poder:</strong> {Data.analitica.diretrizes.palavrasPoder}</P>
-            <P><strong>Termos para evitar:</strong> {Data.analitica.diretrizes.termosEvitar}</P>
-            <P><strong>Assinatura padrão:</strong> {Data.analitica.diretrizes.assinatura}</P>
-            <div className="rounded-lg bg-destructive/10 border border-destructive/20 p-3 text-sm font-roboto text-destructive">⚠ {Data.analitica.diretrizes.atencao}</div>
+          <DataTable headers={["Situação", "✅ Como agir", "❌ O que evitar"]} rows={Data.produtoB.exemplos.map((e) => [e.situacao, e.comoAgir, e.evitar])} />
+        </CardBox>
+        <TomEVozAIFoodInline type="produto" id="produtoB" label="Produto B" />
+      </section>
+
+      {/* Produto C */}
+      <section id="produto-c" className="space-y-6 scroll-mt-24 pb-[60px]">
+        <SectionTitle icon={Award}>{Data.produtoC.titulo}</SectionTitle>
+        <CardBox>
+          <P>{Data.produtoC.intro}</P>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="rounded-lg bg-accent/10 p-3"><p className="text-xs font-bold text-accent uppercase mb-1">Voz</p><p className="text-sm font-roboto text-foreground/80">{Data.produtoC.voz}</p></div>
+            <div className="rounded-lg bg-muted/50 p-3"><p className="text-xs font-bold text-foreground/60 uppercase mb-1">Tom</p><p className="text-sm font-roboto text-foreground/80">{Data.produtoC.tom}</p></div>
           </div>
         </CardBox>
-        <TomEVozAIFoodInline type="produto" id="auvpAnalitica" label="AUVP Analítica" />
+        <CardBox>
+          <SubTitle>Diretrizes de comunicação</SubTitle>
+          <BulletList items={Data.produtoC.diretrizes} icon="check" />
+        </CardBox>
+        <CardBox>
+          <SubTitle>Evitar</SubTitle>
+          <BulletList items={Data.produtoC.evitar} icon="x" />
+        </CardBox>
+        <CardBox>
+          <DataTable headers={["Situação", "✅ Como agir", "❌ O que evitar"]} rows={Data.produtoC.exemplos.map((e) => [e.situacao, e.comoAgir, e.evitar])} />
+        </CardBox>
+        <TomEVozAIFoodInline type="produto" id="produtoC" label="Produto C" />
       </section>
 
-      {/* Câmbio */}
-      <section id="produto-cambio" className="space-y-6 scroll-mt-24 pb-[60px]">
-        <SectionTitle icon={DollarSign}>Câmbio</SectionTitle>
-        <CardBox>
-          <P>{Data.cambio.intro}</P>
-        </CardBox>
-        <CardBox>
-          <SubTitle>O que é particular neste produto?</SubTitle>
-          <BulletList items={Data.cambio.particular} icon="arrow" />
-        </CardBox>
-        <CardBox>
-          <DataTable headers={["❌ Palavras proibidas", "✅ Linguagem recomendada"]} rows={Data.cambio.proibido.map((p, i) => [p, Data.cambio.recomendado[i] || ""])} />
-        </CardBox>
-        <CardBox>
-          <SubTitle>Evitar no formato</SubTitle>
-          <BulletList items={Data.cambio.evitarFormato} icon="x" />
-        </CardBox>
-        <CardBox>
-          <SubTitle>{Data.cambio.conversa.titulo}</SubTitle>
-          <P>A abordagem deve seguir três pilares:</P>
-          <BulletList items={Data.cambio.conversa.pilares} icon="check" />
-          <div className="mt-3">
-            <BulletList items={Data.cambio.conversa.primeirosPasso} icon="arrow" />
-          </div>
-          <P>Sempre explicar que a operação envolve:</P>
-          <BulletList items={Data.cambio.conversa.explicar} icon="arrow" />
-        </CardBox>
-        <CardBox>
-          <SubTitle>O que deve sempre ser reforçado?</SubTitle>
-          <BulletList items={Data.cambio.reforcar} icon="check" />
-        </CardBox>
-        <CardBox>
-          <SubTitle>O que Nunca Deve Ser Transmitido</SubTitle>
-          <BulletList items={Data.cambio.nuncaTransmitir} icon="x" />
-        </CardBox>
-        <TomEVozAIFoodInline type="produto" id="auvpCambio" label="AUVP Câmbio" />
-      </section>
-
-      {/* Crédito */}
-      <section id="produto-credito" className="space-y-6 scroll-mt-24 pb-[60px]">
-        <SectionTitle icon={CreditCard}>Crédito</SectionTitle>
-        <CardBox>
-          <P>{Data.credito.intro}</P>
-          <P>{Data.credito.complemento}</P>
-          <div className="rounded-lg bg-accent/10 p-3"><P>{Data.credito.voz}</P></div>
-        </CardBox>
-        <CardBox>
-          <SubTitle>O que é particular neste produto</SubTitle>
-          <BulletList items={Data.credito.particular} icon="arrow" />
-        </CardBox>
-        <CardBox>
-          <SubTitle>Como conversar com o membro?</SubTitle>
-          <P>{Data.credito.conversaIntro}</P>
-          <BulletList items={Data.credito.conversa} icon="check" />
-        </CardBox>
-        <CardBox>
-          <SubTitle>Postura e responsabilidade</SubTitle>
-          <P>{Data.credito.posturaIntro}</P>
-          <BulletList items={Data.credito.postura} icon="x" />
-        </CardBox>
-        <CardBox>
-          <DataTable headers={["Palavras e expressões proibidas", "Utilizar sempre"]} rows={Array.from({ length: Math.max(Data.credito.proibido.length, Data.credito.utilizar.length) }, (_, i) => [Data.credito.proibido[i] || "", Data.credito.utilizar[i] || ""])} />
-        </CardBox>
-        <CardBox>
-          <SubTitle>Contra-mão</SubTitle>
-          <DataTable headers={["O que NÃO pode ser utilizado (Contra-mão)", "Por que?"]} rows={Data.credito.contraMao.map((c) => [c.proibido, c.porque])} />
-        </CardBox>
-        <TomEVozAIFoodInline type="produto" id="auvpCredito" label="AUVP Crédito" />
-      </section>
-
-      {/* Seguros */}
-      <section id="produto-seguros" className="space-y-6 scroll-mt-24 pb-[60px]">
-        <SectionTitle icon={Shield}>Seguros</SectionTitle>
-        <CardBox>
-          <P>{Data.seguros.intro}</P>
-          <P>{Data.seguros.complemento}</P>
-          <P>{Data.seguros.integracao}</P>
-        </CardBox>
-        <CardBox>
-          <DataTable headers={["❌ Palavras proibidas", "✅ Linguagem recomendada"]} rows={Data.seguros.tabela.map((t) => [t.proibido, t.recomendado])} />
-        </CardBox>
-        <CardBox>
-          <SubTitle>{Data.seguros.conversa.titulo}</SubTitle>
-          <P>A abordagem deve seguir quatro etapas:</P>
-          <BulletList items={Data.seguros.conversa.etapas} icon="arrow" />
-          <P>{Data.seguros.conversa.regra}</P>
-        </CardBox>
-        <CardBox>
-          <SubTitle>{Data.seguros.posturaComercial.titulo}</SubTitle>
-          <P>{Data.seguros.posturaComercial.intro}</P>
-          <BulletList items={Data.seguros.posturaComercial.itens} icon="x" />
-        </CardBox>
-        <CardBox>
-          <SubTitle>{Data.seguros.integracaoEcossistema.titulo}</SubTitle>
-          <P>{Data.seguros.integracaoEcossistema.intro}</P>
-          <BulletList items={Data.seguros.integracaoEcossistema.areas} icon="check" />
-        </CardBox>
-        <TomEVozAIFoodInline type="produto" id="auvpSeguros" label="AUVP Seguros" />
-      </section>
-
-      {/* AUVP Pro */}
-      <section id="produto-pro" className="space-y-6 scroll-mt-24 pb-[60px]">
-        <SectionTitle icon={Award}>Pro</SectionTitle>
-        <CardBox>
-          <P>{Data.auvpPro.intro}</P>
-          <P>{Data.auvpPro.propositoTexto}</P>
-          <BulletList items={Data.auvpPro.propositoCertificacoes} icon="arrow" />
-        </CardBox>
-        <CardBox>
-          <P>A AUVP Pro oferece:</P>
-          <BulletList items={Data.auvpPro.oferece} icon="arrow" />
-        </CardBox>
-        <CardBox>
-          <P><strong>Voz da AUVP Pro:</strong> {Data.auvpPro.vozDescricao.replace("Voz da AUVP Pro: ", "")}</P>
-        </CardBox>
-        <CardBox>
-          <P>A AUVP Pro não é:</P>
-          <BulletList items={Data.auvpPro.naoE} icon="arrow" />
-          <P>{Data.auvpPro.complementoNaoE}</P>
-        </CardBox>
-        <CardBox>
-          <SubTitle>Diferenciais estratégicos</SubTitle>
-          <P>A comunicação deve enfatizar três diferenciais principais:</P>
-          {Data.auvpPro.diferenciais.map((d, i) =>
-            <div key={d.nome} className="mb-4">
-              <p className="text-sm font-bold text-foreground">{i + 1}. {d.nome}</p>
-              <P>{d.descricao}</P>
-            </div>
-          )}
-        </CardBox>
-        <CardBox>
-          <DataTable
-            headers={["É permitido utilizar expressões como:", "Não é permitido utilizar:"]}
-            rows={Array.from(
-              { length: Math.max(Data.auvpPro.vocabulario.permitido.length, Data.auvpPro.vocabulario.naoPermitido.length) },
-              (_, i) => [Data.auvpPro.vocabulario.permitido[i] || "", Data.auvpPro.vocabulario.naoPermitido[i] || ""]
-            )}
-          />
-        </CardBox>
-        <CardBox>
-          <SubTitle>Estatísticas e percentuais</SubTitle>
-          <DataTable
-            headers={["Não devem ser utilizados:", "Podem ser utilizados dados estruturais objetivos, como:"]}
-            rows={Array.from(
-              { length: Math.max(Data.auvpPro.estatisticas.naoDevem.length, Data.auvpPro.estatisticas.podem.length) },
-              (_, i) => [Data.auvpPro.estatisticas.naoDevem[i] || "", Data.auvpPro.estatisticas.podem[i] || ""]
-            )}
-          />
-        </CardBox>
-        <TomEVozAIFoodInline type="produto" id="auvpPro" label="AUVP Pro" />
-      </section>
-
-      {/* AUVP Experience */}
-      <section id="produto-experience" className="space-y-6 scroll-mt-24 pb-[60px]">
-        <SectionTitle icon={Plane}>Experience</SectionTitle>
-        <CardBox>
-          <P>{Data.experience.intro}</P>
-          <div className="rounded-lg bg-accent/10 p-3"><P>{Data.experience.tomVoz}</P></div>
-        </CardBox>
-        <CardBox>
-          <SubTitle>O que é particular neste produto</SubTitle>
-          <BulletList items={Data.experience.particular} icon="arrow" />
-        </CardBox>
-        <CardBox>
-          <SubTitle>Pilares da comunicação</SubTitle>
-          {Data.experience.pilaresComunicacao.map((p) =>
-          <div key={p.nome} className="rounded-lg bg-muted/50 p-3 mb-2">
-              <p className="text-xs font-bold text-accent uppercase mb-1">{p.nome}</p>
-              <p className="text-sm font-roboto text-foreground/80">{p.descricao}</p>
-            </div>
-          )}
-        </CardBox>
-        <CardBox>
-          <SubTitle>O que NÃO pode ser utilizado</SubTitle>
-          {Data.experience.contraMao.map((c, i) => <ProibidoCard key={i} proibido={c.proibido} motivo={c.porque} />)}
-        </CardBox>
-        <TomEVozAIFoodInline type="produto" id="auvpExperience" label="AUVP Experience" />
-      </section>
 
     </div>);
 

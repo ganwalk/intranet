@@ -32,7 +32,7 @@ export function DescriptionsWidget() {
   .desc-row { display:grid; grid-template-columns:1fr 2fr; gap:4px; padding:12px 20px; border-bottom:1px solid hsl(var(--border, 120 10% 88%)); }
   .desc-row:last-child { border-bottom:none; }
   .desc-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:hsl(var(--muted-foreground, 110 10% 40%)); font-family:'Roboto', sans-serif; }
-  .desc-value { font-size:14px; font-family:'Roboto', sans-serif; color:hsl(var(--foreground, 110 78% 9%)); }
+  .desc-value { font-size:14px; font-family:'Roboto', sans-serif; color:hsl(var(--foreground, 222 47% 11%)); }
   @media (max-width:640px) { .desc-row { grid-template-columns:1fr; } }
 </style>
 

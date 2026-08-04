@@ -360,7 +360,7 @@ export function CalculadoraRendimentos() {
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; background:#f5f5f5; padding:1rem; border-radius:0.75rem; margin-top:1.5rem; text-align:center;">
       <div>
         <p style="font-size:14px; color:#6b7280;">Valor estimado com uma carteira diversificada¹</p>
-        <span id="result" style="font-size:2.25rem; font-weight:600; color:#023619;">R$ 0,00</span>
+        <span id="result" style="font-size:2.25rem; font-weight:600; color:#4F46E5;">R$ 0,00</span>
       </div>
       <div>
         <p style="font-size:14px; color:#6b7280;">Valor estimado na poupança²</p>

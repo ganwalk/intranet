@@ -22,7 +22,7 @@ function buildWatermarkUrl(text: string, isDark = false) {
 }
 
 export function WatermarkWidget() {
-  const [text, setText] = useState("AUVP CONFIDENCIAL");
+  const [text, setText] = useState("CONFIDENCIAL");
   const [bg, setBg] = useState("");
   const ref = useRef<HTMLDivElement>(null);
 
@@ -64,7 +64,7 @@ export function WatermarkWidget() {
   return canvas.toDataURL();
 }
 
-const [text, setText] = useState("AUVP CONFIDENCIAL");
+const [text, setText] = useState("CONFIDENCIAL");
 const [bg, setBg] = useState("");
 const ref = useRef<HTMLDivElement>(null);
 
@@ -90,7 +90,7 @@ useEffect(() => {
     <Label htmlFor="wm-text" className="text-xs uppercase tracking-wider font-roboto">
       Texto da marca d'água
     </Label>
-    <Input id="wm-text" value={text} onChange={(e) => setText(e.target.value)} placeholder="AUVP CONFIDENCIAL" />
+    <Input id="wm-text" value={text} onChange={(e) => setText(e.target.value)} placeholder="CONFIDENCIAL" />
   </div>
   <div
     ref={ref}
@@ -116,7 +116,7 @@ useEffect(() => {
   .wm-container::before {
     content:'';
     position:absolute; inset:0;
-    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><text x="100" y="100" text-anchor="middle" font-family="Sora,sans-serif" font-size="14" font-weight="600" fill="rgba(0,0,0,0.08)" transform="rotate(-22 100 100)">AUVP CONFIDENCIAL</text></svg>');
+    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><text x="100" y="100" text-anchor="middle" font-family="Sora,sans-serif" font-size="14" font-weight="600" fill="rgba(0,0,0,0.08)" transform="rotate(-22 100 100)">CONFIDENCIAL</text></svg>');
     background-repeat:repeat;
     pointer-events:none;
   }
@@ -136,7 +136,7 @@ useEffect(() => {
             id="wm-text"
             value={text}
             onChange={(e) => setText(e.target.value)}
-            placeholder="AUVP CONFIDENCIAL"
+            placeholder="CONFIDENCIAL"
           />
         </div>
         <div
