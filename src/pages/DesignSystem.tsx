@@ -483,9 +483,6 @@ export default function DesignSystemPage() {
                                     >
                                        <Icon className="h-4 w-4 shrink-0" />
                                       <span className="flex-1 text-left">{label}</span>
-                                      {block.category === "plataforma" && (
-                                        <span className="ml-1 inline-flex items-center rounded-full bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-300 px-1.5 py-0 text-[9px] font-bold uppercase tracking-wider">Beta</span>
-                                      )}
                                     </button>
                                   </li>
                                 ))}
@@ -591,9 +588,6 @@ export default function DesignSystemPage() {
                             >
                               <Icon className="h-4 w-4 shrink-0" />
                               <span className="flex-1 text-left">{label}</span>
-                              {block.category === "plataforma" && (
-                                <span className="ml-1 inline-flex items-center rounded-full bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-300 px-1.5 py-0 text-[9px] font-bold uppercase tracking-wider">Beta</span>
-                              )}
                             </button>
                           </li>
                         ))}
@@ -1859,90 +1853,63 @@ const { toast } = useToast();
           {/* ===== PLATAFORMA DE AULAS ===== */}
           <Separator />
           <section id="plat-courses">
-            <div className="flex items-center gap-2 mb-2">
-              <h2 className="text-2xl font-bold">Visualização de Cursos</h2>
-              <span className="inline-flex items-center rounded-full bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-300 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">Beta</span>
-            </div>
+            <h2 className="text-2xl font-bold mb-2">Visualização de Cursos</h2>
             <p className="text-muted-foreground mb-6">Grid de cursos com progresso e fácil retomada de aulas.</p>
             <SectionThemeToggle bare title="Visualização de Cursos" description="Grid de cursos com cards de progresso, thumbnail, badge de conclusão e botão de retomada de aula. Light/dark mode." code={platCursosSrc} htmlCode={platCursosHtml}><PlataformaCursos /></SectionThemeToggle>
           </section>
 
           <Separator />
           <section id="plat-player">
-            <div className="flex items-center gap-2 mb-2">
-              <h2 className="text-2xl font-bold">Interface do Player</h2>
-              <span className="inline-flex items-center rounded-full bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-300 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">Beta</span>
-            </div>
+            <h2 className="text-2xl font-bold mb-2">Interface do Player</h2>
             <p className="text-muted-foreground mb-6">O vídeo é o core da plataforma. Controles com overlay e auto-hide.</p>
             <SectionThemeToggle bare title="Interface do Player" description="Player de vídeo com overlay de controles, barra de progresso clicável, volume, fullscreen e auto-hide dos controles após inatividade." code={platPlayerSrc} htmlCode={platPlayerHtml}><PlataformaPlayer /></SectionThemeToggle>
           </section>
 
           <Separator />
           <section id="plat-playlist">
-            <div className="flex items-center gap-2 mb-2">
-              <h2 className="text-2xl font-bold">Lista de Aulas (Playlist)</h2>
-              <span className="inline-flex items-center rounded-full bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-300 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">Beta</span>
-            </div>
+            <h2 className="text-2xl font-bold mb-2">Lista de Aulas (Playlist)</h2>
             <p className="text-muted-foreground mb-6">Estados: Assistindo, Concluído e Bloqueado.</p>
             <SectionThemeToggle bare title="Lista de Aulas (Playlist)" description="Lista lateral de aulas com três estados visuais distintos: Assistindo (destaque amarelo), Concluído (check verde) e Bloqueado (cadeado + opacidade reduzida)." code={platPlaylistSrc} htmlCode={platPlaylistHtml}><PlataformaPlaylist /></SectionThemeToggle>
           </section>
 
           <Separator />
           <section id="plat-dashboard">
-            <div className="flex items-center gap-2 mb-2">
-              <h2 className="text-2xl font-bold">Dashboard do Aluno</h2>
-              <span className="inline-flex items-center rounded-full bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-300 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">Beta</span>
-            </div>
+            <h2 className="text-2xl font-bold mb-2">Dashboard do Aluno</h2>
             <p className="text-muted-foreground mb-6">Estatísticas, atividade semanal e conquistas.</p>
             <SectionThemeToggle bare title="Dashboard do Aluno" description="Painel com KPIs (aulas assistidas, tempo total, streak), gráfico de barras de atividade semanal e grid de conquistas desbloqueadas." code={platDashboardSrc} htmlCode={platDashboardHtml}><PlataformaDashboard /></SectionThemeToggle>
           </section>
 
           <Separator />
           <section id="plat-notes">
-            <div className="flex items-center gap-2 mb-2">
-              <h2 className="text-2xl font-bold">Notas & Anotações</h2>
-              <span className="inline-flex items-center rounded-full bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-300 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">Beta</span>
-            </div>
+            <h2 className="text-2xl font-bold mb-2">Notas & Anotações</h2>
             <p className="text-muted-foreground mb-6">Notas sincronizadas com timestamp do vídeo.</p>
             <SectionThemeToggle bare title="Notas & Anotações" description="Bloco de notas vinculado ao timestamp do vídeo. Permite criar, editar e excluir notas com carimbos de tempo clicáveis para navegar na aula." code={platNotasSrc} htmlCode={platNotasHtml}><PlataformaNotas /></SectionThemeToggle>
           </section>
 
           <Separator />
           <section id="plat-rating">
-            <div className="flex items-center gap-2 mb-2">
-              <h2 className="text-2xl font-bold">Avaliação de Aulas</h2>
-              <span className="inline-flex items-center rounded-full bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-300 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">Beta</span>
-            </div>
+            <h2 className="text-2xl font-bold mb-2">Avaliação de Aulas</h2>
             <p className="text-muted-foreground mb-6">Rating por estrelas com feedback textual.</p>
             <SectionThemeToggle bare title="Avaliação de Aulas" description="Sistema de rating por estrelas com hover preview e campo de feedback textual opcional. Exibe média e distribuição de notas." code={platRatingSrc} htmlCode={platRatingHtml}><PlataformaRating /></SectionThemeToggle>
           </section>
 
           <Separator />
           <section id="plat-certificates">
-            <div className="flex items-center gap-2 mb-2">
-              <h2 className="text-2xl font-bold">Certificados</h2>
-              <span className="inline-flex items-center rounded-full bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-300 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">Beta</span>
-            </div>
+            <h2 className="text-2xl font-bold mb-2">Certificados</h2>
             <p className="text-muted-foreground mb-6">Certificados de conclusão emitidos automaticamente ao finalizar módulos.</p>
             <SectionThemeToggle bare title="Certificados" description="Certificados de conclusão emitidos automaticamente ao finalizar módulos. Card com nome do aluno, curso, data e botão de download PDF." code={platCertificadosSrc} htmlCode={platCertificadosHtml}><PlataformaCertificados /></SectionThemeToggle>
           </section>
 
           <Separator />
           <section id="plat-community">
-            <div className="flex items-center gap-2 mb-2">
-              <h2 className="text-2xl font-bold">Comunidade & Dúvidas</h2>
-              <span className="inline-flex items-center rounded-full bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-300 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">Beta</span>
-            </div>
+            <h2 className="text-2xl font-bold mb-2">Comunidade & Dúvidas</h2>
             <p className="text-muted-foreground mb-6">Fórum de dúvidas com votos e respostas de instrutores.</p>
             <SectionThemeToggle bare title="Comunidade & Dúvidas" description="Fórum de dúvidas com votos positivos/negativos, respostas de instrutores destacadas, filtros por status e paginação." code={platComunidadeSrc} htmlCode={platComunidadeHtml}><PlataformaComunidade /></SectionThemeToggle>
           </section>
 
           <Separator />
           <section id="plat-livro">
-            <div className="flex items-center gap-2 mb-2">
-              <h2 className="text-2xl font-bold">Livro</h2>
-              <span className="inline-flex items-center rounded-full bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-300 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">Beta</span>
-            </div>
+            <h2 className="text-2xl font-bold mb-2">Livro</h2>
             <p className="text-muted-foreground mb-6">
               Capas 3D inspiradas no <em>Book</em> do Geist (Vercel). Use para hero de módulos, trilhas e
               landing de cursos. Para tiles repetidos no dashboard, prefira <strong>Card</strong> — Livro é
