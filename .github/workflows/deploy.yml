@@ -36,7 +36,10 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_BASE: /central/
+          # Repositório é ganwalk/intranet: GitHub Pages de projeto publica em
+          # https://ganwalk.github.io/intranet/, então o base precisa ser
+          # /intranet/ (e não /central/, que era o nome do repo original).
+          VITE_BASE: /intranet/
 
       - name: Configurar Pages
         uses: actions/configure-pages@v5
