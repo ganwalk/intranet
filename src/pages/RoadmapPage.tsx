@@ -31,18 +31,18 @@ const roadmap: Item[] = [
   // Em progresso
   { produto: "Design System",   titulo: "Tokens de espaçamento e elevação",       desc: "Padronização de spacing scale e shadow tokens para consistência entre plataformas.",                    status: "em-progresso", trimestre: "Q2 2025" },
   { produto: "Central",         titulo: "Roadmap interativo",                     desc: "Página de roadmap com filtros por produto e status para o time interno.",                                status: "em-progresso", trimestre: "Q2 2025" },
-  { produto: "[Produto A]",          titulo: "Integração com métricas de engajamento", desc: "Dashboard de conclusão de módulos, taxa de presença nas lives e NPS dos alunos.",                       status: "em-progresso", trimestre: "Q2 2025" },
+  { produto: "[Produto A]",          titulo: "Painel de indicadores de uso",           desc: "Painel com indicadores de adoção, engajamento e satisfação dos usuários.",                              status: "em-progresso", trimestre: "Q2 2025" },
 
   // Planejados
   { produto: "Design System",   titulo: "Guia de acessibilidade",                 desc: "Checklist WCAG 2.1 AA, padrões de contraste e navegação por teclado para todos os componentes.",       status: "planejado",    trimestre: "Q3 2025" },
-  { produto: "[Produto B]",       titulo: "Alertas inteligentes de carteira",       desc: "Notificações automáticas quando um ativo sair dos limites de alocação definidos pelo usuário.",         status: "planejado",    trimestre: "Q3 2025" },
-  { produto: "[Produto A]",          titulo: "App mobile",                             desc: "Versão nativa para iOS e Android com acesso às aulas, comunidade e ferramentas offline.",               status: "planejado",    trimestre: "Q3 2025" },
-  { produto: "[Produto C]",            titulo: "MVP de plataforma",                      desc: "Primeira versão com cadastro de propriedades, controle de receitas e integração de commodities.",       status: "planejado",    trimestre: "Q4 2025" },
+  { produto: "[Produto B]",       titulo: "Alertas inteligentes de uso",            desc: "Notificações automáticas quando um indicador sai da faixa esperada, definida pelo usuário.",             status: "planejado",    trimestre: "Q3 2025" },
+  { produto: "[Produto A]",          titulo: "App mobile",                             desc: "Versão nativa para iOS e Android com acesso ao conteúdo e às ferramentas, inclusive offline.",         status: "planejado",    trimestre: "Q3 2025" },
+  { produto: "[Produto C]",            titulo: "Primeira versão da plataforma",          desc: "Primeira versão com cadastro, acompanhamento de indicadores e relatórios básicos.",                    status: "planejado",    trimestre: "Q4 2025" },
 
   // Futuro
-  { produto: "[Produto D]",             titulo: "Preparatório para certificação",         desc: "Curso preparatório para certificação profissional com simulados e trilha personalizada.",               status: "futuro",       trimestre: "2026"    },
-  { produto: "[Produto E]",      titulo: "Portal do participante",                 desc: "Área exclusiva para membros com programação, conteúdos e networking dos eventos premium.",              status: "futuro",       trimestre: "2026"    },
-  { produto: "[Produto F]",         titulo: "Lançamento público",                     desc: "Saída do modo de desenvolvimento para acesso aberto aos membros.",                                       status: "futuro",       trimestre: "2026"    },
+  { produto: "[Produto D]",             titulo: "Trilha de capacitação",                  desc: "Conteúdo estruturado com simulados e trilha personalizada por nível de experiência.",                    status: "futuro",       trimestre: "2026"    },
+  { produto: "[Produto E]",      titulo: "Portal do participante",                 desc: "Área exclusiva para participantes com programação, conteúdos e networking dos eventos.",                status: "futuro",       trimestre: "2026"    },
+  { produto: "[Produto F]",         titulo: "Lançamento público",                     desc: "Saída do modo de desenvolvimento para acesso aberto a todos os usuários.",                              status: "futuro",       trimestre: "2026"    },
   { produto: "Design System",   titulo: "Biblioteca de motion design",            desc: "Padrões de animação, transições e micro-interações para uso em todos os produtos.",                     status: "futuro",       trimestre: "2026"    },
 ];
 
