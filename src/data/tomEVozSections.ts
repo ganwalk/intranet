@@ -8,8 +8,7 @@ import { areaIcons } from "@/data/areasEmpresa";
 
 /**
  * Seções do Manual de Tom e Voz — fonte única.
- * Consumida pela sidebar de navegação de /tom-e-voz e pela command palette
- * (que só as exibe quando o manual já foi desbloqueado pela senha).
+ * Consumida pela sidebar de navegação de /tom-e-voz e pela command palette.
  */
 
 export type TomEVozSection = {
@@ -46,14 +45,3 @@ export const tomEVozGroups = Object.entries(tomEVozGroupLabels).map(([key, label
   label,
   items: tomEVozSections.filter((s) => s.group === key),
 }));
-
-/** Chave usada no sessionStorage pelo gate de senha do Tom e Voz. */
-export const TOM_E_VOZ_AUTH_KEY = "tom-e-voz-auth";
-
-/**
- * Evento disparado ao desbloquear o manual com a senha correta.
- * A command palette escuta este evento para passar a exibir as seções
- * do Tom e Voz na busca global assim que o usuário se autentica,
- * sem precisar navegar/recarregar a página primeiro.
- */
-export const TOM_E_VOZ_UNLOCKED_EVENT = "central:tom-e-voz-unlocked";

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { Home, Search } from "lucide-react";
-import { olhoBranco } from "@/assets/olhos";
+import { simboloBrancoA } from "@/assets/simbolo";
 import { OPEN_PALETTE_EVENT } from "@/components/CommandPalette";
 
 /**
@@ -42,7 +42,7 @@ const NotFound = () => {
           className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-3xl bg-brand-dark shadow-xl"
         >
           <img
-            src={olhoBranco.url}
+            src={simboloBrancoA.url}
             alt="Marca procurando a página"
             className="h-14 w-14 transition-transform duration-100 ease-linear"
             style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
@@ -54,7 +54,7 @@ const NotFound = () => {
         </p>
         <p className="mb-8 text-sm text-muted-foreground font-roboto leading-relaxed">
           O endereço <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">{location.pathname}</code> não
-          existe — ou navegou para longe da carteira. Que tal voltar ao porto seguro?
+          existe — ou navegou para longe do mapa. Que tal voltar ao porto seguro?
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
           <Link
@@ -62,14 +62,14 @@ const NotFound = () => {
             className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-[5px] bg-primary text-primary-foreground text-sm font-semibold font-sora uppercase border border-primary hover:bg-transparent hover:text-primary transition-all duration-300"
           >
             <Home className="h-4 w-4" />
-            Voltar à Central
+            Voltar ao início
           </Link>
           <button
             onClick={() => window.dispatchEvent(new CustomEvent(OPEN_PALETTE_EVENT))}
             className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-[5px] border border-input bg-background text-foreground text-sm font-semibold font-sora uppercase hover:bg-accent hover:text-accent-foreground transition-all duration-300"
           >
             <Search className="h-4 w-4" />
-            Buscar na Central
+            Buscar
           </button>
         </div>
       </div>

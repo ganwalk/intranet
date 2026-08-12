@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { olhoBranco, olhoPreto } from "@/assets/olhos";
+import { simboloPorMarca } from "@/assets/simbolo";
+import { useBrand } from "@/contexts/BrandContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,31 +11,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Volume2, Palette, ChevronDown, X, Home, Users, ExternalLink, Layers } from "lucide-react";
-
-const externalLinks = [
-  {
-    id: "codigo-etica",
-    label: "Código de Ética",
-    href: "#",
-  },
-];
+import { Volume2, Palette, ChevronDown, X, Layers } from "lucide-react";
 
 const systems = [
-  {
-    id: "hub",
-    label: "Central de Produto",
-    description: "Página inicial e visão geral dos sistemas",
-    icon: Home,
-    path: "/",
-  },
-  {
-    id: "time",
-    label: "Nosso Time",
-    description: "Missão, pilares e estrutura do time de produto",
-    icon: Users,
-    path: "/time",
-  },
   {
     id: "design-system",
     label: "Design System",
@@ -45,14 +24,14 @@ const systems = [
   {
     id: "tom-e-voz",
     label: "Manual de Tom e Voz",
-    description: "Diretrizes de comunicação verbal de [Empresa]",
+    description: "Diretrizes de comunicação verbal da marca",
     icon: Volume2,
     path: "/tom-e-voz",
   },
   {
     id: "solucoes",
     label: "Nossas Soluções",
-    description: "Guia completo dos produtos do ecossistema [Empresa]",
+    description: "Guia completo dos nossos produtos digitais",
     icon: Layers,
     path: "/solucoes",
   },
@@ -61,10 +40,12 @@ const systems = [
 export function GlobalNav() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { brand } = useBrand();
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [showWelcome, setShowWelcome] = useState(false);
 
   const currentSystem = systems.find((s) => s.path === location.pathname) || systems[0];
+  const simbolo = simboloPorMarca(brand);
 
   useEffect(() => {
     const hasSeenWelcome = sessionStorage.getItem("central-nav-welcome");
@@ -81,32 +62,27 @@ export function GlobalNav() {
 
   return (
     <div className="relative flex items-center gap-3">
-      {/* Logo — sem caixa: o olho fica solto sobre o fundo da navegação e
+      {/* Logo — sem caixa: o símbolo fica solto sobre o fundo da navegação e
           troca de cor por tema, já que precisa de contraste contra o fundo
-          e não mais contra uma superfície própria. Clicável: leva pra Central
-          de Produto (Hub), como em qualquer app. */}
+          e não mais contra uma superfície própria. Clicável: leva pro
+          Design System, a home do template. */}
       <button
         onClick={() => navigate("/")}
         className="shrink-0 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-primary"
-        aria-label="Ir para a Central de Produto"
+        aria-label="Ir para o início"
       >
         <img
-          src={olhoPreto.url}
+          src={simbolo.preto.url}
           alt="Logo"
           className="h-8 w-8 md:h-10 md:w-10 dark:hidden"
         />
         <img
-          src={olhoBranco.url}
+          src={simbolo.branco.url}
           alt=""
           aria-hidden="true"
           className="hidden h-8 w-8 md:h-10 md:w-10 dark:block"
         />
       </button>
-
-      {/* Selo de versão */}
-      <span className="shrink-0 text-[9px] font-bold font-roboto uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30 leading-none">
-        v1
-      </span>
 
       {/* Mobile: dropdown */}
       <div className="md:hidden">
@@ -116,7 +92,6 @@ export function GlobalNav() {
               <p className="text-sm font-bold font-anek leading-tight text-foreground">
                 {currentSystem.label}
               </p>
-              <p className="text-[10px] text-muted-foreground leading-tight font-roboto uppercase tracking-wider">[Empresa]</p>
             </div>
             <ChevronDown className="h-4 w-4 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform" />
           </DropdownMenuTrigger>
@@ -166,27 +141,6 @@ export function GlobalNav() {
                 </DropdownMenuItem>
               );
             })}
-
-            <DropdownMenuSeparator />
-            <DropdownMenuLabel className="text-[10px] text-muted-foreground uppercase tracking-wider font-roboto font-bold px-2 py-1.5">
-              Links externos
-            </DropdownMenuLabel>
-            {externalLinks.map((link) => (
-              <DropdownMenuItem
-                key={link.id}
-                asChild
-              >
-                <a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between gap-3 p-3 rounded-xl cursor-pointer transition-colors focus:bg-muted hover:bg-muted data-[highlighted]:bg-muted"
-                >
-                  <span className="text-sm font-anek text-foreground">{link.label}</span>
-                  <ExternalLink className="h-3.5 w-3.5 text-muted-foreground shrink-0" />
-                </a>
-              </DropdownMenuItem>
-            ))}
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
@@ -254,23 +208,6 @@ export function GlobalNav() {
             </div>
           );
         })}
-
-        {/* Divisor vertical */}
-        <div className="w-px h-4 bg-border mx-1.5 shrink-0" />
-
-        {/* Links externos */}
-        {externalLinks.map((link) => (
-          <a
-            key={link.id}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 px-3 py-2 text-sm font-normal font-anek rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors duration-200"
-          >
-            {link.label}
-            <ExternalLink className="h-3 w-3 shrink-0" />
-          </a>
-        ))}
       </nav>
 
       {/* Welcome tooltip — mobile only */}
@@ -292,10 +229,10 @@ export function GlobalNav() {
                 Dica de navegação
               </p>
               <p className="text-sm font-anek font-bold text-foreground leading-tight mb-1">
-                Navegue entre as áreas da Central
+                Navegue entre as áreas
               </p>
               <p className="text-xs text-muted-foreground leading-relaxed font-roboto">
-                Por aqui você acessa a visão geral da Central, o Nosso Time, o Design System e o Manual de Tom e Voz — tudo em um só lugar.
+                Por aqui você acessa o Design System, o Manual de Tom e Voz e Nossas Soluções — tudo em um só lugar.
               </p>
             </div>
           </div>

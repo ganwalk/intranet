@@ -1,6 +1,6 @@
 import {
-  GraduationCap, RefreshCw, Award, Layers, BarChart3, Globe2, Sprout, Landmark, Table2,
-  Video, Users, BookOpen, Wrench, ShieldCheck, LineChart, CreditCard, Sparkles,
+  GraduationCap, RefreshCw, Award, Layers, BarChart3, Globe2, Table2,
+  Video, Users, BookOpen, Wrench, ShieldCheck, LineChart,
   type LucideIcon,
 } from "lucide-react";
 
@@ -57,24 +57,8 @@ export const solucoesSections: SolucaoSection[] = [
       { id: "produto-e-recursos", label: "Recursos" },
     ],
   },
-  {
-    id: "produto-f", label: "[Produto F]", icon: Sprout,
-    anchors: [
-      { id: "produto-f-sobre", label: "O que é" },
-      { id: "produto-f-recursos", label: "Recursos" },
-    ],
-  },
-  {
-    id: "produto-g", label: "[Produto G]", icon: Landmark,
-    anchors: [
-      { id: "produto-g-sobre", label: "O que é" },
-      { id: "produto-g-recursos", label: "Recursos" },
-    ],
-  },
-  /* Fecho da página: o Ecossistema resume como os produtos se encaixam, então
-     vem depois de todos eles e logo antes da tabela-resumo. Como as duas são
-     seções de síntese, e não de um produto, nenhuma tem cor de marca. */
-  { id: "ecossistema", label: "Ecossistema", icon: Layers, anchors: [] },
+  /* Fecho da página: a tabela-resumo vem depois de todos os produtos. Como é
+     uma seção de síntese, e não de um produto, não tem cor de marca. */
   { id: "resumo", label: "Resumo", icon: Table2, anchors: [] },
 ];
 
@@ -186,88 +170,6 @@ export const produtosSolucoes: ProdutoSolucao[] = [
     recursos: [
       { icon: Globe2, destaque: "Visão global:", texto: "fundamentos e estratégias aplicadas a outros mercados." },
       { icon: LineChart, destaque: "Conteúdo avançado:", texto: "módulos voltados a quem já tem uma base consolidada." },
-    ],
-  },
-  {
-    id: "produto-f",
-    badge: "Especialização setorial",
-    nome: "[Produto F]",
-    paraQuemE: "Profissionais e negócios de um setor específico que buscam informação e ferramentas especializadas.",
-    oQueE: "Um conjunto de conteúdos, ferramentas e consultoria dedicados às particularidades de um setor específico.",
-    info: [
-      { tipo: "investimento", texto: "A depender do serviço contratado" },
-      { tipo: "acesso", texto: "Acesso por 1 ano" },
-    ],
-    recursos: [
-      { icon: LineChart, destaque: "Dados do setor:", texto: "informações e análises atualizadas regularmente." },
-      { icon: Users, destaque: "Consultoria dedicada:", texto: "acompanhamento próximo para necessidades específicas." },
-    ],
-  },
-  {
-    id: "produto-g",
-    badge: "Conta digital",
-    nome: "[Produto G]",
-    paraQuemE: "Clientes que já fazem parte do ecossistema e buscam uma extensão prática para o dia a dia.",
-    oQueE: "Uma conta digital integrada ao restante do ecossistema, com planos de contratação e cartão associado.",
-    info: [
-      { tipo: "investimento", texto: "Variável conforme o plano" },
-      { tipo: "acesso", texto: "Contínuo, enquanto a conta estiver ativa" },
-    ],
-    recursos: [
-      { icon: Landmark, destaque: "Conta integrada:", texto: "movimentações do dia a dia em um único lugar." },
-      { icon: CreditCard, destaque: "Cartão associado:", texto: "benefícios configuráveis conforme o uso." },
-      { icon: Sparkles, destaque: "Planos flexíveis:", texto: "opções que se ajustam ao momento de cada cliente." },
-    ],
-  },
-];
-
-/* ============================================================
-   Ecossistema — como os produtos se encaixam
-   ============================================================ */
-
-export interface EcossistemaEtapa {
-  titulo: string;
-  icon: LucideIcon;
-  itens: { label: string; desc: string }[];
-}
-
-export const ecossistemaHero = {
-  titulo: "Tudo começa na base",
-  subtitulo:
-    "Muito além de um único produto: um ecossistema pensado para acompanhar o cliente em diferentes momentos.",
-};
-
-export const ecossistemaEtapas: EcossistemaEtapa[] = [
-  {
-    titulo: "Aprendizado",
-    icon: GraduationCap,
-    itens: [
-      { label: "Treinamento completo", desc: "do zero ao avançado" },
-      { label: "Comunidade", desc: "com apoio especializado" },
-    ],
-  },
-  {
-    titulo: "Acompanhamento",
-    icon: RefreshCw,
-    itens: [
-      { label: "Conteúdo contínuo", desc: "sempre atualizado" },
-      { label: "Ferramentas exclusivas", desc: "para quem já avançou" },
-    ],
-  },
-  {
-    titulo: "Especialização",
-    icon: Award,
-    itens: [
-      { label: "Certificações", desc: "reconhecidas pelo mercado" },
-      { label: "Trilhas avançadas", desc: "para quem quer ir além" },
-    ],
-  },
-  {
-    titulo: "Estrutura",
-    icon: Landmark,
-    itens: [
-      { label: "Conta integrada", desc: "para o dia a dia" },
-      { label: "Suporte dedicado", desc: "conforme a necessidade" },
     ],
   },
 ];

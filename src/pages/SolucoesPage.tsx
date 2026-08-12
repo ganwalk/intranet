@@ -12,7 +12,6 @@ import { Tag } from "@/components/widgets/Tag";
 import {
   solucoesSections,
   produtosSolucoes,
-  ecossistemaHero, ecossistemaEtapas,
   resumoProdutos,
   type FeatureItem, type QuickInfo,
 } from "@/data/solucoes";
@@ -459,14 +458,6 @@ export default function SolucoesPage() {
           );
         })}
 
-        {/* ==================== ECOSSISTEMA ====================
-            Fecha a sequência dos produtos mostrando como eles se encaixam, e
-            por isso vem depois de todos. Sem classe .sol-*: como o Resumo
-            logo abaixo, é uma síntese do conjunto e usa o acento neutro. */}
-        <section id="ecossistema" className={cn("scroll-mt-32 border-t pt-16", printHide("ecossistema"))}>
-          <EcossistemaDobra />
-        </section>
-
         {/* ==================== RESUMO ==================== */}
         <section id="resumo" className={cn("scroll-mt-32 space-y-5 border-t pt-16", printHide("resumo"))}>
           <div>
@@ -505,53 +496,5 @@ export default function SolucoesPage() {
         </div>
       </div>
     </PageShell>
-  );
-}
-
-/* Dobra "Tudo começa na base" — resume como os produtos se encaixam, com a
-   estética da Central: mesmos cartões, bordas e tokens de acento. */
-function EcossistemaDobra() {
-  return (
-    <div className="space-y-8">
-      <div className="text-center max-w-3xl mx-auto space-y-3">
-        <h2 className="text-2xl md:text-3xl font-bold font-anek text-foreground">
-          {ecossistemaHero.titulo}
-        </h2>
-        <p className="text-muted-foreground font-roboto leading-relaxed">
-          {ecossistemaHero.subtitulo}
-        </p>
-      </div>
-
-      <div className="relative">
-        {/* Fio que liga os nós, só no desktop, onde eles ficam em linha */}
-        <span
-          aria-hidden="true"
-          className="hidden lg:block absolute left-[12.5%] right-[12.5%] top-6 h-px bg-border"
-        />
-        <div className="relative grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {ecossistemaEtapas.map((etapa) => {
-            const Icon = etapa.icon;
-            return (
-              <div key={etapa.titulo} className="flex flex-col items-center text-center">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full border bg-card shrink-0 text-primary">
-                  <Icon className="h-5 w-5" />
-                </span>
-                <p className="mt-4 font-bold font-anek text-foreground">
-                  {etapa.titulo}
-                </p>
-                <ul className="mt-3 w-full space-y-2">
-                  {etapa.itens.map((item) => (
-                    <li key={item.label} className="rounded-lg border bg-card px-4 py-2.5 text-left">
-                      <p className="text-sm font-semibold font-roboto text-foreground leading-tight">{item.label}</p>
-                      <p className="text-xs text-muted-foreground font-roboto leading-snug">{item.desc}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
   );
 }

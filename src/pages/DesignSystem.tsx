@@ -17,6 +17,11 @@ import { ContagemRegressiva } from "@/components/widgets/ContagemRegressiva";
 import { TooltipsPopups } from "@/components/widgets/TooltipsPopups";
 import { FaqDuvidas } from "@/components/widgets/FaqDuvidas";
 import { WidgetsFlutuantes } from "@/components/widgets/WidgetsFlutuantes";
+import { RoadmapTimeline } from "@/components/widgets/RoadmapTimeline";
+import { NovidadeCard } from "@/components/widgets/NovidadeCard";
+import { novidadesMensais } from "@/data/novidades";
+import { ProdutoFisicoCard, FiltroCategorias, type FiltroCategoria } from "@/components/ProdutosFisicos";
+import { produtosFisicos } from "@/data/produtosFisicos";
 
 import { Calculadora } from "@/components/widgets/Calculadora";
 import { CalculadoraRendimentos } from "@/components/widgets/CalculadoraRendimentos";
@@ -106,7 +111,6 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { useBrand } from "@/contexts/BrandContext";
-import { olhoBranco, olhoPreto } from "@/assets/olhos";
 
 import {
   Palette, Type, Square, MousePointer,
@@ -118,7 +122,7 @@ import {
   ListChecks, ToggleLeft, Anchor as AnchorIcon, AtSign, Columns3,
   Activity, GitCommit, ListTree, ClipboardList, Inbox as InboxIcon, CheckCircle2, Compass, Stamp,
   ChevronRight, ChevronLeft, CalendarIcon, SquareCheck, Table as TableIcon,
-  Sun, Moon
+  Sun, Moon, Route, Newspaper, ShoppingBag,
 } from "lucide-react";
 import { Notifications } from "@/components/widgets/Notifications";
 import { PopconfirmWidget } from "@/components/widgets/Popconfirm";
@@ -193,6 +197,22 @@ function ColorSwatch({ name, cssVar, fgVar }: { name: string; cssVar: string; fg
   );
 }
 
+/** Demo do catálogo de Produtos Físicos: mesmo card e filtro usados no template. */
+function ProdutosFisicosDemo() {
+  const [categoria, setCategoria] = useState<FiltroCategoria>("Todos");
+  const itens = produtosFisicos.filter((p) => categoria === "Todos" || p.categoria === categoria).slice(0, 8);
+
+  return (
+    <div className="w-full space-y-4">
+      <FiltroCategorias valor={categoria} onChange={setCategoria} />
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        {itens.map((item) => (
+          <ProdutoFisicoCard key={item.slug} item={item} />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 
 export default function DesignSystemPage() {
@@ -421,8 +441,8 @@ export default function DesignSystemPage() {
                     {brandOpen && (
                       <div className="space-y-0.5 mt-1">
                         {[
-                          { id: "marca-a" as const, label: "Marca A", color: "hsl(243,75%,59%)" },
-                          { id: "marca-b" as const, label: "Marca B", color: "hsl(173,80%,40%)" },
+                          { id: "marca-a" as const, label: "Marca A", color: "hsl(355,78%,38%)" },
+                          { id: "marca-b" as const, label: "Marca B", color: "hsl(217,85%,60%)" },
                         ].map((b) => (
                           <button
                             key={b.id}
@@ -529,8 +549,8 @@ export default function DesignSystemPage() {
             {brandOpen && (
               <div className="space-y-0.5 mt-1">
                 {[
-                  { id: "marca-a" as const, label: "Marca A", color: "hsl(243,75%,59%)" },
-                  { id: "marca-b" as const, label: "Marca B", color: "hsl(173,80%,40%)" },
+                  { id: "marca-a" as const, label: "Marca A", color: "hsl(355,78%,38%)" },
+                  { id: "marca-b" as const, label: "Marca B", color: "hsl(217,85%,60%)" },
                 ].map((b) => (
                   <button
                     key={b.id}
@@ -661,7 +681,7 @@ export default function DesignSystemPage() {
           <Separator />
           <section id="colors">
             <h2 className="text-2xl font-bold mb-2">Cores</h2>
-            <p className="text-muted-foreground mb-6">Paleta de cores semânticas do tema {brand === "marca-a" ? "Marca A (Índigo)" : "Marca B (Turquesa)"}</p>
+            <p className="text-muted-foreground mb-6">Paleta de cores semânticas do tema {brand === "marca-a" ? "Marca A (Vermelho)" : "Marca B (Azul)"}</p>
              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
                 { name: "Primary", var: "primary", fg: "primary-foreground" },
@@ -899,16 +919,16 @@ import { ArrowRight } from "lucide-react";
   .btn-lg { padding:1rem 2rem; height:48px; font-size:14px; letter-spacing:0.05em; }
 
   /* Padrão (default) — hover revela a borda */
-  .btn-default { background:var(--primary,#4F46E5); color:#fff; border-color:var(--primary,#4F46E5); }
-  .btn-default:hover { background:transparent; color:var(--primary,#4F46E5); }
+  .btn-default { background:var(--primary,#AD1522); color:#fff; border-color:var(--primary,#AD1522); }
+  .btn-default:hover { background:transparent; color:var(--primary,#AD1522); }
 
   /* CTA Landing Page */
-  .btn-cta { background:#4F46E5; color:#fff; }
-  .btn-cta:hover { background:transparent; color:#4F46E5; border-color:#4F46E5; }
+  .btn-cta { background:#AD1522; color:#fff; }
+  .btn-cta:hover { background:transparent; color:#AD1522; border-color:#AD1522; }
 
   /* CTA Invertido (para fundos escuros) — hover atenua o fundo claro.
-     No tema escuro: fundo acento #818CF8, texto quase-preto #0D0D0D. */
-  .btn-cta-inverted { background:#fafafa; color:#4F46E5; border-color:#4F46E5; }
+     No tema escuro: fundo acento #F07580, texto quase-preto #0D0D0D. */
+  .btn-cta-inverted { background:#fafafa; color:#AD1522; border-color:#AD1522; }
   .btn-cta-inverted:hover { background:#e0e0e0; }
 
   /* Secundário */
@@ -918,14 +938,14 @@ import { ArrowRight } from "lucide-react";
 
   /* Contorno (outline) — hover usa a cor de acento */
   .btn-outline { background:transparent; color:inherit; border-color:#dfe3df; }
-  .btn-outline:hover { background:var(--accent,#4F46E5); color:#fff; }
+  .btn-outline:hover { background:var(--accent,#AD1522); color:#fff; }
 
   /* Fantasma (ghost) — hover usa a cor de acento */
   .btn-ghost { background:transparent; color:inherit; border-color:transparent; }
-  .btn-ghost:hover { background:var(--accent,#4F46E5); color:#fff; }
+  .btn-ghost:hover { background:var(--accent,#AD1522); color:#fff; }
 
   /* Link */
-  .btn-link { background:transparent; color:var(--primary,#4F46E5); border:none; padding:0;
+  .btn-link { background:transparent; color:var(--primary,#AD1522); border:none; padding:0;
     text-decoration:none; }
   .btn-link:hover { text-decoration:underline; }
 
@@ -962,7 +982,7 @@ import { ArrowRight } from "lucide-react";
 <Button size="icon"><ArrowRight className="h-4 w-4" /></Button>`}
                 htmlCode={`<style>
   .btn { display:inline-flex; align-items:center; justify-content:center;
-    background:var(--primary,#4F46E5); color:#fff; border:1px solid var(--primary,#4F46E5);
+    background:var(--primary,#AD1522); color:#fff; border:1px solid var(--primary,#AD1522);
     border-radius:5px; font-family:'Sora',sans-serif; font-weight:700; text-transform:uppercase;
     cursor:pointer; }
   .btn-sm      { height:36px; padding:0 0.75rem;  font-size:12px; }
@@ -984,11 +1004,11 @@ import { ArrowRight } from "lucide-react";
                 <Button size="icon"><ArrowRight className="h-4 w-4" /></Button>
               </ComponentShowcase>
               <ComponentShowcase title="CTA em Fundo Escuro" description="Comportamento do botão invertido"
-                code={`<div className="bg-[hsl(243_75%_59%)] dark:bg-[hsl(0_0%_18%)] p-8 rounded-lg">
+                code={`<div className="bg-[hsl(355_78%_38%)] dark:bg-[hsl(0_0%_18%)] p-8 rounded-lg">
   <Button variant="cta-inverted" size="lg">Começar Agora</Button>
 </div>`}
-                htmlCode={`<div style="background:#4F46E5; padding:2rem; border-radius:0.5rem;">\n  <button style="background:#fafafa; color:#4F46E5; padding:1rem 2rem; border-radius:5px; font-family:'Sora'; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; font-size:14px; border:1px solid #fafafa; cursor:pointer;">COMEÇAR AGORA</button>\n</div>\n<!-- Hover: background #e0e0e0 (atenuação leve, mantém contraste) -->\n<!-- Tema escuro: background #818CF8, texto #0D0D0D, hover clareia p/ #A5B4FC -->`}>
-                <div className="bg-[hsl(243_75%_59%)] dark:bg-[hsl(0_0%_18%)] p-8 rounded-lg flex items-center gap-4 w-full">
+                htmlCode={`<div style="background:#AD1522; padding:2rem; border-radius:0.5rem;">\n  <button style="background:#fafafa; color:#AD1522; padding:1rem 2rem; border-radius:5px; font-family:'Sora'; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; font-size:14px; border:1px solid #fafafa; cursor:pointer;">COMEÇAR AGORA</button>\n</div>\n<!-- Hover: background #e0e0e0 (atenuação leve, mantém contraste) -->\n<!-- Tema escuro: background #F07580, texto #0D0D0D, hover clareia p/ #F5A3AC -->`}>
+                <div className="bg-[hsl(355_78%_38%)] dark:bg-[hsl(0_0%_18%)] p-8 rounded-lg flex items-center gap-4 w-full">
                   <Button variant="cta-inverted" size="lg">Começar Agora</Button>
                 </div>
               </ComponentShowcase>
@@ -1015,14 +1035,14 @@ import { ArrowRight } from "lucide-react";
   .grade-container { background: #f5f5f5; padding: 2rem; border-radius: 1rem; border: 1px solid #e5e5e5; }
   .grade-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 2rem; }
   .grade-tab { padding: 0.75rem 1.5rem; border-radius: 9999px; border: 1px solid #e5e5e5; background: rgba(255,255,255,0.4); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; color: #888; transition: all 0.2s; }
-  .grade-tab.active { background: var(--primary, #4F46E5); color: #fff; border-color: var(--primary, #4F46E5); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .grade-tab.active { background: var(--primary, #AD1522); color: #fff; border-color: var(--primary, #AD1522); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
   .grade-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
   .grade-card { background: rgba(255,255,255,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(0,0,0,0.05); border-radius: 0.75rem; padding: 1.5rem; transition: all 0.2s; }
   .grade-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); transform: translateY(-2px); }
   .grade-card-icon { width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; background: rgba(79,70,229,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 0.75rem; }
   .grade-card h4 { font-size: 0.875rem; font-weight: 700; margin-bottom: 0.25rem; }
   .grade-card p { font-size: 0.75rem; color: #888; line-height: 1.5; }
-  .grade-number { font-size: 0.7rem; font-weight: 700; color: var(--primary, #4F46E5); text-transform: uppercase; letter-spacing: 0.1em; }
+  .grade-number { font-size: 0.7rem; font-weight: 700; color: var(--primary, #AD1522); text-transform: uppercase; letter-spacing: 0.1em; }
 </style>
 
 <div class="grade-container">
@@ -2068,6 +2088,60 @@ export function LivroResponsivo() {
             </div>
           </section>
 
+
+          <Separator />
+          <section id="especiais">
+            <h2 className="text-2xl font-bold mb-2">Componentes Especiais</h2>
+            <p className="text-muted-foreground mb-6">
+              Peças maiores, com dados e navegação próprios, que antes tinham páginas dedicadas na Central e agora
+              vivem documentadas aqui.
+            </p>
+            <div className="space-y-6">
+              <div id="roadmap-timeline" className="scroll-mt-32">
+                <ComponentShowcase
+                  title="Trilha do Roadmap"
+                  description="Trilha em onda dos marcos de produto — arraste, use as setas ou o teclado para navegar. Dados em src/data/roadmapMarcos.ts."
+                  code={`import { RoadmapTimeline } from "@/components/widgets/RoadmapTimeline";
+
+<RoadmapTimeline />`}
+                  showToggle={false}
+                >
+                  <RoadmapTimeline />
+                </ComponentShowcase>
+              </div>
+
+              <div id="mural-novidades" className="scroll-mt-32">
+                <ComponentShowcase
+                  title="Mural de Novidades"
+                  description="Card de uma entrega do mural, com blocos opcionais de antes/depois, resultados e envolvidos. Dados em src/data/novidades.ts."
+                  code={`import { NovidadeCard } from "@/components/widgets/NovidadeCard";
+
+<NovidadeCard item={novidade} />`}
+                  showToggle={false}
+                >
+                  <div className="w-full space-y-3 max-w-2xl">
+                    {novidadesMensais[0].items.slice(0, 2).map((item, i) => (
+                      <NovidadeCard key={i} item={item} />
+                    ))}
+                  </div>
+                </ComponentShowcase>
+              </div>
+
+              <div id="catalogo-produtos-fisicos" className="scroll-mt-32">
+                <ComponentShowcase
+                  title="Catálogo de Produtos Físicos"
+                  description="Card de produto e filtro de categorias, compartilhados entre destaques e catálogo completo. Dados em src/data/produtosFisicos.ts."
+                  code={`import { ProdutoFisicoCard, FiltroCategorias } from "@/components/ProdutosFisicos";
+
+<FiltroCategorias valor={categoria} onChange={setCategoria} />
+<ProdutoFisicoCard item={produto} />`}
+                  showToggle={false}
+                >
+                  <ProdutosFisicosDemo />
+                </ComponentShowcase>
+              </div>
+            </div>
+          </section>
 
           <Separator />
           <section id="ai-food"><AIFood /></section>

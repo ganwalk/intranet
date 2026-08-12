@@ -19,9 +19,9 @@ A Marca A tem um tom institucional, sóbrio e técnico. Autoridade direta, sem p
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 1. PALETA OFICIAL (use SOMENTE estas cores)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Índigo primário: #4F46E5  → botões, títulos em fundo claro
-• Índigo escuro:   #4338CA  → hover de botões
-• Índigo acento:   #818CF8  → destaque em fundo ESCURO apenas
+• Vermelho primário: #AD1522  → botões, títulos em fundo claro
+• Vermelho escuro:   #BF222F  → hover de botões
+• Vermelho acento:   #F07580  → destaque em fundo ESCURO apenas
 • Branco:  #FFFFFF  |  Cinza claro: #F2F2F2  |  Cinza médio: #6B6B6B
 • Cinza chumbo: #1B1B1B (cards em dark)  |  Preto: #000000
 ❌ PROIBIDO: roxo, rosa, cores fora da paleta, gradientes coloridos, neon
@@ -38,9 +38,9 @@ A Marca A tem um tom institucional, sóbrio e técnico. Autoridade direta, sem p
 3. BOTÕES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 • border-radius: 5px  |  border: sempre 1px solid  |  padding py-[18px] px-[32px]
-• Primário: bg #4F46E5  text branco  |  hover: bg transparente  text #4F46E5
-• Outline (fundo escuro): bg transparente  border branca  |  hover: bg branco  text #4F46E5
-• Estados: default → hover (240ms) → active (scale 0.99) → focus (ring #4F46E5) → disabled → loading
+• Primário: bg #AD1522  text branco  |  hover: bg transparente  text #AD1522
+• Outline (fundo escuro): bg transparente  border branca  |  hover: bg branco  text #AD1522
+• Estados: default → hover (240ms) → active (scale 0.99) → focus (ring #AD1522) → disabled → loading
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 4. CARDS E LAYOUT
@@ -55,15 +55,15 @@ A Marca A tem um tom institucional, sóbrio e técnico. Autoridade direta, sem p
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 <section class="bg-white py-[90px]">
   <div class="max-w-[1200px] mx-auto px-6">
-    <span class="font-sora text-[12px] font-bold uppercase tracking-[0.15em] text-[#4F46E5]">Eyebrow</span>
-    <h1 class="font-anek text-[54px] font-semibold leading-[1.1] text-[#4F46E5] mt-[15px]">
+    <span class="font-sora text-[12px] font-bold uppercase tracking-[0.15em] text-[#AD1522]">Eyebrow</span>
+    <h1 class="font-anek text-[54px] font-semibold leading-[1.1] text-[#AD1522] mt-[15px]">
       Título institucional de impacto.
     </h1>
     <p class="font-roboto text-[20px] text-[#6B6B6B] mt-[30px] max-w-[640px]">
       Texto de apoio curto e direto.
     </p>
     <div class="flex gap-[15px] mt-[45px]">
-      <button class="font-sora font-bold uppercase text-[14px] py-[18px] px-[32px] bg-[#4F46E5] text-white border border-[#4F46E5] hover:bg-transparent hover:text-[#4F46E5] transition-all duration-[240ms]">
+      <button class="font-sora font-bold uppercase text-[14px] py-[18px] px-[32px] bg-[#AD1522] text-white border border-[#AD1522] hover:bg-transparent hover:text-[#AD1522] transition-all duration-[240ms]">
         Ação primária
       </button>
     </div>
@@ -87,13 +87,13 @@ Agora gere a seção solicitada:`,
 0. CONTEXTO
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ferramentas são usadas dentro de LPs ou como apps standalone. Linguagem visual "fintech moderna",
-paleta índigo. O usuário precisa ler números rápido — hierarquia tipográfica é tudo.
+paleta vermelho. O usuário precisa ler números rápido — hierarquia tipográfica é tudo.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 1. CONTAINER E TIPOGRAFIA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 <div class="bg-white rounded-2xl shadow-xl p-6 max-w-md mx-auto">
-• Título: Anek 700 22px  |  Valor de resultado: Anek 700 36px #4F46E5 tabular-nums
+• Título: Anek 700 22px  |  Valor de resultado: Anek 700 36px #AD1522 tabular-nums
 • Labels de input: Roboto 500 13px uppercase  |  Texto auxiliar: Roboto 400 12px cinza claro
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -103,18 +103,18 @@ paleta índigo. O usuário precisa ler números rápido — hierarquia tipográf
   <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Label</label>
   <input class="bg-transparent border-0 text-2xl font-anek font-bold w-full focus:outline-none" />
 </div>
-• Focus: ring-2 ring-[#4F46E5]/30  |  Error: ring-2 ring-red-500/30 + mensagem abaixo
-• Slider thumb: 20px circular bg-[#4F46E5] border-2 border-white shadow-md
+• Focus: ring-2 ring-[#AD1522]/30  |  Error: ring-2 ring-red-500/30 + mensagem abaixo
+• Slider thumb: 20px circular bg-[#AD1522] border-2 border-white shadow-md
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 3. BOTÕES E RESULTADO (aqui são arredondados)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Primário: bg-[#4F46E5] text-white rounded-[5px]  |  hover bg-[#4338CA]
-• Estados: default → hover → active → focus (ring #4F46E5) → disabled → loading (spinner + "Calculando...")
+• Primário: bg-[#AD1522] text-white rounded-[5px]  |  hover bg-[#BF222F]
+• Estados: default → hover → active → focus (ring #AD1522) → disabled → loading (spinner + "Calculando...")
 
-<div class="bg-indigo-50 rounded-xl p-5 mt-6">
-  <p class="font-roboto text-xs uppercase text-[#4F46E5]/70">Rótulo do resultado</p>
-  <p class="font-anek text-4xl font-bold text-[#4F46E5] mt-2 tabular-nums">R$ 1.234.567</p>
+<div class="bg-red-50 rounded-xl p-5 mt-6">
+  <p class="font-roboto text-xs uppercase text-[#AD1522]/70">Rótulo do resultado</p>
+  <p class="font-anek text-4xl font-bold text-[#AD1522] mt-2 tabular-nums">R$ 1.234.567</p>
 </div>
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -127,7 +127,7 @@ paleta índigo. O usuário precisa ler números rápido — hierarquia tipográf
 5. CHECKLIST FINAL
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 □ Card pai: bg-white + rounded-2xl + shadow-xl
-□ Botões rounded-[5px]  |  Valores: tabular-nums + font-anek + #4F46E5
+□ Botões rounded-[5px]  |  Valores: tabular-nums + font-anek + #AD1522
 □ Todos os 8 estados implementados
 □ Responsivo: max-w-md centrado
 
@@ -144,18 +144,18 @@ Agora gere a ferramenta solicitada:`,
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 A Marca B tem um tom independente, descontraído e editorial — sofisticado e premium.
 Glassmorphism é a assinatura visual (cards translúcidos com blur).
-❌ NUNCA use o índigo da Marca A (#4F46E5) como cor de fundo, borda ou ícone.
+❌ NUNCA use o vermelho da Marca A (#AD1522) como cor de fundo, borda ou ícone.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-1. PALETA OFICIAL TURQUESA
+1. PALETA OFICIAL AZUL
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Turquesa principal: #14b8a6  → acentos, ícones, botão primário, slider thumb
-• Turquesa escura:    #0d9488  → tipografia de destaque, eyebrow, badges ativos
-• Turquesa profunda:  #0f766e  → texto sobre fundo claro com forte contraste
-• Índigo da Marca A:  #4F46E5  → SOMENTE como cor de texto dentro de botões turquesa
+• Azul principal: #2B76EE  → acentos, ícones, botão primário, slider thumb
+• Azul escura:    #08409B  → tipografia de destaque, eyebrow, badges ativos
+• Azul profunda:  #0B3B85  → texto sobre fundo claro com forte contraste
+• Vermelho da Marca A:  #AD1522  → SOMENTE como cor de texto dentro de botões azul
 • Cinza texto: #18181B  |  Cinza secundário: #52525B / #71717A
 • Translúcidos: rgba(255,255,255,0.5) / rgba(0,0,0,0.12)
-❌ PROIBIDO: índigo da Marca A como cor de fundo/borda, cores fora da paleta
+❌ PROIBIDO: vermelho da Marca A como cor de fundo/borda, cores fora da paleta
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 2. FUNDO E CARDS TRANSLÚCIDOS (assinatura visual)
@@ -173,7 +173,7 @@ Glassmorphism é a assinatura visual (cards translúcidos com blur).
 }
 .marca-b-glass-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px -10px rgba(20,184,166, 0.25);
+  box-shadow: 0 20px 40px -10px rgba(43,118,238, 0.25);
 }
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -181,10 +181,10 @@ Glassmorphism é a assinatura visual (cards translúcidos com blur).
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 • H1: Anek Latin 700  56px / 36px mobile  #18181B
 • Corpo: Roboto 400  17px  #52525B
-• Eyebrow: Anek 600 13px uppercase, pill bg turquesa translúcida
-• Botões: radius 5px em LP (pílula proibida) — primário bg #14b8a6 text #4F46E5
-  hover: bg transparente border #14b8a6 text #18181B
-• Estados: default → hover → active → focus (ring #14b8a6) → disabled → loading
+• Eyebrow: Anek 600 13px uppercase, pill bg azul translúcida
+• Botões: radius 5px em LP (pílula proibida) — primário bg #2B76EE text #AD1522
+  hover: bg transparente border #2B76EE text #18181B
+• Estados: default → hover → active → focus (ring #2B76EE) → disabled → loading
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 4. EXEMPLO DE HERO
@@ -192,15 +192,15 @@ Glassmorphism é a assinatura visual (cards translúcidos com blur).
 <section style="background: radial-gradient(ellipse at top, #f4f4f5 0%, #e4e4e7 100%); padding: 120px 0;">
   <div class="max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-[60px] items-center">
     <div>
-      <span class="inline-flex px-3 py-1.5 rounded-full text-[13px] font-anek font-semibold uppercase text-[#0d9488] bg-[rgba(20,184,166,0.1)]">
+      <span class="inline-flex px-3 py-1.5 rounded-full text-[13px] font-anek font-semibold uppercase text-[#08409B] bg-[rgba(43,118,238,0.1)]">
         Eyebrow
       </span>
       <h1 class="font-anek text-[56px] font-bold leading-[1.05] text-[#18181B] mt-6">
-        Título editorial com <span class="text-[#0d9488]">destaque turquesa</span>.
+        Título editorial com <span class="text-[#08409B]">destaque azul</span>.
       </h1>
       <p class="font-roboto text-[17px] text-[#52525B] mt-6 max-w-[480px]">Texto de apoio curto.</p>
       <div class="flex gap-[15px] mt-[45px]">
-        <button class="font-sora font-bold uppercase text-[14px] py-[18px] px-[32px] bg-[#14b8a6] text-[#4F46E5] border border-[#14b8a6] hover:bg-transparent hover:text-[#18181B] transition-all duration-[300ms]">
+        <button class="font-sora font-bold uppercase text-[14px] py-[18px] px-[32px] bg-[#2B76EE] text-[#AD1522] border border-[#2B76EE] hover:bg-transparent hover:text-[#18181B] transition-all duration-[300ms]">
           Ação primária
         </button>
       </div>
@@ -215,9 +215,9 @@ Glassmorphism é a assinatura visual (cards translúcidos com blur).
 □ Cards com backdrop-filter: blur(24px)
 □ Fundos com gradiente radial (nunca branco chapado)
 □ Botões radius 5px em LP — pílula proibida
-□ Índigo da Marca A SOMENTE em texto de botão turquesa
+□ Vermelho da Marca A SOMENTE em texto de botão azul
 □ Todos os estados dos botões implementados
-□ Acessibilidade: aria-label, focus ring turquesa, contraste ≥ 4.5:1
+□ Acessibilidade: aria-label, focus ring azul, contraste ≥ 4.5:1
 
 Agora gere a seção solicitada:`,
 
@@ -227,26 +227,26 @@ Agora gere a seção solicitada:`,
 0. CONTEXTO
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ferramentas que demonstram conceitos (juros compostos, inflação, aporte, etc.).
-Estilo: editorial premium, turquesa sutil, foco em leitura limpa de números.
-❌ NUNCA use o índigo da Marca A. Aqui o destaque é turquesa.
+Estilo: editorial premium, azul sutil, foco em leitura limpa de números.
+❌ NUNCA use o vermelho da Marca A. Aqui o destaque é azul.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 1. CONTAINER, TIPOGRAFIA E INPUTS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 <div class="bg-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] p-6 max-w-md mx-auto border border-gray-100">
-• Valor em destaque: Anek 700 36px #0f766e tabular-nums  |  Labels: Roboto 500 13px uppercase
-• Inputs: bg-gray-50 rounded-xl  |  Focus: ring-2 ring-[#14b8a6]/40
+• Valor em destaque: Anek 700 36px #0B3B85 tabular-nums  |  Labels: Roboto 500 13px uppercase
+• Inputs: bg-gray-50 rounded-xl  |  Focus: ring-2 ring-[#2B76EE]/40
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 2. SLIDERS E BOTÕES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Slider thumb: 22px circular bg-[#14b8a6] border-3 border-white  |  accent-color: #14b8a6
-• Primário: bg-[#14b8a6] text-zinc-900 rounded-[5px]  |  hover bg-[#0d9488]
-• Estados: default → hover → active → focus (ring #14b8a6) → disabled → loading
+• Slider thumb: 22px circular bg-[#2B76EE] border-3 border-white  |  accent-color: #2B76EE
+• Primário: bg-[#2B76EE] text-zinc-900 rounded-[5px]  |  hover bg-[#08409B]
+• Estados: default → hover → active → focus (ring #2B76EE) → disabled → loading
 
 <div class="bg-gray-50 rounded-lg p-4 mt-6 border border-gray-100">
   <p class="font-roboto text-xs uppercase text-gray-500">Rótulo do resultado</p>
-  <p class="font-anek text-4xl font-bold text-[#0f766e] mt-2 tabular-nums">R$ 1.234.567</p>
+  <p class="font-anek text-4xl font-bold text-[#0B3B85] mt-2 tabular-nums">R$ 1.234.567</p>
 </div>
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -258,9 +258,9 @@ Estilo: editorial premium, turquesa sutil, foco em leitura limpa de números.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 4. CHECKLIST FINAL
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-□ Sem índigo da Marca A — apenas turquesa e cinzas
-□ Slider thumb turquesa + border branca + shadow
-□ Valores: font-anek + tabular-nums + cor #0f766e
+□ Sem vermelho da Marca A — apenas azul e cinzas
+□ Slider thumb azul + border branca + shadow
+□ Valores: font-anek + tabular-nums + cor #0B3B85
 □ Todos os 8 estados implementados
 
 Agora gere a ferramenta solicitada:`,
@@ -282,39 +282,39 @@ Estética: limpa, clara, focada em leitura longa, sem fadiga visual.
 • Dark mode alternativo: bg-zinc-950 + cards bg-zinc-900
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-2. IDENTIDADE TURQUESA — uso pontual
+2. IDENTIDADE AZUL — uso pontual
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Cor primária #14b8a6 (text-teal-600 #0d9488 em fundo claro para contraste).
-• Aula em curso: bg-teal-50 border-l-4 border-teal-500  |  Badge "Em andamento": bg-teal-100 text-teal-800
+Cor primária #2B76EE (text-blue-600 #08409B em fundo claro para contraste).
+• Aula em curso: bg-blue-50 border-l-4 border-blue-500  |  Badge "Em andamento": bg-blue-100 text-blue-800
 • Aulas concluídas: ícone text-emerald-500  |  Bloqueadas: opacity-60 text-gray-400
-• Barra de progresso: bg-[#14b8a6] com transition-all
+• Barra de progresso: bg-[#2B76EE] com transition-all
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 3. VIDEO PLAYER (regra fixa)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 • Container: sempre bg-black + aspect-video (mesmo em light mode)
-• Barra de progresso: h-1 bg-white/20 + fill bg-[#14b8a6]
+• Barra de progresso: h-1 bg-white/20 + fill bg-[#2B76EE]
 • Estados: idle (poster) → loading (spinner) → playing → paused → buffering → erro → concluído
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 4. PLAYLIST DE AULAS (sidebar)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 <aside class="w-80 bg-white border-l border-gray-200">
-  <li class="flex gap-3 px-4 py-3 bg-teal-50 border-l-4 border-teal-500">
-    <PlayCircle class="w-5 h-5 text-teal-600 shrink-0" />
+  <li class="flex gap-3 px-4 py-3 bg-blue-50 border-l-4 border-blue-500">
+    <PlayCircle class="w-5 h-5 text-blue-600 shrink-0" />
     <div><p class="font-anek font-semibold text-sm text-gray-900 truncate">Aula em andamento</p>
-    <p class="font-roboto text-xs text-teal-700">Assistindo · 4:21 / 18:00</p></div>
+    <p class="font-roboto text-xs text-blue-700">Assistindo · 4:21 / 18:00</p></div>
   </li>
 </aside>
-Estados de item: concluída (CheckCircle emerald) | em andamento (bg-teal-50) | disponível | bloqueada (opacity-60)
+Estados de item: concluída (CheckCircle emerald) | em andamento (bg-blue-50) | disponível | bloqueada (opacity-60)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 5. CHECKLIST FINAL
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 □ Light mode como padrão  |  Vídeo sempre bg-black
-□ Aula em curso: bg-teal-50 + border-l-4 border-teal-500  |  Concluída: text-emerald-500
+□ Aula em curso: bg-blue-50 + border-l-4 border-blue-500  |  Concluída: text-emerald-500
 □ Player com todos os estados implementados
-□ Turquesa #14b8a6 apenas em CTAs, progresso e playlist ativa
+□ Azul #2B76EE apenas em CTAs, progresso e playlist ativa
 
 Agora gere a interface solicitada:`,
   },
@@ -386,11 +386,11 @@ export function AIFood() {
   }, [brand, view]);
 
   const brandLabel = brand === "marca-a" ? "Marca A" : "Marca B";
-  const brandColor = brand === "marca-a" ? "text-[#6366f1]/70" : "text-[#14b8a6]/70";
-  const promptColor = brand === "marca-a" ? "text-[#818cf8]" : "text-[#2dd4bf]";
+  const brandColor = brand === "marca-a" ? "text-[#AD1522]/70" : "text-[#2B76EE]/70";
+  const promptColor = brand === "marca-a" ? "text-[#F07580]" : "text-[#5593F6]";
   const selectionColor = brand === "marca-a"
-    ? "selection:bg-[#818cf8]/30 selection:text-white"
-    : "selection:bg-[#2dd4bf]/30 selection:text-white";
+    ? "selection:bg-[#F07580]/30 selection:text-white"
+    : "selection:bg-[#5593F6]/30 selection:text-white";
 
   const handleCopy = () => {
     navigator.clipboard.writeText(prompt);

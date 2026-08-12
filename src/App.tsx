@@ -10,14 +10,9 @@ import { CommandPalette } from "@/components/CommandPalette";
 import { EasterEgg } from "@/components/EasterEgg";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import React from "react";
-import Hub from "./pages/Hub";
-import TimePage from "./pages/TimePage";
-import RoadmapPage from "./pages/RoadmapPage";
-import NovidadesPage from "./pages/NovidadesPage";
 import DesignSystem from "./pages/DesignSystem";
 import TomEVozPage from "./pages/TomEVozPage";
 import SolucoesPage from "./pages/SolucoesPage";
-import ProdutosFisicosPage from "./pages/ProdutosFisicosPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -66,14 +61,10 @@ const App = () => (
               <CommandPalette />
               <EasterEgg />
               <Routes>
-                <Route path="/" element={<Hub />} />
-                <Route path="/time" element={<TimePage />} />
-                <Route path="/roadmap" element={<RoadmapPage />} />
-                <Route path="/novidades" element={<NovidadesPage />} />
+                <Route path="/" element={<DesignSystem />} />
                 <Route path="/design-system" element={<DesignSystem />} />
                 <Route path="/tom-e-voz" element={<TomEVozPage />} />
                 <Route path="/solucoes" element={<SolucoesPage />} />
-                <Route path="/produtos-fisicos" element={<ProdutosFisicosPage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>

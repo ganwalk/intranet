@@ -1,7 +1,10 @@
 import React from "react";
-import { useBrand } from "@/contexts/BrandContext";
 import { cn } from "@/lib/utils";
-import { olhoBranco, olhoPreto, olhoAmarelo, downloadSvgBlob, downloadPngFromSvg } from "@/assets/olhos";
+import {
+  simboloBrancoA, simboloPretoA, simboloAcentoA,
+  simboloBrancoB, simboloPretoB, simboloAcentoB,
+  downloadSvgBlob, downloadPngFromSvg,
+} from "@/assets/simbolo";
 import { ArrowDown, Download, FileImage, FileText } from "lucide-react";
 
 async function downloadPdf(src: string, filename: string) {
@@ -21,7 +24,7 @@ async function downloadPdf(src: string, filename: string) {
 
 // ─── Botões de download para o símbolo (blob local, sem fetch) ──────────────
 
-function OlhoDownloadButtons({ svgRaw, svgUrl, filename, dark = false }: {
+function SimboloDownloadButtons({ svgRaw, svgUrl, filename, dark = false }: {
   svgRaw: string;
   svgUrl: string;
   filename: string;
@@ -58,35 +61,56 @@ function OlhoDownloadButtons({ svgRaw, svgUrl, filename, dark = false }: {
   );
 }
 
-export function MarcaLogos() {
-  const { brand } = useBrand();
+function SimboloCard({ src, raw, alt, label, desc, sufixo, dark = false }: {
+  src: string;
+  raw: string;
+  alt: string;
+  label: string;
+  desc: string;
+  sufixo: string;
+  dark?: boolean;
+}) {
+  return (
+    <div className={cn(
+      "border rounded-xl p-10 flex flex-col items-center justify-center",
+      dark ? "border-neutral-800 bg-neutral-900" : "border-neutral-200 bg-neutral-100"
+    )}>
+      <img src={src} alt={alt} className="h-16 mb-4" />
+      <span className={cn("text-sm font-bold mb-1", dark ? "text-neutral-100" : "text-neutral-900")}>{label}</span>
+      <span className={cn("text-xs", dark ? "text-neutral-400" : "text-neutral-500")}>{desc}</span>
+      <SimboloDownloadButtons svgRaw={raw} svgUrl={src} filename={`simbolo-${sufixo}`} dark={dark} />
+    </div>
+  );
+}
 
+export function MarcaLogos() {
   return (
     <div className="space-y-12">
-      {/* Símbolo — Universal */}
+      {/* Símbolo — duas marcas, mesma família geométrica */}
       <div>
         <h3 className="text-lg font-bold mb-2 font-anek">Símbolo da marca</h3>
-        <p className="text-muted-foreground mb-6">Três variantes de cor do mesmo símbolo. Use a versão adequada conforme o fundo.</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="border border-neutral-200 rounded-xl p-10 flex flex-col items-center justify-center bg-neutral-100">
-            <img src={olhoPreto.url} alt="Símbolo preto" className="h-16 mb-4" />
-            <span className="text-sm font-bold text-neutral-900 mb-1">Preto</span>
-            <span className="text-xs text-neutral-500">Para fundos claros</span>
-            <OlhoDownloadButtons svgRaw={olhoPreto.raw} svgUrl={olhoPreto.url} filename="simbolo-preto" />
+        <p className="text-muted-foreground mb-6">
+          Um símbolo geométrico com duas variações — uma para a Marca A, outra para a Marca B — espelhadas
+          entre si para comunicar que os dois produtos fazem parte do mesmo ecossistema. Cada uma tem três
+          cores: preto, branco e acento.
+        </p>
+
+        <div className="space-y-8">
+          <div>
+            <p className="text-sm font-bold font-anek text-foreground mb-3">Marca A</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <SimboloCard src={simboloPretoA.url} raw={simboloPretoA.raw} alt="Símbolo Marca A preto" label="Preto" desc="Para fundos claros" sufixo="marca-a-preto" />
+              <SimboloCard src={simboloBrancoA.url} raw={simboloBrancoA.raw} alt="Símbolo Marca A branco" label="Branco" desc="Para fundos escuros" sufixo="marca-a-branco" dark />
+              <SimboloCard src={simboloAcentoA.url} raw={simboloAcentoA.raw} alt="Símbolo Marca A acento" label="Acento" desc="Cor primária da Marca A" sufixo="marca-a-acento" dark />
+            </div>
           </div>
-          <div className="border border-neutral-800 rounded-xl p-10 flex flex-col items-center justify-center bg-neutral-900">
-            <img src={olhoBranco.url} alt="Símbolo branco" className="h-16 mb-4" />
-            <span className="text-sm font-bold text-neutral-100 mb-1">Branco</span>
-            <span className="text-xs text-neutral-400">Para fundos escuros</span>
-            <OlhoDownloadButtons svgRaw={olhoBranco.raw} svgUrl={olhoBranco.url} filename="simbolo-branco" dark />
-          </div>
-          <div className="border border-neutral-800 rounded-xl p-10 flex flex-col items-center justify-center bg-neutral-900">
-            <img src={olhoAmarelo.url} alt="Símbolo de acento" className="h-16 mb-4" />
-            <span className="text-sm font-bold text-neutral-100 mb-1">Acento</span>
-            <span className="text-xs text-neutral-400">
-              Cor primária da marca {brand === "marca-a" ? "Marca A" : "Marca B"}
-            </span>
-            <OlhoDownloadButtons svgRaw={olhoAmarelo.raw} svgUrl={olhoAmarelo.url} filename="simbolo-acento" dark />
+          <div>
+            <p className="text-sm font-bold font-anek text-foreground mb-3">Marca B</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <SimboloCard src={simboloPretoB.url} raw={simboloPretoB.raw} alt="Símbolo Marca B preto" label="Preto" desc="Para fundos claros" sufixo="marca-b-preto" />
+              <SimboloCard src={simboloBrancoB.url} raw={simboloBrancoB.raw} alt="Símbolo Marca B branco" label="Branco" desc="Para fundos escuros" sufixo="marca-b-branco" dark />
+              <SimboloCard src={simboloAcentoB.url} raw={simboloAcentoB.raw} alt="Símbolo Marca B acento" label="Acento" desc="Cor primária da Marca B" sufixo="marca-b-acento" dark />
+            </div>
           </div>
         </div>
       </div>
@@ -100,7 +124,7 @@ export function MarcaLogos() {
         </p>
         <div className="border rounded-xl p-10 bg-neutral-100 flex items-center justify-center">
           <div className="border-2 border-dashed border-neutral-300 p-8">
-            <img src={olhoPreto.url} alt="Símbolo com área de segurança" className="h-16" />
+            <img src={simboloPretoA.url} alt="Símbolo com área de segurança" className="h-16" />
           </div>
         </div>
       </div>
@@ -111,9 +135,9 @@ export function MarcaLogos() {
         <p className="text-muted-foreground mb-6">A dimensão mínima preserva a legibilidade do símbolo em diferentes meios de aplicação.</p>
         <div className="border rounded-xl p-8 bg-neutral-100 flex flex-col items-center">
           <div className="flex flex-col items-center gap-4">
-            <img src={olhoPreto.url} alt="Símbolo em tamanho padrão" className="h-16" />
+            <img src={simboloPretoA.url} alt="Símbolo em tamanho padrão" className="h-16" />
             <ArrowDown className="h-5 w-5 text-muted-foreground" />
-            <img src={olhoPreto.url} alt="Símbolo em tamanho mínimo" className="h-6" />
+            <img src={simboloPretoA.url} alt="Símbolo em tamanho mínimo" className="h-6" />
           </div>
           <div className="mt-6 w-full max-w-xs space-y-2">
             <div className="flex items-center justify-between text-xs">
