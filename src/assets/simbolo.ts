@@ -9,18 +9,24 @@ import { publicUrl } from "@/lib/utils";
  * baixar) e `url` é o caminho pronto para `<img src>`.
  */
 
+/**
+ * Três pétalas arredondadas (cada uma um par de arcos de raios diferentes,
+ * como uma "vesica" assimétrica) girando em torno de um núcleo central —
+ * mais curvo e amigável que um triskelion de pontas retas, mantendo a
+ * simetria geométrica que dá o ar institucional.
+ */
 const PATH_A =
-  "M50,5 L54.66,32.61 L50,50 L58.19,44.26 Z " +
-  "M88.97,72.5 L62.73,62.73 L50,50 L50.88,59.96 Z " +
-  "M11.03,72.5 L32.61,54.66 L50,50 L40.94,45.78 Z " +
-  "M50,44 L55.2,53 L44.8,53 Z";
+  "M50,50 A32,32 0 0,1 50,10 A21,21 0 0,1 50,50 Z " +
+  "M50,50 A32,32 0 0,1 84.64,70 A21,21 0 0,1 50,50 Z " +
+  "M50,50 A32,32 0 0,1 15.36,70 A21,21 0 0,1 50,50 Z " +
+  "M50,42 A8,8 0 1,1 50,58 A8,8 0 1,1 50,42 Z";
 
-/** Espelho horizontal exato de PATH_A — mesma família, "giro" invertido. */
+/** Espelho horizontal exato de PATH_A (arcos com sweep invertido) — mesma família, "giro" invertido. */
 const PATH_B =
-  "M50,5 L45.34,32.61 L50,50 L41.81,44.26 Z " +
-  "M11.03,72.5 L37.27,62.73 L50,50 L49.12,59.96 Z " +
-  "M88.97,72.5 L67.39,54.66 L50,50 L59.06,45.78 Z " +
-  "M50,44 L55.2,53 L44.8,53 Z";
+  "M50,50 A32,32 0 0,0 50,10 A21,21 0 0,0 50,50 Z " +
+  "M50,50 A32,32 0 0,0 84.64,70 A21,21 0 0,0 50,50 Z " +
+  "M50,50 A32,32 0 0,0 15.36,70 A21,21 0 0,0 50,50 Z " +
+  "M50,42 A8,8 0 1,0 50,58 A8,8 0 1,0 50,42 Z";
 
 const RAW = (fill: string, path: string) =>
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill-rule="evenodd" clip-rule="evenodd" fill="${fill}" d="${path}"/></svg>`;
