@@ -107,8 +107,8 @@ export const marcos: Marco[] = [
     descricao:
       "Atalho de teclado que abre uma busca única para páginas, componentes, pessoas e ações — sem precisar navegar pelos menus.",
     detalhes: [
-      "Busca por páginas, seções do Design System e integrantes do time",
-      "Atalhos rápidos para exportar a agenda e trocar de tema",
+      "Busca por páginas, seções do Design System e do guia de soluções",
+      "Atalho rápido para trocar de tema",
     ],
   },
   {
@@ -145,7 +145,6 @@ export const marcos: Marco[] = [
       "Filtro por categoria e destaques na página inicial",
       "Registro centralizado para consulta rápida do que já existe",
     ],
-    to: "/produtos-fisicos",
   },
   {
     id: "onboarding",
@@ -163,9 +162,8 @@ export const marcos: Marco[] = [
       "Roteiro de boas-vindas para quem entra no time: o que ler primeiro, quem procurar em cada assunto e como usar a Central no dia a dia.",
     detalhes: [
       "Checklist da primeira semana",
-      "Indicação de quem chamar em cada área, com base na dobra do Nosso Time",
+      "Indicação de quem chamar em cada área do time",
     ],
-    to: "/time",
   },
   {
     id: "qa-design",
@@ -223,7 +221,7 @@ export const marcos: Marco[] = [
     status: "planejado",
     tone: "primary",
     descricao:
-      "Versão otimizada para celular, para consultar roadmap, novidades e o guia de soluções fora do computador.",
+      "Versão otimizada para celular, para consultar o Design System e o guia de soluções fora do computador.",
   },
   {
     // Sem data anunciada — a âncora só o mantém no fim da trilha.

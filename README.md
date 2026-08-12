@@ -1,6 +1,6 @@
-# Central de Produto — Template Whitelabel
+# Intranet de Produto — Template Whitelabel
 
-Intranet interna de produto: Design System, documentação do Time de Produto, Manual de Tom e Voz, Roadmap e catálogo de soluções.
+Intranet interna de produto: Design System, Manual de Tom e Voz e catálogo de soluções.
 
 ---
 
@@ -8,18 +8,15 @@ Intranet interna de produto: Design System, documentação do Time de Produto, M
 
 Este repositório é um **template whitelabel**, construído a partir da intranet de produto de um time de banking real. Todos os dados oficiais — nome da empresa, identidade visual, fotos de colaboradores, nomes de produtos e conteúdo de negócio — foram **removidos e substituídos por placeholders fictícios** para preservar a segurança e a integridade das informações consolidadas da empresa de origem. Nada neste repositório identifica pessoas, produtos ou a organização que o originou.
 
-Use-o como ponto de partida para a intranet de produto do seu próprio time: troque os placeholders (`[Empresa]`, `[Produto A]`, `[Evento Anual]` etc.), a paleta de cores e os dados de exemplo pelos da sua organização.
+Use-o como ponto de partida para a intranet de produto do seu próprio time: troque os placeholders (`[Produto A]`, `[Evento Anual]` etc.), a paleta de cores e os dados de exemplo pelos da sua organização. As descrições do template evitam citar qualquer nome de empresa — não há um placeholder de "nome da empresa" para preencher.
 
 ## O que é
 
-A Central de Produto é uma intranet centralizada para os times de Produto, Design e Conteúdo. Ela reúne em um só lugar:
+A intranet reúne em um só lugar:
 
 - **Design System** — biblioteca de componentes, guias de estilo, paletas de cores, tipografia e exemplos de código prontos para uso
-- **Time de Produto** — organograma, perfis (fictícios) dos colaboradores e estrutura dos times
 - **Tom e Voz** — manual de comunicação da marca por produto e área da empresa
 - **Nossas Soluções** — guia dos produtos do ecossistema (placeholders)
-- **Roadmap e Novidades** — planejamento e atualizações recentes
-- **Produtos Físicos** — catálogo de brindes e materiais impressos (placeholders)
 
 ---
 
@@ -27,14 +24,10 @@ A Central de Produto é uma intranet centralizada para os times de Produto, Desi
 
 | Rota | Página | Descrição |
 |------|--------|-----------|
-| `/` | Hub | Página inicial com acessos rápidos, produtos e novidades |
-| `/design-system` | Design System | Showcase interativo de componentes com código React e HTML |
-| `/time` | Time | Organograma e cards dos colaboradores (dados fictícios) |
+| `/` | Design System | Home do template — showcase interativo de componentes com código React e HTML |
+| `/design-system` | Design System | Mesma página acima |
 | `/tom-e-voz` | Tom e Voz | Manual de comunicação por área e produto |
 | `/solucoes` | Nossas Soluções | Guia dos produtos (placeholders) |
-| `/roadmap` | Roadmap | Planejamento de produto |
-| `/novidades` | Novidades | Atualizações recentes |
-| `/produtos-fisicos` | Produtos Físicos | Catálogo de brindes e materiais impressos |
 
 ---
 
@@ -63,14 +56,10 @@ A Central de Produto é uma intranet centralizada para os times de Produto, Desi
 central/
 ├── src/
 │   ├── pages/              # Páginas da aplicação (uma por rota)
-│   │   ├── Hub.tsx         # Página inicial
 │   │   ├── DesignSystem.tsx
-│   │   ├── TimePage.tsx
 │   │   ├── TomEVozPage.tsx
 │   │   ├── SolucoesPage.tsx
-│   │   ├── RoadmapPage.tsx
-│   │   ├── NovidadesPage.tsx
-│   │   └── ProdutosFisicosPage.tsx
+│   │   └── NotFound.tsx
 │   ├── components/
 │   │   ├── GlobalNav.tsx           # Navegação global responsiva
 │   │   ├── ui/                     # Componentes base (shadcn/ui — não editar)
@@ -82,16 +71,19 @@ central/
 │   │   └── ViewContext.tsx
 │   ├── hooks/
 │   ├── assets/
-│   │   └── olhos.ts                 # Marca do template (SVG, sem fotos)
+│   │   └── simbolo.ts              # Marca do template (SVG, sem fotos)
 │   ├── lib/
 │   │   └── utils.ts                # cn() + publicUrl()
 │   ├── App.tsx                     # Roteador + providers
 │   ├── main.tsx                    # Entry point
 │   └── index.css                   # Variáveis CSS e estilos globais
 ├── public/                         # Assets estáticos (servidos diretamente)
-│   ├── olho-amarelo.svg
-│   ├── olho-branco.svg
-│   ├── olho-preto.svg
+│   ├── simbolo-a-preto.svg
+│   ├── simbolo-a-branco.svg
+│   ├── simbolo-a-acento.svg
+│   ├── simbolo-b-preto.svg
+│   ├── simbolo-b-branco.svg
+│   ├── simbolo-b-acento.svg
 │   └── 404.html                    # Fallback para SPA no GitHub Pages
 ├── index.html                      # Entry HTML do Vite
 ├── vite.config.ts                  # Base path /central/ para GitHub Pages
@@ -99,7 +91,7 @@ central/
 └── tsconfig.json
 ```
 
-Este template **não usa fotos**: colaboradores são representados por avatares com iniciais (`src/components/TeamPhoto.tsx`) e a marca é um símbolo SVG genérico (`src/assets/olhos.ts`).
+Este template **não usa fotos**: colaboradores mencionados no Manual de Tom e Voz são representados por avatares com iniciais (`src/components/TeamPhoto.tsx`) e a marca é um símbolo SVG genérico, com uma variação para cada produto do ecossistema (`src/assets/simbolo.ts`).
 
 ---
 
@@ -148,15 +140,14 @@ O workflow está em `.github/workflows/deploy.yml`.
 **Referenciar assets em `/public`:**
 ```tsx
 import { publicUrl } from "@/lib/utils";
-<img src={publicUrl("/olho-branco.svg")} />
+<img src={publicUrl("/simbolo-a-branco.svg")} />
 ```
 Necessário por causa do base path `/central/` no GitHub Pages.
 
 **Adaptar para a sua empresa:**
-1. Substitua os placeholders `[Empresa]`, `[Produto A]`, `[Evento Anual]` etc. pelos nomes reais da sua organização (busque por `[` nos arquivos de `src/data/`).
-2. Troque a paleta de marca em `src/index.css` (`--primary`, `--brand`, `--accent`, `--chart-1`, ...).
-3. Troque a marca em `src/assets/olhos.ts` e nos SVGs de `public/`.
-4. Preencha `src/data/time.ts` com os colaboradores reais do seu time.
+1. Substitua os placeholders `[Produto A]`, `[Evento Anual]` etc. pelos nomes reais da sua organização (busque por `[` nos arquivos de `src/data/`). Escreva as descrições de forma que não precisem citar o nome da empresa.
+2. Troque a paleta de marca em `src/index.css` (`--primary`, `--brand`, `--accent`, `--chart-1`, ...). Por padrão, a Marca A é vermelha e a Marca B é azul.
+3. Troque o símbolo em `src/assets/simbolo.ts` e nos SVGs de `public/`.
 
 **Tema e Marca:**
 - `ThemeContext` — dark/light (persiste em `localStorage` como `central-theme`)

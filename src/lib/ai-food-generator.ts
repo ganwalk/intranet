@@ -16,15 +16,15 @@ Tom institucional, sóbrio e técnico.
 ❌ NUNCA: liquid glass, gradientes coloridos, emojis decorativos, estética startup colorida.
 
 PALETA OFICIAL (use SOMENTE estas cores)
-• Índigo:              #4F46E5  → primária, botões, títulos
-• Índigo Escuro:        #4338CA  → hover de botões
-• Índigo Destaque:       #818CF8  → acentos em fundo ESCURO apenas
+• Vermelho:              #AD1522  → primária, botões, títulos
+• Vermelho Escuro:        #BF222F  → hover de botões
+• Vermelho Destaque:       #F07580  → acentos em fundo ESCURO apenas
 • Branco Puro:         #FFFFFF
 • Cinza Claro:         #F2F2F2
 • Cinza Médio:         #6B6B6B  → textos secundários
 • Cinza Chumbo:        #1B1B1B  → cards em dark
 • Preto Puro:          #000000
-❌ PROIBIDO: roxo, rosa, azul, gradientes coloridos, neon
+❌ PROIBIDO: roxo, rosa, azul (cor da Marca B), gradientes coloridos, neon
 
 TIPOGRAFIA
 • H1: Anek Latin 600  54px/36px mobile  lh 1.1
@@ -34,8 +34,8 @@ TIPOGRAFIA
 
 BOTÕES — identidade visual mais marcante
 • border-radius: 5px — NUNCA pílulas (rounded-full)
-• Primário (fundo claro):  bg #4F46E5  text #FFF   border #4F46E5
-  Hover:                   bg transparent  text #4F46E5  border #4F46E5
+• Primário (fundo claro):  bg #AD1522  text #FFF   border #AD1522
+  Hover:                   bg transparent  text #AD1522  border #AD1522
 • Transition: all 240ms ease
 
 CARDS
@@ -51,15 +51,15 @@ DESIGN SYSTEM — MARCA B
 IDENTIDADE
 Tom próximo, descomplicado, visual sofisticado e editorial.
 Glassmorphism é a assinatura visual — usar em cards de LP.
-❌ NUNCA use o índigo da Marca A (#4F46E5) — exceto dentro de texto de botão turquesa.
+❌ NUNCA use o vermelho da Marca A (#AD1522) — exceto dentro de texto de botão azul.
 
 PALETA OFICIAL
-• Turquesa Principal:  #14b8a6  → acentos, ícones, botão primário, slider thumb
-• Turquesa Escura:     #0d9488  → tipografia de destaque, eyebrow, badges
-• Índigo (Marca A):    #4F46E5  → SOMENTE em texto dentro de botões turquesa
+• Azul Principal:  #2B76EE  → acentos, ícones, botão primário, slider thumb
+• Azul Escura:     #08409B  → tipografia de destaque, eyebrow, badges
+• Vermelho (Marca A):    #AD1522  → SOMENTE em texto dentro de botões azul
 • Cinza Texto:        #18181B
 • Cinza Secundário:   #52525B / #71717A
-❌ PROIBIDO: índigo como cor de fundo/borda, cores saturadas fora da paleta
+❌ PROIBIDO: vermelho como cor de fundo/borda, cores saturadas fora da paleta
 
 FUNDO DE PÁGINA (assinatura da Marca B)
 • NUNCA fundo branco chapado — use gradiente radial cinza sutil:
@@ -77,8 +77,8 @@ TIPOGRAFIA
 
 BOTÕES
 • border-radius: 5px em LP — NUNCA pílulas (rounded-full)
-• Primário (fundo claro): bg #14b8a6  text #4F46E5  border #14b8a6
-  Hover: bg transparent  border #14b8a6  text #18181B`;
+• Primário (fundo claro): bg #2B76EE  text #AD1522  border #2B76EE
+  Hover: bg transparent  border #2B76EE  text #18181B`;
 
 const FERRAMENTAS_EXTRA = `
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -92,7 +92,7 @@ CONTEXTO: FERRAMENTAS / CALCULADORAS / WIDGETS
 • Sliders:
   - Track: h-2 bg-gray-200 rounded-full
   - Fill/Thumb: cor primária da marca ativa
-• Caixa de resultado: bg-indigo-50 (Marca A) / bg-gray-50 (Marca B)
+• Caixa de resultado: bg-red-50 (Marca A) / bg-gray-50 (Marca B)
   rounded-xl p-5 mt-6`;
 
 const PLATAFORMA_EXTRA = `
@@ -102,9 +102,9 @@ CONTEXTO: PLATAFORMA EAD (MARCA B)
 • Light mode (padrão): body bg-gray-50  cards bg-white border border-gray-200
 • Dark mode (toggle): body bg-zinc-950  cards bg-zinc-900 border border-zinc-800
 • Vídeo: SEMPRE bg-black aspect-video — mesmo em light mode
-• Aula ativa (em andamento):  bg-teal-50 border-l-4 border-teal-500
+• Aula ativa (em andamento):  bg-blue-50 border-l-4 border-blue-500
 • Aula concluída:              ícone text-emerald-500
-• Progresso: barra h-2 bg-gray-200 fill bg-[#14b8a6] rounded-full`;
+• Progresso: barra h-2 bg-gray-200 fill bg-[#2B76EE] rounded-full`;
 
 const ESTADOS_UNIVERSAIS = `
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -132,7 +132,7 @@ CHECKLIST ANTES DE ENTREGAR
 □ Acessibilidade: aria-label nos ícones, focus-visible ring, contraste ≥ 4.5:1
 □ Marca A: sem liquid glass, sem gradientes coloridos, botões com border-radius 5px
 □ Marca B LP: cards translúcidos (backdrop-blur 24px), gradiente radial no fundo
-□ Plataforma: vídeo sempre bg-black, aula ativa com border-l-4 turquesa`;
+□ Plataforma: vídeo sempre bg-black, aula ativa com border-l-4 azul`;
 
 // ─── Função principal ────────────────────────────────────────────────────────
 

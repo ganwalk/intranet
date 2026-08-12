@@ -11,7 +11,7 @@ export function PlataformaCertificados() {
             <Award className="h-8 w-8 text-accent" />
           </div>
           <p className="text-xs font-bold text-accent uppercase tracking-[2px] mb-2 font-roboto">Certificado de Conclusão</p>
-          <h3 className="text-2xl font-bold font-anek text-foreground mb-1">[Empresa]</h3>
+          <h3 className="text-2xl font-bold font-anek text-foreground mb-1">Programa de Formação</h3>
           <p className="text-muted-foreground font-roboto mb-6">Certifica que o aluno concluiu com sucesso o módulo</p>
 
           <div className="bg-muted/50 border border-border rounded-xl p-6 mb-6">

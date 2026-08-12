@@ -279,24 +279,24 @@ export function PaletaDataViz() {
 <!-- Equivalente React: export function PaletaDataViz() -->
 <style>
   :root {
-    --chart-1: 222 80% 30%;   /* Índigo da marca */
+    --chart-1: 355 75% 42%;   /* Vermelho da marca */
     --chart-2: 270 60% 55%;   /* Violeta */
     --chart-3: 38 92% 55%;    /* Âmbar */
     --chart-4: 199 89% 48%;   /* Azul */
-    --chart-5: 340 75% 55%;   /* Magenta */
-    --chart-6: 15 80% 50%;    /* Vermelho-tijolo */
+    --chart-5: 150 55% 38%;   /* Verde-esmeralda */
+    --chart-6: 300 55% 45%;   /* Magenta */
     --chart-7: 90 55% 40%;    /* Oliva */
     --chart-8: 220 30% 35%;   /* Grafite azulado */
 
-    --chart-seq-1: 215 40% 92%;
-    --chart-seq-2: 220 50% 78%;
-    --chart-seq-3: 222 60% 60%;
-    --chart-seq-4: 224 75% 40%;
-    --chart-seq-5: 225 93% 11%;
+    --chart-seq-1: 355 40% 92%;
+    --chart-seq-2: 355 50% 78%;
+    --chart-seq-3: 355 62% 60%;
+    --chart-seq-4: 355 72% 42%;
+    --chart-seq-5: 355 78% 32%;
 
     --chart-div-neg: 0 72% 51%;
     --chart-div-mid: 40 30% 92%;
-    --chart-div-pos: 225 93% 25%;
+    --chart-div-pos: 205 70% 35%;
   }
   .swatch { display:inline-block; width:32px; height:32px; border-radius:8px; }
   h3 { font-family:'Anek Latin',sans-serif; font-size:18px; font-weight:700; }

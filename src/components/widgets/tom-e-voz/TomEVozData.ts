@@ -11,7 +11,7 @@
 export const dicionario = [
   { termo: "Brand awareness", definicao: "Consciência ou reconhecimento de marca; o quanto a marca é conhecida e lembrada pelo público-alvo." },
   { termo: "Branding", definicao: "Gestão da marca que garante que a empresa não pareça \"só mais uma\" no mercado, englobando cultura, estilo e jeito de comunicar." },
-  { termo: "Buy and hold", definicao: "Estratégia de investimento de longo prazo baseada em fundamentos sólidos, ignorando oscilações diárias." },
+  { termo: "Onboarding", definicao: "Processo de boas-vindas e primeiros passos de um novo cliente dentro do produto." },
   { termo: "Canais", definicao: "Meios por onde a marca chega ao público, como redes sociais, e-mail ou WhatsApp." },
   { termo: "Chatbot", definicao: "Ferramenta de mensagens automatizadas para garantir agilidade no primeiro contato." },
   { termo: "Churn", definicao: "Indicador de quando um cliente cancela ou sai da base; o objetivo é mantê-lo o mais baixo possível." },
@@ -98,12 +98,12 @@ export const vozFundador = {
   },
   exemplosErros: [
     {
-      erro: "Hoje, vamos falar sobre finanças de forma geral.",
-      correcao: "Se você não aprende a cuidar do seu dinheiro, alguém vai cuidar dele por você... e eu te garanto que não vai ser a seu favor.",
+      erro: "Hoje, vamos falar sobre o nosso setor de forma geral.",
+      correcao: "Se você não cuida do seu negócio, alguém vai cuidar dele por você... e eu te garanto que não vai ser a seu favor.",
       porque: "Frases de impacto direcionam o público para algo relevante. Ser vago prejudica a conexão emocional.",
     },
     {
-      erro: "Prezados seguidores, gostaria de compartilhar as últimas análises sobre o mercado financeiro.",
+      erro: "Prezados seguidores, gostaria de compartilhar as últimas análises sobre o mercado.",
       correcao: "Então vamos lá!? Hoje eu vou falar sobre o atual momento do mercado. Vou te mostrar o que realmente importa: onde está o risco e onde está a oportunidade.",
       porque: "A comunicação é descontraída e próxima. Um tom formal cria distância com o público.",
     },
@@ -311,9 +311,9 @@ export const consultoria = {
     titulo: "Como NÃO nos comunicamos",
     intro: "Um termo errado é suficiente para nos relacionarem a um vendedor comissionado sem foco no cliente. Tenha em mente as palavras proibidas e os motivos:",
     itens: [
-      { proibido: "Termos de especulação, como \"aposta\" ou \"alavancagem\".", motivo: "Não vendemos nenhum tipo de ganho fácil." },
+      { proibido: "Termos exagerados, como \"aposta\" ou \"atalho\".", motivo: "Não vendemos nenhum tipo de solução mágica." },
       { proibido: "Vícios de vendedor, como \"oportunidade imperdível!\".", motivo: "Evite termos usados por profissionais comissionados." },
-      { proibido: "Verbo \"garantir\" quando o assunto for rentabilidade ou resultado.", motivo: "O que nos diferencia é a transparência de que o mercado é variável." },
+      { proibido: "Verbo \"garantir\" quando o assunto for resultado.", motivo: "O que nos diferencia é a transparência de que o cenário pode mudar." },
       { proibido: "Agressividade reativa.", motivo: "Mesmo que o cliente seja rude, o tom deve ser paciente e didático." },
       { proibido: "Ir contra a metodologia oficial da empresa.", motivo: "A voz da empresa precisa estar sempre alinhada com o que é ensinado publicamente." },
     ],
@@ -423,7 +423,7 @@ export const particularidadesConteudo = {
     titulo: "Padrões de assinatura e fechamento",
     intro: "Para e-mails e comunicações de equipe, o padrão é a proximidade:",
     itens: [
-      { nome: "Assinatura", descricao: "\"Abraços / Equipe [Produto]\" ou \"Equipe [Empresa]\"." },
+      { nome: "Assinatura", descricao: "\"Abraços\" seguido do nome do produto ou da equipe que assina." },
       { nome: "Storytelling", descricao: "Todo texto deve ter um começo, meio e fim que prenda a atenção do leitor." },
     ],
   },
@@ -449,7 +449,7 @@ export const produtoA: ProdutoVoz = {
   voz: "Simples, direta, transparente e humana.",
   tom: "Explicativo e descontraído. O tom de um bate-papo sério, mas sem rodeios.",
   diretrizes: [
-    "Traduza o \"economês\" (ou o jargão técnico do setor) para uma linguagem clara e de fácil entendimento.",
+    "Traduza o jargão técnico do setor para uma linguagem clara e de fácil entendimento.",
     "Use analogias do dia a dia para explicar conceitos complexos.",
     "Repudie soluções fáceis, ganhos rápidos ou estratégias milagrosas.",
   ],
@@ -470,7 +470,7 @@ export const produtoB: ProdutoVoz = {
     "Use vocabulário de precisão e planejamento, sem pressa.",
     "Seja transparente mesmo quando a resposta não for o que o cliente quer ouvir.",
   ],
-  evitar: ["Linguagem de varejo (\"promoção\", \"oferta limitada\")", "Promessas de rentabilidade ou resultado garantido", "Pressão de fechamento"],
+  evitar: ["Linguagem de varejo (\"promoção\", \"oferta limitada\")", "Promessas de resultado garantido", "Pressão de fechamento"],
   exemplos: [
     { situacao: "Primeira reunião", comoAgir: "\"Antes de falar de números, quero entender o que você já construiu e onde quer chegar.\"", evitar: "\"Temos o melhor produto do mercado para o seu perfil.\"" },
     { situacao: "Revisão de estratégia", comoAgir: "\"O cenário mudou, então vamos ajustar o plano — não o objetivo.\"", evitar: "Ignorar o contexto emocional do cliente diante de uma perda." },
@@ -487,7 +487,7 @@ export const produtoC: ProdutoVoz = {
     "Trate funcionalidades como \"superpoderes\", não apenas como recursos técnicos.",
     "Deixe claro que a ferramenta apoia a decisão — ela não decide pelo usuário.",
   ],
-  evitar: ["\"Dica quente\"", "\"Palpite\" ou \"achismo\"", "Recomendação direta de compra ou venda"],
+  evitar: ["\"Dica quente\"", "\"Palpite\" ou \"achismo\"", "Recomendação direta de decisão pelo usuário"],
   exemplos: [
     { situacao: "E-mail de boas-vindas", comoAgir: "\"Analisar ficou simples. Seu período de teste começou agora.\"", evitar: "Lista técnica de funcionalidades sem contexto de uso." },
     { situacao: "Falha no pagamento", comoAgir: "\"A gente tentou, mas parece que seu cartão está de folga hoje.\"", evitar: "Mensagem de erro genérica e impessoal." },

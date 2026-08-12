@@ -13,6 +13,7 @@ import {
   Tag as TagIcon, CircleUser,
   TrendingUp, SquareStack, Network, Gauge, MoreHorizontal, Book,
   MousePointerClick, StarHalf, TextCursorInput, LayoutList, Layers2,
+  Route, Newspaper, ShoppingBag,
 } from "lucide-react";
 
 export type SectionDef = {
@@ -114,6 +115,11 @@ export const sections: SectionDefWithKeywords[] = [
   { id: "plat-community", label: "Comunidade & Dúvidas", icon: MessageCircle, category: "plataforma", keywords: "comunidade fórum dúvida" },
   { id: "plat-livro", label: "Livro", icon: Book, category: "plataforma", keywords: "livro book capa cover ebook módulo" },
 
+  // COMPONENTES ESPECIAIS — peças maiores, com dados e navegação próprios
+  { id: "roadmap-timeline", label: "Trilha do Roadmap", icon: Route, category: "especiais", keywords: "roadmap trilha marcos linha do tempo onda entregas" },
+  { id: "mural-novidades", label: "Mural de Novidades", icon: Newspaper, category: "especiais", keywords: "novidades mural atualizações antes depois" },
+  { id: "catalogo-produtos-fisicos", label: "Catálogo de Produtos Físicos", icon: ShoppingBag, category: "especiais", keywords: "produtos físicos brindes catálogo categoria filtro" },
+
   // AI-FOOD
   { id: "ai-food", label: "AI-Food (Prompt)", icon: Bot, category: "ai-food", keywords: "ia gpt prompt gerador master" },
 ];
@@ -128,5 +134,6 @@ export const categoryLabels: Record<string, string> = {
   entrada: "Entrada de Dados",
   exibicao: "Exibição de Dados",
   plataforma: "Plataforma de Aulas",
+  especiais: "Componentes Especiais",
   "ai-food": "AI-Food",
 };

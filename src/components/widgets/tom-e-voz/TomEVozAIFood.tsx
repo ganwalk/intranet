@@ -24,16 +24,16 @@ type AreaId = (typeof areas)[number]["id"];
 type ProdutoId = (typeof produtos)[number]["id"];
 
 const CONTEXTO_BASE = `[CONTEXTO DA MARCA — LEIA ANTES DE ESCREVER]
-A empresa atua com educação e consultoria financeira, através de um ecossistema com diferentes frentes (educação, consultoria e ferramentas digitais). A metodologia central é o "buy and hold": investimento de longo prazo baseado em fundamentos sólidos, que rejeita especulação e "dicas quentes".
+A empresa atua com educação, consultoria e ferramentas digitais, através de um ecossistema com diferentes frentes. A metodologia central é uma abordagem de longo prazo baseada em fundamentos sólidos, que rejeita atalhos e soluções mágicas.
 
 [VOZ — ATRIBUTOS INEGOCIÁVEIS]
 Simples, direta, transparente, humana, subversiva e autêntica. Falamos para sermos entendidos, não para impressionar.
 
 [REGRAS UNIVERSAIS]
 - NUNCA use gerundismo ("vou estar transferindo" → "vou transferir")
-- NUNCA prometa rentabilidade ou resultados garantidos
+- NUNCA prometa resultados garantidos
 - NUNCA use linguagem de vendedor ("oportunidade imperdível", "garantido")
-- Assinatura padrão: "Equipe [Produto]" ou "Equipe [Empresa]"
+- Assinatura padrão: "Equipe" seguido do nome do produto (ex.: "Equipe Produto A")
 
 [TOM]
 Em momentos de celebração, o tom da leveza e do humor sobe. Em momentos de suporte ou erro, o tom baixa para resolução técnica. O tom muda, mas a voz permanece intacta.`;
@@ -103,8 +103,8 @@ ${CONTEXTO_BASE}
 Somos uma "mente estratégica", não vendedores de produtos genéricos. Diagnosticamos e prescrevemos a melhor rota, com base em metodologia de longo prazo.
 
 [PROIBIDO]
-- "Aposta", "especulação", "alavancagem"
-- Verbo "garantir" associado a rentabilidade
+- "Aposta", "atalho", "solução mágica"
+- Verbo "garantir" associado a resultado
 - Agressividade reativa, mesmo se o cliente for rude`,
 
   capitalHumano: `Você é um profissional de Capital Humano (RH) da empresa. Comunique-se internamente seguindo EXATAMENTE estas diretrizes:
@@ -149,7 +149,7 @@ O Produto B combina sofisticação técnica com o calor humano da marca. Trata a
 
 [PROIBIDO]
 - Linguagem de varejo ("promoção", "oferta limitada")
-- Promessas de rentabilidade`,
+- Promessas de resultado garantido`,
 
   produtoC: `Você é redator(a) do Produto C (ferramenta digital) da empresa. Escreva seguindo EXATAMENTE estas diretrizes:
 
@@ -163,7 +163,7 @@ O Produto C substitui o "achismo" por dados, funcionando como um braço direito 
 
 [PROIBIDO]
 - "Dica quente", "palpite", "achismo"
-- Recomendação direta de compra ou venda`,
+- Recomendação direta de decisão pelo usuário`,
 };
 
 export function TomEVozAIFood() {
@@ -255,18 +255,18 @@ export function TomEVozAIFood() {
 
         {/* Info bar */}
         <div className="flex items-center gap-2 px-6 pt-4 pb-2">
-          <span className="text-[10px] font-bold uppercase tracking-widest font-roboto text-[#6366f1]/70">
+          <span className="text-[10px] font-bold uppercase tracking-widest font-roboto text-[#AD1522]/70">
             Manual de Tom e Voz
           </span>
           <span className="text-[#334155]">•</span>
-          <span className="text-[10px] font-bold uppercase tracking-widest font-roboto text-[#6366f1]/70">
+          <span className="text-[10px] font-bold uppercase tracking-widest font-roboto text-[#AD1522]/70">
             {currentLabel}
           </span>
         </div>
 
         {/* Prompt content */}
         <div className="p-6 pt-2 overflow-x-auto">
-          <pre className="whitespace-pre-wrap font-mono text-[13px] leading-relaxed min-h-[300px] text-[#818cf8] selection:bg-[#818cf8]/30 selection:text-white">
+          <pre className="whitespace-pre-wrap font-mono text-[13px] leading-relaxed min-h-[300px] text-[#F07580] selection:bg-[#F07580]/30 selection:text-white">
             {prompt}
           </pre>
         </div>

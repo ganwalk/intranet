@@ -1,21 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import { TomEVoz } from "@/components/widgets/TomEVoz";
 import { GlobalNav } from "@/components/GlobalNav";
 import { useBrand } from "@/contexts/BrandContext";
-import { BookOpen, Menu, Lock, Eye, EyeOff } from "lucide-react";
+import { BookOpen, Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { olhoBranco } from "@/assets/olhos";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { SearchButton } from "@/components/SearchButton";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { PageHero } from "@/components/PageHero";
 import { sidebarNavClass, sidebarGroupLabelClass, sidebarItemClass } from "@/components/sidebarNav";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { tomEVozGroups, tomEVozSections, TOM_E_VOZ_AUTH_KEY, TOM_E_VOZ_UNLOCKED_EVENT } from "@/data/tomEVozSections";
-
-const MANUAL_PASSWORD = "BUY-AND-HOLD";
+import { tomEVozGroups, tomEVozSections } from "@/data/tomEVozSections";
 
 const allSectionIds = tomEVozSections.map((s) => s.id);
 
@@ -56,26 +51,6 @@ export default function TomEVozPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("fundamentos");
 
-  // Password gate
-  const [isAuthenticated, setIsAuthenticated] = useState(() => {
-    return sessionStorage.getItem(TOM_E_VOZ_AUTH_KEY) === "true";
-  });
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState(false);
-
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (password === MANUAL_PASSWORD) {
-      setIsAuthenticated(true);
-      sessionStorage.setItem(TOM_E_VOZ_AUTH_KEY, "true");
-      window.dispatchEvent(new Event(TOM_E_VOZ_UNLOCKED_EVENT));
-      setError(false);
-    } else {
-      setError(true);
-    }
-  };
-
   useEffect(() => {
     setBrand("marca-a");
     return () => {
@@ -90,7 +65,6 @@ export default function TomEVozPage() {
   const navTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
-    if (!isAuthenticated) return;
     const handleScroll = () => {
       if (isNavigatingRef.current) return;
       const headerOffset = 100;
@@ -113,7 +87,7 @@ export default function TomEVozPage() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isAuthenticated]);
+  }, []);
 
   useEffect(() => {
     return () => {
@@ -142,56 +116,6 @@ export default function TomEVozPage() {
       setActiveSection(sectionId);
     }, releaseDelay);
   };
-
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center px-4">
-        <div className="w-full max-w-sm">
-          <div className="flex flex-col items-center mb-8">
-            <div className="flex items-center justify-center h-14 w-14 rounded-2xl bg-brand-dark mb-4">
-              <img src={olhoBranco.url} alt="Logo da empresa" className="h-9 w-9" />
-            </div>
-            <h1 className="text-xl font-bold font-anek text-foreground">Manual de Tom e Voz</h1>
-            <p className="text-sm text-muted-foreground mt-1">Conteúdo restrito — insira a senha para acessar.</p>
-          </div>
-
-          <form onSubmit={handleLogin} className="space-y-4">
-            <div className="relative">
-              <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input
-                type={showPassword ? "text" : "password"}
-                placeholder="Senha de acesso"
-                value={password}
-                onChange={(e) => { setPassword(e.target.value); setError(false); }}
-                className={cn("pl-10 pr-10", error && "border-destructive focus-visible:ring-destructive")}
-                autoFocus
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-              </button>
-            </div>
-            {error && (
-              <p className="text-xs text-destructive">Senha incorreta. Tente novamente.</p>
-            )}
-            <Button type="submit" className="w-full">
-              Acessar manual
-            </Button>
-          </form>
-
-          <Link
-            to="/"
-            className="mt-6 inline-flex items-center justify-center text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            ← Voltar para a Central
-          </Link>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-background">
