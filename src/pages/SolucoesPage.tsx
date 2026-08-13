@@ -48,7 +48,7 @@ function QuickInfoBar({ items, className }: { items: QuickInfo[]; className?: st
 
 function ParaQuemE({ children }: { children: React.ReactNode }) {
   return (
-    <div className="rounded-r-xl border border-l-4 border-l-[hsl(var(--sol-accent,var(--primary)))] bg-card p-5 shadow-sm">
+    <div className="rounded-r-xl border border-l-4 border-l-[hsl(var(--sol-accent,var(--primary)))] bg-card/70 backdrop-blur-xl p-5 shadow-sm">
       <p className="text-sm md:text-base text-muted-foreground font-roboto leading-relaxed">
         <strong className="text-foreground font-semibold">Para quem é:</strong> {children}
       </p>
@@ -71,7 +71,7 @@ function FeatureList({ items, cols = 1 }: { items: FeatureItem[]; cols?: 1 | 2 }
       {items.map((f, i) => {
         const Icon = f.icon;
         return (
-          <li key={i} className="flex items-start gap-4 rounded-xl border bg-card p-5">
+          <li key={i} className="flex items-start gap-4 rounded-xl glass-panel p-5">
             <Icon className={cn("h-5 w-5 shrink-0 mt-0.5", accentText)} />
             <p className="text-sm text-muted-foreground font-roboto leading-relaxed">
               {f.destaque && <strong className="text-foreground font-semibold">{f.destaque} </strong>}
@@ -88,7 +88,7 @@ function FeatureList({ items, cols = 1 }: { items: FeatureItem[]; cols?: 1 | 2 }
     seção, na cor de acento do produto. */
 function ProdutoPlaceholder({ icon: Icon }: { icon: React.ElementType }) {
   return (
-    <div className="relative h-56 md:h-[340px] overflow-hidden rounded-xl border bg-gradient-to-br from-[hsl(var(--sol-accent,var(--primary))/0.16)] to-[hsl(var(--sol-accent,var(--primary))/0.03)] shadow-sm flex items-center justify-center">
+    <div className="relative h-56 md:h-[340px] overflow-hidden rounded-2xl glass-panel bg-gradient-to-br from-[hsl(var(--sol-accent,var(--primary))/0.16)] to-[hsl(var(--sol-accent,var(--primary))/0.03)] flex items-center justify-center">
       <Icon className={cn("h-20 w-20", accentText, "opacity-40")} strokeWidth={1.5} />
     </div>
   );
@@ -259,7 +259,7 @@ function SolucoesSidebar({ activeSection, activeAnchor, goTo }: NavState) {
 
 function SolucoesMobileNav({ activeSection, goTo }: Omit<NavState, "activeAnchor">) {
   return (
-    <div className="md:hidden print:hidden sticky top-14 md:top-16 z-40 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/75">
+    <div className="md:hidden print:hidden sticky top-14 md:top-16 z-40 glass-nav">
       <nav
         aria-label="Produtos"
         className="flex gap-1 overflow-x-auto px-4 md:px-8 py-2 timeline-scrollbar"

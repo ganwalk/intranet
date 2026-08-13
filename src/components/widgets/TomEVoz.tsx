@@ -34,7 +34,7 @@ function P({ children }: {children: React.ReactNode;}) {
 
 function CardBox({ accent, children }: {accent?: boolean;children: React.ReactNode;}) {
   return (
-    <div className={`rounded-xl border p-6 md:p-8 ${accent ? "bg-primary/5 border-accent/15" : "bg-card"}`}>
+    <div className={`rounded-2xl p-6 md:p-8 ${accent ? "glass-panel !bg-primary/10 !border-primary/20" : "glass-panel"}`}>
       {children}
     </div>);
 

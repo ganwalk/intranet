@@ -20,19 +20,30 @@ interface PageHeroProps {
 
 export function PageHero({ icon: Icon, title, description, actions, className, id }: PageHeroProps) {
   return (
-    <div id={id} className={cn("border-b bg-muted/30", className)}>
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-10 md:py-14">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <div>
-            <div className="flex items-center gap-4 mb-4">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <Icon className="h-6 w-6" />
-              </span>
-              <h1 className="text-3xl md:text-4xl font-bold font-anek text-foreground">{title}</h1>
+    <div id={id} className={cn("relative overflow-hidden", className)}>
+      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-6 md:pt-8 pb-2">
+        <div className="glass-panel relative overflow-hidden rounded-3xl px-6 py-8 md:px-10 md:py-12">
+          {/* Glow decorativo — reforça a leitura de vidro sem depender só do backdrop-blur. */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full bg-primary/25 blur-3xl"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-10 -bottom-16 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
+          />
+          <div className="relative flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <div className="flex items-center gap-4 mb-4">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/15 text-primary ring-1 ring-primary/20">
+                  <Icon className="h-6 w-6" />
+                </span>
+                <h1 className="text-3xl md:text-4xl font-bold font-anek text-foreground">{title}</h1>
+              </div>
+              <p className="text-muted-foreground font-roboto max-w-2xl">{description}</p>
             </div>
-            <p className="text-muted-foreground font-roboto max-w-2xl">{description}</p>
+            {actions}
           </div>
-          {actions}
         </div>
       </div>
     </div>

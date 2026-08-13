@@ -49,9 +49,9 @@ export function PageShell({
   rootProps,
 }: PageShellProps) {
   return (
-    <div {...rootProps} className={cn("min-h-screen bg-background flex flex-col", rootProps?.className)}>
+    <div {...rootProps} className={cn("min-h-screen flex flex-col", rootProps?.className)}>
       {overlay}
-      <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="sticky top-0 z-50 glass-nav">
         <div className="max-w-7xl mx-auto flex h-14 md:h-16 items-center justify-between px-4 md:px-8 gap-2">
           <GlobalNav />
           <div className="flex items-center gap-2 shrink-0">

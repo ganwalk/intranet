@@ -101,8 +101,8 @@ export function SectionThemeToggle({ children, className, bare = false, label, t
 
   if (bare) {
     return (
-      <div className={cn("border rounded-lg overflow-hidden bg-card", className)}>
-        <div className="px-6 py-4 border-b bg-muted/30">
+      <div className={cn("glass-panel rounded-2xl overflow-hidden", className)}>
+        <div className="px-6 py-4 border-b border-foreground/10">
           <div className="flex items-center justify-between gap-4">
             <span className="text-xs font-roboto font-bold uppercase tracking-wider text-muted-foreground">
               {label ?? "Pré-visualização"}
@@ -119,8 +119,8 @@ export function SectionThemeToggle({ children, className, bare = false, label, t
   }
 
   return (
-    <div className={cn("border rounded-lg overflow-hidden bg-card", className)}>
-      <div className="px-6 py-3 border-b bg-muted/30 flex items-center justify-between gap-4">
+    <div className={cn("glass-panel rounded-2xl overflow-hidden", className)}>
+      <div className="px-6 py-3 border-b border-foreground/10 flex items-center justify-between gap-4">
         <span className="text-xs font-roboto font-bold uppercase tracking-wider text-muted-foreground">
           {label ?? "Pré-visualização"}
         </span>

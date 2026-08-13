@@ -428,6 +428,72 @@
   }
 }
 
+/* === Glass / 2026 — superfícies translúcidas ===
+   Vocabulário visual compartilhado por toda a intranet: painéis com
+   backdrop-blur, borda de 1px quase invisível e sombra difusa em vez de
+   dura. `.glass-panel` é a superfície padrão (cards, showcases, sidebars);
+   `.glass-nav` é mais opaca, pensada pra legibilidade com conteúdo
+   passando por baixo durante o scroll. Ambas herdam a cor do tema/marca
+   ativos via tokens HSL — não têm valores de cor fixos. */
+@layer utilities {
+  .glass-panel {
+    background: hsl(var(--card) / 0.62);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    backdrop-filter: blur(20px) saturate(150%);
+    border: 1px solid hsl(var(--foreground) / 0.08);
+    box-shadow: 0 8px 32px -12px hsl(var(--foreground) / 0.16);
+  }
+  .dark .glass-panel {
+    background: hsl(var(--card) / 0.42);
+    border-color: hsl(0 0% 100% / 0.08);
+    box-shadow: 0 8px 32px -12px hsl(0 0% 0% / 0.55);
+  }
+
+  .glass-nav {
+    background: hsl(var(--background) / 0.72);
+    -webkit-backdrop-filter: blur(22px) saturate(160%);
+    backdrop-filter: blur(22px) saturate(160%);
+    border-bottom: 1px solid hsl(var(--foreground) / 0.08);
+  }
+  .dark .glass-nav {
+    background: hsl(var(--background) / 0.55);
+    border-bottom-color: hsl(0 0% 100% / 0.08);
+  }
+
+  /* Painel "sólido translúcido" — mais opaco que .glass-panel, para
+     conteúdo denso (listas de navegação) onde legibilidade > efeito. */
+  .glass-solid {
+    background: hsl(var(--card) / 0.85);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--foreground) / 0.07);
+  }
+  .dark .glass-solid {
+    background: hsl(var(--card) / 0.7);
+    border-color: hsl(0 0% 100% / 0.07);
+  }
+}
+
+/* Fundo ambiente — três manchas radiais suaves na cor da marca, fixas
+   atrás de todo o conteúdo (background-attachment: fixed no próprio body,
+   sem div extra nem truque de z-index). É o que dá às superfícies glass
+   algo colorido pra "ver através"; sem isso, backdrop-blur sobre um fundo
+   liso não lê como vidro. Reage a tema e marca porque usa os tokens HSL. */
+body {
+  background-image:
+    radial-gradient(60rem 40rem at 12% -8%, hsl(var(--primary) / 0.16), transparent 60%),
+    radial-gradient(50rem 40rem at 92% 8%, hsl(var(--brand-gradient-to) / 0.14), transparent 60%),
+    radial-gradient(55rem 45rem at 50% 115%, hsl(var(--primary) / 0.10), transparent 60%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+.dark body {
+  background-image:
+    radial-gradient(60rem 40rem at 12% -8%, hsl(var(--primary) / 0.10), transparent 60%),
+    radial-gradient(50rem 40rem at 92% 8%, hsl(var(--brand-gradient-to) / 0.12), transparent 60%),
+    radial-gradient(55rem 45rem at 50% 115%, hsl(var(--primary) / 0.08), transparent 60%);
+}
+
 /* === Dark mode contrast overrides ===
    Camada defensiva para neutralizar classes Tailwind hardcoded
    garantindo contraste adequado em fundo preto.
