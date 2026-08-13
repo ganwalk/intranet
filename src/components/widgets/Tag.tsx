@@ -40,7 +40,9 @@ export const tagToneClasses: Record<TagTone, string> = {
   info:     "bg-[hsl(var(--info)/0.14)] text-[hsl(var(--info))]",
   error:    "bg-[hsl(var(--error)/0.14)] text-[hsl(var(--error))]",
   neutral:  "bg-muted text-muted-foreground",
-  primary:  "bg-primary/10 text-primary",
+  /* text-primary-emphasis, não text-primary: a Marca A é amarela e o
+     amarelo vívido do botão reprova como cor de texto sobre fundo claro. */
+  primary:  "bg-primary/10 text-primary-emphasis",
 };
 
 interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {

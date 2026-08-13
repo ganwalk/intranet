@@ -16,9 +16,9 @@ Tom institucional, sóbrio e técnico.
 ❌ NUNCA: liquid glass, gradientes coloridos, emojis decorativos, estética startup colorida.
 
 PALETA OFICIAL (use SOMENTE estas cores)
-• Vermelho:              #AD1522  → primária, botões, títulos
-• Vermelho Escuro:        #BF222F  → hover de botões
-• Vermelho Destaque:       #F07580  → acentos em fundo ESCURO apenas
+• Amarelo:               #E6A205  → primária, botões, títulos
+• Amarelo Escuro:         #BF9022  → hover de botões
+• Amarelo Destaque:        #F0C24A  → acentos em fundo ESCURO apenas
 • Branco Puro:         #FFFFFF
 • Cinza Claro:         #F2F2F2
 • Cinza Médio:         #6B6B6B  → textos secundários
@@ -34,8 +34,8 @@ TIPOGRAFIA
 
 BOTÕES — identidade visual mais marcante
 • border-radius: 5px — NUNCA pílulas (rounded-full)
-• Primário (fundo claro):  bg #AD1522  text #FFF   border #AD1522
-  Hover:                   bg transparent  text #AD1522  border #AD1522
+• Primário (fundo claro):  bg #E6A205  text #29210F   border #E6A205
+  Hover:                   bg transparent  text #956504  border #956504
 • Transition: all 240ms ease
 
 CARDS
@@ -51,15 +51,15 @@ DESIGN SYSTEM — MARCA B
 IDENTIDADE
 Tom próximo, descomplicado, visual sofisticado e editorial.
 Glassmorphism é a assinatura visual — usar em cards de LP.
-❌ NUNCA use o vermelho da Marca A (#AD1522) — exceto dentro de texto de botão azul.
+❌ NUNCA use o amarelo da Marca A (#E6A205) — exceto dentro de texto de botão azul.
 
 PALETA OFICIAL
 • Azul Principal:  #2B76EE  → acentos, ícones, botão primário, slider thumb
 • Azul Escura:     #08409B  → tipografia de destaque, eyebrow, badges
-• Vermelho (Marca A):    #AD1522  → SOMENTE em texto dentro de botões azul
+• Amarelo (Marca A):     #E6A205  → SOMENTE em texto dentro de botões azul
 • Cinza Texto:        #18181B
 • Cinza Secundário:   #52525B / #71717A
-❌ PROIBIDO: vermelho como cor de fundo/borda, cores saturadas fora da paleta
+❌ PROIBIDO: amarelo como cor de fundo/borda, cores saturadas fora da paleta
 
 FUNDO DE PÁGINA (assinatura da Marca B)
 • NUNCA fundo branco chapado — use gradiente radial cinza sutil:
@@ -77,7 +77,7 @@ TIPOGRAFIA
 
 BOTÕES
 • border-radius: 5px em LP — NUNCA pílulas (rounded-full)
-• Primário (fundo claro): bg #2B76EE  text #AD1522  border #2B76EE
+• Primário (fundo claro): bg #2B76EE  text #E6A205  border #2B76EE
   Hover: bg transparent  border #2B76EE  text #18181B`;
 
 const FERRAMENTAS_EXTRA = `

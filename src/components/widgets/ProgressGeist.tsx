@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ComponentShowcase } from "@/components/design-system/ComponentShowcase";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -33,13 +33,28 @@ export function ProgressGeist({ value, className, ...rest }: ProgressGeistProps)
 
 export function ProgressGeistWidget() {
   const [animated, setAnimated] = useState(0);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  // A demo fica animando indefinidamente enquanto montada — como o Design
+  // System renderiza todos os componentes de uma vez na mesma página, sem
+  // isso o loop continuaria rodando (e re-renderizando) mesmo com a seção
+  // fora da viewport, gastando CPU à toa.
+  useEffect(() => {
+    const el = wrapperRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: 0 });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
+    if (!visible) return;
     const id = setInterval(() => {
       setAnimated((v) => (v >= 100 ? 0 : v + 5));
     }, 400);
     return () => clearInterval(id);
-  }, []);
+  }, [visible]);
 
   return (
     <ComponentShowcase
@@ -102,7 +117,7 @@ useEffect(() => {
 <div class="gprog" style="margin-top:16px"><div class="gprog__bar" style="width:70%"></div></div>
 <div class="gprog" style="margin-top:16px"><div class="gprog__bar" style="width:100%"></div></div>`}
     >
-      <div className="w-full max-w-2xl space-y-6">
+      <div ref={wrapperRef} className="w-full max-w-2xl space-y-6">
         <div className="rounded-xl border bg-card p-6 space-y-5">
           <ProgressGeist value={40} aria-label="40%" />
           <ProgressGeist value={70} aria-label="70%" />

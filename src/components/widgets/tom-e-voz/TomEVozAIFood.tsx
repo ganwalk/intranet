@@ -255,18 +255,18 @@ export function TomEVozAIFood() {
 
         {/* Info bar */}
         <div className="flex items-center gap-2 px-6 pt-4 pb-2">
-          <span className="text-[10px] font-bold uppercase tracking-widest font-roboto text-[#AD1522]/70">
+          <span className="text-[10px] font-bold uppercase tracking-widest font-roboto text-[#E6A205]/70">
             Manual de Tom e Voz
           </span>
           <span className="text-[#334155]">•</span>
-          <span className="text-[10px] font-bold uppercase tracking-widest font-roboto text-[#AD1522]/70">
+          <span className="text-[10px] font-bold uppercase tracking-widest font-roboto text-[#E6A205]/70">
             {currentLabel}
           </span>
         </div>
 
         {/* Prompt content */}
         <div className="p-6 pt-2 overflow-x-auto">
-          <pre className="whitespace-pre-wrap font-mono text-[13px] leading-relaxed min-h-[300px] text-[#F07580] selection:bg-[#F07580]/30 selection:text-white">
+          <pre className="whitespace-pre-wrap font-mono text-[13px] leading-relaxed min-h-[300px] text-[#F0C24A] selection:bg-[#F0C24A]/30 selection:text-white">
             {prompt}
           </pre>
         </div>

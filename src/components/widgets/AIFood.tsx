@@ -19,9 +19,9 @@ A Marca A tem um tom institucional, sóbrio e técnico. Autoridade direta, sem p
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 1. PALETA OFICIAL (use SOMENTE estas cores)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Vermelho primário: #AD1522  → botões, títulos em fundo claro
-• Vermelho escuro:   #BF222F  → hover de botões
-• Vermelho acento:   #F07580  → destaque em fundo ESCURO apenas
+• Vermelho primário: #E6A205  → botões, títulos em fundo claro
+• Vermelho escuro:   #BF9022  → hover de botões
+• Vermelho acento:   #F0C24A  → destaque em fundo ESCURO apenas
 • Branco:  #FFFFFF  |  Cinza claro: #F2F2F2  |  Cinza médio: #6B6B6B
 • Cinza chumbo: #1B1B1B (cards em dark)  |  Preto: #000000
 ❌ PROIBIDO: roxo, rosa, cores fora da paleta, gradientes coloridos, neon
@@ -38,9 +38,9 @@ A Marca A tem um tom institucional, sóbrio e técnico. Autoridade direta, sem p
 3. BOTÕES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 • border-radius: 5px  |  border: sempre 1px solid  |  padding py-[18px] px-[32px]
-• Primário: bg #AD1522  text branco  |  hover: bg transparente  text #AD1522
-• Outline (fundo escuro): bg transparente  border branca  |  hover: bg branco  text #AD1522
-• Estados: default → hover (240ms) → active (scale 0.99) → focus (ring #AD1522) → disabled → loading
+• Primário: bg #E6A205  text branco  |  hover: bg transparente  text #E6A205
+• Outline (fundo escuro): bg transparente  border branca  |  hover: bg branco  text #E6A205
+• Estados: default → hover (240ms) → active (scale 0.99) → focus (ring #E6A205) → disabled → loading
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 4. CARDS E LAYOUT
@@ -55,15 +55,15 @@ A Marca A tem um tom institucional, sóbrio e técnico. Autoridade direta, sem p
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 <section class="bg-white py-[90px]">
   <div class="max-w-[1200px] mx-auto px-6">
-    <span class="font-sora text-[12px] font-bold uppercase tracking-[0.15em] text-[#AD1522]">Eyebrow</span>
-    <h1 class="font-anek text-[54px] font-semibold leading-[1.1] text-[#AD1522] mt-[15px]">
+    <span class="font-sora text-[12px] font-bold uppercase tracking-[0.15em] text-[#E6A205]">Eyebrow</span>
+    <h1 class="font-anek text-[54px] font-semibold leading-[1.1] text-[#E6A205] mt-[15px]">
       Título institucional de impacto.
     </h1>
     <p class="font-roboto text-[20px] text-[#6B6B6B] mt-[30px] max-w-[640px]">
       Texto de apoio curto e direto.
     </p>
     <div class="flex gap-[15px] mt-[45px]">
-      <button class="font-sora font-bold uppercase text-[14px] py-[18px] px-[32px] bg-[#AD1522] text-white border border-[#AD1522] hover:bg-transparent hover:text-[#AD1522] transition-all duration-[240ms]">
+      <button class="font-sora font-bold uppercase text-[14px] py-[18px] px-[32px] bg-[#E6A205] text-white border border-[#E6A205] hover:bg-transparent hover:text-[#E6A205] transition-all duration-[240ms]">
         Ação primária
       </button>
     </div>
@@ -93,7 +93,7 @@ paleta vermelho. O usuário precisa ler números rápido — hierarquia tipográ
 1. CONTAINER E TIPOGRAFIA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 <div class="bg-white rounded-2xl shadow-xl p-6 max-w-md mx-auto">
-• Título: Satoshi 700 22px  |  Valor de resultado: Satoshi 700 36px #AD1522 tabular-nums
+• Título: Satoshi 700 22px  |  Valor de resultado: Satoshi 700 36px #E6A205 tabular-nums
 • Labels de input: Satoshi 500 13px uppercase  |  Texto auxiliar: Satoshi 400 12px cinza claro
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -103,18 +103,18 @@ paleta vermelho. O usuário precisa ler números rápido — hierarquia tipográ
   <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Label</label>
   <input class="bg-transparent border-0 text-2xl font-anek font-bold w-full focus:outline-none" />
 </div>
-• Focus: ring-2 ring-[#AD1522]/30  |  Error: ring-2 ring-red-500/30 + mensagem abaixo
-• Slider thumb: 20px circular bg-[#AD1522] border-2 border-white shadow-md
+• Focus: ring-2 ring-[#E6A205]/30  |  Error: ring-2 ring-red-500/30 + mensagem abaixo
+• Slider thumb: 20px circular bg-[#E6A205] border-2 border-white shadow-md
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 3. BOTÕES E RESULTADO (aqui são arredondados)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Primário: bg-[#AD1522] text-white rounded-[5px]  |  hover bg-[#BF222F]
-• Estados: default → hover → active → focus (ring #AD1522) → disabled → loading (spinner + "Calculando...")
+• Primário: bg-[#E6A205] text-white rounded-[5px]  |  hover bg-[#BF9022]
+• Estados: default → hover → active → focus (ring #E6A205) → disabled → loading (spinner + "Calculando...")
 
 <div class="bg-red-50 rounded-xl p-5 mt-6">
-  <p class="font-roboto text-xs uppercase text-[#AD1522]/70">Rótulo do resultado</p>
-  <p class="font-anek text-4xl font-bold text-[#AD1522] mt-2 tabular-nums">R$ 1.234.567</p>
+  <p class="font-roboto text-xs uppercase text-[#E6A205]/70">Rótulo do resultado</p>
+  <p class="font-anek text-4xl font-bold text-[#E6A205] mt-2 tabular-nums">R$ 1.234.567</p>
 </div>
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -127,7 +127,7 @@ paleta vermelho. O usuário precisa ler números rápido — hierarquia tipográ
 5. CHECKLIST FINAL
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 □ Card pai: bg-white + rounded-2xl + shadow-xl
-□ Botões rounded-[5px]  |  Valores: tabular-nums + font-anek + #AD1522
+□ Botões rounded-[5px]  |  Valores: tabular-nums + font-anek + #E6A205
 □ Todos os 8 estados implementados
 □ Responsivo: max-w-md centrado
 
@@ -144,7 +144,7 @@ Agora gere a ferramenta solicitada:`,
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 A Marca B tem um tom independente, descontraído e editorial — sofisticado e premium.
 Glassmorphism é a assinatura visual (cards translúcidos com blur).
-❌ NUNCA use o vermelho da Marca A (#AD1522) como cor de fundo, borda ou ícone.
+❌ NUNCA use o vermelho da Marca A (#E6A205) como cor de fundo, borda ou ícone.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 1. PALETA OFICIAL AZUL
@@ -152,7 +152,7 @@ Glassmorphism é a assinatura visual (cards translúcidos com blur).
 • Azul principal: #2B76EE  → acentos, ícones, botão primário, slider thumb
 • Azul escura:    #08409B  → tipografia de destaque, eyebrow, badges ativos
 • Azul profunda:  #0B3B85  → texto sobre fundo claro com forte contraste
-• Vermelho da Marca A:  #AD1522  → SOMENTE como cor de texto dentro de botões azul
+• Vermelho da Marca A:  #E6A205  → SOMENTE como cor de texto dentro de botões azul
 • Cinza texto: #18181B  |  Cinza secundário: #52525B / #71717A
 • Translúcidos: rgba(255,255,255,0.5) / rgba(0,0,0,0.12)
 ❌ PROIBIDO: vermelho da Marca A como cor de fundo/borda, cores fora da paleta
@@ -182,7 +182,7 @@ Glassmorphism é a assinatura visual (cards translúcidos com blur).
 • H1: Satoshi 700  56px / 36px mobile  #18181B
 • Corpo: Satoshi 400  17px  #52525B
 • Eyebrow: Satoshi 600 13px uppercase, pill bg azul translúcida
-• Botões: radius 5px em LP (pílula proibida) — primário bg #2B76EE text #AD1522
+• Botões: radius 5px em LP (pílula proibida) — primário bg #2B76EE text #E6A205
   hover: bg transparente border #2B76EE text #18181B
 • Estados: default → hover → active → focus (ring #2B76EE) → disabled → loading
 
@@ -200,7 +200,7 @@ Glassmorphism é a assinatura visual (cards translúcidos com blur).
       </h1>
       <p class="font-roboto text-[17px] text-[#52525B] mt-6 max-w-[480px]">Texto de apoio curto.</p>
       <div class="flex gap-[15px] mt-[45px]">
-        <button class="font-sora font-bold uppercase text-[14px] py-[18px] px-[32px] bg-[#2B76EE] text-[#AD1522] border border-[#2B76EE] hover:bg-transparent hover:text-[#18181B] transition-all duration-[300ms]">
+        <button class="font-sora font-bold uppercase text-[14px] py-[18px] px-[32px] bg-[#2B76EE] text-[#E6A205] border border-[#2B76EE] hover:bg-transparent hover:text-[#18181B] transition-all duration-[300ms]">
           Ação primária
         </button>
       </div>
@@ -386,10 +386,10 @@ export function AIFood() {
   }, [brand, view]);
 
   const brandLabel = brand === "marca-a" ? "Marca A" : "Marca B";
-  const brandColor = brand === "marca-a" ? "text-[#AD1522]/70" : "text-[#2B76EE]/70";
-  const promptColor = brand === "marca-a" ? "text-[#F07580]" : "text-[#5593F6]";
+  const brandColor = brand === "marca-a" ? "text-[#E6A205]/70" : "text-[#2B76EE]/70";
+  const promptColor = brand === "marca-a" ? "text-[#F0C24A]" : "text-[#5593F6]";
   const selectionColor = brand === "marca-a"
-    ? "selection:bg-[#F07580]/30 selection:text-white"
+    ? "selection:bg-[#F0C24A]/30 selection:text-white"
     : "selection:bg-[#5593F6]/30 selection:text-white";
 
   const handleCopy = () => {

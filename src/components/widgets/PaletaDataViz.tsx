@@ -279,7 +279,7 @@ export function PaletaDataViz() {
 <!-- Equivalente React: export function PaletaDataViz() -->
 <style>
   :root {
-    --chart-1: 355 75% 42%;   /* Vermelho da marca */
+    --chart-1: 42 75% 42%;   /* Amarelo da marca */
     --chart-2: 270 60% 55%;   /* Violeta */
     --chart-3: 38 92% 55%;    /* Âmbar */
     --chart-4: 199 89% 48%;   /* Azul */
@@ -288,11 +288,11 @@ export function PaletaDataViz() {
     --chart-7: 90 55% 40%;    /* Oliva */
     --chart-8: 220 30% 35%;   /* Grafite azulado */
 
-    --chart-seq-1: 355 40% 92%;
-    --chart-seq-2: 355 50% 78%;
-    --chart-seq-3: 355 62% 60%;
-    --chart-seq-4: 355 72% 42%;
-    --chart-seq-5: 355 78% 32%;
+    --chart-seq-1: 42 40% 92%;
+    --chart-seq-2: 42 50% 78%;
+    --chart-seq-3: 42 62% 60%;
+    --chart-seq-4: 42 72% 42%;
+    --chart-seq-5: 42 78% 32%;
 
     --chart-div-neg: 0 72% 51%;
     --chart-div-mid: 40 30% 92%;

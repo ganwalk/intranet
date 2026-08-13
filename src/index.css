@@ -5,48 +5,49 @@
 @tailwind utilities;
 
 /* Design System — Design Tokens
-   Default: Marca A (Vermelho)
+   Default: Marca A (Amarelo)
    .marca-b: Marca B (Azul)
    All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    /* === Marca A (Vermelho) === */
+    /* === Marca A (Amarelo) === */
     --font-display: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-body: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-ui: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
 
     --background: 0 0% 100%;
-    --foreground: 355 70% 9%;
+    --foreground: 42 70% 9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 355 70% 9%;
+    --card-foreground: 42 70% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 355 70% 9%;
+    --popover-foreground: 42 70% 9%;
 
-    --primary: 355 78% 38%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 42 96% 46%;
+    --primary-foreground: 42 45% 11%;
     /* *-emphasis: versão da cor segura como TEXTO sobre --background (≥4.5:1).
-       No Marca A claro a própria cor já passa; na Marca B clara a marca
-       precisa escurecer. Usada em links e no hover "vazado" dos botões. */
-    --primary-emphasis: 355 78% 38%;
+       Amarelo puro reprova como texto (contraste baixo mesmo escurecido em L),
+       por isso é escurecido bem mais que o amarelo vívido dos botões — mesmo
+       princípio da Marca B. Usada em links e no hover "vazado" dos botões. */
+    --primary-emphasis: 40 95% 30%;
 
-    --secondary: 350 55% 20%;
+    --secondary: 42 55% 20%;
     --secondary-foreground: 0 0% 100%;
-    --secondary-emphasis: 350 55% 20%;
+    --secondary-emphasis: 42 55% 20%;
 
-    --muted: 350 10% 95%;
-    --muted-foreground: 350 10% 40%;
+    --muted: 42 10% 95%;
+    --muted-foreground: 42 10% 40%;
 
-    --accent: 355 78% 38%;
+    --accent: 40 95% 32%;
     --accent-foreground: 0 0% 100%;
 
-    /* Levemente afastado do vermelho da marca (355°) para não colidir
-       visualmente com botões primários — laranja-avermelhado, ainda lido
-       como "perigo". Branco sobre 14 88% 60% dava 3.7:1 (< 4.5:1). */
-    --destructive: 14 88% 45%;
+    /* Vermelho puro — como a marca é amarela, não há colisão com botões
+       primários, então o destructive pode usar o vermelho "de verdade"
+       em vez de um laranja-avermelhado de compromisso. */
+    --destructive: 0 78% 50%;
     --destructive-foreground: 0 0% 100%;
 
     /* === Status semânticos (Marca A) ===
@@ -60,41 +61,41 @@
     --warning-foreground: 220 15% 15%;
     --info: 210 90% 42%;
     --info-foreground: 0 0% 100%;
-    --error: 14 88% 45%;
+    --error: 0 78% 50%;
     --error-foreground: 0 0% 100%;
 
-    --border: 350 10% 88%;
-    --input: 350 10% 88%;
-    --ring: 355 78% 38%;
+    --border: 42 10% 88%;
+    --input: 42 10% 88%;
+    --ring: 42 96% 46%;
 
     --radius: 0.75rem;
 
     /* Brand-specific tokens */
-    --brand: 355 78% 38%;
-    --brand-foreground: 0 0% 100%;
-    --brand-dark: 355 70% 9%;
-    --brand-hover: 355 70% 44%;
-    --brand-gradient-from: 355 78% 38%;
-    --brand-gradient-to: 350 60% 22%;
+    --brand: 42 96% 46%;
+    --brand-foreground: 42 45% 11%;
+    --brand-dark: 42 70% 9%;
+    --brand-hover: 42 70% 44%;
+    --brand-gradient-from: 42 96% 46%;
+    --brand-gradient-to: 42 60% 22%;
 
-    --cta: 355 78% 38%;
-    --cta-foreground: 0 0% 100%;
-    --cta-emphasis: 355 78% 38%;
+    --cta: 42 96% 46%;
+    --cta-foreground: 42 45% 11%;
+    --cta-emphasis: 40 95% 30%;
 
-    --sidebar-background: 355 70% 9%;
+    --sidebar-background: 42 70% 9%;
     --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 355 78% 38%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 355 50% 18%;
+    --sidebar-primary: 42 96% 46%;
+    --sidebar-primary-foreground: 42 45% 11%;
+    --sidebar-accent: 42 50% 18%;
     --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 350 20% 15%;
-    --sidebar-ring: 355 78% 38%;
+    --sidebar-border: 42 20% 15%;
+    --sidebar-ring: 42 96% 46%;
 
     /* === Data Visualization Palette (Marca A) ===
-       Paleta categórica de 8 cores derivadas da identidade vermelha,
+       Paleta categórica de 8 cores derivadas da identidade amarela,
        balanceada para tabelas, gráficos de pizza, barras e linhas.
        Ordem otimizada para distinção máxima em séries categóricas. */
-    --chart-1: 355 75% 42%;   /* Vermelho da marca */
+    --chart-1: 42 75% 42%;   /* Amarelo da marca */
     --chart-2: 270 60% 55%;   /* Violeta */
     --chart-3: 38 92% 55%;    /* Âmbar */
     --chart-4: 199 89% 48%;   /* Azul */
@@ -104,14 +105,14 @@
     --chart-8: 220 30% 35%;   /* Grafite azulado */
 
     /* Escala sequencial — para mapas de calor, intensidade, progressão */
-    --chart-seq-1: 355 40% 92%;
-    --chart-seq-2: 355 50% 78%;
-    --chart-seq-3: 355 62% 60%;
-    --chart-seq-4: 355 72% 42%;
-    --chart-seq-5: 355 78% 32%;
+    --chart-seq-1: 42 40% 92%;
+    --chart-seq-2: 42 50% 78%;
+    --chart-seq-3: 42 62% 60%;
+    --chart-seq-4: 42 72% 42%;
+    --chart-seq-5: 42 78% 32%;
 
-    /* Escala divergente — positivo usa azul (não o vermelho da marca) para
-       ficar sempre distinguível do vermelho de --chart-div-neg. */
+    /* Escala divergente — negativo em vermelho, positivo em azul (convenção
+       universal do gráfico, independente da cor da marca). */
     --chart-div-neg: 0 72% 51%;
     --chart-div-mid: 40 30% 92%;
     --chart-div-pos: 205 70% 35%;
@@ -236,12 +237,12 @@
 
     /* Acento canônico mauve; texto 0 0% 5% dá 4.73:1
        (0 0% 8% ficava em 4.46:1). */
-    --accent: 355 20% 44%;
+    --accent: 42 55% 45%;
     --accent-foreground: 0 0% 5%;
 
     /* No escuro os status seguem o padrão "cor clara + texto quase-preto";
        afastado do mauve da marca — branco sobre 14 78% 58% dava 4.35:1. */
-    --destructive: 14 78% 63%;
+    --destructive: 0 78% 60%;
     --destructive-foreground: 0 0% 5%;
 
     --success: 142 60% 48%;
@@ -250,21 +251,21 @@
     --warning-foreground: 0 0% 5%;
     --info: 210 90% 65%;
     --info-foreground: 0 0% 5%;
-    --error: 14 78% 63%;
+    --error: 0 78% 60%;
     --error-foreground: 0 0% 5%;
 
     --border: 0 0% 16%;
     --input: 0 0% 14%;
-    --ring: 355 20% 50%;
+    --ring: 42 55% 50%;
 
     /* Brand — acento pontual (mauve). Texto quase-preto (0 0% 5%),
        pois branco sobre o tom médio não alcança 4.5:1. */
-    --brand: 355 20% 44%;
+    --brand: 42 55% 45%;
     --brand-foreground: 0 0% 5%;
     --brand-dark: 0 0% 0%;
-    --brand-hover: 355 20% 54%;
-    --brand-gradient-from: 355 25% 54%;
-    --brand-gradient-to: 355 30% 38%;
+    --brand-hover: 42 55% 58%;
+    --brand-gradient-from: 42 55% 58%;
+    --brand-gradient-to: 42 60% 40%;
 
     --cta: 0 0% 98%;
     --cta-foreground: 0 0% 8%;
@@ -277,10 +278,10 @@
     --sidebar-accent: 0 0% 10%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 0 0% 16%;
-    --sidebar-ring: 355 20% 50%;
+    --sidebar-ring: 42 55% 50%;
 
     /* Data Viz — Dark Marca A (paleta colorida para gráficos) */
-    --chart-1: 355 70% 62%;   /* Vermelho da marca */
+    --chart-1: 42 80% 55%;   /* Vermelho da marca */
     --chart-2: 270 65% 70%;   /* Violeta */
     --chart-3: 38 90% 65%;    /* Âmbar */
     --chart-4: 199 85% 65%;   /* Azul */
@@ -289,11 +290,11 @@
     --chart-7: 90 55% 60%;    /* Oliva claro */
     --chart-8: 220 30% 70%;   /* Grafite azulado */
 
-    --chart-seq-1: 355 25% 18%;
-    --chart-seq-2: 355 35% 30%;
-    --chart-seq-3: 355 45% 45%;
-    --chart-seq-4: 355 55% 58%;
-    --chart-seq-5: 355 60% 72%;
+    --chart-seq-1: 42 30% 18%;
+    --chart-seq-2: 42 45% 32%;
+    --chart-seq-3: 42 60% 45%;
+    --chart-seq-4: 42 75% 55%;
+    --chart-seq-5: 42 80% 65%;
 
     --chart-div-neg: 0 70% 60%;
     --chart-div-mid: 0 0% 25%;
@@ -698,9 +699,9 @@ body {
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 35%;
     --border: 0 0% 80%;
-    --primary: 355 78% 38%;
-    --primary-foreground: 0 0% 100%;
-    --error: 14 88% 40%;
+    --primary: 42 96% 46%;
+    --primary-foreground: 42 45% 11%;
+    --error: 0 78% 45%;
   }
 
   body {
@@ -758,6 +759,23 @@ body {
 .dark .sol-produto-d { --sol-accent: 200 85% 62%; }
 .dark .sol-produto-e { --sol-accent: 340 75% 68%; }
 
+/* Sidebar scrollbar — fina e discreta. Sem isso, a barra nativa (grossa,
+   quadrada) fica colada no canto direito da sidebar e "quebra" visualmente
+   o rounded-2xl do container, como se o canto fosse reto. */
+.sidebar-scrollbar::-webkit-scrollbar { width: 6px; }
+.sidebar-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.sidebar-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--foreground) / 0.15);
+  border-radius: 9999px;
+}
+.sidebar-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--foreground) / 0.3);
+}
+.sidebar-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--foreground) / 0.15) transparent;
+}
+
 /* Timeline scrollbar (Trilha Horizontal) */
 .timeline-scrollbar::-webkit-scrollbar { height: 4px; }
 .timeline-scrollbar::-webkit-scrollbar-track {
@@ -788,22 +806,22 @@ body {
    Redeclara todas as variáveis que .dark sobrescreve. */
 .light {
   --background: 0 0% 100%;
-  --foreground: 355 70% 9%;
+  --foreground: 42 70% 9%;
   --card: 0 0% 100%;
-  --card-foreground: 355 70% 9%;
+  --card-foreground: 42 70% 9%;
   --popover: 0 0% 100%;
-  --popover-foreground: 355 70% 9%;
-  --primary: 355 78% 38%;
-  --primary-foreground: 0 0% 100%;
-  --primary-emphasis: 355 78% 38%;
-  --secondary: 350 55% 20%;
+  --popover-foreground: 42 70% 9%;
+  --primary: 42 96% 46%;
+  --primary-foreground: 42 45% 11%;
+  --primary-emphasis: 40 95% 30%;
+  --secondary: 42 55% 20%;
   --secondary-foreground: 0 0% 100%;
-  --secondary-emphasis: 350 55% 20%;
-  --muted: 350 10% 95%;
-  --muted-foreground: 350 10% 40%;
-  --accent: 355 78% 38%;
+  --secondary-emphasis: 42 55% 20%;
+  --muted: 42 10% 95%;
+  --muted-foreground: 42 10% 40%;
+  --accent: 40 95% 32%;
   --accent-foreground: 0 0% 100%;
-  --destructive: 14 88% 45%;
+  --destructive: 0 78% 50%;
   --destructive-foreground: 0 0% 100%;
   --success: 142 72% 29%;
   --success-foreground: 0 0% 100%;
@@ -811,22 +829,22 @@ body {
   --warning-foreground: 220 15% 15%;
   --info: 210 90% 42%;
   --info-foreground: 0 0% 100%;
-  --error: 14 88% 45%;
+  --error: 0 78% 50%;
   --error-foreground: 0 0% 100%;
-  --border: 350 10% 88%;
-  --input: 350 10% 88%;
-  --ring: 355 78% 38%;
-  --brand: 355 78% 38%;
-  --brand-foreground: 0 0% 100%;
-  --brand-dark: 355 70% 9%;
-  --brand-hover: 355 70% 44%;
-  --brand-gradient-from: 355 78% 38%;
-  --brand-gradient-to: 350 60% 22%;
-  --cta: 355 78% 38%;
-  --cta-foreground: 0 0% 100%;
-  --cta-emphasis: 355 78% 38%;
+  --border: 42 10% 88%;
+  --input: 42 10% 88%;
+  --ring: 42 96% 46%;
+  --brand: 42 96% 46%;
+  --brand-foreground: 42 45% 11%;
+  --brand-dark: 42 70% 9%;
+  --brand-hover: 42 70% 44%;
+  --brand-gradient-from: 42 96% 46%;
+  --brand-gradient-to: 42 60% 22%;
+  --cta: 42 96% 46%;
+  --cta-foreground: 42 45% 11%;
+  --cta-emphasis: 40 95% 30%;
   --spotlight: transparent;
-  --chart-1: 355 75% 42%;
+  --chart-1: 42 75% 42%;
   --chart-2: 270 60% 55%;
   --chart-3: 38 92% 55%;
   --chart-4: 199 89% 48%;
@@ -834,11 +852,11 @@ body {
   --chart-6: 300 55% 45%;
   --chart-7: 90 55% 40%;
   --chart-8: 220 30% 35%;
-  --chart-seq-1: 355 40% 92%;
-  --chart-seq-2: 355 50% 78%;
-  --chart-seq-3: 355 62% 60%;
-  --chart-seq-4: 355 72% 42%;
-  --chart-seq-5: 355 78% 32%;
+  --chart-seq-1: 42 40% 92%;
+  --chart-seq-2: 42 50% 78%;
+  --chart-seq-3: 42 62% 60%;
+  --chart-seq-4: 42 72% 42%;
+  --chart-seq-5: 42 78% 32%;
   --chart-div-neg: 0 72% 51%;
   --chart-div-mid: 40 30% 92%;
   --chart-div-pos: 205 70% 35%;

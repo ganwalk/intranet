@@ -25,7 +25,7 @@ const buttonVariants = cva(
         /** CTA estilo LP — bordas retas, transição de fundo */
         cta: "bg-cta text-cta-foreground border border-transparent hover:bg-transparent hover:text-cta-emphasis hover:border-cta-emphasis uppercase tracking-wider text-sm",
         /** CTA invertido para fundos escuros — claro: fundo branco com leve
-         * atenuação no hover; escuro: fundo com o acento da marca (vermelho na
+         * atenuação no hover; escuro: fundo com o acento da marca (amarelo na
          * Marca A, azul na Marca B) com texto quase-preto e hover clareado. */
         "cta-inverted":
           "bg-[hsl(0_0%_98%)] text-cta-emphasis border border-cta-emphasis hover:bg-[hsl(0_0%_88%)] hover:border-cta-emphasis hover:text-cta-emphasis dark:bg-brand dark:border-brand dark:text-brand-foreground dark:hover:bg-brand-hover dark:hover:border-brand-hover dark:hover:text-brand-foreground uppercase tracking-wider text-sm",

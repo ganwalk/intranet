@@ -197,7 +197,7 @@ function ColorSwatch({ name, cssVar, fgVar }: { name: string; cssVar: string; fg
 }
 
 const brandOptions = [
-  { id: "marca-a" as const, label: "Marca A", color: "hsl(355,78%,38%)" },
+  { id: "marca-a" as const, label: "Marca A", color: "hsl(42,96%,46%)" },
   { id: "marca-b" as const, label: "Marca B", color: "hsl(217,85%,60%)" },
 ];
 
@@ -823,16 +823,16 @@ import { ArrowRight } from "lucide-react";
   .btn-lg { padding:1rem 2rem; height:48px; font-size:14px; letter-spacing:0.05em; }
 
   /* Padrão (default) — hover revela a borda */
-  .btn-default { background:var(--primary,#AD1522); color:#fff; border-color:var(--primary,#AD1522); }
-  .btn-default:hover { background:transparent; color:var(--primary,#AD1522); }
+  .btn-default { background:var(--primary,#E6A205); color:#29210F; border-color:var(--primary,#E6A205); }
+  .btn-default:hover { background:transparent; color:var(--primary-emphasis,#956504); }
 
   /* CTA Landing Page */
-  .btn-cta { background:#AD1522; color:#fff; }
-  .btn-cta:hover { background:transparent; color:#AD1522; border-color:#AD1522; }
+  .btn-cta { background:#E6A205; color:#29210F; }
+  .btn-cta:hover { background:transparent; color:#956504; border-color:#956504; }
 
   /* CTA Invertido (para fundos escuros) — hover atenua o fundo claro.
-     No tema escuro: fundo acento #F07580, texto quase-preto #0D0D0D. */
-  .btn-cta-inverted { background:#fafafa; color:#AD1522; border-color:#AD1522; }
+     No tema escuro: fundo acento #E6A205, texto quase-preto #0D0D0D. */
+  .btn-cta-inverted { background:#fafafa; color:#956504; border-color:#956504; }
   .btn-cta-inverted:hover { background:#e0e0e0; }
 
   /* Secundário */
@@ -842,14 +842,14 @@ import { ArrowRight } from "lucide-react";
 
   /* Contorno (outline) — hover usa a cor de acento */
   .btn-outline { background:transparent; color:inherit; border-color:#dfe3df; }
-  .btn-outline:hover { background:var(--accent,#AD1522); color:#fff; }
+  .btn-outline:hover { background:var(--accent,#956504); color:#fff; }
 
   /* Fantasma (ghost) — hover usa a cor de acento */
   .btn-ghost { background:transparent; color:inherit; border-color:transparent; }
-  .btn-ghost:hover { background:var(--accent,#AD1522); color:#fff; }
+  .btn-ghost:hover { background:var(--accent,#956504); color:#fff; }
 
   /* Link */
-  .btn-link { background:transparent; color:var(--primary,#AD1522); border:none; padding:0;
+  .btn-link { background:transparent; color:var(--primary-emphasis,#956504); border:none; padding:0;
     text-decoration:none; }
   .btn-link:hover { text-decoration:underline; }
 
@@ -886,7 +886,7 @@ import { ArrowRight } from "lucide-react";
 <Button size="icon"><ArrowRight className="h-4 w-4" /></Button>`}
                 htmlCode={`<style>
   .btn { display:inline-flex; align-items:center; justify-content:center;
-    background:var(--primary,#AD1522); color:#fff; border:1px solid var(--primary,#AD1522);
+    background:var(--primary,#E6A205); color:#29210F; border:1px solid var(--primary,#E6A205);
     border-radius:5px; font-family:'Satoshi',sans-serif; font-weight:700; text-transform:uppercase;
     cursor:pointer; }
   .btn-sm      { height:36px; padding:0 0.75rem;  font-size:12px; }
@@ -908,11 +908,11 @@ import { ArrowRight } from "lucide-react";
                 <Button size="icon"><ArrowRight className="h-4 w-4" /></Button>
               </ComponentShowcase>
               <ComponentShowcase title="CTA em Fundo Escuro" description="Comportamento do botão invertido"
-                code={`<div className="bg-[hsl(355_78%_38%)] dark:bg-[hsl(0_0%_18%)] p-8 rounded-lg">
+                code={`<div className="bg-[hsl(42_96%_46%)] dark:bg-[hsl(0_0%_18%)] p-8 rounded-lg">
   <Button variant="cta-inverted" size="lg">Começar Agora</Button>
 </div>`}
-                htmlCode={`<div style="background:#AD1522; padding:2rem; border-radius:0.5rem;">\n  <button style="background:#fafafa; color:#AD1522; padding:1rem 2rem; border-radius:5px; font-family:'Satoshi'; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; font-size:14px; border:1px solid #fafafa; cursor:pointer;">COMEÇAR AGORA</button>\n</div>\n<!-- Hover: background #e0e0e0 (atenuação leve, mantém contraste) -->\n<!-- Tema escuro: background #F07580, texto #0D0D0D, hover clareia p/ #F5A3AC -->`}>
-                <div className="bg-[hsl(355_78%_38%)] dark:bg-[hsl(0_0%_18%)] p-8 rounded-lg flex items-center gap-4 w-full">
+                htmlCode={`<div style="background:#E6A205; padding:2rem; border-radius:0.5rem;">\n  <button style="background:#fafafa; color:#956504; padding:1rem 2rem; border-radius:5px; font-family:'Satoshi'; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; font-size:14px; border:1px solid #fafafa; cursor:pointer;">COMEÇAR AGORA</button>\n</div>\n<!-- Hover: background #e0e0e0 (atenuação leve, mantém contraste) -->\n<!-- Tema escuro: background #E6A205, texto #0D0D0D, hover clareia p/ #F0C24A -->`}>
+                <div className="bg-[hsl(42_96%_46%)] dark:bg-[hsl(0_0%_18%)] p-8 rounded-lg flex items-center gap-4 w-full">
                   <Button variant="cta-inverted" size="lg">Começar Agora</Button>
                 </div>
               </ComponentShowcase>
@@ -937,14 +937,14 @@ import { ArrowRight } from "lucide-react";
   .grade-container { background: #f5f5f5; padding: 2rem; border-radius: 1rem; border: 1px solid #e5e5e5; }
   .grade-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 2rem; }
   .grade-tab { padding: 0.75rem 1.5rem; border-radius: 9999px; border: 1px solid #e5e5e5; background: rgba(255,255,255,0.4); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; color: #888; transition: all 0.2s; }
-  .grade-tab.active { background: var(--primary, #AD1522); color: #fff; border-color: var(--primary, #AD1522); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .grade-tab.active { background: var(--primary, #E6A205); color: #29210F; border-color: var(--primary, #E6A205); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
   .grade-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
   .grade-card { background: rgba(255,255,255,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(0,0,0,0.05); border-radius: 0.75rem; padding: 1.5rem; transition: all 0.2s; }
   .grade-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); transform: translateY(-2px); }
   .grade-card-icon { width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; background: rgba(79,70,229,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 0.75rem; }
   .grade-card h4 { font-size: 0.875rem; font-weight: 700; margin-bottom: 0.25rem; }
   .grade-card p { font-size: 0.75rem; color: #888; line-height: 1.5; }
-  .grade-number { font-size: 0.7rem; font-weight: 700; color: var(--primary, #AD1522); text-transform: uppercase; letter-spacing: 0.1em; }
+  .grade-number { font-size: 0.7rem; font-weight: 700; color: var(--primary-emphasis, #956504); text-transform: uppercase; letter-spacing: 0.1em; }
 </style>
 
 <div class="grade-container">
