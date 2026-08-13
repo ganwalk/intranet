@@ -124,7 +124,7 @@ export function FiltroCategorias({
         ativo={valor === "Todos"}
         onClick={() => onChange("Todos")}
         icon={LayoutGrid}
-        tone="bg-primary/10 text-primary"
+        tone="bg-primary/10 text-primary-emphasis"
         label="Todos"
         total={produtosFisicos.length}
       />

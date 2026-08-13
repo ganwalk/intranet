@@ -8,9 +8,11 @@ import { cn } from "@/lib/utils";
  * páginas, evitando layout shift ao navegar entre seções.
  */
 
-/** Container do menu lateral desktop, colado sob o header sticky. */
+/** Container do menu lateral desktop, colado sob o header sticky. Scrollbar
+    fina (.sidebar-scrollbar) e padding-right extra pro thumb não colar no
+    canto arredondado — senão a barra nativa "quadra" o rounded-2xl. */
 export const sidebarNavClass =
-  "sticky top-20 max-h-[calc(100vh-6rem)] w-60 shrink-0 my-8 mr-4 p-3 overflow-y-auto hidden md:block glass-solid rounded-2xl";
+  "sticky top-20 max-h-[calc(100vh-6rem)] w-60 shrink-0 my-8 mr-4 p-3 pr-2 overflow-y-auto hidden md:block glass-solid rounded-2xl sidebar-scrollbar";
 
 /** Rótulo de grupo (categoria) dentro do menu. */
 export const sidebarGroupLabelClass =

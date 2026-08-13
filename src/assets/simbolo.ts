@@ -18,7 +18,7 @@ const RAW = (fill: string) =>
 export const simboloPretoA = { url: publicUrl("/simbolo-a-preto.svg"), raw: RAW("#111111") };
 export const simboloBrancoA = { url: publicUrl("/simbolo-a-branco.svg"), raw: RAW("#ffffff") };
 /** Variante de acento — cor primária da Marca A. */
-export const simboloAcentoA = { url: publicUrl("/simbolo-a-acento.svg"), raw: RAW("#AC1522") };
+export const simboloAcentoA = { url: publicUrl("/simbolo-a-acento.svg"), raw: RAW("#E6A205") };
 
 // Marca B — mesmo símbolo, cor da Marca B (as duas marcas do ecossistema
 // compartilham o monograma; a distinção vem da cor primária de cada uma).

@@ -5,7 +5,7 @@ import {
   simboloBrancoB, simboloPretoB, simboloAcentoB,
   downloadSvgBlob, downloadPngFromSvg,
 } from "@/assets/simbolo";
-import { ArrowDown, Download, FileImage, FileText } from "lucide-react";
+import { ArrowDown, Download, FileImage, FileText, X as XIcon } from "lucide-react";
 
 async function downloadPdf(src: string, filename: string) {
   try {
@@ -57,6 +57,23 @@ function SimboloDownloadButtons({ svgRaw, svgUrl, filename, dark = false }: {
       >
         <FileText className="h-3 w-3" /> PDF
       </button>
+    </div>
+  );
+}
+
+function ViolacaoCard({ titulo, desc, children }: { titulo: string; desc: string; children: React.ReactNode }) {
+  return (
+    <div className="border border-neutral-200 rounded-xl overflow-hidden">
+      <div className="relative bg-neutral-100 h-28 flex items-center justify-center">
+        {children}
+        <span className="absolute top-2 right-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-white">
+          <XIcon className="h-3 w-3" strokeWidth={3} />
+        </span>
+      </div>
+      <div className="p-3">
+        <p className="text-xs font-bold text-neutral-900">{titulo}</p>
+        <p className="text-[11px] text-neutral-500 mt-0.5">{desc}</p>
+      </div>
     </div>
   );
 }
@@ -118,14 +135,46 @@ export function MarcaLogos() {
       {/* Área de Segurança */}
       <div>
         <h3 className="text-lg font-bold mb-2 font-anek">Área de Segurança</h3>
-        <p className="text-muted-foreground mb-6">
-          A área de segurança (safe zone) usa a própria dimensão do símbolo como espaçamento mínimo
-          nos quatro lados, garantindo que nenhum elemento gráfico invada o espaço da marca.
+        <p className="text-muted-foreground mb-2">
+          A área de segurança (safe zone) é o raio mínimo livre ao redor do símbolo — nenhum texto, borda de
+          layout, foto ou outro logotipo pode invadir esse espaço. A unidade de referência é <strong>X</strong>,
+          igual à altura total do símbolo: a distância mínima livre em cada lado é <strong>X ÷ 2</strong>.
         </p>
+        <p className="text-muted-foreground mb-6">
+          Vale tanto para aplicações isoladas (favicon, avatar) quanto para o símbolo ao lado de outros
+          elementos — títulos, botões, fotos — em qualquer composição.
+        </p>
+
         <div className="border rounded-xl p-10 bg-neutral-100 flex items-center justify-center">
-          <div className="border-2 border-dashed border-neutral-300 p-8">
-            <img src={simboloPretoA.url} alt="Símbolo com área de segurança" className="h-16" />
+          <div className="relative">
+            {/* Marcadores de medida — topo e lateral, em X */}
+            <span className="absolute -top-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-0.5">
+              <span className="text-[10px] font-bold text-neutral-400 font-mono">X/2</span>
+              <span className="block h-3 w-px bg-neutral-300" />
+            </span>
+            <span className="absolute top-1/2 -left-8 -translate-y-1/2 flex items-center gap-0.5">
+              <span className="block w-3 h-px bg-neutral-300" />
+              <span className="text-[10px] font-bold text-neutral-400 font-mono -rotate-90 origin-center">X/2</span>
+            </span>
+            <div className="border-2 border-dashed border-neutral-300 p-8">
+              <img src={simboloPretoA.url} alt="Símbolo com área de segurança" className="h-16" />
+            </div>
           </div>
+        </div>
+
+        <p className="text-sm font-bold font-anek text-foreground mt-8 mb-3">O que evitar</p>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <ViolacaoCard titulo="Símbolo espremido" desc="Colado à borda do layout ou de outro elemento, sem nenhuma folga.">
+            <img src={simboloPretoA.url} alt="Símbolo sem área de segurança, colado à borda" className="absolute inset-1 h-[calc(100%-8px)] w-auto" />
+          </ViolacaoCard>
+          <ViolacaoCard titulo="Elemento sobre o símbolo" desc="Texto, foto ou botão sobrepondo parte do símbolo.">
+            <img src={simboloPretoA.url} alt="Símbolo com elemento sobreposto" className="h-14" />
+            <span className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-5 bg-neutral-400/70" />
+          </ViolacaoCard>
+          <ViolacaoCard titulo="Baixo contraste" desc="Símbolo aplicado sobre fundo muito próximo da sua própria cor.">
+            <div className="absolute inset-0 bg-neutral-300" />
+            <img src={simboloPretoA.url} alt="Símbolo com baixo contraste contra o fundo" className="h-14 opacity-40 relative" />
+          </ViolacaoCard>
         </div>
       </div>
 

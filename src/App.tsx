@@ -9,13 +9,26 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { CommandPalette } from "@/components/CommandPalette";
 import { EasterEgg } from "@/components/EasterEgg";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import React from "react";
-import DesignSystem from "./pages/DesignSystem";
-import TomEVozPage from "./pages/TomEVozPage";
-import SolucoesPage from "./pages/SolucoesPage";
-import NotFound from "./pages/NotFound";
+import React, { Suspense, lazy } from "react";
+
+/**
+ * Lazy por rota: o Design System sozinho arrasta o catálogo inteiro de ~60
+ * componentes (a maior fatia do bundle, de longe). Sem isso, visitar
+ * /tom-e-voz ou /solucoes baixava e parseava esse catálogo à toa, mesmo
+ * sem nunca renderizá-lo.
+ */
+const DesignSystem = lazy(() => import("./pages/DesignSystem"));
+const TomEVozPage = lazy(() => import("./pages/TomEVozPage"));
+const SolucoesPage = lazy(() => import("./pages/SolucoesPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
+
+/** Placeholder mínimo enquanto o chunk da rota carrega — sem layout próprio
+    pra não "piscar" contra o header/skeleton real da página assim que ela monta. */
+function RouteFallback() {
+  return <div className="min-h-screen" aria-hidden="true" />;
+}
 
 class ErrorBoundary extends React.Component<
   { children: React.ReactNode },
@@ -60,13 +73,15 @@ const App = () => (
               <ScrollToTop />
               <CommandPalette />
               <EasterEgg />
-              <Routes>
-                <Route path="/" element={<DesignSystem />} />
-                <Route path="/design-system" element={<DesignSystem />} />
-                <Route path="/tom-e-voz" element={<TomEVozPage />} />
-                <Route path="/solucoes" element={<SolucoesPage />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
+              <Suspense fallback={<RouteFallback />}>
+                <Routes>
+                  <Route path="/" element={<DesignSystem />} />
+                  <Route path="/design-system" element={<DesignSystem />} />
+                  <Route path="/tom-e-voz" element={<TomEVozPage />} />
+                  <Route path="/solucoes" element={<SolucoesPage />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </Suspense>
             </BrowserRouter>
           </TooltipProvider>
         </ViewProvider>
