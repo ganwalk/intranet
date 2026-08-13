@@ -198,10 +198,24 @@ export function GlobalNav() {
                 ref={(el) => { itemRefs.current[system.id] = el; }}
                 onClick={() => navigate(system.path)}
                 className={cn(
-                  "relative z-10 px-3 py-2 text-sm font-normal font-anek rounded-full transition-colors duration-200",
+                  "relative z-10 flex items-center px-3 py-2 text-sm font-normal font-anek rounded-full transition-colors duration-200",
                   isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                 )}
               >
+                {/* Ícone só ganha espaço quando o item está ativo/em hover —
+                    morphing de largura via grid-template-columns, mais
+                    suave que condicionar a renderização do ícone. */}
+                <span
+                  className="grid overflow-hidden"
+                  style={{
+                    gridTemplateColumns: isActive || isHovered ? "1fr" : "0fr",
+                    transition: "grid-template-columns 300ms cubic-bezier(0.22,1,0.36,1)",
+                  }}
+                >
+                  <span className="overflow-hidden flex items-center">
+                    <Icon className="h-3.5 w-3.5 mr-1.5" />
+                  </span>
+                </span>
                 {system.label}
               </button>
 

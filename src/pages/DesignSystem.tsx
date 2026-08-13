@@ -151,7 +151,7 @@ import { ResultWidget } from "@/components/widgets/Result";
 import { TourWidget } from "@/components/widgets/Tour";
 import { WatermarkWidget } from "@/components/widgets/Watermark";
 
-import { sections, categoryLabels, type SectionDefWithKeywords } from "@/data/designSystemSections";
+import { sections } from "@/data/designSystemSections";
 import { PageHero } from "@/components/PageHero";
 import { sidebarNavClass, sidebarGroupLabelClass, sidebarItemClass } from "@/components/sidebarNav";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -196,6 +196,55 @@ function ColorSwatch({ name, cssVar, fgVar }: { name: string; cssVar: string; fg
   );
 }
 
+const brandOptions = [
+  { id: "marca-a" as const, label: "Marca A", color: "hsl(355,78%,38%)" },
+  { id: "marca-b" as const, label: "Marca B", color: "hsl(217,85%,60%)" },
+];
+
+/** Alternância Marca A / Marca B — pill deslizante entre as duas opções em
+    vez de uma lista colapsável, pra trocar de produto de forma mais viva
+    (e sem depender de cor de marca pra marcar o item ativo). */
+function BrandSwitcher({
+  brand,
+  onSelect,
+  onPreview,
+  onPreviewEnd,
+}: {
+  brand: "marca-a" | "marca-b";
+  onSelect: (b: "marca-a" | "marca-b") => void;
+  onPreview: (b: "marca-a" | "marca-b") => void;
+  onPreviewEnd: () => void;
+}) {
+  return (
+    <div className="px-2 pb-3 mb-3">
+      <p className="px-1 pb-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Produto</p>
+      <div className="relative grid grid-cols-2 gap-0.5 rounded-lg bg-foreground/5 p-1">
+        <span
+          aria-hidden="true"
+          className="absolute inset-y-1 left-1 w-[calc(50%-4px)] rounded-md bg-background shadow-sm transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
+          style={{ transform: brand === "marca-b" ? "translateX(calc(100% + 4px))" : "translateX(0)" }}
+        />
+        {brandOptions.map((b) => (
+          <button
+            key={b.id}
+            type="button"
+            onMouseEnter={() => onPreview(b.id)}
+            onMouseLeave={onPreviewEnd}
+            onClick={() => onSelect(b.id)}
+            className={cn(
+              "relative z-10 flex items-center justify-center gap-1.5 rounded-md py-1.5 text-sm font-anek transition-colors",
+              brand === b.id ? "text-foreground font-semibold" : "text-muted-foreground hover:text-foreground"
+            )}
+          >
+            <span className="h-2 w-2 rounded-full shrink-0" style={{ backgroundColor: b.color }} />
+            {b.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /** Demo do catálogo de Produtos Físicos: mesmo card e filtro usados no template. */
 function ProdutosFisicosDemo() {
   const [categoria, setCategoria] = useState<FiltroCategoria>("Todos");
@@ -218,7 +267,6 @@ export default function DesignSystemPage() {
   const [activeSection, setActiveSection] = useState("intro");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [brandOpen, setBrandOpen] = useState(true);
   const { brand, setBrand } = useBrand();
   const { toast } = useToast();
 
@@ -246,38 +294,6 @@ export default function DesignSystemPage() {
       )
     : sections;
 
-  const navBlocks = React.useMemo(() => {
-    return filteredSections.reduce<Array<{ key: string; category: string; items: SectionDefWithKeywords[] }>>((acc, section) => {
-      const lastBlock = acc[acc.length - 1];
-      if (!lastBlock || lastBlock.category !== section.category) {
-        acc.push({
-          key: `${section.category}-${section.id}`,
-          category: section.category,
-          items: [section],
-        });
-        return acc;
-      }
-
-      lastBlock.items.push(section);
-      return acc;
-    }, []);
-  }, [filteredSections]);
-
-  const activeBlockKey = navBlocks.find((block) =>
-    block.items.some((item) => item.id === activeSection)
-  )?.key;
-
-  const [openBlocks, setOpenBlocks] = useState<Record<string, boolean>>({
-    "fundamentos-intro": true,
-  });
-
-  React.useEffect(() => {
-    if (!activeBlockKey) return;
-    setOpenBlocks((prev) => (prev[activeBlockKey] ? prev : { ...prev, [activeBlockKey]: true }));
-  }, [activeBlockKey]);
-
-  const isBlockOpen = (blockKey: string) => (q ? true : openBlocks[blockKey] ?? blockKey === navBlocks[0]?.key);
-  const toggleBlock = (blockKey: string) => setOpenBlocks((prev) => ({ ...prev, [blockKey]: !isBlockOpen(blockKey) }));
 
   // Suprime o scroll-spy durante navegação programática (clique no menu)
   // para evitar que a animação do scroll suave seja interrompida ou que o
@@ -427,36 +443,7 @@ export default function DesignSystemPage() {
                 </div>
 
                 <div className="px-3 pt-3">
-                  {/* Seletor de produto */}
-                  <div className="pb-3 mb-2">
-                    <button
-                      type="button"
-                      onClick={() => setBrandOpen((o) => !o)}
-                      className="w-full flex items-start justify-between gap-2 px-1 py-1.5 rounded-md text-xs font-semibold uppercase tracking-wider text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
-                    >
-                      <span>Produto</span>
-                      <ChevronRight className={cn("mt-0.5 h-3.5 w-3.5 shrink-0 transition-transform", brandOpen && "rotate-90")} />
-                    </button>
-                    {brandOpen && (
-                      <div className="space-y-0.5 mt-1">
-                        {[
-                          { id: "marca-a" as const, label: "Marca A", color: "hsl(355,78%,38%)" },
-                          { id: "marca-b" as const, label: "Marca B", color: "hsl(217,85%,60%)" },
-                        ].map((b) => (
-                          <button
-                            key={b.id}
-                            onMouseEnter={() => handleBrandPreview(b.id)}
-                            onMouseLeave={handleBrandRevert}
-                            onClick={() => setBrand(b.id)}
-                            className={sidebarItemClass(brand === b.id, "py-1.5")}
-                          >
-                            <span className="h-3 w-3 rounded-full shrink-0" style={{ backgroundColor: b.color }} />
-                            {b.label}
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                  <BrandSwitcher brand={brand} onSelect={setBrand} onPreview={handleBrandPreview} onPreviewEnd={handleBrandRevert} />
                   <div className="relative">
                     <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
@@ -475,42 +462,23 @@ export default function DesignSystemPage() {
                       Nenhum componente encontrado.
                     </p>
                   ) : (
-                    <div className="space-y-1">
-                      {navBlocks.map((block) => {
-                        const open = isBlockOpen(block.key);
-                        return (
-                          <div key={block.key}>
-                            <button
-                              type="button"
-                              onClick={() => toggleBlock(block.key)}
-                              className="w-full flex items-start justify-between gap-2 px-3 py-2 rounded-md text-xs font-semibold uppercase tracking-wider text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
-                            >
-                              <span className="flex-1 text-left leading-tight">{categoryLabels[block.category] || block.category}</span>
-                              <ChevronRight className={cn("mt-0.5 h-3.5 w-3.5 shrink-0 transition-transform", open && "rotate-90")} />
-                            </button>
-                            {open && (
-                              <ul className="space-y-0.5 mt-1 mb-1">
-                                {block.items.map(({ id, label, icon: Icon }) => (
-                                  <li key={id}>
-                                    <button
-                                      data-nav-id={id}
-                                      onClick={() => {
-                                        setMobileMenuOpen(false);
-                                        setTimeout(() => goToSection(id), 250);
-                                      }}
-                                      className={sidebarItemClass(activeSection === id, "pl-6")}
-                                    >
-                                       <Icon className="h-4 w-4 shrink-0" />
-                                      <span className="flex-1 text-left">{label}</span>
-                                    </button>
-                                  </li>
-                                ))}
-                              </ul>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
+                    <ul className="space-y-0.5">
+                      {filteredSections.map(({ id, label, icon: Icon }) => (
+                        <li key={id}>
+                          <button
+                            data-nav-id={id}
+                            onClick={() => {
+                              setMobileMenuOpen(false);
+                              setTimeout(() => goToSection(id), 250);
+                            }}
+                            className={sidebarItemClass(activeSection === id)}
+                          >
+                            <Icon className="h-4 w-4 shrink-0" />
+                            <span className="flex-1 text-left">{label}</span>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
                   )}
                 </nav>
               </SheetContent>
@@ -535,36 +503,7 @@ export default function DesignSystemPage() {
       <div className="max-w-7xl mx-auto flex gap-0 relative px-4 md:px-8">
         {/* Sidebar Nav — Desktop only */}
         <nav className={sidebarNavClass}>
-          {/* Seletor de produto */}
-          <div className="px-2 pb-3 mb-3">
-            <button
-              type="button"
-              onClick={() => setBrandOpen((o) => !o)}
-              className="w-full flex items-start justify-between gap-2 px-3 py-1.5 rounded-md text-xs font-semibold uppercase tracking-wider text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
-            >
-              <span>Produto</span>
-              <ChevronRight className={cn("mt-0.5 h-3.5 w-3.5 shrink-0 transition-transform", brandOpen && "rotate-90")} />
-            </button>
-            {brandOpen && (
-              <div className="space-y-0.5 mt-1">
-                {[
-                  { id: "marca-a" as const, label: "Marca A", color: "hsl(355,78%,38%)" },
-                  { id: "marca-b" as const, label: "Marca B", color: "hsl(217,85%,60%)" },
-                ].map((b) => (
-                  <button
-                    key={b.id}
-                    onMouseEnter={() => handleBrandPreview(b.id)}
-                    onMouseLeave={handleBrandRevert}
-                    onClick={() => setBrand(b.id)}
-                    className={sidebarItemClass(brand === b.id, "py-1.5")}
-                  >
-                    <span className="h-3 w-3 rounded-full shrink-0" style={{ backgroundColor: b.color }} />
-                    {b.label}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+          <BrandSwitcher brand={brand} onSelect={setBrand} onPreview={handleBrandPreview} onPreviewEnd={handleBrandRevert} />
           <div className="px-2 mb-4">
             <div className="relative">
               <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -583,39 +522,20 @@ export default function DesignSystemPage() {
               Nenhum componente encontrado.
             </p>
           ) : (
-            <div className="space-y-1">
-              {navBlocks.map((block) => {
-                const open = isBlockOpen(block.key);
-                return (
-                  <div key={block.key}>
-                    <button
-                      type="button"
-                      onClick={() => toggleBlock(block.key)}
-                      className="w-full flex items-start justify-between gap-2 px-3 py-1.5 rounded-md text-xs font-semibold uppercase tracking-wider text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
-                    >
-                      <span className="flex-1 text-left leading-tight">{categoryLabels[block.category] || block.category}</span>
-                      <ChevronRight className={cn("mt-0.5 h-3.5 w-3.5 shrink-0 transition-transform", open && "rotate-90")} />
-                    </button>
-                    {open && (
-                      <ul className="space-y-0.5 mt-1 mb-1">
-                        {block.items.map(({ id, label, icon: Icon }) => (
-                          <li key={id}>
-                            <button
-                              data-nav-id={id}
-                              onClick={() => goToSection(id)}
-                              className={sidebarItemClass(activeSection === id, "pl-6")}
-                            >
-                              <Icon className="h-4 w-4 shrink-0" />
-                              <span className="flex-1 text-left">{label}</span>
-                            </button>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
+            <ul className="space-y-0.5">
+              {filteredSections.map(({ id, label, icon: Icon }) => (
+                <li key={id}>
+                  <button
+                    data-nav-id={id}
+                    onClick={() => goToSection(id)}
+                    className={sidebarItemClass(activeSection === id)}
+                  >
+                    <Icon className="h-4 w-4 shrink-0" />
+                    <span className="flex-1 text-left">{label}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
           )}
         </nav>
 

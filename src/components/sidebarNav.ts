@@ -16,12 +16,14 @@ export const sidebarNavClass =
 export const sidebarGroupLabelClass =
   "px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground";
 
-/** Item de navegação — ativo recebe destaque sutil (vidro + anel), não preenchido a chapado. */
+/** Item de navegação — ativo recebe destaque neutro (fundo sutil), sem cor
+    de marca. A cor fica reservada a acentos pontuais (dot da marca, ícone
+    do hero) em vez de marcar cada estado ativo da interface. */
 export function sidebarItemClass(active: boolean, extra?: string) {
   return cn(
     "w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-anek text-left leading-tight transition-colors",
     active
-      ? "bg-primary/10 font-semibold text-foreground ring-1 ring-primary/25"
+      ? "bg-foreground/8 font-semibold text-foreground"
       : "text-muted-foreground hover:text-foreground hover:bg-foreground/5",
     extra
   );
