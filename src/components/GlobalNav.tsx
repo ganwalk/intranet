@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { simboloPorMarca } from "@/assets/simbolo";
@@ -47,6 +47,29 @@ export function GlobalNav() {
   const currentSystem = systems.find((s) => s.path === location.pathname) || systems[0];
   const simbolo = simboloPorMarca(brand);
 
+  /* Indicador deslizante — "pill" que acompanha o item em foco (hover ou
+     ativo) na nav desktop, medindo a posição real do botão a cada troca em
+     vez de depender de índices, pra ficar preciso mesmo com labels de
+     tamanhos diferentes. */
+  const navRef = useRef<HTMLElement>(null);
+  const itemRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const [indicator, setIndicator] = useState<{ left: number; width: number; ready: boolean }>({ left: 0, width: 0, ready: false });
+  const targetId = hoveredId ?? currentSystem.id;
+
+  useLayoutEffect(() => {
+    const update = () => {
+      const nav = navRef.current;
+      const el = itemRefs.current[targetId];
+      if (!nav || !el) return;
+      const navRect = nav.getBoundingClientRect();
+      const elRect = el.getBoundingClientRect();
+      setIndicator({ left: elRect.left - navRect.left, width: elRect.width, ready: true });
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, [targetId]);
+
   useEffect(() => {
     const hasSeenWelcome = sessionStorage.getItem("central-nav-welcome");
     if (!hasSeenWelcome) {
@@ -74,13 +97,13 @@ export function GlobalNav() {
         <img
           src={simbolo.preto.url}
           alt="Logo"
-          className="h-8 w-8 md:h-10 md:w-10 dark:hidden"
+          className="h-7 w-7 md:h-8 md:w-8 dark:hidden"
         />
         <img
           src={simbolo.branco.url}
           alt=""
           aria-hidden="true"
-          className="hidden h-8 w-8 md:h-10 md:w-10 dark:block"
+          className="hidden h-7 w-7 md:h-8 md:w-8 dark:block"
         />
       </button>
 
@@ -101,16 +124,18 @@ export function GlobalNav() {
               Navegar entre sistemas
             </DropdownMenuLabel>
 
-            {systems.map((system) => {
+            {systems.map((system, i) => {
               const Icon = system.icon;
               const isActive = location.pathname === system.path;
               return (
                 <DropdownMenuItem
                   key={system.id}
                   onClick={() => navigate(system.path)}
+                  style={{ animationDelay: `${i * 40}ms`, animationFillMode: "backwards" }}
                   className={cn(
                     "flex items-start gap-3 p-3 rounded-xl cursor-pointer transition-colors",
                     "focus:bg-muted hover:bg-muted data-[highlighted]:bg-muted",
+                    "animate-in fade-in slide-in-from-top-1 duration-200",
                     isActive && "bg-muted/60"
                   )}
                 >
@@ -145,7 +170,19 @@ export function GlobalNav() {
       </div>
 
       {/* Desktop: horizontal nav */}
-      <nav className="hidden md:flex items-center gap-0.5">
+      <nav ref={navRef} className="hidden md:flex items-center gap-0.5 relative">
+        {/* Pill deslizante — mede a posição real do item em foco (hover ou
+            ativo) e anima transform/width até ele, como um seletor
+            segmentado. Fica atrás do texto (z-0) e não recebe clique. */}
+        <span
+          aria-hidden="true"
+          className="absolute top-0 left-0 h-full rounded-full bg-foreground/8 pointer-events-none transition-[transform,width,opacity] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
+          style={{
+            width: indicator.width,
+            transform: `translateX(${indicator.left}px)`,
+            opacity: indicator.ready ? 1 : 0,
+          }}
+        />
         {systems.map((system) => {
           const Icon = system.icon;
           const isActive = location.pathname === system.path;
@@ -158,12 +195,11 @@ export function GlobalNav() {
               onMouseLeave={() => setHoveredId(null)}
             >
               <button
+                ref={(el) => { itemRefs.current[system.id] = el; }}
                 onClick={() => navigate(system.path)}
                 className={cn(
-                  "relative px-3 py-2 text-sm font-normal font-anek rounded-full transition-colors duration-200",
-                  isActive
-                    ? "text-foreground bg-foreground/8"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  "relative z-10 px-3 py-2 text-sm font-normal font-anek rounded-full transition-colors duration-200",
+                  isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                 )}
               >
                 {system.label}
