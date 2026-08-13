@@ -65,20 +65,20 @@ const isDark = useIsDark(triggerRef);
 </Popover>`}
       htmlCode={`<div style="position:relative; display:inline-block;">
   <button id="trigger" onclick="document.getElementById('pop').style.display='block'"
-    style="padding:8px 16px; border:1px solid #e5e7eb; border-radius:12px; background:#fff; font-family:'Sora'; font-weight:700; text-transform:uppercase; font-size:13px;">
+    style="padding:8px 16px; border:1px solid #e5e7eb; border-radius:12px; background:#fff; font-family:'Satoshi'; font-weight:700; text-transform:uppercase; font-size:13px;">
     🗑 Excluir item
   </button>
   <div id="pop" style="display:none; position:absolute; top:calc(100% + 8px); left:0; width:288px; padding:16px; background:#fff; border:1px solid #e5e7eb; border-radius:12px; box-shadow:0 10px 24px rgba(0,0,0,.1); z-index:10;">
     <div style="display:flex; gap:12px;">
       <span style="color:#f59e0b; font-size:18px;">⚠</span>
       <div style="flex:1;">
-        <p style="font-family:'Anek Latin'; font-weight:600; font-size:14px; margin:0;">Confirmar exclusão?</p>
+        <p style="font-family:'Satoshi'; font-weight:600; font-size:14px; margin:0;">Confirmar exclusão?</p>
         <p style="font-size:12px; color:#6b7280; margin:4px 0 12px;">Esta ação não pode ser desfeita.</p>
         <div style="display:flex; justify-content:flex-end; gap:8px;">
           <button onclick="document.getElementById('pop').style.display='none'"
-            style="padding:6px 12px; background:transparent; border:none; cursor:pointer; font-family:'Sora'; font-weight:700; text-transform:uppercase; font-size:12px;">Cancelar</button>
+            style="padding:6px 12px; background:transparent; border:none; cursor:pointer; font-family:'Satoshi'; font-weight:700; text-transform:uppercase; font-size:12px;">Cancelar</button>
           <button onclick="alert('Excluído!'); document.getElementById('pop').style.display='none'"
-            style="padding:6px 12px; background:#e11414; color:#fff; border:none; border-radius:8px; cursor:pointer; font-family:'Sora'; font-weight:700; text-transform:uppercase; font-size:12px;">Excluir</button>
+            style="padding:6px 12px; background:#e11414; color:#fff; border:none; border-radius:8px; cursor:pointer; font-family:'Satoshi'; font-weight:700; text-transform:uppercase; font-size:12px;">Excluir</button>
         </div>
       </div>
     </div>

@@ -71,7 +71,7 @@ export function SegmentedWidget() {
   }
   .segmented button {
     padding:6px 12px; border:none; background:transparent; border-radius:6px;
-    font-family:'Anek Latin', sans-serif; font-weight:600; font-size:14px;
+    font-family:'Satoshi', sans-serif; font-weight:600; font-size:14px;
     color:hsl(var(--muted-foreground, 110 10% 40%));
     cursor:pointer; transition:.2s;
   }
@@ -186,7 +186,7 @@ export function SwitchDisabledWidget() {
     background:hsl(var(--primary, 155 93% 11%));
     color:hsl(var(--primary-foreground, 0 0% 100%));
     padding:8px 16px; border-radius:8px; border:none;
-    font-family:'Sora', sans-serif; font-weight:700; text-transform:uppercase; font-size:12px;
+    font-family:'Satoshi', sans-serif; font-weight:700; text-transform:uppercase; font-size:12px;
     cursor:pointer;
   }
 </style>

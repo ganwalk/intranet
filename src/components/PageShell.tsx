@@ -71,7 +71,7 @@ export function PageShell({
       {/* O padding horizontal fica DENTRO do container com max-width, igual
           ao <main> — com ele no <footer> externo, o texto desalinhava do
           conteúdo em viewports mais largas que o max-width. */}
-      <footer className="border-t py-6">
+      <footer className="pt-6 pb-6 mt-6">
         <div className={cn("mx-auto px-4 md:px-8", widths[width])}>
           <p className="text-xs text-muted-foreground font-roboto text-center">
             {footer} &copy; {new Date().getFullYear()}

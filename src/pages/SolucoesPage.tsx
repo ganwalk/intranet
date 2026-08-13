@@ -35,7 +35,7 @@ function QuickInfoBar({ items, className }: { items: QuickInfo[]; className?: st
         return (
           <span
             key={i}
-            className="inline-flex items-center gap-2 rounded-lg border bg-muted/40 px-3 py-2 text-sm font-roboto text-foreground"
+            className="inline-flex items-center gap-2 rounded-lg bg-muted/40 px-3 py-2 text-sm font-roboto text-foreground"
           >
             <Icon className={cn("h-4 w-4 shrink-0", accentText)} />
             {item.texto}
@@ -48,9 +48,9 @@ function QuickInfoBar({ items, className }: { items: QuickInfo[]; className?: st
 
 function ParaQuemE({ children }: { children: React.ReactNode }) {
   return (
-    <div className="rounded-r-xl border border-l-4 border-l-[hsl(var(--sol-accent,var(--primary)))] bg-card/70 backdrop-blur-xl p-5 shadow-sm">
+    <div className="rounded-xl bg-[hsl(var(--sol-accent,var(--primary))/0.08)] backdrop-blur-xl p-5 shadow-sm">
       <p className="text-sm md:text-base text-muted-foreground font-roboto leading-relaxed">
-        <strong className="text-foreground font-semibold">Para quem é:</strong> {children}
+        <strong className={cn("font-semibold", accentText)}>Para quem é:</strong> {children}
       </p>
     </div>
   );
@@ -136,7 +136,7 @@ function ExportFloater({ onClick }: { onClick: () => void }) {
         className={cn(
           "bg-white text-gray-900 dark:bg-[#2a2a2a] dark:text-white",
           "p-3 px-4 rounded-xl rounded-bl-none shadow-lg mb-2.5 ml-2.5",
-          "max-w-[200px] font-anek text-[14px] leading-snug relative border border-border",
+          "max-w-[200px] font-anek text-[14px] leading-snug relative",
           "transition-all duration-300 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] origin-bottom-left",
           hovered
             ? "opacity-100 visible translate-y-0 scale-100"
@@ -164,11 +164,11 @@ function ExportFloater({ onClick }: { onClick: () => void }) {
 
 function ExportButton({ onClick, children }: { onClick: () => void; children: React.ReactNode }) {
   return (
-    <div className="flex justify-end border-t border-dashed pt-6 print:hidden">
+    <div className="flex justify-end pt-6 print:hidden">
       <button
         onClick={onClick}
         className={cn(
-          "inline-flex items-center gap-2 rounded-lg border-2 border-[hsl(var(--sol-accent,var(--primary))/0.5)] px-4 py-2 text-sm font-anek font-bold uppercase tracking-wide hover:bg-[hsl(var(--sol-accent,var(--primary))/0.1)] transition-colors",
+          "inline-flex items-center gap-2 rounded-lg bg-[hsl(var(--sol-accent,var(--primary))/0.12)] px-4 py-2 text-sm font-anek font-bold uppercase tracking-wide hover:bg-[hsl(var(--sol-accent,var(--primary))/0.2)] transition-colors",
           accentText
         )}
       >
@@ -232,7 +232,7 @@ function SolucoesSidebar({ activeSection, activeAnchor, goTo }: NavState) {
                 )}
               </div>
               {isOpen && section.anchors.length > 0 && (
-                <ul className="mt-1 mb-2 ml-[1.15rem] border-l border-l-[hsl(var(--sol-accent,var(--primary))/0.3)] pl-3 space-y-0.5">
+                <ul className="mt-1 mb-2 ml-[1.15rem] pl-3 space-y-0.5">
                   {section.anchors.map((anchor) => (
                     <li key={anchor.id}>
                       <button
@@ -272,11 +272,11 @@ function SolucoesMobileNav({ activeSection, goTo }: Omit<NavState, "activeAnchor
               key={section.id}
               onClick={() => goTo(section.id)}
               className={cn(
-                "inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-anek border transition-colors",
+                "inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-anek transition-colors",
                 `sol-${section.id}`,
                 isActive
-                  ? "bg-foreground text-background border-foreground"
-                  : "bg-background text-muted-foreground border-transparent hover:text-foreground hover:bg-muted"
+                  ? "bg-foreground text-background"
+                  : "bg-background text-muted-foreground hover:text-foreground hover:bg-muted"
               )}
             >
               <Icon className={cn("h-3.5 w-3.5", !isActive && accentText)} />
@@ -431,7 +431,7 @@ export default function SolucoesPage() {
               className={cn(
                 `sol-${produto.id}`,
                 "scroll-mt-32 space-y-12",
-                index > 0 && "border-t pt-16",
+                index > 0 && "pt-16",
                 printHide(produto.id)
               )}
             >
@@ -459,7 +459,7 @@ export default function SolucoesPage() {
         })}
 
         {/* ==================== RESUMO ==================== */}
-        <section id="resumo" className={cn("scroll-mt-32 space-y-5 border-t pt-16", printHide("resumo"))}>
+        <section id="resumo" className={cn("scroll-mt-32 space-y-5 pt-16", printHide("resumo"))}>
           <div>
             <Tag tone="primary" className="mb-3">Tabela Comparativa</Tag>
             <BlocoTitle icon={Table2} as="h2">Resumo de Produtos</BlocoTitle>
@@ -467,7 +467,7 @@ export default function SolucoesPage() {
               Reúne, para consulta rápida, as informações objetivas de cada produto do ecossistema.
             </p>
           </div>
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-x-auto rounded-xl glass-panel">
             <table className="w-full min-w-[720px] text-sm font-roboto text-left">
               <thead>
                 <tr className="bg-muted/60">
@@ -480,7 +480,7 @@ export default function SolucoesPage() {
               </thead>
               <tbody>
                 {resumoProdutos.map((p) => (
-                  <tr key={p.id} className={cn("border-t align-top hover:bg-muted/30 transition-colors", `sol-${p.id}`)}>
+                  <tr key={p.id} className={cn("align-top even:bg-foreground/[0.02] hover:bg-muted/30 transition-colors", `sol-${p.id}`)}>
                     <td className="px-5 py-4 font-anek font-bold text-[hsl(var(--sol-accent,var(--primary)))] whitespace-nowrap">{p.produto}</td>
                     <td className="px-5 py-4 text-foreground">{p.investimento}</td>
                     <td className="px-5 py-4 text-muted-foreground leading-relaxed">{p.paraQuemE}</td>

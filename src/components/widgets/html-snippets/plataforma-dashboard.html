@@ -1,6 +1,6 @@
 <!-- Dashboard do Aluno (HTML / CSS standalone) -->
 <style>
-  .pd { font-family:'Roboto', sans-serif; color:hsl(var(--foreground, 222 47% 11%)); display:flex; flex-direction:column; gap:16px; }
+  .pd { font-family:'Satoshi', sans-serif; color:hsl(var(--foreground, 222 47% 11%)); display:flex; flex-direction:column; gap:16px; }
   .pd-card {
     background:hsl(var(--card, 0 0% 100%));
     border:1px solid hsl(var(--border, 120 10% 88%));
@@ -19,7 +19,7 @@
   }
   .pd-icon svg { width:20px; height:20px; }
   .pd-pill {
-    font:700 10px 'Roboto'; text-transform:uppercase; letter-spacing:.05em;
+    font:700 10px 'Satoshi'; text-transform:uppercase; letter-spacing:.05em;
     padding:2px 8px; border-radius:6px; border:1px solid;
   }
   .pd-pill.s {
@@ -32,12 +32,12 @@
     color:hsl(var(--warning, 35 95% 42%));
     border-color:hsl(var(--warning, 35 95% 42%) / 0.3);
   }
-  .pd-value { font:700 24px/1 'Anek Latin'; color:hsl(var(--foreground, 222 47% 11%)); margin:0; }
-  .pd-label { font:12px 'Roboto'; color:hsl(var(--muted-foreground, 110 10% 40%)); margin-top:4px; }
+  .pd-value { font:700 24px/1 'Satoshi'; color:hsl(var(--foreground, 222 47% 11%)); margin:0; }
+  .pd-label { font:12px 'Satoshi'; color:hsl(var(--muted-foreground, 110 10% 40%)); margin-top:4px; }
 
   .pd-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
   @media (max-width:768px) { .pd-row { grid-template-columns:1fr; } }
-  .pd-title { font:700 18px 'Anek Latin'; margin:0 0 12px; color:hsl(var(--foreground, 222 47% 11%)); }
+  .pd-title { font:700 18px 'Satoshi'; margin:0 0 12px; color:hsl(var(--foreground, 222 47% 11%)); }
 
   .pd-ring { display:flex; gap:24px; align-items:center; flex-wrap:wrap; }
   .pd-svg { width:128px; height:128px; transform:rotate(-90deg); flex-shrink:0; }
@@ -46,18 +46,18 @@
     position:absolute; inset:0; display:flex; flex-direction:column;
     align-items:center; justify-content:center; text-align:center;
   }
-  .pd-ring-text .pct { font:700 22px 'Anek Latin'; color:hsl(var(--foreground, 222 47% 11%)); line-height:1; }
-  .pd-ring-text .lbl { font:700 10px 'Roboto'; text-transform:uppercase; letter-spacing:.1em; color:hsl(var(--muted-foreground, 110 10% 40%)); margin-top:4px; }
+  .pd-ring-text .pct { font:700 22px 'Satoshi'; color:hsl(var(--foreground, 222 47% 11%)); line-height:1; }
+  .pd-ring-text .lbl { font:700 10px 'Satoshi'; text-transform:uppercase; letter-spacing:.1em; color:hsl(var(--muted-foreground, 110 10% 40%)); margin-top:4px; }
 
   .pd-mods { flex:1; min-width:200px; display:flex; flex-direction:column; gap:12px; }
-  .pd-mods .summary { font:12px 'Roboto'; color:hsl(var(--muted-foreground, 110 10% 40%)); }
+  .pd-mods .summary { font:12px 'Satoshi'; color:hsl(var(--muted-foreground, 110 10% 40%)); }
   .pd-mods .summary b { color:hsl(var(--foreground, 222 47% 11%)); }
   .pd-mod {
     display:flex; justify-content:space-between; align-items:center;
-    font:700 12px 'Roboto'; gap:8px;
+    font:700 12px 'Satoshi'; gap:8px;
   }
   .pd-mod .name { color:hsl(var(--foreground, 222 47% 11%)); }
-  .pd-mod .status { font:700 10px 'Roboto'; text-transform:uppercase; letter-spacing:.05em; color:hsl(var(--muted-foreground, 110 10% 40%)); }
+  .pd-mod .status { font:700 10px 'Satoshi'; text-transform:uppercase; letter-spacing:.05em; color:hsl(var(--muted-foreground, 110 10% 40%)); }
   .pd-mod .status.done { color:hsl(var(--success, 142 71% 45%)); }
   .pd-bar {
     height:6px; background:hsl(var(--muted, 120 10% 95%));
@@ -81,14 +81,14 @@
   }
   .pd-week-l {
     display:flex; gap:8px; margin-top:8px;
-    font:10px 'Roboto'; color:hsl(var(--muted-foreground, 110 10% 40%));
+    font:10px 'Satoshi'; color:hsl(var(--muted-foreground, 110 10% 40%));
     text-transform:uppercase; letter-spacing:.05em;
   }
   .pd-week-l span { flex:1; text-align:center; }
 
   .pd-row-h { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
   .pd-badge-count {
-    font:700 10px 'Roboto'; padding:4px 10px; border-radius:999px;
+    font:700 10px 'Satoshi'; padding:4px 10px; border-radius:999px;
     border:1px solid hsl(var(--border, 120 10% 88%));
     color:hsl(var(--muted-foreground, 110 10% 40%));
   }
@@ -120,7 +120,7 @@
     background:hsl(var(--muted, 120 10% 95%));
     color:hsl(var(--muted-foreground, 110 10% 40%));
   }
-  .pd-badge p { font:700 12px 'Anek Latin'; margin:0; text-align:center; color:hsl(var(--foreground, 222 47% 11%)); }
+  .pd-badge p { font:700 12px 'Satoshi'; margin:0; text-align:center; color:hsl(var(--foreground, 222 47% 11%)); }
   .pd-badge.locked p { color:hsl(var(--muted-foreground, 110 10% 40%)); }
 </style>
 

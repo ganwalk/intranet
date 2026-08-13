@@ -185,20 +185,20 @@ export function ContagemRegressiva() {
 
   .cd-content{ flex:1; }
   .cd-pretag{
-    display:inline-block; font-family:'Anek Latin',sans-serif; font-weight:700;
+    display:inline-block; font-family:'Satoshi',sans-serif; font-weight:700;
     font-size:13px; color:hsl(var(--accent)); text-transform:uppercase;
     letter-spacing:1.5px; background:hsl(var(--accent) / .1);
     border:1px solid hsl(var(--accent) / .2);
     padding:6px 14px; border-radius:.5rem; margin-bottom:15px;
   }
   .cd-title{
-    font-family:'Anek Latin',sans-serif; font-weight:600;
+    font-family:'Satoshi',sans-serif; font-weight:600;
     font-size:clamp(1.875rem, 4vw, 41px);
     text-transform:uppercase; letter-spacing:-.025em;
     color:hsl(var(--foreground)); margin:0 0 .75rem 0; line-height:1.1;
   }
   .cd-sub{
-    font-family:'Roboto',sans-serif; font-size:17px;
+    font-family:'Satoshi',sans-serif; font-size:17px;
     color:hsl(var(--muted-foreground)); max-width:500px;
     margin:0 0 2rem 0; line-height:1.6;
   }
@@ -212,12 +212,12 @@ export function ContagemRegressiva() {
     align-items:center; box-shadow:0 1px 2px rgba(0,0,0,.05);
   }
   .cd-unit span{
-    font-family:'Anek Latin',sans-serif; font-weight:800;
+    font-family:'Satoshi',sans-serif; font-weight:800;
     font-size:42px; line-height:1; color:hsl(var(--foreground));
     margin-bottom:.25rem;
   }
   .cd-unit small{
-    font-family:'Roboto',sans-serif; font-size:9px; font-weight:700;
+    font-family:'Satoshi',sans-serif; font-size:9px; font-weight:700;
     text-transform:uppercase; letter-spacing:1px; color:hsl(var(--accent));
   }
 

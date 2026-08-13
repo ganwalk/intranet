@@ -445,8 +445,8 @@ const progressNow = 22; // indicações atuais (entre marco 3 e 4)
   .trilha-node.next { background:#fff; color:hsl(var(--primary)); border-color:hsl(var(--primary));
     box-shadow:0 0 10px hsl(var(--primary)/.2); }
   .trilha-label { width:88px; text-align:center; margin-top:12px; }
-  .trilha-label .ind { font:700 10px/1 'Roboto'; text-transform:uppercase; letter-spacing:.08em; color:#6b7280; }
-  .trilha-label .title { font:400 11px/1.2 'Roboto'; color:#111; margin-top:2px; }
+  .trilha-label .ind { font:700 10px/1 'Satoshi'; text-transform:uppercase; letter-spacing:.08em; color:#6b7280; }
+  .trilha-label .title { font:400 11px/1.2 'Satoshi'; color:#111; margin-top:2px; }
 
   .timeline-scrollbar::-webkit-scrollbar { height:4px; }
   .timeline-scrollbar::-webkit-scrollbar-thumb { background:hsl(var(--primary)/.3); border-radius:9999px; }

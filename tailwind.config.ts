@@ -18,9 +18,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        anek: ['"Anek Latin"', "sans-serif"],
-        roboto: ['"Roboto"', "sans-serif"],
-        sora: ['"Sora"', "sans-serif"],
+        anek: ['"Satoshi"', "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        roboto: ['"Satoshi"', "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        sora: ['"Satoshi"', "-apple-system", "BlinkMacSystemFont", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

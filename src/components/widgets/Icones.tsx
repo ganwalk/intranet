@@ -187,7 +187,7 @@ export function Icones() {
 </a>
 
 <style>
-  .section-title { font-family:'Anek Latin',sans-serif; font-size:18px; font-weight:700; margin:2rem 0 1rem; }
+  .section-title { font-family:'Satoshi',sans-serif; font-size:18px; font-weight:700; margin:2rem 0 1rem; }
   .section-desc { color:hsl(var(--muted-foreground)); margin-bottom:1rem; }
   .catalog-btn {
     display:inline-flex; align-items:center; gap:.5rem;

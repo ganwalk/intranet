@@ -130,7 +130,7 @@ export default function TomEVozPage() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="w-72 p-0 overflow-y-auto">
-                <div className="p-4 border-b">
+                <div className="p-4 bg-foreground/[0.03]">
                   <div className="flex items-center gap-3">
                     <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-foreground/10">
                       <BookOpen className="h-5 w-5" />

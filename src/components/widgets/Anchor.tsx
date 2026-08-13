@@ -92,7 +92,7 @@ useEffect(() => {
 </nav>
 
 <style>
-  #anchor-nav a { display:block; padding:6px 12px; margin-left:-1px; border-left:2px solid transparent; color:#6b7280; font-family:'Roboto'; text-decoration:none; }
+  #anchor-nav a { display:block; padding:6px 12px; margin-left:-1px; border-left:2px solid transparent; color:#6b7280; font-family:'Satoshi'; text-decoration:none; }
   #anchor-nav a.active { border-color:hsl(var(--primary)); color:hsl(var(--primary)); font-weight:600; }
 </style>
 

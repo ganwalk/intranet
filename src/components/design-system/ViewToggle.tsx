@@ -5,7 +5,7 @@ export function ViewToggle() {
   const { view, setView, availableViews } = useSystemView();
 
   return (
-    <div className="bg-muted/50 p-1 rounded-lg flex relative border shadow-inner overflow-hidden">
+    <div className="bg-muted/50 p-1 rounded-lg flex relative shadow-inner overflow-hidden">
       {availableViews.map((v) => (
         <button
           key={v}

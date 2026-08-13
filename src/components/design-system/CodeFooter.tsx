@@ -28,7 +28,7 @@ export function CodeFooter({ title, hasCode, effectiveCode, htmlCode, aiFoodProm
   };
 
   return (
-    <div className="border-t">
+    <div>
       <button
         onClick={() => setShowCode((s) => !s)}
         aria-expanded={showCode}
@@ -87,8 +87,8 @@ export function CodeFooter({ title, hasCode, effectiveCode, htmlCode, aiFoodProm
           )}
 
           {codeTab === "ai-food" ? (
-            <div className="border-t border-emerald-900/40 bg-[#0a1628]">
-              <div className="flex items-center justify-between px-5 py-3 border-b border-emerald-900/30">
+            <div className="bg-[#0a1628]">
+              <div className="flex items-center justify-between px-5 py-3">
                 <div className="flex items-center gap-2">
                   <Bot className="h-4 w-4 text-emerald-400" />
                   <span className="text-xs font-bold font-roboto uppercase tracking-wider text-emerald-400">
@@ -104,7 +104,7 @@ export function CodeFooter({ title, hasCode, effectiveCode, htmlCode, aiFoodProm
                     "inline-flex items-center gap-1.5 h-7 px-3 rounded-md text-[11px] font-bold font-roboto uppercase tracking-wider transition-all",
                     aiFoodCopied
                       ? "bg-emerald-500 text-white"
-                      : "bg-emerald-900/60 text-emerald-300 hover:bg-emerald-800/80 border border-emerald-700/50"
+                      : "bg-emerald-900/60 text-emerald-300 hover:bg-emerald-800/80"
                   )}
                 >
                   {aiFoodCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
@@ -121,7 +121,7 @@ export function CodeFooter({ title, hasCode, effectiveCode, htmlCode, aiFoodProm
             <CodeBlock
               code={codeTab === "html" && htmlCode ? htmlCode : effectiveCode}
               language={codeTab === "html" && htmlCode ? "html" : "tsx"}
-              className="border-0 rounded-none border-t"
+              className="border-0 rounded-none"
             />
           )}
         </div>

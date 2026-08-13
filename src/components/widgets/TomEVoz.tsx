@@ -17,7 +17,7 @@ import { TeamPhoto } from "@/components/TeamPhoto";
 
 function SectionTitle({ icon: Icon, children }: {icon: React.ElementType;children: React.ReactNode;}) {
   return (
-    <div className="flex items-center gap-3 mb-6 border-b pb-4">
+    <div className="flex items-center gap-3 mb-6 pb-4">
       <Icon className="h-6 w-6 text-accent shrink-0" />
       <h2 className="font-bold font-anek text-2xl md:text-3xl leading-tight text-foreground">{children}</h2>
     </div>);
@@ -34,7 +34,7 @@ function P({ children }: {children: React.ReactNode;}) {
 
 function CardBox({ accent, children }: {accent?: boolean;children: React.ReactNode;}) {
   return (
-    <div className={`rounded-2xl p-6 md:p-8 ${accent ? "glass-panel !bg-primary/10 !border-primary/20" : "glass-panel"}`}>
+    <div className={`rounded-2xl p-6 md:p-8 ${accent ? "glass-panel !bg-primary/10" : "glass-panel"}`}>
       {children}
     </div>);
 
@@ -57,7 +57,7 @@ function BulletList({ items, icon }: {items: string[];icon?: "check" | "x" | "ar
 
 function ProibidoCard({ proibido, motivo }: {proibido: string;motivo: string;}) {
   return (
-    <div className="rounded-xl border p-4 bg-card flex flex-col sm:flex-row gap-3">
+    <div className="rounded-xl p-4 bg-card shadow-sm flex flex-col sm:flex-row gap-3">
       <div className="flex items-start gap-2 sm:w-1/2">
         <XCircle className="h-4 w-4 mt-0.5 shrink-0 text-destructive" />
         <span className="text-sm font-roboto font-semibold text-foreground/80">{proibido}</span>
@@ -75,7 +75,7 @@ function DataTable({ headers, rows }: {headers: string[];rows: string[][];}) {
     <div className="overflow-x-auto">
       <table className="w-full text-sm">
         <thead>
-          <tr className="border-b">
+          <tr>
             {headers.map((h, i) =>
             <th key={i} className="text-left py-2 pr-4 font-bold font-anek text-foreground/60 uppercase tracking-wider text-xs">{h}</th>
             )}
@@ -83,7 +83,7 @@ function DataTable({ headers, rows }: {headers: string[];rows: string[][];}) {
         </thead>
         <tbody>
           {rows.map((row, i) =>
-          <tr key={i} className="border-b last:border-0">
+          <tr key={i} className="even:bg-foreground/[0.02]">
               {row.map((cell, j) =>
             <td key={j} className="py-3 pr-4 font-roboto text-foreground/80">{cell}</td>
             )}
@@ -200,8 +200,8 @@ export function TomEVoz() {
           <SectionTitle icon={AlertTriangle}>Exemplos de erros e correções</SectionTitle>
           <div className="space-y-4">
             {Data.vozFundador.exemplosErros.map((e, i) =>
-            <div key={i} className="rounded-xl border overflow-hidden">
-                <div className="bg-destructive/10 p-4 border-b border-destructive/20">
+            <div key={i} className="rounded-xl overflow-hidden shadow-sm">
+                <div className="bg-destructive/10 p-4">
                   <div className="flex items-start gap-2">
                     <XCircle className="h-4 w-4 mt-0.5 shrink-0 text-destructive" />
                     <div>
@@ -210,7 +210,7 @@ export function TomEVoz() {
                     </div>
                   </div>
                 </div>
-                <div className="bg-primary/5 p-4 border-b">
+                <div className="bg-primary/5 p-4">
                   <div className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 mt-0.5 shrink-0 text-accent" />
                     <div>
@@ -234,7 +234,7 @@ export function TomEVoz() {
       {/*  ÁREAS DA EMPRESA                                              */}
       {/* ============================================================= */}
 
-      <div className="pt-[30px] pb-[45px] border-t border-border mt-[15px]">
+      <div className="pt-[30px] pb-[45px] mt-[15px]">
         <h2 className="text-2xl md:text-4xl font-bold font-anek tracking-tight text-foreground mb-6">Áreas da Empresa</h2>
         <SubTitle>A voz que unifica diferentes áreas e os tons que as diferenciam</SubTitle>
         <P>Vale ressaltar que a voz é a identidade da empresa, portanto, é única e imutável. Por esse motivo, trouxemos a forma de diferentes áreas se comunicarem, mudando o tom, mas mantendo a identidade da marca de ponta a ponta.</P>
@@ -271,7 +271,7 @@ export function TomEVoz() {
           <P>{Data.canaisData.intro}</P>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
             {Data.canaisData.canais.map((c) =>
-            <div key={c.nome} className="rounded-xl border p-5 bg-muted/30 hover:border-accent/30 transition-colors">
+            <div key={c.nome} className="rounded-xl p-5 bg-muted/30 hover:bg-muted/50 transition-colors">
                 <h4 className="font-bold font-anek mb-2">{c.nome}</h4>
                 <p className="text-sm text-foreground/80 font-roboto leading-relaxed">{c.descricao}</p>
               </div>
@@ -280,7 +280,7 @@ export function TomEVoz() {
         </CardBox>
 
         {/* Dont's do Marketing */}
-        <div className="rounded-xl border border-destructive/20 p-6 md:p-8 bg-destructive/5">
+        <div className="rounded-xl p-6 md:p-8 bg-destructive/5">
           <SectionTitle icon={XCircle}>{Data.marketing.donts.titulo}</SectionTitle>
           <P>{Data.marketing.donts.intro}</P>
           <DataTable
@@ -383,7 +383,7 @@ export function TomEVoz() {
           )}
         </CardBox>
 
-        <div className="rounded-xl border border-destructive/20 p-6 md:p-8 bg-destructive/5">
+        <div className="rounded-xl p-6 md:p-8 bg-destructive/5">
           <SubTitle>{Data.atendimento.diretrizesLinguisticas.titulo}</SubTitle>
           <P>{Data.atendimento.diretrizesLinguisticas.intro}</P>
           <DataTable
@@ -442,7 +442,7 @@ export function TomEVoz() {
           <P>{Data.consultoria.gestaoCrises.paragrafo}</P>
         </CardBox>
 
-        <div className="rounded-xl border border-destructive/20 p-6 md:p-8 bg-destructive/5">
+        <div className="rounded-xl p-6 md:p-8 bg-destructive/5">
           <SectionTitle icon={XCircle}>{Data.consultoria.comoNaoComunicar.titulo}</SectionTitle>
           <P>{Data.consultoria.comoNaoComunicar.intro}</P>
           <div className="space-y-3">

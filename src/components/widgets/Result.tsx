@@ -70,10 +70,10 @@ function Result({ status }: { status: ResultStatus }) {
   .result-icon.success { background:rgba(34,197,94,.15); color:#16a34a; }
   .result-icon.error { background:rgba(239,68,68,.15); color:#dc2626; }
   .result-icon.warn { background:rgba(245,158,11,.15); color:#d97706; }
-  .result h3 { font-family:'Anek Latin'; font-size:20px; font-weight:700; margin:0 0 8px; }
+  .result h3 { font-family:'Satoshi'; font-size:20px; font-weight:700; margin:0 0 8px; }
   .result p { color:#6b7280; font-size:14px; margin:0 0 24px; }
   .result-actions { display:flex; gap:8px; justify-content:center; }
-  .result-actions button { padding:8px 16px; border-radius:8px; font-family:'Roboto'; font-weight:700; font-size:12px; text-transform:uppercase; cursor:pointer; border:1px solid #e5e7eb; background:#fff; }
+  .result-actions button { padding:8px 16px; border-radius:8px; font-family:'Satoshi'; font-weight:700; font-size:12px; text-transform:uppercase; cursor:pointer; border:1px solid #e5e7eb; background:#fff; }
   .result-actions .primary { background:hsl(var(--primary)); color:#fff; border:none; }
 </style>
 

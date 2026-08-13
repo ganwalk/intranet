@@ -167,7 +167,7 @@ const onDrop = (e: React.DragEvent) => {
   ondragleave="this.classList.remove('drag')"
   ondrop="event.preventDefault(); this.classList.remove('drag'); addFiles(event.dataTransfer.files)"
   style="border:2px dashed #d1d5db; border-radius:12px; padding:32px; text-align:center; cursor:pointer; background:#f9fafb;">
-  <p style="font-family:'Anek Latin'; font-weight:600;">⬆ Arraste imagens ou clique para selecionar</p>
+  <p style="font-family:'Satoshi'; font-weight:600;">⬆ Arraste imagens ou clique para selecionar</p>
   <p style="font-size:12px; color:#6b7280;">PNG, JPG, WEBP — múltiplos arquivos</p>
   <input id="finput" type="file" multiple accept="image/*" style="display:none" onchange="addFiles(this.files)" />
 </div>
@@ -179,7 +179,7 @@ const onDrop = (e: React.DragEvent) => {
   .upl-card { position:relative; border:1px solid #e5e7eb; border-radius:8px; overflow:hidden; background:#fff; }
   .upl-card img { width:100%; aspect-ratio:1; object-fit:cover; display:block; }
   .upl-card__rm { position:absolute; top:6px; right:6px; width:24px; height:24px; border-radius:50%; background:rgba(255,255,255,.9); border:none; cursor:pointer; }
-  .upl-card__name { padding:6px 8px; font-size:11px; font-family:'Roboto'; }
+  .upl-card__name { padding:6px 8px; font-size:11px; font-family:'Satoshi'; }
 </style>
 
 <script>

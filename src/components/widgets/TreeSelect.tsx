@@ -257,7 +257,7 @@ const toggleExpand = (k: string) => {
 </div>`}
       htmlCode={`<div style="position:relative; max-width:400px;">
   <button id="ts-trigger" onclick="document.getElementById('ts-pop').classList.toggle('open')"
-    style="width:100%; display:flex; justify-content:space-between; padding:10px 14px; background:#fff; border:1px solid #e5e7eb; border-radius:8px; font-family:'Roboto'; font-size:14px; cursor:pointer;">
+    style="width:100%; display:flex; justify-content:space-between; padding:10px 14px; background:#fff; border:1px solid #e5e7eb; border-radius:8px; font-family:'Satoshi'; font-size:14px; cursor:pointer;">
     <span id="ts-label">Selecionar categoria</span><span>▾</span>
   </button>
   <div id="ts-pop" style="display:none; position:absolute; top:calc(100% + 4px); left:0; right:0; background:#fff; border:1px solid #e5e7eb; border-radius:8px; box-shadow:0 8px 16px rgba(0,0,0,.08); padding:8px; max-height:280px; overflow:auto; z-index:10;">
@@ -267,7 +267,7 @@ const toggleExpand = (k: string) => {
 
 <style>
   #ts-pop.open { display:block; }
-  .ts-node { display:flex; align-items:center; gap:4px; padding:6px 8px; border-radius:6px; cursor:pointer; font-family:'Roboto'; font-size:14px; }
+  .ts-node { display:flex; align-items:center; gap:4px; padding:6px 8px; border-radius:6px; cursor:pointer; font-family:'Satoshi'; font-size:14px; }
   .ts-node:hover { background:#f3f4f6; }
   .ts-node.selected { background:rgba(11,41,4,.1); color:hsl(var(--primary)); font-weight:600; }
 </style>

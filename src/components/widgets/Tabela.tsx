@@ -38,7 +38,7 @@ export function TabelaWidget() {
 </div>`}
       htmlCode={`<style>
   .geist-table-wrap { border:1px solid hsl(var(--border, 120 10% 88%)); border-radius:12px; background:hsl(var(--card, 0 0% 100%)); overflow:hidden; }
-  .geist-table { width:100%; border-collapse:collapse; font-family:'Roboto', sans-serif; font-size:14px; }
+  .geist-table { width:100%; border-collapse:collapse; font-family:'Satoshi', sans-serif; font-size:14px; }
   .geist-table thead th {
     text-align:left; padding:14px 20px;
     font-size:12px; font-weight:500; text-transform:uppercase; letter-spacing:.05em;
@@ -119,7 +119,7 @@ export function TabelaBorderedWidget() {
 </div>`}
       htmlCode={`<style>
   .geist-table-wrap { border:1px solid hsl(var(--border, 120 10% 88%)); border-radius:12px; background:hsl(var(--card, 0 0% 100%)); overflow:hidden; }
-  .geist-table-b { width:100%; border-collapse:collapse; font-family:'Roboto', sans-serif; font-size:14px; }
+  .geist-table-b { width:100%; border-collapse:collapse; font-family:'Satoshi', sans-serif; font-size:14px; }
   .geist-table-b thead th {
     text-align:left; padding:14px 20px;
     font-size:12px; font-weight:500; text-transform:uppercase; letter-spacing:.05em;

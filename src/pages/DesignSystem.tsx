@@ -92,7 +92,6 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { Switch } from "@/components/ui/switch";
-import { Separator } from "@/components/ui/separator";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
@@ -415,7 +414,7 @@ export default function DesignSystemPage() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="w-72 p-0 overflow-y-auto">
-                <div className="p-4 border-b">
+                <div className="p-4 bg-foreground/[0.03]">
                   <div className="flex items-center gap-3">
                     <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-foreground/10">
                       <Palette className="h-5 w-5" />
@@ -429,7 +428,7 @@ export default function DesignSystemPage() {
 
                 <div className="px-3 pt-3">
                   {/* Seletor de produto */}
-                  <div className="pb-3 mb-2 border-b">
+                  <div className="pb-3 mb-2">
                     <button
                       type="button"
                       onClick={() => setBrandOpen((o) => !o)}
@@ -537,7 +536,7 @@ export default function DesignSystemPage() {
         {/* Sidebar Nav — Desktop only */}
         <nav className={sidebarNavClass}>
           {/* Seletor de produto */}
-          <div className="px-2 pb-3 mb-3 border-b">
+          <div className="px-2 pb-3 mb-3">
             <button
               type="button"
               onClick={() => setBrandOpen((o) => !o)}
@@ -627,7 +626,7 @@ export default function DesignSystemPage() {
           <section id="marca">
             <h2 className="text-2xl font-bold mb-2">Marca & Logos</h2>
             <p className="text-muted-foreground mb-6">Repositório oficial das aplicações da marca. Utilize sempre os arquivos originais sem distorções.</p>
-            <div className="rounded-xl border border-border bg-muted/40 p-4 md:p-5 mb-6 flex flex-col md:flex-row md:items-center gap-3 md:gap-4">
+            <div className="rounded-xl bg-muted/40 p-4 md:p-5 mb-6 flex flex-col md:flex-row md:items-center gap-3 md:gap-4">
               <Info className="h-5 w-5 text-primary shrink-0 mt-0.5 md:mt-0" />
               <div className="flex-1">
                 <p className="text-sm text-foreground leading-relaxed">
@@ -638,47 +637,38 @@ export default function DesignSystemPage() {
             <SectionThemeToggle bare title="Marca & Logos" description="Aplicações oficiais da marca. Use sempre os arquivos originais sem distorções nem recortes." code={marcaLogosSrc} htmlCode={marcaLogosHtml}><MarcaLogos /></SectionThemeToggle>
           </section>
 
-          <Separator />
           <section id="typography">
             <h2 className="text-2xl font-bold mb-2">Tipografia</h2>
-            <p className="text-muted-foreground mb-6">Três famílias tipográficas: <strong>Anek Latin</strong> (títulos), <strong>Roboto</strong> (corpo, labels e legendas) e <strong>Sora</strong> (exclusiva para botões).</p>
+            <p className="text-muted-foreground mb-6">Uma única família tipográfica — <strong>Satoshi</strong> — usada em títulos, corpo, labels e botões. A hierarquia vem do peso e do tamanho, não da mistura de fontes.</p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-              {[
-                { name: "Anek Latin", role: "Títulos & Headers", weights: "400–800", url: "https://fonts.google.com/specimen/Anek+Latin" },
-                { name: "Roboto", role: "Corpo, labels & legendas", weights: "300, 400, 500, 700", url: "https://fonts.google.com/specimen/Roboto" },
-                { name: "Sora", role: "Exclusiva para botões (CTA)", weights: "700", url: "https://fonts.google.com/specimen/Sora" },
-              ].map((font) => (
-                <a
-                  key={font.name}
-                  href={font.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border rounded-xl p-5 bg-muted/30 hover:bg-muted/60 transition-colors group block"
-                >
-                  <p className="text-sm font-bold text-foreground group-hover:text-accent transition-colors">{font.name}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{font.role}</p>
-                  <p className="text-xs text-muted-foreground">Pesos: {font.weights}</p>
-                  <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-accent mt-3">
-                    Google Fonts ↗
-                  </span>
-                </a>
-              ))}
+            <div className="mb-8">
+              <a
+                href="https://www.fontshare.com/fonts/satoshi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-panel rounded-xl p-5 hover:bg-foreground/5 transition-colors group block max-w-sm"
+              >
+                <p className="text-sm font-bold text-foreground group-hover:text-accent transition-colors">Satoshi</p>
+                <p className="text-xs text-muted-foreground mt-1">Títulos, corpo, labels e botões</p>
+                <p className="text-xs text-muted-foreground">Pesos: 300–900</p>
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-accent mt-3">
+                  Fontshare ↗
+                </span>
+              </a>
             </div>
 
             <div className="space-y-3 overflow-hidden">
-              <h1 className="text-3xl md:text-5xl font-bold tracking-tight font-anek">Título 1 — Anek Latin Bold</h1>
-              <h2 className="text-2xl md:text-3xl font-bold font-anek">Título 2 — Anek Latin Bold</h2>
-              <h3 className="text-xl md:text-2xl font-semibold font-anek">Título 3 — Anek Latin SemiBold</h3>
-              <h4 className="text-lg md:text-xl font-semibold font-anek">Título 4 — Anek Latin SemiBold</h4>
-              <p className="text-base font-roboto">Corpo — Roboto Regular 16px. Investir com inteligência começa aqui.</p>
-              <p className="text-sm text-muted-foreground font-roboto">Texto pequeno — Roboto Regular 14px. Texto secundário e descrições.</p>
-              <p className="text-xs text-muted-foreground uppercase tracking-wider font-bold font-roboto">Label — Roboto Bold 12px Uppercase</p>
-              <button className="bg-primary text-primary-foreground px-4 md:px-6 py-2.5 md:py-3 font-sora font-bold text-[13px] uppercase tracking-wider rounded-xl">Botão — Sora Bold 13px (exclusivo)</button>
+              <h1 className="text-3xl md:text-5xl font-bold tracking-tight font-anek">Título 1 — Satoshi Bold</h1>
+              <h2 className="text-2xl md:text-3xl font-bold font-anek">Título 2 — Satoshi Bold</h2>
+              <h3 className="text-xl md:text-2xl font-semibold font-anek">Título 3 — Satoshi Medium</h3>
+              <h4 className="text-lg md:text-xl font-semibold font-anek">Título 4 — Satoshi Medium</h4>
+              <p className="text-base font-roboto">Corpo — Satoshi Regular 16px. Investir com inteligência começa aqui.</p>
+              <p className="text-sm text-muted-foreground font-roboto">Texto pequeno — Satoshi Regular 14px. Texto secundário e descrições.</p>
+              <p className="text-xs text-muted-foreground uppercase tracking-wider font-bold font-roboto">Label — Satoshi Bold 12px Uppercase</p>
+              <button className="bg-primary text-primary-foreground px-4 md:px-6 py-2.5 md:py-3 font-sora font-bold text-[13px] uppercase tracking-wider rounded-xl">Botão — Satoshi Bold 13px</button>
             </div>
           </section>
 
-          <Separator />
           <section id="colors">
             <h2 className="text-2xl font-bold mb-2">Cores</h2>
             <p className="text-muted-foreground mb-6">Paleta de cores semânticas do tema {brand === "marca-a" ? "Marca A (Vermelho)" : "Marca B (Azul)"}</p>
@@ -743,7 +733,7 @@ export default function DesignSystemPage() {
               </div>
             </div>
 
-            <div className="mt-12 pt-8 border-t border-border">
+            <div className="mt-12">
               <h3 className="text-xl font-bold mb-2">Paleta para Dados e Gráficos</h3>
               <p className="text-muted-foreground mb-6">
                 Conjunto expandido de cores derivado da identidade da marca, usado em tabelas com múltiplas categorias,
@@ -753,14 +743,12 @@ export default function DesignSystemPage() {
             </div>
           </section>
 
-          <Separator />
           <section id="icons">
             <h2 className="text-2xl font-bold mb-2">Ícones</h2>
             <p className="text-muted-foreground mb-6">Biblioteca de ícones Phosphor Icons utilizada em todo o produto.</p>
             <SectionThemeToggle bare title="Ícones Phosphor" description="Biblioteca Phosphor Icons utilizada em todo o produto. Inclui variantes regular, bold e fill." code={iconesSrc} selfDocumented><Icones /></SectionThemeToggle>
           </section>
 
-          <Separator />
           <section id="elevation">
             <h2 className="text-2xl font-bold mb-2">Sombras & Elevação</h2>
             <p className="text-muted-foreground mb-6">Escala de sombras para hierarquia de profundidade. O hover oficial de cards usa <code className="bg-muted px-1 rounded text-sm font-mono">0 8px 24px rgba(0,0,0,0.06)</code> com <code className="bg-muted px-1 rounded text-sm font-mono">translateY(-2px)</code>.</p>
@@ -807,7 +795,6 @@ export default function DesignSystemPage() {
             </ComponentShowcase>
           </section>
 
-          <Separator />
           <section id="motion">
             <h2 className="text-2xl font-bold mb-2">Motion & Animações</h2>
             <p className="text-muted-foreground mb-6">Durações e easings padronizados. Animações via JS devem respeitar <code className="bg-muted px-1 rounded text-sm font-mono">prefers-reduced-motion</code> (hook <code className="bg-muted px-1 rounded text-sm font-mono">useReducedMotion</code>); as de CSS já são neutralizadas globalmente.</p>
@@ -866,14 +853,12 @@ export default function DesignSystemPage() {
 
 
           {/* ===== LAYOUT & ESTRUTURA ===== */}
-          <Separator />
           <section id="layout">
             <h2 className="text-2xl font-bold mb-2">Layout & Espaçamento</h2>
             <p className="text-muted-foreground mb-6">Ritmo vertical e alinhamento baseados em múltiplos de 15px.</p>
             <SectionThemeToggle bare title="Layout & Espaçamento" description="Ritmo vertical e alinhamento baseados em múltiplos de 15px. Container max-w-1200px, padding inline 24px, seções alternam entre #FFF → #F2F2F2 → #000." code={layoutEspacamentoSrc} selfDocumented><LayoutEspacamento /></SectionThemeToggle>
           </section>
 
-          <Separator />
           <section id="cards-containers">
             <h2 className="text-2xl font-bold mb-2">Cards & Containers</h2>
             <p className="text-muted-foreground mb-6">Regras para criar cards e áreas destacadas dentro de dobras institucionais.</p>
@@ -889,11 +874,10 @@ export default function DesignSystemPage() {
 
 
           {/* ===== BOTÕES & AÇÕES ===== */}
-          <Separator />
           <section id="buttons">
             <h2 className="text-2xl font-bold mb-2">Botões</h2>
             <p className="text-muted-foreground mb-6">
-              Fonte Sora Bold em caixa alta, border-radius de 5px e hover que revela a borda
+              Fonte Satoshi Bold em caixa alta, border-radius de 5px e hover com leve realce de fundo
               (fundo transparente). Pílulas (rounded-full) só são permitidas em ferramentas.
             </p>
             <div className="space-y-6">
@@ -913,7 +897,7 @@ import { ArrowRight } from "lucide-react";
                 htmlCode={`<!-- Base compartilhada por todas as variantes -->
 <style>
   .btn { display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;
-    height:40px; padding:0.5rem 1.25rem; border-radius:5px; font-family:'Sora',sans-serif;
+    height:40px; padding:0.5rem 1.25rem; border-radius:5px; font-family:'Satoshi',sans-serif;
     font-weight:600; text-transform:uppercase; font-size:14px;
     border:1px solid transparent; cursor:pointer; transition:all 0.2s; }
   .btn-lg { padding:1rem 2rem; height:48px; font-size:14px; letter-spacing:0.05em; }
@@ -983,7 +967,7 @@ import { ArrowRight } from "lucide-react";
                 htmlCode={`<style>
   .btn { display:inline-flex; align-items:center; justify-content:center;
     background:var(--primary,#AD1522); color:#fff; border:1px solid var(--primary,#AD1522);
-    border-radius:5px; font-family:'Sora',sans-serif; font-weight:700; text-transform:uppercase;
+    border-radius:5px; font-family:'Satoshi',sans-serif; font-weight:700; text-transform:uppercase;
     cursor:pointer; }
   .btn-sm      { height:36px; padding:0 0.75rem;  font-size:12px; }
   .btn-default { height:40px; padding:0 1.25rem;  font-size:14px; }
@@ -1007,7 +991,7 @@ import { ArrowRight } from "lucide-react";
                 code={`<div className="bg-[hsl(355_78%_38%)] dark:bg-[hsl(0_0%_18%)] p-8 rounded-lg">
   <Button variant="cta-inverted" size="lg">Começar Agora</Button>
 </div>`}
-                htmlCode={`<div style="background:#AD1522; padding:2rem; border-radius:0.5rem;">\n  <button style="background:#fafafa; color:#AD1522; padding:1rem 2rem; border-radius:5px; font-family:'Sora'; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; font-size:14px; border:1px solid #fafafa; cursor:pointer;">COMEÇAR AGORA</button>\n</div>\n<!-- Hover: background #e0e0e0 (atenuação leve, mantém contraste) -->\n<!-- Tema escuro: background #F07580, texto #0D0D0D, hover clareia p/ #F5A3AC -->`}>
+                htmlCode={`<div style="background:#AD1522; padding:2rem; border-radius:0.5rem;">\n  <button style="background:#fafafa; color:#AD1522; padding:1rem 2rem; border-radius:5px; font-family:'Satoshi'; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; font-size:14px; border:1px solid #fafafa; cursor:pointer;">COMEÇAR AGORA</button>\n</div>\n<!-- Hover: background #e0e0e0 (atenuação leve, mantém contraste) -->\n<!-- Tema escuro: background #F07580, texto #0D0D0D, hover clareia p/ #F5A3AC -->`}>
                 <div className="bg-[hsl(355_78%_38%)] dark:bg-[hsl(0_0%_18%)] p-8 rounded-lg flex items-center gap-4 w-full">
                   <Button variant="cta-inverted" size="lg">Começar Agora</Button>
                 </div>
@@ -1015,7 +999,6 @@ import { ArrowRight } from "lucide-react";
             </div>
           </section>
 
-          <Separator />
           <section id="floaters">
             <h2 className="text-2xl font-bold mb-2">Widgets Flutuantes</h2>
             <p className="text-muted-foreground mb-6">Botões flutuantes (WhatsApp, Porquinho da Economia) com animação contínua.</p>
@@ -1024,7 +1007,6 @@ import { ArrowRight } from "lucide-react";
 
 
           {/* ===== SEÇÕES DE PÁGINA ===== */}
-          <Separator />
           <section id="grade">
             <h2 className="text-2xl font-bold mb-2">Grade Curricular</h2>
             <p className="text-muted-foreground mb-6">Abas pill-style com cards translúcidos em grid responsivo.</p>
@@ -1079,42 +1061,36 @@ function showTab(tabId) {
             </ComponentShowcase>
           </section>
 
-          <Separator />
           <section id="countdown">
             <h2 className="text-2xl font-bold mb-2">Contagem Regressiva</h2>
             <p className="text-muted-foreground mb-6">Widget dinâmico focado em escassez, utilizando cards com backdrop-blur e transparência.</p>
             <SectionThemeToggle bare title="Contagem Regressiva" description="Widget de countdown dinâmico focado em escassez. Cards com backdrop-blur e transparência. Exibe dias, horas, minutos e segundos em tempo real." code={contagemRegressivaSrc} selfDocumented><ContagemRegressiva /></SectionThemeToggle>
           </section>
 
-          <Separator />
           <section id="faq">
             <h2 className="text-2xl font-bold mb-2">Dropdown</h2>
             <p className="text-muted-foreground mb-6">Componente global de dropdown para páginas de vendas, com temas claro e escuro.</p>
             <SectionThemeToggle bare title="Dropdown / FAQ" description="Accordion para páginas de vendas com temas claro e escuro. Ícone de + que gira para × na abertura. Transição suave de altura." code={faqDuvidasSrc} selfDocumented><FaqDuvidas /></SectionThemeToggle>
           </section>
 
-          <Separator />
           <section id="pricing">
             <h2 className="text-2xl font-bold mb-2">Tabela de Preços</h2>
             <p className="text-muted-foreground mb-6">Toggle animado com cards translúcidos, badges de desconto e CTA.</p>
             <SectionThemeToggle bare title="Tabela de Preços" description="Toggle animado mensal/anual com cards translúcidos, badge de desconto percentual e CTA primário em destaque." code={tabelaPrecosSrc} htmlCode={tabelaPrecosHtml}><TabelaPrecos /></SectionThemeToggle>
           </section>
 
-          <Separator />
           <section id="journey">
             <h2 className="text-2xl font-bold mb-2">Jornada do Herói</h2>
             <p className="text-muted-foreground mb-6">Timeline interativa com pontos clicáveis e barra de progresso animada.</p>
             <SectionThemeToggle bare title="Jornada do Herói" description="Timeline interativa com pontos clicáveis, barra de progresso animada e painel de conteúdo contextual para cada etapa da jornada." code={jornadaHeroiSrc} htmlCode={jornadaHeroiHtml}><JornadaHeroi /></SectionThemeToggle>
           </section>
 
-          <Separator />
           <section id="site-calc">
             <h2 className="text-2xl font-bold mb-2">Calculadora de Rendimentos</h2>
             <p className="text-muted-foreground mb-6">Widget de simulação para landing pages com tipografia e CTAs do tema Sites.</p>
             <SectionThemeToggle bare title="Calculadora de Rendimentos" description="Widget de simulação para landing pages com slider de valor, resultado animado e CTAs do tema Sites. Identidade visual Marca A/Marca B via contexto de marca." code={calculadoraRendimentosSrc} selfDocumented><CalculadoraRendimentos /></SectionThemeToggle>
           </section>
 
-          <Separator />
           <section id="tool-calc">
             <h2 className="text-2xl font-bold mb-2">Calculadora de Câmbio</h2>
             <p className="text-muted-foreground mb-6">Ferramenta interativa de conversão de moedas com IOF, VET e identidade visual da marca ({brand === "marca-a" ? "Marca A" : "Marca B"}).</p>
@@ -1123,63 +1099,54 @@ function showTab(tabId) {
 
 
           {/* ===== FEEDBACK & OVERLAYS ===== */}
-          <Separator />
           <section id="tooltips">
             <h2 className="text-2xl font-bold mb-2">Tooltips & Popups</h2>
             <p className="text-muted-foreground mb-6">Elementos flutuantes e guias de interação para Landing Pages.</p>
             <SectionThemeToggle bare title="Tooltips & Popups" description="Elementos flutuantes ancorados ao gatilho: tooltip simples (hover), popover com conteúdo rico (clique) e popup de destaque para Landing Pages." code={tooltipsPopupsSrc} selfDocumented><TooltipsPopups /></SectionThemeToggle>
           </section>
 
-          <Separator />
           <section id="notifications">
             <h2 className="text-2xl font-bold mb-2">Notificações</h2>
             <p className="text-muted-foreground mb-6">Pilha persistente de mensagens com tipos semânticos (success / info / warning / error). Diferente do Toast: usadas para fluxos longos como uploads, salvamentos automáticos e alertas de sistema.</p>
             <Notifications />
           </section>
 
-          <Separator />
           <section id="popconfirm">
             <h2 className="text-2xl font-bold mb-2">Popconfirm</h2>
             <p className="text-muted-foreground mb-6">Confirmação inline ancorada ao gatilho — alternativa leve ao Dialog para ações destrutivas rápidas.</p>
             <PopconfirmWidget />
           </section>
 
-          <Separator />
           <section id="spin">
             <h2 className="text-2xl font-bold mb-2">Spin (Loading)</h2>
-            <p className="text-muted-foreground mb-6">Indicador de carregamento com mensagem opcional em Sora uppercase. Inclui modo overlay para encobrir áreas durante operações assíncronas.</p>
+            <p className="text-muted-foreground mb-6">Indicador de carregamento com mensagem opcional em Satoshi uppercase. Inclui modo overlay para encobrir áreas durante operações assíncronas.</p>
             <SpinTipWidget />
           </section>
 
-          <Separator />
           <section id="progress-geist">
             <h2 className="text-2xl font-bold mb-2">Progress Bar</h2>
             <p className="text-muted-foreground mb-6">Barra de progresso minimalista inspirada no Geist: trilha clara, preenchimento sólido e cantos totalmente arredondados.</p>
             <ProgressGeistWidget />
           </section>
 
-          <Separator />
           <section id="skeleton-avancado">
             <h2 className="text-2xl font-bold mb-2">Skeleton Avançado</h2>
             <p className="text-muted-foreground mb-6">Composições prontas de skeletons (lista com avatar, card de conteúdo, tabela) para evitar layout shift durante o carregamento.</p>
             <SkeletonAvancado />
           </section>
 
-          <Separator />
           <section id="empty">
             <h2 className="text-2xl font-bold mb-2">Empty (Estado Vazio)</h2>
             <p className="text-muted-foreground mb-6">Placeholder para listas, buscas e tabelas sem dados, com ícone, descrição e CTA opcional para guiar a próxima ação.</p>
             <EmptyWidget />
           </section>
 
-          <Separator />
           <section id="result">
             <h2 className="text-2xl font-bold mb-2">Result</h2>
             <p className="text-muted-foreground mb-6">Tela de feedback após operações críticas (sucesso, erro, acesso negado) usando tokens semânticos success / error / warning.</p>
             <ResultWidget />
           </section>
 
-          <Separator />
           <section id="dialog">
             <h2 className="text-2xl font-bold mb-2">Modal (Dialog)</h2>
             <p className="text-muted-foreground mb-6">Sobreposição centralizada para formulários curtos e confirmações críticas. Para ações destrutivas, use o <strong>AlertDialog</strong> — ele exige uma escolha explícita (sem fechar clicando fora).</p>
@@ -1268,7 +1235,6 @@ function showTab(tabId) {
             </ComponentShowcase>
           </section>
 
-          <Separator />
           <section id="toast">
             <h2 className="text-2xl font-bold mb-2">Toast</h2>
             <p className="text-muted-foreground mb-6">Mensagem temporária e auto-descartável para feedback imediato de ações. Diferente das <strong>Notificações</strong>, que persistem em pilha para fluxos longos.</p>
@@ -1309,14 +1275,12 @@ const { toast } = useToast();
           </section>
 
 
-          <Separator />
           <section id="drawer-simples">
             <h2 className="text-2xl font-bold mb-2">Drawer</h2>
             <p className="text-muted-foreground mb-6">Painel lateral simples para edição, detalhes ou formulários secundários sem sair do contexto principal.</p>
             <DrawerSimples />
           </section>
 
-          <Separator />
           <section id="drawer-multi">
             <h2 className="text-2xl font-bold mb-2">Drawer Multi-nível</h2>
             <p className="text-muted-foreground mb-6">Drawers empilhados (push) que preservam a hierarquia em fluxos detalhados de edição sem perder o contexto da camada anterior.</p>
@@ -1325,41 +1289,36 @@ const { toast } = useToast();
 
 
           {/* ===== NAVEGAÇÃO ===== */}
-          <Separator />
           <section id="steps">
             <h2 className="text-2xl font-bold mb-2">Steps (Wizard)</h2>
             <p className="text-muted-foreground mb-6">Etapas numeradas com estados completo / atual / pendente e linha de progresso para fluxos guiados.</p>
             <StepsWidget />
           </section>
 
-          <Separator />
           <section id="anchor">
             <h2 className="text-2xl font-bold mb-2">Anchor (Scroll Spy)</h2>
             <p className="text-muted-foreground mb-6">Menu lateral de âncoras que destaca a seção visível enquanto o usuário rola a página.</p>
             <AnchorWidget />
           </section>
 
-          <Separator />
           <section id="tabs-geist">
             <h2 className="text-2xl font-bold mb-2">Tabs</h2>
             <p className="text-muted-foreground mb-6">Tabs minimalistas inspiradas no Geist: indicador em barra sob a aba ativa e divisor inferior contínuo, sem fundos coloridos.</p>
             <TabsGeistWidget />
           </section>
 
-          <Separator />
           <section id="tour">
             <h2 className="text-2xl font-bold mb-2">Tour</h2>
             <p className="text-muted-foreground mb-6">Onboarding guiado em sequência: overlay escuro com spotlight no elemento alvo e popover com descrição e navegação.</p>
             <TourWidget />
           </section>
 
-          <Separator />
           <section id="breadcrumb">
             <h2 className="text-2xl font-bold mb-2">Breadcrumb</h2>
             <p className="text-muted-foreground mb-6">Trilha de navegação hierárquica. Use ellipsis para colapsar níveis intermediários em caminhos profundos.</p>
             <ComponentShowcase
               title="Breadcrumb"
-              description="Último item é a página atual (sem link). Roboto 14px, separador chevron."
+              description="Último item é a página atual (sem link). Satoshi 14px, separador chevron."
               code={`<Breadcrumb>
   <BreadcrumbList>
     <BreadcrumbItem>
@@ -1402,7 +1361,6 @@ const { toast } = useToast();
             </ComponentShowcase>
           </section>
 
-          <Separator />
           <section id="pagination">
             <h2 className="text-2xl font-bold mb-2">Pagination</h2>
             <p className="text-muted-foreground mb-6">Navegação entre páginas de listas e tabelas. Página ativa com borda; ellipsis para intervalos longos.</p>
@@ -1451,10 +1409,9 @@ const { toast } = useToast();
 
 
           {/* ===== ENTRADA DE DADOS ===== */}
-          <Separator />
           <section id="form-inputs">
             <h2 className="text-2xl font-bold mb-2">Inputs & Formulários</h2>
-            <p className="text-muted-foreground mb-6">Campos base de formulário: texto, textarea, select, radio e slider. Labels em Roboto; mensagens de erro em <code className="bg-muted px-1 rounded text-sm font-mono">text-destructive</code> abaixo do campo.</p>
+            <p className="text-muted-foreground mb-6">Campos base de formulário: texto, textarea, select, radio e slider. Labels em Satoshi; mensagens de erro em <code className="bg-muted px-1 rounded text-sm font-mono">text-destructive</code> abaixo do campo.</p>
             <div className="space-y-6">
               <ComponentShowcase
                 title="Campos de Texto"
@@ -1580,7 +1537,6 @@ const { toast } = useToast();
             </div>
           </section>
 
-          <Separator />
           <section id="segmented">
             <h2 className="text-2xl font-bold mb-2">Switch</h2>
             <p className="text-muted-foreground mb-6">Toggle compacto para alternar entre poucas opções (períodos, modos de visualização) ou estados binários (on/off).</p>
@@ -1591,63 +1547,54 @@ const { toast } = useToast();
             </div>
           </section>
 
-          <Separator />
           <section id="upload-preview">
             <h2 className="text-2xl font-bold mb-2">Upload com Preview</h2>
             <p className="text-muted-foreground mb-6">Dropzone de imagens com preview em grid, progresso simulado, contagem e remoção individual.</p>
             <UploadComPreview />
           </section>
 
-          <Separator />
           <section id="calendar">
             <h2 className="text-2xl font-bold mb-2">Calendário</h2>
             <p className="text-muted-foreground mb-6">Componentes de calendário para seleção de data única, intervalo de datas e versão compacta em popover. Localização em <code className="bg-muted px-1 rounded text-sm font-mono">pt-BR</code>.</p>
             <CalendarioWidget />
           </section>
 
-          <Separator />
           <section id="rate">
             <h2 className="text-2xl font-bold mb-2">Rate (Avaliação)</h2>
             <p className="text-muted-foreground mb-6">Estrelas interativas com hover preview, suporte a meias estrelas e modo somente-leitura. Cor padrão usa o token semântico <code className="bg-muted px-1 rounded text-sm font-mono">warning</code>.</p>
             <RateWidget />
           </section>
 
-          <Separator />
           <section id="mentions">
             <h2 className="text-2xl font-bold mb-2">Mentions</h2>
             <p className="text-muted-foreground mb-6">Textarea que detecta '@' (menções) ou '#' (tags) e abre sugestões em popover ancorado ao caret.</p>
             <MentionsWidget />
           </section>
 
-          <Separator />
           <section id="cascader">
             <h2 className="text-2xl font-bold mb-2">Cascader</h2>
             <p className="text-muted-foreground mb-6">Drill-down em colunas para navegar categorias hierárquicas (alternativa ao TreeSelect com colunas lado a lado).</p>
             <CascaderWidget />
           </section>
 
-          <Separator />
           <section id="tool-autocomplete">
             <h2 className="text-2xl font-bold mb-2">AutoComplete</h2>
             <p className="text-muted-foreground mb-6">Input com sugestões filtradas em popover, navegação por teclado (↑ ↓ Enter Esc) e highlight do trecho buscado.</p>
             <AutoCompleteWidget />
           </section>
 
-          <Separator />
           <section id="tool-treeselect">
             <h2 className="text-2xl font-bold mb-2">TreeSelect</h2>
             <p className="text-muted-foreground mb-6">Select hierárquico com nodes expansíveis para classes de ativos, taxonomias e categorias aninhadas.</p>
             <TreeSelectWidget />
           </section>
 
-          <Separator />
           <section id="tool-transfer">
             <h2 className="text-2xl font-bold mb-2">Transfer</h2>
             <p className="text-muted-foreground mb-6">Transferência de itens entre listas (disponíveis ↔ selecionados) com checkboxes, busca e ações em massa.</p>
             <TransferWidget />
           </section>
 
-          <Separator />
           <section id="checkbox">
             <h2 className="text-2xl font-bold mb-2">Checkbox</h2>
             <p className="text-muted-foreground mb-6">Caixa de seleção para escolhas binárias e múltiplas. Suporta estados <strong>checked</strong>, <strong>disabled</strong> e <strong>indeterminate</strong>.</p>
@@ -1673,7 +1620,6 @@ const { toast } = useToast();
             </div>
           </section>
 
-          <Separator />
           <section id="choicebox">
             <h2 className="text-2xl font-bold mb-2">Choicebox</h2>
             <p className="text-muted-foreground mb-6">Cartões de seleção em grupo, em formato <strong>radio</strong> (escolha única) ou <strong>checkbox</strong> (múltipla). Cada item exibe título e descrição.</p>
@@ -1711,35 +1657,30 @@ const { toast } = useToast();
 
 
           {/* ===== EXIBIÇÃO DE DADOS ===== */}
-          <Separator />
           <section id="statistic">
             <h2 className="text-2xl font-bold mb-2">Statistic (KPIs)</h2>
             <p className="text-muted-foreground mb-6">Cards numéricos com contagem progressiva animada, prefixos/sufixos e tendência (up/down) em tokens semânticos.</p>
             <StatisticWidget />
           </section>
 
-          <Separator />
           <section id="timeline">
             <h2 className="text-2xl font-bold mb-2">Timeline</h2>
             <p className="text-muted-foreground mb-6">Linha do tempo vertical com estados semânticos (concluído, ativo, pendente, erro) para histórico e jornada do usuário.</p>
             <TimelineWidget />
           </section>
 
-          <Separator />
           <section id="tree">
             <h2 className="text-2xl font-bold mb-2">Tree</h2>
             <p className="text-muted-foreground mb-6">Árvore expansível com ícones de pasta/arquivo para explorar estruturas hierárquicas profundas.</p>
             <TreeWidget />
           </section>
 
-          <Separator />
           <section id="descriptions">
             <h2 className="text-2xl font-bold mb-2">Descriptions</h2>
             <p className="text-muted-foreground mb-6">Lista de propriedades chave/valor em grid responsivo. Padrão para páginas de detalhe (perfil, pedido, fatura).</p>
             <DescriptionsWidget />
           </section>
 
-          <Separator />
           <section id="tabela">
             <h2 className="text-2xl font-bold mb-2">Tabela</h2>
             <p className="text-muted-foreground mb-6">Tabela enxuta inspirada no Geist: cabeçalho discreto em caixa alta, zebra sutil nas linhas e última coluna alinhada à direita.</p>
@@ -1749,14 +1690,12 @@ const { toast } = useToast();
             </div>
           </section>
 
-          <Separator />
           <section id="watermark">
             <h2 className="text-2xl font-bold mb-2">Watermark (Marca d'água)</h2>
             <p className="text-muted-foreground mb-6">Texto repetido em diagonal sobre conteúdo sensível (relatórios, dashboards internos), gerado via canvas em data URL.</p>
             <WatermarkWidget />
           </section>
 
-          <Separator />
           <section id="tool-graficos">
             <h2 className="text-2xl font-bold mb-2">Gráficos</h2>
             <p className="text-muted-foreground mb-6">
@@ -1769,7 +1708,6 @@ const { toast } = useToast();
             </div>
           </section>
 
-          <Separator />
           <section id="tags-badges">
             <h2 className="text-2xl font-bold mb-2">Badges & Tags</h2>
             <p className="text-muted-foreground mb-6">Badge (shadcn) para status simples; <strong>Tag</strong> tokenizada para categorias e estados — usa os tokens <code className="bg-muted px-1 rounded text-sm font-mono">--chart-*</code> e semânticos, adaptando-se a light/dark e às marcas Marca A/Marca B.</p>
@@ -1831,10 +1769,9 @@ const { toast } = useToast();
             </div>
           </section>
 
-          <Separator />
           <section id="avatar">
             <h2 className="text-2xl font-bold mb-2">Avatar</h2>
-            <p className="text-muted-foreground mb-6">Representação de usuários com fallback em iniciais (Anek, fundo muted). Grupos empilhados com contador para listas de participantes.</p>
+            <p className="text-muted-foreground mb-6">Representação de usuários com fallback em iniciais (Satoshi, fundo muted). Grupos empilhados com contador para listas de participantes.</p>
             <ComponentShowcase
               title="Avatar"
               description="Tamanhos, fallback em iniciais e grupo empilhado com excedente."
@@ -1871,63 +1808,54 @@ const { toast } = useToast();
 
 
           {/* ===== PLATAFORMA DE AULAS ===== */}
-          <Separator />
           <section id="plat-courses">
             <h2 className="text-2xl font-bold mb-2">Visualização de Cursos</h2>
             <p className="text-muted-foreground mb-6">Grid de cursos com progresso e fácil retomada de aulas.</p>
             <SectionThemeToggle bare title="Visualização de Cursos" description="Grid de cursos com cards de progresso, thumbnail, badge de conclusão e botão de retomada de aula. Light/dark mode." code={platCursosSrc} htmlCode={platCursosHtml}><PlataformaCursos /></SectionThemeToggle>
           </section>
 
-          <Separator />
           <section id="plat-player">
             <h2 className="text-2xl font-bold mb-2">Interface do Player</h2>
             <p className="text-muted-foreground mb-6">O vídeo é o core da plataforma. Controles com overlay e auto-hide.</p>
             <SectionThemeToggle bare title="Interface do Player" description="Player de vídeo com overlay de controles, barra de progresso clicável, volume, fullscreen e auto-hide dos controles após inatividade." code={platPlayerSrc} htmlCode={platPlayerHtml}><PlataformaPlayer /></SectionThemeToggle>
           </section>
 
-          <Separator />
           <section id="plat-playlist">
             <h2 className="text-2xl font-bold mb-2">Lista de Aulas (Playlist)</h2>
             <p className="text-muted-foreground mb-6">Estados: Assistindo, Concluído e Bloqueado.</p>
             <SectionThemeToggle bare title="Lista de Aulas (Playlist)" description="Lista lateral de aulas com três estados visuais distintos: Assistindo (destaque amarelo), Concluído (check verde) e Bloqueado (cadeado + opacidade reduzida)." code={platPlaylistSrc} htmlCode={platPlaylistHtml}><PlataformaPlaylist /></SectionThemeToggle>
           </section>
 
-          <Separator />
           <section id="plat-dashboard">
             <h2 className="text-2xl font-bold mb-2">Dashboard do Aluno</h2>
             <p className="text-muted-foreground mb-6">Estatísticas, atividade semanal e conquistas.</p>
             <SectionThemeToggle bare title="Dashboard do Aluno" description="Painel com KPIs (aulas assistidas, tempo total, streak), gráfico de barras de atividade semanal e grid de conquistas desbloqueadas." code={platDashboardSrc} htmlCode={platDashboardHtml}><PlataformaDashboard /></SectionThemeToggle>
           </section>
 
-          <Separator />
           <section id="plat-notes">
             <h2 className="text-2xl font-bold mb-2">Notas & Anotações</h2>
             <p className="text-muted-foreground mb-6">Notas sincronizadas com timestamp do vídeo.</p>
             <SectionThemeToggle bare title="Notas & Anotações" description="Bloco de notas vinculado ao timestamp do vídeo. Permite criar, editar e excluir notas com carimbos de tempo clicáveis para navegar na aula." code={platNotasSrc} htmlCode={platNotasHtml}><PlataformaNotas /></SectionThemeToggle>
           </section>
 
-          <Separator />
           <section id="plat-rating">
             <h2 className="text-2xl font-bold mb-2">Avaliação de Aulas</h2>
             <p className="text-muted-foreground mb-6">Rating por estrelas com feedback textual.</p>
             <SectionThemeToggle bare title="Avaliação de Aulas" description="Sistema de rating por estrelas com hover preview e campo de feedback textual opcional. Exibe média e distribuição de notas." code={platRatingSrc} htmlCode={platRatingHtml}><PlataformaRating /></SectionThemeToggle>
           </section>
 
-          <Separator />
           <section id="plat-certificates">
             <h2 className="text-2xl font-bold mb-2">Certificados</h2>
             <p className="text-muted-foreground mb-6">Certificados de conclusão emitidos automaticamente ao finalizar módulos.</p>
             <SectionThemeToggle bare title="Certificados" description="Certificados de conclusão emitidos automaticamente ao finalizar módulos. Card com nome do aluno, curso, data e botão de download PDF." code={platCertificadosSrc} htmlCode={platCertificadosHtml}><PlataformaCertificados /></SectionThemeToggle>
           </section>
 
-          <Separator />
           <section id="plat-community">
             <h2 className="text-2xl font-bold mb-2">Comunidade & Dúvidas</h2>
             <p className="text-muted-foreground mb-6">Fórum de dúvidas com votos e respostas de instrutores.</p>
             <SectionThemeToggle bare title="Comunidade & Dúvidas" description="Fórum de dúvidas com votos positivos/negativos, respostas de instrutores destacadas, filtros por status e paginação." code={platComunidadeSrc} htmlCode={platComunidadeHtml}><PlataformaComunidade /></SectionThemeToggle>
           </section>
 
-          <Separator />
           <section id="plat-livro">
             <h2 className="text-2xl font-bold mb-2">Livro</h2>
             <p className="text-muted-foreground mb-6">
@@ -2089,7 +2017,6 @@ export function LivroResponsivo() {
           </section>
 
 
-          <Separator />
           <section id="especiais">
             <h2 className="text-2xl font-bold mb-2">Componentes Especiais</h2>
             <p className="text-muted-foreground mb-6">
@@ -2143,7 +2070,6 @@ export function LivroResponsivo() {
             </div>
           </section>
 
-          <Separator />
           <section id="ai-food"><AIFood /></section>
 
           <div className="h-16" />

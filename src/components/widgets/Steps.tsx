@@ -71,7 +71,7 @@ const [current, setCurrent] = useState(1);
 </div>
 
 <style>
-  .steps-wrap { width:100%; display:flex; flex-direction:column; gap:24px; font-family:'Roboto', sans-serif; }
+  .steps-wrap { width:100%; display:flex; flex-direction:column; gap:24px; font-family:'Satoshi', sans-serif; }
   .steps { display:flex; list-style:none; margin:0; padding:0; align-items:flex-start; }
   .step { flex:1; display:flex; flex-direction:column; align-items:center; position:relative; padding:0 8px; }
   .step__line { position:absolute; top:16px; left:50%; width:100%; height:2px; background:hsl(var(--border, 120 10% 88%)); z-index:1; }
@@ -91,11 +91,11 @@ const [current, setCurrent] = useState(1);
     border-color:hsl(var(--accent, 155 93% 11%));
     color:hsl(var(--accent, 155 93% 11%));
   }
-  .step__title { font-family:'Anek Latin', sans-serif; font-weight:600; font-size:14px; margin-top:8px; text-align:center; color:hsl(var(--foreground, 110 78% 9%)); }
+  .step__title { font-family:'Satoshi', sans-serif; font-weight:600; font-size:14px; margin-top:8px; text-align:center; color:hsl(var(--foreground, 110 78% 9%)); }
   .step__desc { font-size:12px; color:hsl(var(--muted-foreground, 110 10% 40%)); text-align:center; }
   .steps-actions { display:flex; gap:8px; justify-content:center; }
   .steps-actions button {
-    padding:6px 16px; border-radius:8px; font-family:'Sora', sans-serif;
+    padding:6px 16px; border-radius:8px; font-family:'Satoshi', sans-serif;
     font-weight:700; text-transform:uppercase; font-size:12px; cursor:pointer;
   }
   .btn-outline { background:transparent; border:1px solid hsl(var(--border, 120 10% 88%)); color:hsl(var(--foreground, 110 78% 9%)); }

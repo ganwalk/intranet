@@ -299,7 +299,7 @@ export function PaletaDataViz() {
     --chart-div-pos: 205 70% 35%;
   }
   .swatch { display:inline-block; width:32px; height:32px; border-radius:8px; }
-  h3 { font-family:'Anek Latin',sans-serif; font-size:18px; font-weight:700; }
+  h3 { font-family:'Satoshi',sans-serif; font-size:18px; font-weight:700; }
 </style>
 
 <h3>Paleta Categórica (8 cores)</h3>

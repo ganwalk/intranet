@@ -321,7 +321,7 @@ export function LayoutEspacamento() {
 </div>
 
 <style>
-  h3 { font-family:'Anek Latin',sans-serif; font-size:18px; font-weight:700; margin:2rem 0 1rem; }
+  h3 { font-family:'Satoshi',sans-serif; font-size:18px; font-weight:700; margin:2rem 0 1rem; }
   .panel { background:#fff; border:1px solid #e5e5e5; border-radius:12px; padding:1.5rem; }
   .row { display:flex; justify-content:space-between; border-bottom:1px solid #e5e5e5; padding-bottom:.5rem; }
   .row span { font-family:monospace; color:#6b7280; }
@@ -351,7 +351,7 @@ export function LayoutEspacamento() {
 
   .ritmo { background:#fff; border:1px solid #e5e5e5; border-radius:12px; padding:1.5rem; }
   .titulo { background:#fafafa; border:1px dashed #d4d4d4; border-radius:4px;
-    padding:.5rem 1rem; font-family:'Anek Latin',sans-serif; font-weight:700; font-size:14px; }
+    padding:.5rem 1rem; font-family:'Satoshi',sans-serif; font-weight:700; font-size:14px; }
   .conteudo { background:#f5f5f5; border:1px dashed #d4d4d4; border-radius:4px;
     padding:1.5rem 1rem; font-size:14px; color:#6b7280; text-align:center; }
 
@@ -369,7 +369,7 @@ export function LayoutEspacamento() {
   }
   .bento > div { border-radius:12px; padding:12px 16px; background:#fff; border:1px solid #e5e5e5;
     display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
-  .bento b { font-family:'Anek Latin',sans-serif; }
+  .bento b { font-family:'Satoshi',sans-serif; }
   .bento span { font-size:12px; color:#6b7280; }
   .bento > .hero   { grid-area:hero; }
   .bento > .aside2 { grid-area:aside2; background:#111; color:#fff; }

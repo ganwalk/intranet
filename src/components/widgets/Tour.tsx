@@ -124,13 +124,13 @@ const close = () => setStep(-1);
   </div>
 </div>`}
       htmlCode={`<style>
-  .tour-wrap { width:100%; font-family:'Roboto', sans-serif; }
+  .tour-wrap { width:100%; font-family:'Satoshi', sans-serif; }
   .tour-bar { display:flex; justify-content:flex-end; margin-bottom:12px; }
   .tour-start {
     padding:6px 16px; border-radius:8px; border:none; cursor:pointer;
     background:hsl(var(--primary, 155 93% 11%));
     color:hsl(var(--primary-foreground, 0 0% 100%));
-    font-family:'Sora', sans-serif; font-weight:700;
+    font-family:'Satoshi', sans-serif; font-weight:700;
     text-transform:uppercase; font-size:12px;
   }
   .tour-start:disabled { opacity:.6; cursor:not-allowed; }
@@ -147,11 +147,11 @@ const close = () => setStep(-1);
   .tour-card .label {
     font-size:11px; text-transform:uppercase;
     color:hsl(var(--muted-foreground, 110 10% 40%));
-    font-family:'Roboto', sans-serif;
+    font-family:'Satoshi', sans-serif;
   }
   .tour-card .big {
     font-size:24px; font-weight:700;
-    font-family:'Anek Latin', sans-serif;
+    font-family:'Satoshi', sans-serif;
     color:hsl(var(--foreground, 110 78% 9%));
   }
   .tour-pills { display:flex; gap:8px; margin-top:8px; }
@@ -179,12 +179,12 @@ const close = () => setStep(-1);
   .tour-pop h4 { font-weight:700; font-size:14px; margin:0 0 4px; }
   .tour-pop p { font-size:12px; color:hsl(var(--muted-foreground, 110 10% 40%)); margin:0 0 12px; }
   .tour-pop .row { display:flex; align-items:center; justify-content:space-between; }
-  .tour-pop .count { font-size:10px; text-transform:uppercase; color:hsl(var(--muted-foreground, 110 10% 40%)); font-family:'Roboto', sans-serif; }
+  .tour-pop .count { font-size:10px; text-transform:uppercase; color:hsl(var(--muted-foreground, 110 10% 40%)); font-family:'Satoshi', sans-serif; }
   .tour-pop button.next {
     height:28px; padding:0 12px; border-radius:6px; border:none; cursor:pointer;
     background:hsl(var(--primary, 155 93% 11%));
     color:hsl(var(--primary-foreground, 0 0% 100%));
-    font-family:'Sora', sans-serif; font-weight:700;
+    font-family:'Satoshi', sans-serif; font-weight:700;
     text-transform:uppercase; font-size:11px;
   }
   .tour-pop button.close {

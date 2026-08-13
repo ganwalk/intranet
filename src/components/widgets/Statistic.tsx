@@ -129,18 +129,18 @@ function Stat({ icon: Icon, label, value, prefix, suffix, trend, decimals = 0 })
     border-radius:12px; padding:20px;
     background:hsl(var(--card, 0 0% 100%));
     color:hsl(var(--foreground, 110 78% 9%));
-    font-family:'Roboto', sans-serif;
+    font-family:'Satoshi', sans-serif;
   }
   .stat-label {
     display:flex; align-items:center; gap:8px;
     color:hsl(var(--muted-foreground, 110 10% 40%));
     font-size:11px; font-weight:700; text-transform:uppercase;
-    letter-spacing:.05em; font-family:'Roboto'; margin-bottom:12px;
+    letter-spacing:.05em; font-family:'Satoshi'; margin-bottom:12px;
   }
   .stat-label svg { width:16px; height:16px; }
   .stat-value {
     font-size:30px; font-weight:700;
-    font-family:'Anek Latin', sans-serif;
+    font-family:'Satoshi', sans-serif;
     letter-spacing:-.02em; line-height:1.1;
   }
   .stat-suffix { font-size:16px; color:hsl(var(--muted-foreground, 110 10% 40%)); margin-left:4px; }

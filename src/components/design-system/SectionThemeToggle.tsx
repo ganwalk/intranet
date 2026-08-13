@@ -10,7 +10,7 @@ import { CodeFooter } from "@/components/design-system/CodeFooter";
 interface SectionThemeToggleProps {
   children: React.ReactNode;
   className?: string;
-  /** Se true, não envolve em borda/card — apenas aplica o .dark e o botão flutuante. */
+  /** Se true, não envolve em card — apenas aplica o .dark e o botão flutuante. */
   bare?: boolean;
   label?: string;
   /** Título do componente — exibido no AI-Food. */
@@ -69,7 +69,7 @@ export function SectionThemeToggle({ children, className, bare = false, label, t
       onClick={() => { setUserOverrode(true); setIsDark((d) => !d); }}
       aria-label={isDark ? "Visualizar em tema claro" : "Visualizar em tema escuro"}
       title={isDark ? "Tema claro" : "Tema escuro"}
-      className="shrink-0 inline-flex items-center justify-center gap-1.5 h-8 w-[88px] rounded-lg border border-border bg-background text-foreground hover:bg-muted transition-colors text-[10px] font-roboto font-bold uppercase tracking-wider"
+      className="shrink-0 inline-flex items-center justify-center gap-1.5 h-8 w-[88px] rounded-lg bg-background text-foreground hover:bg-muted transition-colors text-[10px] font-roboto font-bold uppercase tracking-wider"
     >
       {isDark ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
       <span>{isDark ? "Claro" : "Escuro"}</span>
@@ -102,7 +102,7 @@ export function SectionThemeToggle({ children, className, bare = false, label, t
   if (bare) {
     return (
       <div className={cn("glass-panel rounded-2xl overflow-hidden", className)}>
-        <div className="px-6 py-4 border-b border-foreground/10">
+        <div className="px-6 py-4 bg-foreground/[0.03]">
           <div className="flex items-center justify-between gap-4">
             <span className="text-xs font-roboto font-bold uppercase tracking-wider text-muted-foreground">
               {label ?? "Pré-visualização"}
@@ -120,7 +120,7 @@ export function SectionThemeToggle({ children, className, bare = false, label, t
 
   return (
     <div className={cn("glass-panel rounded-2xl overflow-hidden", className)}>
-      <div className="px-6 py-3 border-b border-foreground/10 flex items-center justify-between gap-4">
+      <div className="px-6 py-3 bg-foreground/[0.03] flex items-center justify-between gap-4">
         <span className="text-xs font-roboto font-bold uppercase tracking-wider text-muted-foreground">
           {label ?? "Pré-visualização"}
         </span>

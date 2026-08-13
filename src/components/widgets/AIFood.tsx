@@ -29,10 +29,10 @@ A Marca A tem um tom institucional, sóbrio e técnico. Autoridade direta, sem p
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 2. TIPOGRAFIA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• H1: Anek Latin 600  54px / 36px mobile  lh 1.1
-• H2: Anek Latin 600  41px / 30px
-• Corpo: Roboto 400  17px  lh 1.6
-• Eyebrow / Botão: Sora 700  UPPERCASE  tracking largo
+• H1: Satoshi 600  54px / 36px mobile  lh 1.1
+• H2: Satoshi 600  41px / 30px
+• Corpo: Satoshi 400  17px  lh 1.6
+• Eyebrow / Botão: Satoshi 700  UPPERCASE  tracking largo
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 3. BOTÕES
@@ -74,7 +74,7 @@ A Marca A tem um tom institucional, sóbrio e técnico. Autoridade direta, sem p
 6. CHECKLIST FINAL
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 □ Botões radius 5px  |  Cards radius 12px
-□ Tipografia Anek/Roboto/Sora corretamente atribuída
+□ Tipografia Satoshi corretamente atribuída em todos os pesos
 □ Sem backdrop-blur, sem gradientes coloridos
 □ Todos os estados dos botões implementados
 □ Acessibilidade: aria-label, focus-visible ring, contraste ≥ 4.5:1
@@ -93,8 +93,8 @@ paleta vermelho. O usuário precisa ler números rápido — hierarquia tipográ
 1. CONTAINER E TIPOGRAFIA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 <div class="bg-white rounded-2xl shadow-xl p-6 max-w-md mx-auto">
-• Título: Anek 700 22px  |  Valor de resultado: Anek 700 36px #AD1522 tabular-nums
-• Labels de input: Roboto 500 13px uppercase  |  Texto auxiliar: Roboto 400 12px cinza claro
+• Título: Satoshi 700 22px  |  Valor de resultado: Satoshi 700 36px #AD1522 tabular-nums
+• Labels de input: Satoshi 500 13px uppercase  |  Texto auxiliar: Satoshi 400 12px cinza claro
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 2. INPUTS E SLIDERS
@@ -179,9 +179,9 @@ Glassmorphism é a assinatura visual (cards translúcidos com blur).
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 3. TIPOGRAFIA E BOTÕES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• H1: Anek Latin 700  56px / 36px mobile  #18181B
-• Corpo: Roboto 400  17px  #52525B
-• Eyebrow: Anek 600 13px uppercase, pill bg azul translúcida
+• H1: Satoshi 700  56px / 36px mobile  #18181B
+• Corpo: Satoshi 400  17px  #52525B
+• Eyebrow: Satoshi 600 13px uppercase, pill bg azul translúcida
 • Botões: radius 5px em LP (pílula proibida) — primário bg #2B76EE text #AD1522
   hover: bg transparente border #2B76EE text #18181B
 • Estados: default → hover → active → focus (ring #2B76EE) → disabled → loading
@@ -234,7 +234,7 @@ Estilo: editorial premium, azul sutil, foco em leitura limpa de números.
 1. CONTAINER, TIPOGRAFIA E INPUTS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 <div class="bg-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] p-6 max-w-md mx-auto border border-gray-100">
-• Valor em destaque: Anek 700 36px #0B3B85 tabular-nums  |  Labels: Roboto 500 13px uppercase
+• Valor em destaque: Satoshi 700 36px #0B3B85 tabular-nums  |  Labels: Satoshi 500 13px uppercase
 • Inputs: bg-gray-50 rounded-xl  |  Focus: ring-2 ring-[#2B76EE]/40
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -278,7 +278,7 @@ Estética: limpa, clara, focada em leitura longa, sem fadiga visual.
 1. LIGHT MODE (padrão) E TIPOGRAFIA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 • Body: bg-gray-50  |  Cards/sidebars: bg-white + border border-gray-200
-• Título de módulo: Anek 700 24px  |  Corpo: Roboto 400 16px text-gray-700
+• Título de módulo: Satoshi 700 24px  |  Corpo: Satoshi 400 16px text-gray-700
 • Dark mode alternativo: bg-zinc-950 + cards bg-zinc-900
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -329,7 +329,7 @@ CATÁLOGO COMPLETO — SITES & LPs
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Use SOMENTE componentes desta lista:
 
-Fundamentos: Marca & Logos | Tipografia (Anek/Roboto/Sora) | Cores + Data Viz | Ícones Phosphor
+Fundamentos: Marca & Logos | Tipografia (Satoshi) | Cores + Data Viz | Ícones Phosphor
 Layout: Cards & Containers | Botões | Grid e Espaçamento
 
 Seções LP: Grade Curricular | Contagem Regressiva | FAQ Accordion | Tabela de Preços
@@ -350,7 +350,7 @@ Entradas (núcleo): AutoComplete | TreeSelect | Transfer | Cascader | Mentions |
 Resultados:        Statistic/KPI | Gráfico Pizza | Timeline | Descriptions | Tree | Empty | Result
 Feedback:          Spin | Skeleton | Toast | Popconfirm (reset) | Tooltip (dicas nos campos)
 Navegação:         Steps (multi-step) | Segmented (alternância) | Anchor (resultados longos) | Tour | Drawer (filtros)
-Container:         Cards radius 12px | Layout múltiplos de 15px | Botões Sora Bold UPPERCASE`,
+Container:         Cards radius 12px | Layout múltiplos de 15px | Botões Satoshi Bold UPPERCASE`,
 
   plataforma: `
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
