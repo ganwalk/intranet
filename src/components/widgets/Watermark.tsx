@@ -13,7 +13,7 @@ function buildWatermarkUrl(text: string, isDark = false) {
   ctx.clearRect(0, 0, size, size);
   ctx.translate(size / 2, size / 2);
   ctx.rotate((-22 * Math.PI) / 180);
-  ctx.font = "600 14px 'Sora', sans-serif";
+  ctx.font = "600 14px 'Satoshi', sans-serif";
   ctx.fillStyle = isDark ? "rgba(255, 255, 255, 0.12)" : "rgba(0, 0, 0, 0.08)";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
@@ -56,7 +56,7 @@ export function WatermarkWidget() {
   ctx.clearRect(0, 0, size, size);
   ctx.translate(size / 2, size / 2);
   ctx.rotate((-22 * Math.PI) / 180);
-  ctx.font = "600 14px 'Sora', sans-serif";
+  ctx.font = "600 14px 'Satoshi', sans-serif";
   ctx.fillStyle = isDark ? "rgba(255, 255, 255, 0.12)" : "rgba(0, 0, 0, 0.08)";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
@@ -116,7 +116,7 @@ useEffect(() => {
   .wm-container::before {
     content:'';
     position:absolute; inset:0;
-    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><text x="100" y="100" text-anchor="middle" font-family="Sora,sans-serif" font-size="14" font-weight="600" fill="rgba(0,0,0,0.08)" transform="rotate(-22 100 100)">CONFIDENCIAL</text></svg>');
+    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><text x="100" y="100" text-anchor="middle" font-family="Satoshi,sans-serif" font-size="14" font-weight="600" fill="rgba(0,0,0,0.08)" transform="rotate(-22 100 100)">CONFIDENCIAL</text></svg>');
     background-repeat:repeat;
     pointer-events:none;
   }

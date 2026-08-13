@@ -52,7 +52,7 @@ export function SpinTipWidget() {
     <div className="space-y-6">
       <ComponentShowcase
         title="Spin (3 tamanhos + tip)"
-        description="Indicador de carregamento com tag de mensagem em Sora uppercase, alinhado ao padrão de tooltips."
+        description="Indicador de carregamento com tag de mensagem em Satoshi uppercase, alinhado ao padrão de tooltips."
         code={`function Spin({ tip, size = "md", className }: { tip?: string; size?: "sm" | "md" | "lg"; className?: string }) {
   const sizes = { sm: "h-4 w-4", md: "h-6 w-6", lg: "h-10 w-10" };
   return (
@@ -74,7 +74,7 @@ export function SpinTipWidget() {
 </>`}
         htmlCode={`<div style="display:flex; flex-direction:column; align-items:center; gap:12px; color:hsl(var(--primary));">
   <div class="central-spin central-spin--lg"></div>
-  <span style="font-family:'Sora'; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; font-size:11px; color:#6b7280;">
+  <span style="font-family:'Satoshi'; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; font-size:11px; color:#6b7280;">
     Processando dados
   </span>
 </div>

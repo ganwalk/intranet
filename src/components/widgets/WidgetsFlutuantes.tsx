@@ -214,7 +214,7 @@ export function WidgetsFlutuantes() {
           {[
             { label: "Container", desc: "position: fixed, z-index: 99999, pointer-events: none na área vazia. Animação slideUp de entrada (10s cubic-bezier)." },
             { label: "Ícone (Botão)", desc: "60×60px, drop-shadow, animação float (3s ease-in-out infinite). Hover: scale(1.1). Active: scale(0.95)." },
-            { label: "Balão", desc: "Fundo branco, border-radius: 12px (sem canto inferior-direito), seta via ::after. Fonte Anek Latin 15px." },
+            { label: "Balão", desc: "Fundo branco, border-radius: 12px (sem canto inferior-direito), seta via ::after. Fonte Satoshi 15px." },
           ].map((item) => (
             <div key={item.label} className="bg-card p-5 rounded-xl border border-border">
               <span className="text-xs bg-accent/10 text-accent px-2 py-1 rounded font-bold uppercase tracking-wider">{item.label}</span>
@@ -437,7 +437,7 @@ export function WidgetsFlutuantes() {
             <div className="text-sm text-foreground/80 space-y-1.5">
               <p><strong>Regras do balão</strong></p>
               <ul className="list-disc pl-5 space-y-1">
-                <li>Máximo de <strong>220px</strong> de largura, fonte Anek Latin 15px.</li>
+                <li>Máximo de <strong>220px</strong> de largura, fonte Satoshi 15px.</li>
                 <li>Borda inferior-direita reta (continuidade visual com o ícone) e seta apontando para o flutuante.</li>
                 <li>Transição: <code className="text-xs font-mono bg-accent/10 text-accent px-1 rounded">opacity + translateY(10px) + scale(0.9)</code> com easing <code className="text-xs font-mono bg-accent/10 text-accent px-1 rounded">cubic-bezier(0.175, 0.885, 0.32, 1.275)</code>.</li>
                 <li>No modo "sempre visível", apareça com <strong>delay de 1,5s</strong> após o ícone para não competir com o slideUp.</li>
@@ -461,7 +461,7 @@ export function WidgetsFlutuantes() {
 type PopupMode = "none" | "always" | "hover" | "click";
 
 // Regras OBRIGATÓRIAS do balão:
-// - max-width: 220px, font-family: 'Anek Latin', font-size: 15px
+// - max-width: 220px, font-family: 'Satoshi', font-size: 15px
 // - border-radius: 12px com canto inferior-direito reto (rounded-br-none) + seta
 // - Transição: opacity + translateY(10px) + scale(0.9)
 //   easing: cubic-bezier(0.175, 0.885, 0.32, 1.275); duração 300ms
@@ -556,7 +556,7 @@ function FloatingWidget({ mode }: { mode: PopupMode }) {
     border-radius: 12px;
     border-bottom-right-radius: 0;   /* canto reto + seta */
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    font-family: 'Anek Latin', sans-serif;
+    font-family: 'Satoshi', sans-serif;
     font-size: 15px;
     line-height: 1.35;
     max-width: 220px;                 /* limite obrigatório */
@@ -840,7 +840,7 @@ useEffect(() => {
   border-radius: 12px;
   border-bottom-right-radius: 0;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  font-family: 'Anek Latin', sans-serif;
+  font-family: 'Satoshi', sans-serif;
   font-size: 15px;
   max-width: 220px;
   margin: 0 10px 10px 0;

@@ -141,7 +141,7 @@ function TreeNode({ node, depth = 0 }: { node: Node; depth?: number }) {
 </div>`}
       htmlCode={`<style>
   .tree, .tree ul { list-style:none; margin:0; padding:0; }
-  .tree-node { display:flex; align-items:center; gap:6px; padding:6px 8px; border-radius:4px; cursor:pointer; font-size:14px; font-family:'Roboto'; }
+  .tree-node { display:flex; align-items:center; gap:6px; padding:6px 8px; border-radius:4px; cursor:pointer; font-size:14px; font-family:'Satoshi'; }
   .tree-node:hover { background:#f3f4f6; }
   .tree-node .chev { transition:transform .15s; opacity:.6; }
   .tree-node.open > .chev { transform:rotate(90deg); }

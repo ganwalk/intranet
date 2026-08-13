@@ -686,7 +686,7 @@ export function Calculadora() {
             label: "HTML / CSS / JS",
             language: "html",
             code: `<!-- Calculadora de Câmbio — HTML standalone -->
-<link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@400;600;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet">
 <style>
   :root {
     --primary: 142 64% 9%;
@@ -700,7 +700,7 @@ export function Calculadora() {
   }
   .calc { max-width: 480px; margin: 0 auto; background: hsl(var(--card));
     padding: 24px; border-radius: 16px; border: 1px solid hsl(var(--border));
-    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15); font-family: 'Roboto', sans-serif; color: hsl(var(--foreground)); }
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15); font-family: 'Satoshi', sans-serif; color: hsl(var(--foreground)); }
   .tab-wrap { position: relative; display: flex; padding: 4px; margin-bottom: 24px;
     background: hsl(var(--primary) / 0.05); border-radius: 12px; overflow: hidden; }
   .tab-slider { position: absolute; top: 4px; bottom: 4px; width: calc(50% - 8px);
@@ -724,12 +724,12 @@ export function Calculadora() {
   .field-row { display: flex; align-items: center; justify-content: space-between; position: relative; }
   .currency-btn { display: flex; align-items: center; gap: 8px; background: 0; border: 0; cursor: pointer; font-weight: 600; }
   .field input { background: transparent; border: 0; outline: 0; text-align: right;
-    width: 100%; font-size: 24px; font-weight: 600; font-family: 'Anek Latin', sans-serif; color: hsl(var(--foreground)); }
+    width: 100%; font-size: 24px; font-weight: 600; font-family: 'Satoshi', sans-serif; color: hsl(var(--foreground)); }
   .summary { display: flex; justify-content: space-between; align-items: center;
     font-size: 14px; color: hsl(var(--muted-foreground)); margin-bottom: 24px; }
   .details-link { background: 0; border: 0; cursor: pointer; color: hsl(var(--accent)); font-weight: 500; }
   .cta { width: 100%; padding: 12px; background: hsl(var(--primary)); color: hsl(var(--primary-foreground));
-    border: 0; border-radius: 5px; font-weight: 600; font-family: 'Sora', sans-serif; cursor: pointer; }
+    border: 0; border-radius: 5px; font-weight: 600; font-family: 'Satoshi', sans-serif; cursor: pointer; }
   .dropdown { position: absolute; left: 0; top: 100%; margin-top: 8px; width: 224px;
     background: hsl(var(--card)); border: 1px solid hsl(var(--border)); border-radius: 8px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-height: 240px; overflow-y: auto; z-index: 10; }

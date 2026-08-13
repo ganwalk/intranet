@@ -23,7 +23,7 @@ export function TomEVozAIFoodInline(props: Props) {
   };
 
   return (
-    <div className="rounded-xl border border-accent/20 bg-primary/5 overflow-hidden">
+    <div className="rounded-xl bg-primary/5 overflow-hidden shadow-sm">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between gap-3 px-5 py-4 text-left hover:bg-accent/10 transition-colors"
@@ -36,7 +36,7 @@ export function TomEVozAIFoodInline(props: Props) {
       </button>
 
       {open && (
-        <div className="bg-[#0f172a] relative border-t border-accent/20">
+        <div className="bg-[#0f172a] relative">
           <div className="absolute top-3 right-3 z-10">
             <Button
               onClick={handleCopy}

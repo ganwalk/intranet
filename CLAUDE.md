@@ -59,7 +59,7 @@ Sem isso, o path quebra no GitHub Pages (base `/central/`).
 
 **Hero das páginas** — toda página de conteúdo abre com `<PageHero>` passado pela prop `hero` do `PageShell`.
 
-**Marca** — `BrandContext` alterna entre duas variantes de marca (`marca-a` e `marca-b`, exibidas como "Marca A"/"Marca B"). A classe `marca-b` é aplicada no `<html>` quando a segunda variante está ativa. A Marca A é vermelha e a Marca B é azul — duas variações espelhadas do mesmo símbolo geométrico (`src/assets/simbolo.ts`), reforçando a ideia de ecossistema. A paleta de cada variante mora em `src/index.css` (`:root`/`.marca-b`).
+**Marca** — `BrandContext` alterna entre duas variantes de marca (`marca-a` e `marca-b`, exibidas como "Marca A"/"Marca B"). A classe `marca-b` é aplicada no `<html>` quando a segunda variante está ativa. A Marca A é vermelha e a Marca B é azul — mesmo monograma (`src/assets/simbolo.ts`, um "S" com uma nota musical em negativo) nas duas, a distinção vem só da cor primária. A paleta de cada variante mora em `src/index.css` (`:root`/`.marca-b`).
 
 **Avatares do time** — sempre renderizar com `<TeamPhoto id="…" alt="…" />` (`src/components/TeamPhoto.tsx`). Não há fotos: o componente gera um avatar colorido com as iniciais do nome, de forma determinística a partir do `id`. Usado hoje na seção "Voz da Liderança" do Manual de Tom e Voz.
 

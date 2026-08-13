@@ -46,7 +46,7 @@ export function TooltipsPopups() {
       <div>
         <h3 className="text-lg font-bold mb-4 font-anek">Tooltip Animada de Conversão</h3>
         <p className="text-muted-foreground mb-4">
-          Bordas retas (<code className="bg-muted px-1 rounded text-sm font-mono">rounded-none</code>), tipografia Roboto Uppercase e animação de flutuação vertical contínua.
+          Bordas retas (<code className="bg-muted px-1 rounded text-sm font-mono">rounded-none</code>), tipografia Satoshi Uppercase e animação de flutuação vertical contínua.
         </p>
         <div className="bg-card border border-border p-12 rounded-xl flex items-center justify-center relative min-h-[200px]">
           <div className="relative bg-primary text-primary-foreground text-[11px] font-roboto font-bold uppercase px-3 py-1.5 rounded-none shadow-lg whitespace-nowrap animate-bounce">
@@ -126,7 +126,7 @@ export function TooltipsPopups() {
       <div>
         <h3 className="text-lg font-bold mb-4 font-anek">Tooltip Animada de Conversão</h3>
         <p className="text-muted-foreground mb-4">
-          Bordas retas (<code>rounded-none</code>), tipografia Roboto Uppercase e
+          Bordas retas (<code>rounded-none</code>), tipografia Satoshi Uppercase e
           animação de flutuação vertical contínua.
         </p>
         <div className="bg-card border border-border p-12 rounded-xl flex items-center justify-center min-h-[200px]">
@@ -168,7 +168,7 @@ export function TooltipsPopups() {
             code: `<!-- Tooltip animada (preview superior) -->
 <h3 class="tt-title">Tooltip Animada de Conversão</h3>
 <p class="tt-desc">
-  Bordas retas (border-radius: 0), tipografia Roboto Uppercase e animação de
+  Bordas retas (border-radius: 0), tipografia Satoshi Uppercase e animação de
   flutuação vertical contínua.
 </p>
 <div class="tt-stage">
@@ -201,7 +201,7 @@ export function TooltipsPopups() {
     --tt-bg: hsl(var(--primary));
     --tt-fg: hsl(var(--primary-foreground));
   }
-  .tt-title{ font-family:'Anek Latin',sans-serif; font-size:18px; font-weight:700; margin:0 0 1rem; }
+  .tt-title{ font-family:'Satoshi',sans-serif; font-size:18px; font-weight:700; margin:0 0 1rem; }
   .tt-desc{ color:hsl(var(--muted-foreground)); margin:0 0 1.5rem; }
   .tt-stage{
     background:hsl(var(--card)); border:1px solid hsl(var(--border));
@@ -210,7 +210,7 @@ export function TooltipsPopups() {
   }
   .tt-bouncing{
     position:relative; background:var(--tt-bg); color:var(--tt-fg);
-    font-family:'Roboto',sans-serif; font-size:11px; font-weight:700;
+    font-family:'Satoshi',sans-serif; font-size:11px; font-weight:700;
     text-transform:uppercase; padding:6px 12px; border-radius:0;
     box-shadow:0 10px 25px -5px rgba(0,0,0,.2);
     animation:tt-bounce 1s infinite;
@@ -242,7 +242,7 @@ export function TooltipsPopups() {
   .tt-balloon{
     position:absolute; z-index:10;
     background:var(--tt-bg); color:var(--tt-fg);
-    font-family:'Roboto',sans-serif; font-size:11px; font-weight:700;
+    font-family:'Satoshi',sans-serif; font-size:11px; font-weight:700;
     text-transform:uppercase; padding:6px 12px;
     box-shadow:0 10px 25px -5px rgba(0,0,0,.2); white-space:nowrap;
     opacity:0; transform:scale(.95); transition:all .15s ease;
@@ -271,7 +271,7 @@ export function TooltipsPopups() {
     display:grid; grid-template-columns:repeat(4,1fr); gap:1rem;
     margin-top:1.5rem; padding-top:1.5rem;
     border-top:1px solid hsl(var(--border));
-    text-align:center; font-family:'Roboto',sans-serif;
+    text-align:center; font-family:'Satoshi',sans-serif;
     font-size:14px; font-weight:600; color:hsl(var(--foreground));
   }
 </style>`

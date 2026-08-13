@@ -27,10 +27,10 @@ PALETA OFICIAL (use SOMENTE estas cores)
 ❌ PROIBIDO: roxo, rosa, azul (cor da Marca B), gradientes coloridos, neon
 
 TIPOGRAFIA
-• H1: Anek Latin 600  54px/36px mobile  lh 1.1
-• H2: Anek Latin 600  41px/30px         lh 1.15
-• Corpo: Roboto 400  17px  lh 1.6
-• Botão/CTA: Sora 700  14px UPPERCASE  ls 0.05em
+• H1: Satoshi 600  54px/36px mobile  lh 1.1
+• H2: Satoshi 600  41px/30px         lh 1.15
+• Corpo: Satoshi 400  17px  lh 1.6
+• Botão/CTA: Satoshi 700  14px UPPERCASE  ls 0.05em
 
 BOTÕES — identidade visual mais marcante
 • border-radius: 5px — NUNCA pílulas (rounded-full)
@@ -71,9 +71,9 @@ CARDS TRANSLÚCIDOS (assinatura visual)
 • Hover: translateY(-8px)  transition: 320ms ease
 
 TIPOGRAFIA
-• H1: Anek Latin 700  56px/36px mobile  lh 1.05
-• Corpo: Roboto 400  17px  #52525B
-• Botão/CTA: Sora 700  14px UPPERCASE  ls 0.05em
+• H1: Satoshi 700  56px/36px mobile  lh 1.05
+• Corpo: Satoshi 400  17px  #52525B
+• Botão/CTA: Satoshi 700  14px UPPERCASE  ls 0.05em
 
 BOTÕES
 • border-radius: 5px em LP — NUNCA pílulas (rounded-full)
@@ -126,7 +126,7 @@ CHECKLIST ANTES DE ENTREGAR
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 □ Todos os estados visuais implementados
 □ Transições fluidas (240ms ease padrão)
-□ Tipografia correta: Anek (títulos/valores) / Roboto (corpo/labels) / Sora (botões CTA)
+□ Tipografia correta: Satoshi em todos os pesos (títulos, corpo, labels e botões CTA)
 □ Paleta de cores da marca respeitada sem exceções
 □ Responsivo mobile/desktop testado
 □ Acessibilidade: aria-label nos ícones, focus-visible ring, contraste ≥ 4.5:1

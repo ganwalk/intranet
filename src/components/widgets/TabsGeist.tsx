@@ -55,7 +55,7 @@ const [selected, setSelected] = useState("apple");
   </div>
 </div>`}
       htmlCode={`<style>
-  .gtabs { font-family:'Roboto', sans-serif; }
+  .gtabs { font-family:'Satoshi', sans-serif; }
   .gtabs__list { display:flex; gap:24px; align-items:center; border-bottom:1px solid hsl(var(--border, 120 10% 88%)); }
   .gtabs__tab {
     position:relative; background:none; border:none; cursor:pointer;

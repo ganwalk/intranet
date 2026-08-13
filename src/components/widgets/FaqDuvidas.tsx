@@ -77,7 +77,7 @@ export function FaqDuvidas() {
   <div style="background:hsl(var(--card)); padding:3rem; border-radius:0.75rem;
               box-shadow:0 1px 3px rgba(0,0,0,0.05);
               border:1px solid hsl(var(--border));">
-    <h2 style="font-family:'Anek Latin',sans-serif; font-weight:700;
+    <h2 style="font-family:'Satoshi',sans-serif; font-weight:700;
                text-align:left; margin:0 0 1.5rem 0;
                color:hsl(var(--accent)); font-size:1.875rem;">
       Dúvidas Frequentes
@@ -106,7 +106,7 @@ export function FaqDuvidas() {
     list-style:none;
     cursor:pointer;
     padding:1rem 0;
-    font-family:'Roboto',sans-serif;
+    font-family:'Satoshi',sans-serif;
     font-size:1.125rem;
     font-weight:600;
     color:hsl(var(--foreground));
@@ -122,7 +122,7 @@ export function FaqDuvidas() {
   .faq-item p {
     color:hsl(var(--muted-foreground));
     padding:0 0 1rem 0; margin:0;
-    font-family:'Roboto',sans-serif;
+    font-family:'Satoshi',sans-serif;
   }
 </style>
 

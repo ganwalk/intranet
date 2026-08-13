@@ -165,12 +165,12 @@ const remove = (id: number) => setItems((prev) => prev.filter((i) => i.id !== id
 <button onclick="pushNotif('success','Operação concluída','Sua ação foi processada.')">Success</button>
 
 <style>
-  .notif { width:320px; padding:16px; border-radius:16px; background:#fff; border:1px solid #e5e7eb; box-shadow:0 8px 20px rgba(0,0,0,.08); display:flex; gap:12px; font-family:'Roboto',sans-serif; animation: slideIn .3s ease-out; }
+  .notif { width:320px; padding:16px; border-radius:16px; background:#fff; border:1px solid #e5e7eb; box-shadow:0 8px 20px rgba(0,0,0,.08); display:flex; gap:12px; font-family:'Satoshi',sans-serif; animation: slideIn .3s ease-out; }
   .notif--success { box-shadow:0 0 0 1px rgba(34,197,94,.3), 0 8px 20px rgba(0,0,0,.08); }
   .notif--info    { box-shadow:0 0 0 1px rgba(59,130,246,.3), 0 8px 20px rgba(0,0,0,.08); }
   .notif--warning { box-shadow:0 0 0 1px rgba(245,158,11,.3), 0 8px 20px rgba(0,0,0,.08); }
   .notif--error   { box-shadow:0 0 0 1px rgba(239,68,68,.3),  0 8px 20px rgba(0,0,0,.08); }
-  .notif__title { font-family:'Anek Latin',sans-serif; font-weight:600; font-size:14px; }
+  .notif__title { font-family:'Satoshi',sans-serif; font-weight:600; font-size:14px; }
   .notif__desc  { font-size:12px; color:#6b7280; margin-top:4px; }
   .notif__close { background:none; border:none; cursor:pointer; color:#9ca3af; }
   @keyframes slideIn { from { transform: translateX(20px); opacity:0; } to { transform: translateX(0); opacity:1; } }

@@ -71,7 +71,7 @@ const isDark = useIsDark(triggerRef);
     background:hsl(var(--primary, 155 93% 11%));
     color:hsl(var(--primary-foreground, 0 0% 100%));
     border:none; border-radius:5px;
-    font-family:'Sora', sans-serif; font-weight:700;
+    font-family:'Satoshi', sans-serif; font-weight:700;
     text-transform:uppercase; font-size:13px; cursor:pointer;
   }
   .d-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:50; backdrop-filter:blur(4px); }
@@ -82,10 +82,10 @@ const isDark = useIsDark(triggerRef);
     color:hsl(var(--foreground, 110 78% 9%));
     padding:24px; box-shadow:-4px 0 24px rgba(0,0,0,.1);
     transform:translateX(100%); transition:transform .3s; z-index:60;
-    font-family:'Roboto', sans-serif;
+    font-family:'Satoshi', sans-serif;
   }
   .d-panel.open { transform:translateX(0); }
-  .d-title { font-family:'Anek Latin', sans-serif; font-weight:600; margin:0; }
+  .d-title { font-family:'Satoshi', sans-serif; font-weight:600; margin:0; }
   .d-desc { font-size:14px; color:hsl(var(--muted-foreground, 110 10% 40%)); margin:4px 0 0; }
   .d-close {
     position:absolute; top:16px; right:16px; width:24px; height:24px;
@@ -97,7 +97,7 @@ const isDark = useIsDark(triggerRef);
   .d-close svg { width:100%; height:100%; }
   .d-body { display:flex; flex-direction:column; gap:12px; padding-top:24px; }
   .d-card { border:1px solid hsl(var(--border, 120 10% 88%)); border-radius:8px; padding:16px; }
-  .d-card-title { font-family:'Anek Latin', sans-serif; font-weight:600; margin:0 0 4px; }
+  .d-card-title { font-family:'Satoshi', sans-serif; font-weight:600; margin:0 0 4px; }
   .d-card-text { font-size:14px; color:hsl(var(--muted-foreground, 110 10% 40%)); margin:0; }
 </style>
 
@@ -264,7 +264,7 @@ const isDark = useIsDark(triggerRef);
     padding:10px 16px; background:hsl(var(--primary, 155 93% 11%));
     color:hsl(var(--primary-foreground, 0 0% 100%));
     border:none; border-radius:5px;
-    font-family:'Sora', sans-serif; font-weight:700;
+    font-family:'Satoshi', sans-serif; font-weight:700;
     text-transform:uppercase; font-size:13px; cursor:pointer;
   }
   .dn-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:50; backdrop-filter:blur(4px); }
@@ -275,10 +275,10 @@ const isDark = useIsDark(triggerRef);
     color:hsl(var(--foreground, 110 78% 9%));
     padding:24px; box-shadow:-4px 0 24px rgba(0,0,0,.1);
     transform:translateX(100%); transition:transform .3s; z-index:60;
-    font-family:'Roboto', sans-serif;
+    font-family:'Satoshi', sans-serif;
   }
   .dn-panel.open { transform:translateX(0); }
-  .dn-panel h3 { font-family:'Anek Latin', sans-serif; font-weight:600; margin:0; }
+  .dn-panel h3 { font-family:'Satoshi', sans-serif; font-weight:600; margin:0; }
   .dn-panel header p { font-size:14px; color:hsl(var(--muted-foreground, 110 10% 40%)); margin:4px 0 24px; }
   .dn-close {
     position:absolute; top:16px; right:16px; width:28px; height:28px;
@@ -288,14 +288,14 @@ const isDark = useIsDark(triggerRef);
     border-radius:6px;
   }
   .dn-card { border:1px solid hsl(var(--border, 120 10% 88%)); border-radius:8px; padding:16px; margin-bottom:12px; }
-  .dn-card-title { font-family:'Anek Latin', sans-serif; font-weight:600; margin:0 0 4px; }
+  .dn-card-title { font-family:'Satoshi', sans-serif; font-weight:600; margin:0 0 4px; }
   .dn-card-text { font-size:14px; color:hsl(var(--muted-foreground, 110 10% 40%)); margin:0; }
   .dn-link {
     width:100%; display:flex; align-items:center; justify-content:space-between;
     padding:10px 14px; border:1px solid hsl(var(--border, 120 10% 88%));
     border-radius:8px; background:transparent;
     color:hsl(var(--foreground, 110 78% 9%));
-    font-family:'Sora', sans-serif; font-weight:700;
+    font-family:'Satoshi', sans-serif; font-weight:700;
     text-transform:uppercase; font-size:12px; cursor:pointer;
   }
   .dn-link svg { width:16px; height:16px; }

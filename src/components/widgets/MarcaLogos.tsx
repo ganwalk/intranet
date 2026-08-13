@@ -86,13 +86,13 @@ function SimboloCard({ src, raw, alt, label, desc, sufixo, dark = false }: {
 export function MarcaLogos() {
   return (
     <div className="space-y-12">
-      {/* Símbolo — duas marcas, mesma família geométrica */}
+      {/* Símbolo — mesmo monograma, cor de cada marca */}
       <div>
         <h3 className="text-lg font-bold mb-2 font-anek">Símbolo da marca</h3>
         <p className="text-muted-foreground mb-6">
-          Um símbolo geométrico com duas variações — uma para a Marca A, outra para a Marca B — espelhadas
-          entre si para comunicar que os dois produtos fazem parte do mesmo ecossistema. Cada uma tem três
-          cores: preto, branco e acento.
+          Um monograma único — o "S" da marca com uma nota musical embutida em negativo — usado pelos dois
+          produtos do ecossistema. A distinção entre Marca A e Marca B vem da cor primária de cada uma, não
+          da forma. Cada uma tem três variações: preto, branco e acento.
         </p>
 
         <div className="space-y-8">

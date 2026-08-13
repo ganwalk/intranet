@@ -96,11 +96,10 @@ export function GlobalNav() {
             <ChevronDown className="h-4 w-4 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform" />
           </DropdownMenuTrigger>
 
-          <DropdownMenuContent align="start" className="w-80 p-2 space-y-1 bg-popover border border-border shadow-lg">
-            <DropdownMenuLabel className="text-[10px] text-muted-foreground uppercase tracking-wider font-roboto font-bold px-2 py-1.5">
+          <DropdownMenuContent align="start" className="w-80 p-2 space-y-1 bg-popover/95 backdrop-blur-xl shadow-xl">
+            <DropdownMenuLabel className="text-[10px] text-muted-foreground uppercase tracking-wider font-roboto font-bold px-2 py-2.5">
               Navegar entre sistemas
             </DropdownMenuLabel>
-            <DropdownMenuSeparator />
 
             {systems.map((system) => {
               const Icon = system.icon;
@@ -112,15 +111,15 @@ export function GlobalNav() {
                   className={cn(
                     "flex items-start gap-3 p-3 rounded-xl cursor-pointer transition-colors",
                     "focus:bg-muted hover:bg-muted data-[highlighted]:bg-muted",
-                    isActive && "bg-muted/60 ring-1 ring-border"
+                    isActive && "bg-muted/60"
                   )}
                 >
                   <div
                     className={cn(
-                      "flex items-center justify-center h-9 w-9 rounded-lg shrink-0 mt-0.5 border transition-colors",
+                      "flex items-center justify-center h-9 w-9 rounded-lg shrink-0 mt-0.5 transition-colors",
                       isActive
-                        ? "bg-foreground text-background border-foreground"
-                        : "bg-card text-foreground border-border"
+                        ? "bg-foreground text-background"
+                        : "bg-card text-foreground"
                     )}
                   >
                     <Icon className="h-4 w-4" />
@@ -134,7 +133,7 @@ export function GlobalNav() {
                     </p>
                   </div>
                   {isActive && (
-                    <span className="text-[9px] font-bold text-foreground uppercase tracking-wider mt-1 px-1.5 py-0.5 rounded-md bg-background border border-border font-roboto shrink-0">
+                    <span className="text-[9px] font-bold text-foreground uppercase tracking-wider mt-1 px-1.5 py-0.5 rounded-md bg-foreground/10 font-roboto shrink-0">
                       Atual
                     </span>
                   )}
@@ -161,16 +160,13 @@ export function GlobalNav() {
               <button
                 onClick={() => navigate(system.path)}
                 className={cn(
-                  "relative px-3 py-2 text-sm font-normal font-anek rounded-lg transition-colors duration-200",
+                  "relative px-3 py-2 text-sm font-normal font-anek rounded-full transition-colors duration-200",
                   isActive
-                    ? "text-foreground"
+                    ? "text-foreground bg-foreground/8"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 )}
               >
                 {system.label}
-                {isActive && (
-                  <span className="absolute bottom-1 left-3 right-3 h-px bg-foreground/30 rounded-full" />
-                )}
               </button>
 
               {/* Popup — sempre no DOM, entra e sai com CSS transition */}
@@ -185,15 +181,15 @@ export function GlobalNav() {
                   transition: "opacity 200ms cubic-bezier(0.22,1,0.36,1), transform 200ms cubic-bezier(0.22,1,0.36,1)",
                 }}
               >
-                <div className="relative bg-popover border border-border rounded-xl p-3 shadow-lg">
-                  <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-popover border-l border-t border-border rotate-45 rounded-sm" />
+                <div className="relative bg-popover/95 backdrop-blur-xl rounded-xl p-3 shadow-xl">
+                  <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-popover rotate-45 rounded-sm" />
                   <div className="flex items-start gap-3">
                     <div
                       className={cn(
-                        "flex items-center justify-center h-8 w-8 rounded-lg shrink-0 border mt-0.5",
+                        "flex items-center justify-center h-8 w-8 rounded-lg shrink-0 mt-0.5",
                         isActive
-                          ? "bg-foreground text-background border-foreground"
-                          : "bg-card text-foreground border-border"
+                          ? "bg-foreground text-background"
+                          : "bg-card text-foreground"
                       )}
                     >
                       <Icon className="h-4 w-4" />
@@ -215,8 +211,8 @@ export function GlobalNav() {
         <div className="md:hidden absolute top-full left-12 mt-3 z-[60] animate-in fade-in slide-in-from-top-2 duration-300">
           {/* O max-w desconta também o deslocamento `left-12` e o padding do
               header (3rem + 1rem + 1rem), senão o balão vaza pela direita. */}
-          <div className="relative bg-popover border border-border rounded-xl p-4 shadow-xl w-[380px] max-w-[calc(100vw-5rem)] backdrop-blur-xl">
-            <div className="absolute -top-1.5 left-6 w-3 h-3 bg-popover border-l border-t border-border rotate-45 rounded-sm" />
+          <div className="relative bg-popover/95 rounded-xl p-4 shadow-xl w-[380px] max-w-[calc(100vw-5rem)] backdrop-blur-xl">
+            <div className="absolute -top-1.5 left-6 w-3 h-3 bg-popover rotate-45 rounded-sm" />
             <button
               onClick={dismissWelcome}
               className="absolute top-2 right-2 h-6 w-6 flex items-center justify-center rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"

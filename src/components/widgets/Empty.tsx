@@ -62,7 +62,7 @@ export function EmptyWidget() {
     border:1px dashed hsl(var(--border, 120 10% 88%)); border-radius:12px;
     padding:32px; text-align:center;
     background:hsl(var(--muted, 120 10% 95%) / 0.2);
-    font-family:'Roboto', sans-serif;
+    font-family:'Satoshi', sans-serif;
   }
   .empty-icon {
     display:inline-flex; align-items:center; justify-content:center;
@@ -75,14 +75,14 @@ export function EmptyWidget() {
   .empty h4 {
     font-weight:600; margin:0 0 4px;
     color:hsl(var(--foreground, 110 78% 9%));
-    font-family:'Anek Latin', sans-serif;
+    font-family:'Satoshi', sans-serif;
   }
   .empty p { font-size:14px; color:hsl(var(--muted-foreground, 110 10% 40%)); margin:0 0 16px; }
   .empty button {
     background:hsl(var(--primary, 155 93% 11%));
     color:hsl(var(--primary-foreground, 0 0% 100%));
     padding:8px 16px; border-radius:8px; border:none;
-    font-family:'Sora', sans-serif; font-weight:700;
+    font-family:'Satoshi', sans-serif; font-weight:700;
     text-transform:uppercase; font-size:12px; cursor:pointer;
   }
 </style>

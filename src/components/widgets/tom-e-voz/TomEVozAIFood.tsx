@@ -239,7 +239,7 @@ export function TomEVozAIFood() {
       </div>
 
       {/* Prompt Display */}
-      <div className="bg-[#0f172a] rounded-xl overflow-hidden relative border border-[#1e293b] shadow-xl">
+      <div className="bg-[#0f172a] rounded-xl overflow-hidden relative shadow-xl">
         {/* Copy button */}
         <div className="absolute top-4 right-4 z-10">
           <Button

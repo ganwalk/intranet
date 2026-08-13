@@ -253,10 +253,10 @@ const toggle = (set, setSet, k) => {
 
 <style>
   .tx-panel { flex:1; min-width:220px; border:1px solid #e5e7eb; border-radius:12px; overflow:hidden; background:#fff; }
-  .tx-panel__head { padding:8px 12px; background:#f9fafb; border-bottom:1px solid #e5e7eb; font-family:'Anek Latin'; font-weight:600; font-size:14px; }
-  .tx-search { width:100%; padding:6px 12px; border:none; border-bottom:1px solid #e5e7eb; outline:none; font-family:'Roboto'; font-size:13px; }
+  .tx-panel__head { padding:8px 12px; background:#f9fafb; border-bottom:1px solid #e5e7eb; font-family:'Satoshi'; font-weight:600; font-size:14px; }
+  .tx-search { width:100%; padding:6px 12px; border:none; border-bottom:1px solid #e5e7eb; outline:none; font-family:'Satoshi'; font-size:13px; }
   .tx-list { list-style:none; margin:0; padding:4px 0; max-height:240px; overflow-y:auto; }
-  .tx-list li label { display:flex; gap:8px; padding:8px 12px; cursor:pointer; font-family:'Roboto'; font-size:14px; }
+  .tx-list li label { display:flex; gap:8px; padding:8px 12px; cursor:pointer; font-family:'Satoshi'; font-size:14px; }
   .tx-list li label:hover { background:#f9fafb; }
 </style>
 

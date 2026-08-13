@@ -38,7 +38,7 @@ export function CalendarioWidget() {
   className="rounded-xl border bg-card p-3 pointer-events-auto"
 />`}
         htmlCode={`<!-- O Calendar usa react-day-picker. Em HTML puro, o equivalente mais próximo é <input type="date">. -->
-<label style="display:inline-flex; flex-direction:column; gap:8px; font-family:'Roboto', sans-serif; color:hsl(var(--foreground, 110 78% 9%));">
+<label style="display:inline-flex; flex-direction:column; gap:8px; font-family:'Satoshi', sans-serif; color:hsl(var(--foreground, 110 78% 9%));">
   <span style="font-size:14px; font-weight:600;">Selecione uma data</span>
   <input
     type="date"
@@ -48,7 +48,7 @@ export function CalendarioWidget() {
       border-radius:12px;
       background:hsl(var(--card, 0 0% 100%));
       color:hsl(var(--foreground, 110 78% 9%));
-      font-family:'Roboto', sans-serif; font-size:14px;
+      font-family:'Satoshi', sans-serif; font-size:14px;
       outline:none; cursor:pointer;
     "
   />
@@ -92,13 +92,13 @@ const maxDate = new Date(now.getFullYear(), now.getMonth() + 2, now.getDate());
 />`}
         htmlCode={`<!-- Equivalente HTML simples para seleção de período -->
 <style>
-  .dt-range { display:flex; gap:12px; font-family:'Roboto', sans-serif; color:hsl(var(--foreground, 110 78% 9%)); }
+  .dt-range { display:flex; gap:12px; font-family:'Satoshi', sans-serif; color:hsl(var(--foreground, 110 78% 9%)); }
   .dt-range label { display:flex; flex-direction:column; gap:6px; font-size:13px; }
   .dt-range input {
     padding:10px 14px; border:1px solid hsl(var(--border, 120 10% 88%));
     border-radius:12px; background:hsl(var(--card, 0 0% 100%));
     color:hsl(var(--foreground, 110 78% 9%));
-    font-family:'Roboto', sans-serif; font-size:14px;
+    font-family:'Satoshi', sans-serif; font-size:14px;
     outline:none; cursor:pointer;
   }
   .dt-range input:focus { border-color:hsl(var(--ring, 155 93% 11%)); }
@@ -166,7 +166,7 @@ const maxDate = new Date(now.getFullYear(), now.getMonth() + 2, now.getDate());
   color:hsl(var(--foreground, 110 78% 9%));
   border:1px solid hsl(var(--border, 120 10% 88%));
   border-radius:12px;
-  font-family:'Roboto', sans-serif; font-size:14px;
+  font-family:'Satoshi', sans-serif; font-size:14px;
   text-align:left; cursor:pointer;
 ">
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -278,7 +278,7 @@ const [range, setRange] = useState<DateRange | undefined>();
 </Popover>`}
         htmlCode={`<!-- Equivalente simples: <details> com presets e dois inputs nativos -->
 <style>
-  .dpr { font-family:'Roboto', sans-serif; color:hsl(var(--foreground, 110 78% 9%)); }
+  .dpr { font-family:'Satoshi', sans-serif; color:hsl(var(--foreground, 110 78% 9%)); }
   .dpr summary {
     display:inline-flex; align-items:center; gap:8px;
     width:280px; padding:8px 14px;
@@ -297,7 +297,7 @@ const [range, setRange] = useState<DateRange | undefined>();
   .dpr-presets button {
     padding:6px 12px; border:none; background:transparent;
     color:hsl(var(--foreground, 110 78% 9%));
-    font-family:'Sora', sans-serif; font-weight:700;
+    font-family:'Satoshi', sans-serif; font-weight:700;
     text-transform:uppercase; font-size:11px; cursor:pointer; text-align:left;
     border-radius:6px;
   }
@@ -310,7 +310,7 @@ const [range, setRange] = useState<DateRange | undefined>();
     padding:8px 12px; border:1px solid hsl(var(--border, 120 10% 88%));
     border-radius:8px; background:hsl(var(--card, 0 0% 100%));
     color:hsl(var(--foreground, 110 78% 9%));
-    font-family:'Roboto'; font-size:14px;
+    font-family:'Satoshi'; font-size:14px;
   }
 </style>
 

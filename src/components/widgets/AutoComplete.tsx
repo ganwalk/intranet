@@ -155,7 +155,7 @@ const onKey = (e: React.KeyboardEvent) => {
   <p className="text-xs text-muted-foreground mt-2 font-mono">Selecionado: {value || "—"}</p>
 </div>`}
       htmlCode={`<style>
-  .ac-wrap { position:relative; max-width:400px; font-family:'Roboto', sans-serif; }
+  .ac-wrap { position:relative; max-width:400px; font-family:'Satoshi', sans-serif; }
   .ac-input {
     width:100%; padding:10px 14px 10px 36px;
     border:1px solid hsl(var(--input, 120 10% 88%));
@@ -175,7 +175,7 @@ const onKey = (e: React.KeyboardEvent) => {
   }
   .ac-list li button {
     width:100%; text-align:left; padding:8px 12px; border-radius:6px;
-    cursor:pointer; font-family:'Roboto'; font-size:14px;
+    cursor:pointer; font-family:'Satoshi'; font-size:14px;
     background:transparent; border:none; color:hsl(var(--foreground, 110 78% 9%));
     transition:.15s;
   }

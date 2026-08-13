@@ -154,7 +154,7 @@ const isDark = useIsDark(triggerRef);
 </div>`}
       htmlCode={`<div style="position:relative; max-width:400px;">
   <button id="csc-btn" onclick="document.getElementById('csc-pop').classList.toggle('open')"
-    style="width:100%; display:flex; justify-content:space-between; padding:10px 14px; background:#fff; border:1px solid #e5e7eb; border-radius:8px; font-family:'Roboto'; cursor:pointer;">
+    style="width:100%; display:flex; justify-content:space-between; padding:10px 14px; background:#fff; border:1px solid #e5e7eb; border-radius:8px; font-family:'Satoshi'; cursor:pointer;">
     <span id="csc-label">Selecionar local</span><span>▾</span>
   </button>
   <div id="csc-pop" style="display:none; position:absolute; top:calc(100% + 4px); left:0; background:#fff; border:1px solid #e5e7eb; border-radius:8px; box-shadow:0 8px 16px rgba(0,0,0,.08); z-index:10;">
@@ -166,7 +166,7 @@ const isDark = useIsDark(triggerRef);
   #csc-pop.open { display:block; }
   .csc-col { border-right:1px solid #e5e7eb; min-width:160px; max-height:240px; overflow:auto; }
   .csc-col:last-child { border-right:none; }
-  .csc-item { display:flex; justify-content:space-between; padding:8px 12px; cursor:pointer; font-family:'Roboto'; font-size:14px; }
+  .csc-item { display:flex; justify-content:space-between; padding:8px 12px; cursor:pointer; font-family:'Satoshi'; font-size:14px; }
   .csc-item:hover, .csc-item.active { background:rgba(11,41,4,.08); color:hsl(var(--primary)); }
 </style>
 

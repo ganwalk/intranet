@@ -4,7 +4,7 @@
     background:hsl(var(--card, 0 0% 100%));
     border:1px solid hsl(var(--border, 120 10% 88%));
     border-radius:12px; overflow:hidden;
-    font-family:'Roboto', sans-serif;
+    font-family:'Satoshi', sans-serif;
     color:hsl(var(--foreground, 110 78% 9%));
   }
   .pco-head {
@@ -14,12 +14,12 @@
     display:flex; justify-content:space-between; align-items:center;
     flex-wrap:wrap; gap:12px;
   }
-  .pco-h1 { display:inline-flex; align-items:center; gap:8px; font:700 14px 'Anek Latin'; color:hsl(var(--foreground, 110 78% 9%)); }
+  .pco-h1 { display:inline-flex; align-items:center; gap:8px; font:700 14px 'Satoshi'; color:hsl(var(--foreground, 110 78% 9%)); }
   .pco-h1 svg { width:18px; height:18px; color:hsl(var(--accent, 155 93% 11%)); }
-  .pco-h2 { font:12px 'Roboto'; color:hsl(var(--muted-foreground, 110 10% 40%)); margin-left:8px; }
+  .pco-h2 { font:12px 'Satoshi'; color:hsl(var(--muted-foreground, 110 10% 40%)); margin-left:8px; }
   .pco-actions { display:flex; gap:12px; align-items:center; }
   .pco-actions select {
-    font:12px 'Roboto'; padding:4px 8px;
+    font:12px 'Satoshi'; padding:4px 8px;
     border:1px solid hsl(var(--border, 120 10% 88%));
     border-radius:8px;
     background:hsl(var(--background, 0 0% 100%));
@@ -30,7 +30,7 @@
     color:hsl(var(--primary-foreground, 0 0% 100%));
     border:none; padding:6px 16px;
     border-radius:8px;
-    font:700 12px 'Sora'; text-transform:uppercase;
+    font:700 12px 'Satoshi'; text-transform:uppercase;
     cursor:pointer; transition:.15s;
   }
   .pco-actions button:hover { background:hsl(var(--primary, 155 93% 11%) / 0.9); }
@@ -51,38 +51,38 @@
   .pco-vote button svg { width:20px; height:20px; }
   .pco-vote button:hover { color:hsl(var(--accent, 155 93% 11%)); }
   .pco-vote button.down:hover { color:hsl(var(--destructive, 0 84% 48%)); }
-  .pco-vote span { font:700 14px 'Anek Latin'; color:hsl(var(--foreground, 110 78% 9%)); }
+  .pco-vote span { font:700 14px 'Satoshi'; color:hsl(var(--foreground, 110 78% 9%)); }
 
   .pco-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px; }
   .pco-avatar {
     width:28px; height:28px; border-radius:999px;
     color:#fff;
     display:flex; align-items:center; justify-content:center;
-    font:700 12px 'Roboto';
+    font:700 12px 'Satoshi';
   }
-  .pco-name { font:700 14px 'Anek Latin'; color:hsl(var(--foreground, 110 78% 9%)); }
-  .pco-time { font:10px 'Roboto'; color:hsl(var(--muted-foreground, 110 10% 40%)); }
+  .pco-name { font:700 14px 'Satoshi'; color:hsl(var(--foreground, 110 78% 9%)); }
+  .pco-time { font:10px 'Satoshi'; color:hsl(var(--muted-foreground, 110 10% 40%)); }
 
   .pco-badge-instr {
-    font:700 9px 'Roboto'; text-transform:uppercase; letter-spacing:.05em;
+    font:700 9px 'Satoshi'; text-transform:uppercase; letter-spacing:.05em;
     background:hsl(var(--accent, 155 93% 11%) / 0.1);
     color:hsl(var(--accent, 155 93% 11%));
     padding:2px 6px; border-radius:4px;
   }
   .pco-badge-na {
-    font:700 9px 'Roboto'; text-transform:uppercase; letter-spacing:.05em;
+    font:700 9px 'Satoshi'; text-transform:uppercase; letter-spacing:.05em;
     background:hsl(28 100% 92%);
     color:hsl(28 80% 30%);
     padding:2px 6px; border-radius:4px;
   }
 
   .pco-text {
-    font:14px/1.5 'Roboto';
+    font:14px/1.5 'Satoshi';
     color:hsl(var(--foreground, 110 78% 9%) / 0.8);
     margin:0 0 12px;
   }
 
-  .pco-actions-row { display:flex; gap:16px; font:12px 'Roboto'; color:hsl(var(--muted-foreground, 110 10% 40%)); }
+  .pco-actions-row { display:flex; gap:16px; font:12px 'Satoshi'; color:hsl(var(--muted-foreground, 110 10% 40%)); }
   .pco-actions-row button {
     background:none; border:none;
     color:hsl(var(--muted-foreground, 110 10% 40%));
@@ -102,7 +102,7 @@
   .pco-replies .pco-reply.instr { background:hsl(var(--primary, 155 93% 11%) / 0.05); }
   .pco-replies .pco-text { margin-bottom:8px; }
   .pco-reply-actions { display:flex; gap:8px; }
-  .pco-reply-actions button { display:inline-flex; align-items:center; gap:4px; font:12px 'Roboto'; color:hsl(var(--muted-foreground, 110 10% 40%)); background:none; border:none; cursor:pointer; }
+  .pco-reply-actions button { display:inline-flex; align-items:center; gap:4px; font:12px 'Satoshi'; color:hsl(var(--muted-foreground, 110 10% 40%)); background:none; border:none; cursor:pointer; }
   .pco-reply-actions button:hover { color:hsl(var(--accent, 155 93% 11%)); }
   .pco-reply-actions svg { width:14px; height:14px; }
 </style>
@@ -249,13 +249,13 @@
 
 <style>
   .pco-form { border: 1px solid #e5e5e5; border-radius: 12px; padding: 1rem; margin-top: 1.5rem; }
-  .pco-form textarea { width: 100%; min-height: 80px; border: 1px solid #e5e5e5; border-radius: 8px; padding: 0.75rem; font: 400 14px 'Roboto'; resize: vertical; }
+  .pco-form textarea { width: 100%; min-height: 80px; border: 1px solid #e5e5e5; border-radius: 8px; padding: 0.75rem; font: 400 14px 'Satoshi'; resize: vertical; }
   .pco-form-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 0.5rem; }
-  .pco-form-footer p { font: 400 10px 'Roboto'; color: #6b7280; margin: 0; }
-  .pco-cancel { background: none; border: none; color: #6b7280; font: 400 12px 'Roboto'; padding: 6px 12px; border-radius: 8px; cursor: pointer; }
-  .pco-publish { background: #1e1b4b; color: #fff; border: none; font: 700 12px 'Anek Latin'; text-transform: uppercase; padding: 6px 16px; border-radius: 8px; cursor: pointer; }
+  .pco-form-footer p { font: 400 10px 'Satoshi'; color: #6b7280; margin: 0; }
+  .pco-cancel { background: none; border: none; color: #6b7280; font: 400 12px 'Satoshi'; padding: 6px 12px; border-radius: 8px; cursor: pointer; }
+  .pco-publish { background: #1e1b4b; color: #fff; border: none; font: 700 12px 'Satoshi'; text-transform: uppercase; padding: 6px 16px; border-radius: 8px; cursor: pointer; }
   .pco-rules { background: rgba(30,27,75,0.05); border: 1px solid rgba(30,27,75,0.2); border-radius: 12px; padding: 1.25rem; margin-top: 1.5rem; }
-  .pco-rules h4 { font-family: 'Anek Latin', sans-serif; font-size: 15px; font-weight: 700; margin: 0 0 0.75rem; }
+  .pco-rules h4 { font-family: 'Satoshi', sans-serif; font-size: 15px; font-weight: 700; margin: 0 0 0.75rem; }
   .pco-rules ul { margin: 0; padding-left: 1.25rem; font-size: 14px; color: #374151; }
   .pco-rules li { margin-bottom: 0.5rem; }
 </style>

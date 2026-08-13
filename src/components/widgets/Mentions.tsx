@@ -100,7 +100,7 @@ const insert = (s: string) => {
   )}
 </div>`}
       htmlCode={`<style>
-  .m-wrap { position:relative; max-width:480px; font-family:'Roboto', sans-serif; }
+  .m-wrap { position:relative; max-width:480px; font-family:'Satoshi', sans-serif; }
   .m-input {
     width:100%; padding:12px;
     border:1px solid hsl(var(--input, 120 10% 88%));
@@ -119,7 +119,7 @@ const insert = (s: string) => {
   }
   .m-list button {
     width:100%; text-align:left; padding:6px 12px; border-radius:4px;
-    cursor:pointer; font-family:'Roboto'; font-size:14px;
+    cursor:pointer; font-family:'Satoshi'; font-size:14px;
     background:transparent; border:none; color:hsl(var(--foreground, 110 78% 9%));
   }
   .m-list button:hover { background:hsl(var(--muted, 120 10% 95%) / 0.6); }
