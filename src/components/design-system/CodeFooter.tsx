@@ -2,13 +2,18 @@ import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { CodeBlock } from "@/components/ui/code-block";
 import { ChevronDown, Bot, Check, Copy } from "lucide-react";
+import { useBrand } from "@/contexts/BrandContext";
+import { useSystemView } from "@/contexts/ViewContext";
+import { generateComponentPrompt } from "@/lib/ai-food-generator";
 
 interface CodeFooterProps {
   title: string;
   hasCode: boolean;
   effectiveCode: string;
+  /** Código React "cru" (sem o placeholder de TODO) usado para gerar o AI-Food. */
+  code?: string;
   htmlCode?: string;
-  aiFoodPrompt: string;
+  description?: string;
   /**
    * Exibe apenas o AI-Food (sem abas React/HTML). Usado quando o widget já
    * renderiza o próprio bloco de código, evitando duplicação.
@@ -16,10 +21,17 @@ interface CodeFooterProps {
   aiFoodOnly?: boolean;
 }
 
-export function CodeFooter({ title, hasCode, effectiveCode, htmlCode, aiFoodPrompt, aiFoodOnly = false }: CodeFooterProps) {
+export function CodeFooter({ title, hasCode, effectiveCode, code, htmlCode, description, aiFoodOnly = false }: CodeFooterProps) {
   const [showCode, setShowCode] = useState(false);
   const [codeTab, setCodeTab] = useState<"react" | "html" | "ai-food">(aiFoodOnly ? "ai-food" : "react");
   const [aiFoodCopied, setAIFoodCopied] = useState(false);
+  const { brand } = useBrand();
+  const { view } = useSystemView();
+  // Gerado só quando a aba AI-Food está de fato aberta — evita reconstruir
+  // o prompt (e todo o texto de regras de marca) para os ~60 showcases da
+  // página toda vez que o usuário troca de marca ou tema, sem nunca olhar
+  // esta aba.
+  const aiFoodPrompt = codeTab === "ai-food" ? generateComponentPrompt(brand, view, title, description, code, htmlCode) : "";
 
   const handleCopyAIFood = () => {
     navigator.clipboard.writeText(aiFoodPrompt);

@@ -92,7 +92,7 @@ CONTEXTO: FERRAMENTAS / CALCULADORAS / WIDGETS
 • Sliders:
   - Track: h-2 bg-gray-200 rounded-full
   - Fill/Thumb: cor primária da marca ativa
-• Caixa de resultado: bg-red-50 (Marca A) / bg-gray-50 (Marca B)
+• Caixa de resultado: bg-yellow-50 (Marca A) / bg-gray-50 (Marca B)
   rounded-xl p-5 mt-6`;
 
 const PLATAFORMA_EXTRA = `

@@ -204,17 +204,32 @@ const brandOptions = [
 /** Alternância Marca A / Marca B — pill deslizante entre as duas opções em
     vez de uma lista colapsável, pra trocar de produto de forma mais viva
     (e sem depender de cor de marca pra marcar o item ativo). */
-function BrandSwitcher({
-  brand,
-  onSelect,
-  onPreview,
-  onPreviewEnd,
-}: {
-  brand: "marca-a" | "marca-b";
-  onSelect: (b: "marca-a" | "marca-b") => void;
-  onPreview: (b: "marca-a" | "marca-b") => void;
-  onPreviewEnd: () => void;
-}) {
+/** Reseta para Marca A ao sair do Design System. Isolado num componente à
+    parte (renderiza null) para que só ELE — não a página inteira — resubscreva
+    ao BrandContext: como cada ComponentShowcase também consome useBrand()
+    diretamente, trocar de marca já força os ~60 previews a re-renderizar;
+    se DesignSystemPage também assinasse o contexto, toda a árvore de JSX da
+    página (milhares de elementos) seria reconstruída a cada troca — é isso
+    que deixava a troca de marca/tema lenta e travada. */
+function BrandResetOnUnmount() {
+  const { setBrand } = useBrand();
+  useEffect(() => {
+    return () => { setBrand("marca-a"); };
+  }, [setBrand]);
+  return null;
+}
+
+/** Idem: só este componente assina useBrand(), não a página inteira. */
+function BrandSwitcher() {
+  const { brand, setBrand } = useBrand();
+  const handlePreview = (b: "marca-a" | "marca-b") => {
+    if (b === "marca-b") document.documentElement.classList.add("marca-b");
+    else document.documentElement.classList.remove("marca-b");
+  };
+  const handlePreviewEnd = () => {
+    if (brand === "marca-b") document.documentElement.classList.add("marca-b");
+    else document.documentElement.classList.remove("marca-b");
+  };
   return (
     <div className="px-2 pb-3 mb-3">
       <p className="px-1 pb-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Produto</p>
@@ -228,9 +243,9 @@ function BrandSwitcher({
           <button
             key={b.id}
             type="button"
-            onMouseEnter={() => onPreview(b.id)}
-            onMouseLeave={onPreviewEnd}
-            onClick={() => onSelect(b.id)}
+            onMouseEnter={() => handlePreview(b.id)}
+            onMouseLeave={handlePreviewEnd}
+            onClick={() => setBrand(b.id)}
             className={cn(
               "relative z-10 flex items-center justify-center gap-1.5 rounded-md py-1.5 text-sm font-anek transition-colors",
               brand === b.id ? "text-foreground font-semibold" : "text-muted-foreground hover:text-foreground"
@@ -243,6 +258,17 @@ function BrandSwitcher({
       </div>
     </div>
   );
+}
+
+/** Pequenos textos que citam a marca ativa — isolados pelo mesmo motivo do
+    BrandSwitcher: só eles assinam useBrand(), não a página inteira. */
+function CoresTemaLabel() {
+  const { brand } = useBrand();
+  return <>{brand === "marca-a" ? "Marca A (Amarelo)" : "Marca B (Azul)"}</>;
+}
+function CalculadoraMarcaLabel() {
+  const { brand } = useBrand();
+  return <>{brand === "marca-a" ? "Marca A" : "Marca B"}</>;
 }
 
 /** Demo do catálogo de Produtos Físicos: mesmo card e filtro usados no template. */
@@ -267,22 +293,7 @@ export default function DesignSystemPage() {
   const [activeSection, setActiveSection] = useState("intro");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const { brand, setBrand } = useBrand();
   const { toast } = useToast();
-
-  // Reseta para Marca A ao sair do Design System
-  useEffect(() => {
-    return () => { setBrand("marca-a"); };
-  }, []);
-
-  const handleBrandPreview = (b: "marca-a" | "marca-b") => {
-    if (b === "marca-b") document.documentElement.classList.add("marca-b");
-    else document.documentElement.classList.remove("marca-b");
-  };
-  const handleBrandRevert = () => {
-    if (brand === "marca-b") document.documentElement.classList.add("marca-b");
-    else document.documentElement.classList.remove("marca-b");
-  };
 
   const normalize = (s: string) =>
     s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -417,6 +428,7 @@ export default function DesignSystemPage() {
 
   return (
     <div className="min-h-screen">
+      <BrandResetOnUnmount />
       {/* Header */}
       <header className="sticky top-0 z-50 glass-nav">
         <div className="max-w-7xl mx-auto flex h-14 md:h-16 items-center justify-between px-4 md:px-8">
@@ -443,7 +455,7 @@ export default function DesignSystemPage() {
                 </div>
 
                 <div className="px-3 pt-3">
-                  <BrandSwitcher brand={brand} onSelect={setBrand} onPreview={handleBrandPreview} onPreviewEnd={handleBrandRevert} />
+                  <BrandSwitcher />
                   <div className="relative">
                     <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
@@ -503,7 +515,7 @@ export default function DesignSystemPage() {
       <div className="max-w-7xl mx-auto flex gap-0 relative px-4 md:px-8">
         {/* Sidebar Nav — Desktop only */}
         <nav className={sidebarNavClass}>
-          <BrandSwitcher brand={brand} onSelect={setBrand} onPreview={handleBrandPreview} onPreviewEnd={handleBrandRevert} />
+          <BrandSwitcher />
           <div className="px-2 mb-4">
             <div className="relative">
               <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -591,7 +603,7 @@ export default function DesignSystemPage() {
 
           <section id="colors">
             <h2 className="text-2xl font-bold mb-2">Cores</h2>
-            <p className="text-muted-foreground mb-6">Paleta de cores semânticas do tema {brand === "marca-a" ? "Marca A (Vermelho)" : "Marca B (Azul)"}</p>
+            <p className="text-muted-foreground mb-6">Paleta de cores semânticas do tema <CoresTemaLabel /></p>
              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
                 { name: "Primary", var: "primary", fg: "primary-foreground" },
@@ -1013,7 +1025,7 @@ function showTab(tabId) {
 
           <section id="tool-calc">
             <h2 className="text-2xl font-bold mb-2">Calculadora de Câmbio</h2>
-            <p className="text-muted-foreground mb-6">Ferramenta interativa de conversão de moedas com IOF, VET e identidade visual da marca ({brand === "marca-a" ? "Marca A" : "Marca B"}).</p>
+            <p className="text-muted-foreground mb-6">Ferramenta interativa de conversão de moedas com IOF, VET e identidade visual da marca (<CalculadoraMarcaLabel />).</p>
             <SectionThemeToggle bare title="Calculadora de Câmbio" description="Ferramenta interativa de conversão de moedas com cálculo automático de IOF, VET e exibição de cotação. Suporta múltiplas moedas e sentidos de conversão." code={calculadoraSrc} selfDocumented><Calculadora /></SectionThemeToggle>
           </section>
 

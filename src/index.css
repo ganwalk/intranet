@@ -222,8 +222,8 @@
     --popover: 0 0% 8%;
     --popover-foreground: 0 0% 98%;
 
-    /* Base preto/branco/cinza. Vermelho-acinzentado (mauve) reservado para
-       acentos pontuais em ícones e textos (ex: numeração da grade curricular). */
+    /* Base preto/branco/cinza. Amarelo-acinzentado (mauve dourado) reservado
+       para acentos pontuais em ícones e textos (ex: numeração da grade curricular). */
     --primary: 0 0% 98%;
     --primary-foreground: 0 0% 8%;
     --primary-emphasis: 0 0% 98%;
@@ -281,7 +281,7 @@
     --sidebar-ring: 42 55% 50%;
 
     /* Data Viz — Dark Marca A (paleta colorida para gráficos) */
-    --chart-1: 42 80% 55%;   /* Vermelho da marca */
+    --chart-1: 42 80% 55%;   /* Amarelo da marca */
     --chart-2: 270 65% 70%;   /* Violeta */
     --chart-3: 38 90% 65%;    /* Âmbar */
     --chart-4: 199 85% 65%;   /* Azul */
@@ -473,24 +473,20 @@
   }
 }
 
-/* Fundo — cor sólida do tema, sem gradientes ou manchas decorativas. */
+/* Fundo — cor sólida do tema, sem gradientes ou manchas decorativas.
+   A transição de marca/tema fica só nesta e nas superfícies glass abaixo,
+   não em "*": uma transition-property universal chegava a forçar TODO nó
+   do DOM a recalcular estilo/repintar junto — com o Design System montando
+   ~60 componentes de uma vez, isso é centenas de elementos transicionando
+   ao mesmo tempo, e a troca de marca/tema ficava visivelmente lenta e
+   travada. Nestas poucas superfícies grandes o efeito ainda é perceptível
+   (é o que mais aparece na tela) sem esse custo. */
 body {
   background-color: hsl(var(--background));
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-/* Transição de marca/tema — como as superfícies agora são quase opacas
-   (glass sutil), a troca de marca precisa de outro jeito de parecer viva:
-   as cores em si (fundo, texto, borda, ícones) interpolam suavemente em
-   vez de trocar num corte seco. Fica em @layer base para que qualquer
-   utilitário Tailwind (transition-colors, duration-*, etc.), que vive em
-   @layer utilities, sempre vença pela ordem das cascade layers — não
-   importa a especificidade do seletor. */
-@layer base {
-  * {
-    transition-property: background-color, border-color, color, fill, stroke;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 400ms;
-  }
+.glass-panel, .glass-nav, .glass-solid {
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* === Dark mode contrast overrides ===

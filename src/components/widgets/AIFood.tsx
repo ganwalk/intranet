@@ -19,9 +19,9 @@ A Marca A tem um tom institucional, sóbrio e técnico. Autoridade direta, sem p
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 1. PALETA OFICIAL (use SOMENTE estas cores)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Vermelho primário: #E6A205  → botões, títulos em fundo claro
-• Vermelho escuro:   #BF9022  → hover de botões
-• Vermelho acento:   #F0C24A  → destaque em fundo ESCURO apenas
+• Amarelo primário: #E6A205  → botões, títulos em fundo claro
+• Amarelo escuro:   #BF9022  → hover de botões
+• Amarelo acento:   #F0C24A  → destaque em fundo ESCURO apenas
 • Branco:  #FFFFFF  |  Cinza claro: #F2F2F2  |  Cinza médio: #6B6B6B
 • Cinza chumbo: #1B1B1B (cards em dark)  |  Preto: #000000
 ❌ PROIBIDO: roxo, rosa, cores fora da paleta, gradientes coloridos, neon
@@ -63,7 +63,7 @@ A Marca A tem um tom institucional, sóbrio e técnico. Autoridade direta, sem p
       Texto de apoio curto e direto.
     </p>
     <div class="flex gap-[15px] mt-[45px]">
-      <button class="font-sora font-bold uppercase text-[14px] py-[18px] px-[32px] bg-[#E6A205] text-white border border-[#E6A205] hover:bg-transparent hover:text-[#E6A205] transition-all duration-[240ms]">
+      <button class="font-sora font-bold uppercase text-[14px] py-[18px] px-[32px] bg-[#E6A205] text-[#29210F] border border-[#E6A205] hover:bg-transparent hover:text-[#956504] transition-all duration-[240ms]">
         Ação primária
       </button>
     </div>
@@ -87,7 +87,7 @@ Agora gere a seção solicitada:`,
 0. CONTEXTO
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ferramentas são usadas dentro de LPs ou como apps standalone. Linguagem visual "fintech moderna",
-paleta vermelho. O usuário precisa ler números rápido — hierarquia tipográfica é tudo.
+paleta amarelo. O usuário precisa ler números rápido — hierarquia tipográfica é tudo.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 1. CONTAINER E TIPOGRAFIA
@@ -109,10 +109,10 @@ paleta vermelho. O usuário precisa ler números rápido — hierarquia tipográ
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 3. BOTÕES E RESULTADO (aqui são arredondados)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Primário: bg-[#E6A205] text-white rounded-[5px]  |  hover bg-[#BF9022]
+• Primário: bg-[#E6A205] text-[#29210F] rounded-[5px]  |  hover bg-[#BF9022]
 • Estados: default → hover → active → focus (ring #E6A205) → disabled → loading (spinner + "Calculando...")
 
-<div class="bg-red-50 rounded-xl p-5 mt-6">
+<div class="bg-yellow-50 rounded-xl p-5 mt-6">
   <p class="font-roboto text-xs uppercase text-[#E6A205]/70">Rótulo do resultado</p>
   <p class="font-anek text-4xl font-bold text-[#E6A205] mt-2 tabular-nums">R$ 1.234.567</p>
 </div>
@@ -144,7 +144,7 @@ Agora gere a ferramenta solicitada:`,
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 A Marca B tem um tom independente, descontraído e editorial — sofisticado e premium.
 Glassmorphism é a assinatura visual (cards translúcidos com blur).
-❌ NUNCA use o vermelho da Marca A (#E6A205) como cor de fundo, borda ou ícone.
+❌ NUNCA use o amarelo da Marca A (#E6A205) como cor de fundo, borda ou ícone.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 1. PALETA OFICIAL AZUL
@@ -152,10 +152,10 @@ Glassmorphism é a assinatura visual (cards translúcidos com blur).
 • Azul principal: #2B76EE  → acentos, ícones, botão primário, slider thumb
 • Azul escura:    #08409B  → tipografia de destaque, eyebrow, badges ativos
 • Azul profunda:  #0B3B85  → texto sobre fundo claro com forte contraste
-• Vermelho da Marca A:  #E6A205  → SOMENTE como cor de texto dentro de botões azul
+• Amarelo da Marca A:  #E6A205  → SOMENTE como cor de texto dentro de botões azul
 • Cinza texto: #18181B  |  Cinza secundário: #52525B / #71717A
 • Translúcidos: rgba(255,255,255,0.5) / rgba(0,0,0,0.12)
-❌ PROIBIDO: vermelho da Marca A como cor de fundo/borda, cores fora da paleta
+❌ PROIBIDO: amarelo da Marca A como cor de fundo/borda, cores fora da paleta
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 2. FUNDO E CARDS TRANSLÚCIDOS (assinatura visual)
@@ -215,7 +215,7 @@ Glassmorphism é a assinatura visual (cards translúcidos com blur).
 □ Cards com backdrop-filter: blur(24px)
 □ Fundos com gradiente radial (nunca branco chapado)
 □ Botões radius 5px em LP — pílula proibida
-□ Vermelho da Marca A SOMENTE em texto de botão azul
+□ Amarelo da Marca A SOMENTE em texto de botão azul
 □ Todos os estados dos botões implementados
 □ Acessibilidade: aria-label, focus ring azul, contraste ≥ 4.5:1
 
@@ -228,7 +228,7 @@ Agora gere a seção solicitada:`,
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ferramentas que demonstram conceitos (juros compostos, inflação, aporte, etc.).
 Estilo: editorial premium, azul sutil, foco em leitura limpa de números.
-❌ NUNCA use o vermelho da Marca A. Aqui o destaque é azul.
+❌ NUNCA use o amarelo da Marca A. Aqui o destaque é azul.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 1. CONTAINER, TIPOGRAFIA E INPUTS
@@ -258,7 +258,7 @@ Estilo: editorial premium, azul sutil, foco em leitura limpa de números.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 4. CHECKLIST FINAL
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-□ Sem vermelho da Marca A — apenas azul e cinzas
+□ Sem amarelo da Marca A — apenas azul e cinzas
 □ Slider thumb azul + border branca + shadow
 □ Valores: font-anek + tabular-nums + cor #0B3B85
 □ Todos os 8 estados implementados

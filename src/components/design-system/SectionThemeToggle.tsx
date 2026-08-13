@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useBrand } from "@/contexts/BrandContext";
-import { useSystemView } from "@/contexts/ViewContext";
-import { generateComponentPrompt } from "@/lib/ai-food-generator";
 import { cn } from "@/lib/utils";
 import { Sun, Moon } from "lucide-react";
 import { CodeFooter } from "@/components/design-system/CodeFooter";
@@ -43,7 +41,6 @@ interface SectionThemeToggleProps {
 export function SectionThemeToggle({ children, className, bare = false, label, title, description, code, htmlCode, selfDocumented = false, aiFood = true }: SectionThemeToggleProps) {
   const { theme } = useTheme();
   const { brand } = useBrand();
-  const { view } = useSystemView();
   const [isDark, setIsDark] = useState(theme === "dark");
   const [userOverrode, setUserOverrode] = useState(false);
 
@@ -52,11 +49,6 @@ export function SectionThemeToggle({ children, className, bare = false, label, t
   }, [theme, userOverrode]);
 
   const aiFoodTitle = title ?? label ?? "Componente";
-
-  const aiFoodPrompt = useMemo(
-    () => generateComponentPrompt(brand, view, aiFoodTitle, description, code, htmlCode),
-    [brand, view, aiFoodTitle, description, code, htmlCode]
-  );
 
   const effectiveCode =
     code ??
@@ -84,8 +76,9 @@ export function SectionThemeToggle({ children, className, bare = false, label, t
         title={aiFoodTitle}
         hasCode={hasCode}
         effectiveCode={effectiveCode}
+        code={code}
         htmlCode={htmlCode}
-        aiFoodPrompt={aiFoodPrompt}
+        description={description}
         aiFoodOnly
       />
     ) : null
@@ -94,8 +87,9 @@ export function SectionThemeToggle({ children, className, bare = false, label, t
       title={aiFoodTitle}
       hasCode={hasCode}
       effectiveCode={effectiveCode}
+      code={code}
       htmlCode={htmlCode}
-      aiFoodPrompt={aiFoodPrompt}
+      description={description}
     />
   );
 
