@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { CodeFooter } from "@/components/design-system/CodeFooter";
 import { Sun, Moon } from "lucide-react";
 import { useBrand } from "@/contexts/BrandContext";
-import { useSystemView } from "@/contexts/ViewContext";
 import { useTheme } from "@/contexts/ThemeContext";
-import { generateComponentPrompt } from "@/lib/ai-food-generator";
 
 interface ComponentShowcaseProps {
   title: string;
@@ -19,7 +17,6 @@ interface ComponentShowcaseProps {
 
 export function ComponentShowcase({ title, description, code, htmlCode, children, className, showToggle = true }: ComponentShowcaseProps) {
   const { brand } = useBrand();
-  const { view } = useSystemView();
   const { theme } = useTheme();
 
   const effectiveCode =
@@ -33,11 +30,6 @@ export function ComponentShowcase({ title, description, code, htmlCode, children
   useEffect(() => {
     if (!userOverrode) setIsDark(theme === "dark");
   }, [theme, userOverrode]);
-
-  const aiFoodPrompt = useMemo(
-    () => generateComponentPrompt(brand, view, title, description, code, htmlCode),
-    [brand, view, title, description, code, htmlCode]
-  );
 
   return (
     <div className={cn("glass-panel rounded-2xl overflow-hidden", className)}>
@@ -70,8 +62,9 @@ export function ComponentShowcase({ title, description, code, htmlCode, children
         title={title}
         hasCode={hasCode}
         effectiveCode={effectiveCode}
+        code={code}
         htmlCode={htmlCode}
-        aiFoodPrompt={aiFoodPrompt}
+        description={description}
       />
     </div>
   );
