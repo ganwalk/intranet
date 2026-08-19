@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 import { ComponentShowcase } from "@/components/design-system/ComponentShowcase";
 import { SectionThemeToggle } from "@/components/design-system/SectionThemeToggle";
@@ -290,6 +291,7 @@ function ProdutosFisicosDemo() {
 
 
 export default function DesignSystemPage() {
+  const location = useLocation();
   const [activeSection, setActiveSection] = useState("intro");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -419,6 +421,20 @@ export default function DesignSystemPage() {
     };
     tryScroll();
   }, []);
+
+  // Rola até a âncora do hash (#roadmap-timeline etc.) ao abrir a página
+  // com link direto: sem isso, a página carrega sempre no topo e ignora
+  // o hash por completo, porque não existe navegação nativa do navegador
+  // pra um id que ainda não tinha renderizado no primeiro paint (SPA).
+  // Mesma lógica de SolucoesPage.tsx, mas usando goToSection (scroll
+  // suave, com o mesmo travamento do scroll-spy) em vez de scrollIntoView
+  // cru, pra não piscar o highlight logo na entrada.
+  useEffect(() => {
+    if (!location.hash) return;
+    const id = location.hash.slice(1);
+    const timer = window.setTimeout(() => goToSection(id), 120);
+    return () => window.clearTimeout(timer);
+  }, [location.hash, goToSection]);
 
   React.useEffect(() => {
     return () => {

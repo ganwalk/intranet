@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useLocation } from "react-router-dom";
 import { TomEVoz } from "@/components/widgets/TomEVoz";
 import { GlobalNav } from "@/components/GlobalNav";
 import { useBrand } from "@/contexts/BrandContext";
@@ -46,6 +47,7 @@ function SidebarNav({
 }
 
 export default function TomEVozPage() {
+  const location = useLocation();
   const { brand, setBrand } = useBrand();
   const [previousBrand] = useState(brand);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -95,7 +97,7 @@ export default function TomEVozPage() {
     };
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = useCallback((sectionId: string) => {
     setMobileMenuOpen(false);
     const el = document.getElementById(sectionId);
     if (!el) return;
@@ -115,7 +117,21 @@ export default function TomEVozPage() {
       isNavigatingRef.current = false;
       setActiveSection(sectionId);
     }, releaseDelay);
-  };
+  }, []);
+
+  // Rola até a âncora do hash (#fundador etc.) ao abrir a página com link
+  // direto: sem isso, a página carrega sempre no topo e ignora o hash por
+  // completo, porque não existe navegação nativa do navegador pra um id
+  // que ainda não tinha renderizado no primeiro paint (SPA). Mesma lógica
+  // de SolucoesPage.tsx, mas usando scrollToSection (scroll suave, com o
+  // mesmo travamento do scroll-spy) em vez de scrollIntoView cru, pra não
+  // piscar o highlight logo na entrada.
+  useEffect(() => {
+    if (!location.hash) return;
+    const id = location.hash.slice(1);
+    const timer = window.setTimeout(() => scrollToSection(id), 120);
+    return () => window.clearTimeout(timer);
+  }, [location.hash, scrollToSection]);
 
   return (
     <div className="min-h-screen">
